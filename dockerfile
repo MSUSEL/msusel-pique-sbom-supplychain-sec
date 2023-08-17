@@ -1,61 +1,73 @@
 FROM alpine:3.14
 
-RUN echo "start"
-
 	    # COPIED FROM PIQUE-BIN-DOCKER #
 #--------------------------------------------------------#
-# need for tzdata config
-# might delet don't think i need rust?
-ENV DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC
-ENV RUST_VERSION=1.60.0
-#add rust to PATH
-ENV PATH="/root/.cargo/bin:/opt/apache-maven-3.8.5/bin:$PATH"
-
-RUN echo "start apk update"
-
 RUN apk update && apk add \
-	## pique bin
+	## pique sbom content
 	openjdk8 \
+	git \
+	py3-pip \
+	maven \
 	## commenting for now because no operational PIQUE model uses GAMs
 	# r-base \
 	# r-base-core \
 	# r-recommended \
 	# r-base-dev \
-	## sbomqs  # deleted lines relating to tools in pique-bin, currenlty i think wget is the only thing needed (possibly tar?)
-	wget
+	## grype
+	curl \
+	## trivy
+	wget \
+	dpkg
 
-RUN echo "start go"
-
-
-# move to home for a fresh start and create directories
+# move to home for a fresh start
 WORKDIR "/home"
 
-## go installs
-RUN wget "https://go.dev/dl/go1.20.5.linux-amd64.tar.gz"
-RUN tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz
-RUN export PATH=$PATH:/usr/local/go/bin
-RUN export GOPATH="$HOME/go"
-PATH="$GOPATH/bin:$PATH"
+## python package installs
+RUN pip install argparse requests json
 
-RUN echo "start sbomqs"
+## grype installs
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v0.53.1
 
-## sbomqs installs
-RUN go install "github.com/interlynk-io/sbomqs@v0.0.17"
-RUN export INTERLYNK_DISABLE_VERSION_CHECK=true
+## trivy installs
+RUN wget https://github.com/aquasecurity/trivy/releases/download/v0.36.1/trivy_0.36.1_Linux-64bit.deb
+RUN dpkg --add-architecture amd64
+RUN dpkg -i trivy_0.36.1_Linux-64bit.deb
+RUN rm trivy_0.36.1_Linux-64bit.deb
 
-RUN echo "start scorecard"
+## PIQUE ##
+# maven install - install in opt
+WORKDIR "/opt"
+RUN wget "https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz"
+RUN tar xzvf apache-maven-3.8.8-bin.tar.gz
+RUN rm apache-maven-3.8.8-bin.tar.gz
+RUN export PATH="/opt/apache-maven-3.8.3/bin:$PATH"
 
-## sbom-scorecard installs
-RUN go install "github.com/ebay/sbom-scorecard/cmd/sbom-scorecard@0.0.7"
+# pique install
+WORKDIR "/home"
+RUN git clone https://github.com/MSUSEL/msusel-pique.git
+WORKDIR "/home/msusel-pique"
+RUN mvn --version
+RUN mvn install -Dmaven.test.skip
 
-RUN echo "finish"
+# pique sbom supply chain sec (docker) install
+WORKDIR "/home"
+RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychainsec
+WORKDIR "/home/msusel-pique-sbom-supplychainsec"
+RUN mvn package -Dmaven.test.skip
 
+#create input directory
+RUN mkdir "/input"
 
+# input for project files
+VOLUME ["/input"]
 
+# create output directory
+RUN mkdir "/output"
+# output for model
+VOLUME ["/output"]
 
+RUN chmod -R +x /input
+RUN chmod -R +x /output
 
-
-
-
-
-
+##### secret sauce
+#ENTRYPOINT ["java", "-jar", "/home/msusel-pique-bin-docker/target/msusel-pique-bin-0.0.1-jar-with-dependencies.jar"]

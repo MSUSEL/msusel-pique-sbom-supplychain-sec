@@ -1,31 +1,19 @@
 _help="""Python script for converting given CVEs to their corresponding CWEs using the NVD API.
 If there is no corresponding CWE or the CWE is CWE-Other the CWE will be CWE-unknown. The script
 also contains functionality for converting a GHSA to its corresponding CWE. In order to do this
-a Github token must be given as an argument. T
+a Github token must be given as an argument.
 
 Command line arguments
-Required
---single (-s): a CVE id in the standard CVE id format.
-or
---list (-l): a filepath pointing to a .txt file containing CVE ids. the file most be formatted with one CVE id per line.
-
-Optional
---api_key (-k): a filepath pointing to a .txt file containing an NVD api key on a single line. 
+--list (-l): a string of CVEs seperated by commas ie; CVE-2020-123,CVE-2022-456,CVE-2018-789
+--api_key (-k): a filepath pointing to a .txt file containing an NVD api key on a single line.
 --github_token (-g): a filepath pointing to a .txt file containing a github token on a single line. This is only needed if there are GHSA IDs to convert to CWEs.
---destination (-d): a filepath pointing to where results when using --list should be saved. Results are saved in the format 
-                    CVE-id,CWE-id per line for each CVE-id present in the inputted list.
-
-
-If either both --single and --list are used or neither are used program execution will stop. 
-If using --single the result is printed to standard out in the format CVE-id,CWE-id.
-If using --list and no --destination is specified the results will be printed to standard out otherwise results are saved to the destination file location.
-
-If --api_key is not used then requests will be limited to 5 per 30 seconds.
 """
 
 import argparse
 import requests
 import time
+import os
+import json
 
 cache = {}
 
@@ -103,74 +91,37 @@ def get_cwe_for_cves(cve_list, api_key='', github_token=''):
 
 def main():
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument("-s", "--single", dest="single", default="", help="Single CVE")
     parser.add_argument("-l", "--list", dest="cve_list", default="", help="CVE List")
     parser.add_argument("-k", "--api_key", dest="api_key", default="", help="API Key")
     parser.add_argument("-g", "--github_token", dest="github_token", default="", help="Github Token")
-    parser.add_argument("-d", "--destination", dest="destination", default="", help="Destination")
-    parser.add_argument("-h", "--help", dest="help", default="", action="store_true", help="Help")
+    parser.add_argument("-c", "--cache", dest="cve_cache", default="", help="CVE Cache")
 
     args = parser.parse_args()
-    cve = args.single
-    cve_list_path = args.cve_list
+    cves = args.cve_list.split(',')
     api_key_path = args.api_key
     github_token_path = args.github_token
-    destination = args.destination
+    cache_path = args.cve_cache
 
-    if args.help != "":
-        print(_help)
-        exit()
-    
-    # check that either a single CVE or filepath to list of CVEs is given
-    if cve == "" and cve_list_path == "":
-        print("Input error - please use --help (-h) or either the --single (-s) or --list (-l) flag")
-        exit()
-    if cve != "" and cve_list_path != "":
-        print("Input error - please use one of the two flags --single (-s) or --list (-l) but not both")
-        exit()
+    if os.path.exists(cache_path):
+        with open(cache_path, "r") as json_file:
+            cache = json.load(json_file)
 
-    github_token = ""
-    if github_token_path != "":
+    # try opening nvd key and github token files
+    try:
         with open(github_token_path) as f:
             github_token = f.readline().rstrip()
+        with open(api_key_path) as f:
+            api_key = f.readline().rstrip()
+    except Error as e:
+        print(f"Error - opening github token or nvd api key. {e}")
 
-    # a single CVE inputted 
-    if cve != "":
-        if api_key_path == "":
-            print("Warning - no NVD API key inputted, please note that requests will be limited to 5 per 30 seconds")
-            result = get_cwe(cve,github_token=github_token)
-        else:
-            with open(api_key_path) as f:
-                api_key = f.readline().rstrip()
-            result = get_cwe(cve, api_key,github_token=github_token)
+    result = get_cwe_for_cves(cves, api_key, github_token=github_token)
 
-        print(cve+','+result)
-        return
+    for c in result:
+        print(c[1])
+        print(" ")
 
-    # file path to a list of CVEs inputted
-    else:
-        try:
-            with open(cve_list_path) as f:
-                cves = [line.rstrip() for line in f]
-        except:
-            print("Error - issue opening cve list file")
-
-        if api_key_path == "":
-            print("Warning - no NVD API key inputted, please note that requests will be limited to 5 per 30 seconds")
-            result = get_cwe_for_cves(cves, github_token=github_token)
-        else:
-            with open(api_key_path) as f:
-                api_key = f.readline().rstrip()
-            result = get_cwe_for_cves(cves, api_key, github_token=github_token)
-
-        if destination != '':
-            with open(destination, 'w') as f:
-                for t in result:
-                    line = ','.join(str(item) for item in t) + '\n'
-                    f.write(line)
-        else:
-            for t in result:
-                line = ','.join(str(item) for item in t)
-                print(line)
+    with open(cache_path, "w") as json_file:
+        json.dump(cache, json_file)
 
 main()

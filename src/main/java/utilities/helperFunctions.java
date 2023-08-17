@@ -87,40 +87,28 @@ public class helperFunctions {
 	 * @param cveList An ArrayList<String> of one or more CVE names
 	 * @return An array of CWEs associated with the given CVEs
 	 */
-	public static String[] getCWE(ArrayList<String> cveList, String nvdApiKey, String githubToken) {
-		// String cwe = "";
-		// String[] cves = cve.split(" ");
-
-		// save CVEs to a file, might want to change this to way abpve with each as an input
-		String filePath = "???";
-		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
-			for (String element : cveList) {
-				writer.write(element);
-				writer.newLine();
-			}
-			writer.close();
-			System.out.println("ArrayList elements successfully written to the file: " + filePath);
-		}
-		catch (IOException e) {
-			System.err.println("Error writing ArrayList elements to the file: " + e.getMessage());
-		}
-
+	public static String[] getCWE(ArrayList<String> cveList, String nvdApiKeyPath, String githubTokenPath) {
 		Properties prop = PiqueProperties.getProperties();
 		String pathToScript = prop.getProperty("cveTocwe.location");
+		String pathToCache = prop.getProperty("cveCache.location");
 
-		// String[] cmd = new String[cves.length+1];
-		// cmd[0] = "python";
-		// cmd[1] = pathToScript;
-		// for (int i = 2;i<cves.length+1;i++) {
-		//     cmd[i] = cves[i-1];
-		// }
-		// to do open api_key and github_token files and pass into method
-		String[] cmd = {"python3", pathToScript, "--list", filePath, "--api_key", nvdApiKey, "--github_token", githubToken};
+		// Convert each cveList to a comma-separated string
+		StringBuilder cveString = new StringBuilder();
+		for (String entry : cveList) {
+			if (cveString.length() > 0) {
+				cveString.append(",");
+			}
+			cveString.append(entry);
+		}
+
+		if (cveString.toString().isEmpty()) {
+			return new String[]{};
+		}
+		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--api_key", nvdApiKeyPath, "--github_token", githubTokenPath, "--cache", pathToCache};
 
 		String cwe = "";
 		try {
-			cwe = getOutputFromProgram(cmd,LOGGER); // TODO might want to modify CVE_to_CWE
+			cwe = getOutputFromProgram(cmd,LOGGER);
 		} catch (IOException e) {
 			System.err.println("Error running CVE_to_CWE.py");
 			e.printStackTrace();

@@ -1,6 +1,8 @@
 # MSUSEL-PIQUE-SBOM-SUPPLYCHAINSEC
 ## Introduction
+This project is an operationalized PIQUE model for the assessment of security quality in software supply chains using SBOMs.
 
+PIQUE is not yet added to the Maven central repository, so this project will need to be built and installed (via Maven) before it can be used as a library.
 ___
 ## Tools
 These will be automatically installed when the docker image is built.
@@ -10,4 +12,8 @@ These will be automatically installed when the docker image is built.
 ___
 
 ## Run Environment
-Docker 20.10.14+
+Docker (built using v24.0.4)
+___
+
+## Running
+TBD

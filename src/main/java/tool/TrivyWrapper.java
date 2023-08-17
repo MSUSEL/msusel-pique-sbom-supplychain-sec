@@ -61,8 +61,8 @@ public class TrivyWrapper extends Tool implements ITool  {
 
 	public TrivyWrapper(String nvdApiKeyPath, String githubTokenPath) {
 		super("trivy", null);
-		this.nvdApiKey = parseKey(nvdApiKeyPath);
-		this.githubToken = parseKey(githubTokenPath);
+		this.nvdApiKey = nvdApiKeyPath;
+		this.githubToken = githubTokenPath;
 	}
 
 	// Methods
@@ -79,10 +79,11 @@ public class TrivyWrapper extends Tool implements ITool  {
 			tempResults.getParentFile().mkdirs();
 
 			String[] cmd = {"trivy",
-					"sbom:./" + projectLocation.toAbsolutePath().toString(),
-					"--output", "sarif",
+					"sbom",
+					"--format", "sarif",
 					"--quiet",
-					"--file",tempResults.toPath().toAbsolutePath().toString()};
+					"--output",tempResults.toPath().toAbsolutePath().toString(),
+					projectLocation.toAbsolutePath().toString()};
 			LOGGER.info(Arrays.toString(cmd));
 			try {
 				helperFunctions.getOutputFromProgram(cmd,LOGGER);
@@ -132,24 +133,18 @@ public class TrivyWrapper extends Tool implements ITool  {
 					cveList.add(findingName);
 				}
 
-				//make a string of all the CWE names to pass to getCWE function
-				// seems not useful
-				// String findingsString = "";
-				// for (String x : cveList) {
-				// 	findingsString = findingsString +" " + x;
-				// }
-				//get CWE names
+				// for testing only send through first 3 results
+				//ArrayList<String> temp = new ArrayList<String>(cveList.subList(0, Math.min(3, cveList.size())));
 				String[] findingNames = helperFunctions.getCWE(cveList, this.nvdApiKey, this.githubToken);
-
  				for (int i = 0; i < findingNames.length; i++) {
 					Diagnostic diag = diagnostics.get((findingNames[i]+" Trivy Diagnostic"));
 					if (diag == null) {
 						//this means that either it is unknown, mapped to a CWE outside of the expected results, or is not assigned a CWE
 						//We may want to treat this in another way.
-						// My CVE to CWE script handles if cwe is unknown so different node for other
+						// My (Eric) CVE to CWE script handles if cwe is unknown so different node for other
 						// unknown means we don't know the CWE for the CVE
 						// other means it is a CWE outside of our software development view
-						diag = diagnostics.get("CWE-other Diagnostic");
+						diag = diagnostics.get("CWE-other Trivy Diagnostic");
 						LOGGER.warn("CVE with CWE outside of CWE-699 found.");
 					}
 					Finding finding = new Finding("",0,0,severityList.get(i));
@@ -170,7 +165,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 		 */
 		@Override
 		public Path initialize(Path toolRoot) {
-			final String[] cmd = {"grype", "version"};
+			final String[] cmd = {"trivy", "version"};
 
 			try {
 				helperFunctions.getOutputFromProgram(cmd, LOGGER);

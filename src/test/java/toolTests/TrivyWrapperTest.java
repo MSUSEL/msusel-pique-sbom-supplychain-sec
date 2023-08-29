@@ -83,4 +83,25 @@ public class TrivyWrapperTest {
             }
         }
     }
+
+    @Test
+    public void TestSBOMDoesNotExist() {
+        Properties prop = PiqueProperties.getProperties();
+        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
+        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
+        Tool trivyTest = new TrivyWrapper(nvdKeyPath.toString(), ghTokenPath);
+
+        Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
+
+        Path analysisOutput = trivyTest.analyze(testSBOM);
+
+        Map<String,Diagnostic> output = trivyTest.parseAnalysis(analysisOutput);
+
+        for (Diagnostic diag : output.values()) {
+            if (diag.getChildren().size()>0) {
+                //if we hit this, we've found at least one finding
+                fail();
+            }
+        }
+    }
 }

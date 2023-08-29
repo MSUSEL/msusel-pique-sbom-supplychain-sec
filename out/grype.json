@@ -1630,6 +1630,258 @@
               }
             },
             {
+              "id": "CVE-2020-19185-ncurses-base",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19185 medium vulnerability for ncurses-base package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in one_one_mapping function in progs/dump_entry.c:1373 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19185\nSeverity: medium\nPackage: ncurses-base\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19185](https://access.redhat.com/security/cve/CVE-2020-19185)",
+                "markdown": "**Vulnerability CVE-2020-19185**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-base  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19185](https://access.redhat.com/security/cve/CVE-2020-19185)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19185-ncurses-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19185 medium vulnerability for ncurses-libs package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in one_one_mapping function in progs/dump_entry.c:1373 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19185\nSeverity: medium\nPackage: ncurses-libs\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19185](https://access.redhat.com/security/cve/CVE-2020-19185)",
+                "markdown": "**Vulnerability CVE-2020-19185**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-libs  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19185](https://access.redhat.com/security/cve/CVE-2020-19185)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19186-ncurses-base",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19186 medium vulnerability for ncurses-base package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in _nc_find_entry function in tinfo/comp_hash.c:66 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19186\nSeverity: medium\nPackage: ncurses-base\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19186](https://access.redhat.com/security/cve/CVE-2020-19186)",
+                "markdown": "**Vulnerability CVE-2020-19186**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-base  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19186](https://access.redhat.com/security/cve/CVE-2020-19186)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19186-ncurses-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19186 medium vulnerability for ncurses-libs package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in _nc_find_entry function in tinfo/comp_hash.c:66 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19186\nSeverity: medium\nPackage: ncurses-libs\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19186](https://access.redhat.com/security/cve/CVE-2020-19186)",
+                "markdown": "**Vulnerability CVE-2020-19186**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-libs  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19186](https://access.redhat.com/security/cve/CVE-2020-19186)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19187-ncurses-base",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19187 medium vulnerability for ncurses-base package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in fmt_entry function in progs/dump_entry.c:1100 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19187\nSeverity: medium\nPackage: ncurses-base\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19187](https://access.redhat.com/security/cve/CVE-2020-19187)",
+                "markdown": "**Vulnerability CVE-2020-19187**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-base  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19187](https://access.redhat.com/security/cve/CVE-2020-19187)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19187-ncurses-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19187 medium vulnerability for ncurses-libs package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in fmt_entry function in progs/dump_entry.c:1100 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19187\nSeverity: medium\nPackage: ncurses-libs\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19187](https://access.redhat.com/security/cve/CVE-2020-19187)",
+                "markdown": "**Vulnerability CVE-2020-19187**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-libs  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19187](https://access.redhat.com/security/cve/CVE-2020-19187)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19188-ncurses-base",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19188 medium vulnerability for ncurses-base package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in fmt_entry function in progs/dump_entry.c:1116 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19188\nSeverity: medium\nPackage: ncurses-base\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19188](https://access.redhat.com/security/cve/CVE-2020-19188)",
+                "markdown": "**Vulnerability CVE-2020-19188**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-base  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19188](https://access.redhat.com/security/cve/CVE-2020-19188)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19188-ncurses-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19188 medium vulnerability for ncurses-libs package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in fmt_entry function in progs/dump_entry.c:1116 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19188\nSeverity: medium\nPackage: ncurses-libs\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19188](https://access.redhat.com/security/cve/CVE-2020-19188)",
+                "markdown": "**Vulnerability CVE-2020-19188**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-libs  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19188](https://access.redhat.com/security/cve/CVE-2020-19188)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19189-ncurses-base",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19189 medium vulnerability for ncurses-base package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in postprocess_terminfo function in tinfo/parse_entry.c:997 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19189\nSeverity: medium\nPackage: ncurses-base\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19189](https://access.redhat.com/security/cve/CVE-2020-19189)",
+                "markdown": "**Vulnerability CVE-2020-19189**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-base  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19189](https://access.redhat.com/security/cve/CVE-2020-19189)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19189-ncurses-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19189 medium vulnerability for ncurses-libs package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in postprocess_terminfo function in tinfo/parse_entry.c:997 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19189\nSeverity: medium\nPackage: ncurses-libs\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19189](https://access.redhat.com/security/cve/CVE-2020-19189)",
+                "markdown": "**Vulnerability CVE-2020-19189**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-libs  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19189](https://access.redhat.com/security/cve/CVE-2020-19189)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19190-ncurses-base",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19190 medium vulnerability for ncurses-base package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in _nc_find_entry in tinfo/comp_hash.c:70 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19190\nSeverity: medium\nPackage: ncurses-base\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19190](https://access.redhat.com/security/cve/CVE-2020-19190)",
+                "markdown": "**Vulnerability CVE-2020-19190**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-base  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19190](https://access.redhat.com/security/cve/CVE-2020-19190)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19190-ncurses-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19190 medium vulnerability for ncurses-libs package"
+              },
+              "fullDescription": {
+                "text": "Buffer Overflow vulnerability in _nc_find_entry in tinfo/comp_hash.c:70 in ncurses 6.1 allows remote attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19190\nSeverity: medium\nPackage: ncurses-libs\nVersion: 6.1-7.20180224.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19190](https://access.redhat.com/security/cve/CVE-2020-19190)",
+                "markdown": "**Vulnerability CVE-2020-19190**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | ncurses-libs  | 6.1-7.20180224.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19190](https://access.redhat.com/security/cve/CVE-2020-19190)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19724-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19724 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "A memory consumption issue in get_data function in binutils/nm.c in GNU nm before 2.34 allows attackers to cause a denial of service via crafted command."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19724\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19724](https://access.redhat.com/security/cve/CVE-2020-19724)",
+                "markdown": "**Vulnerability CVE-2020-19724**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19724](https://access.redhat.com/security/cve/CVE-2020-19724)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-19726-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-19726 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered in binutils libbfd.c 2.36 relating to the auxiliary symbol data allows attackers to read or write to system memory or cause a denial of service."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-19726\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-19726](https://access.redhat.com/security/cve/CVE-2020-19726)",
+                "markdown": "**Vulnerability CVE-2020-19726**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-19726](https://access.redhat.com/security/cve/CVE-2020-19726)  |\n"
+              },
+              "properties": {
+                "security-severity": "8.8"
+              }
+            },
+            {
               "id": "CVE-2020-20703-vim-minimal",
               "name": "RpmMatcherExactIndirectMatch",
               "shortDescription": {
@@ -1642,6 +1894,24 @@
               "help": {
                 "text": "Vulnerability CVE-2020-20703\nSeverity: medium\nPackage: vim-minimal\nVersion: 2:8.0.1763-15.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-20703](https://access.redhat.com/security/cve/CVE-2020-20703)",
                 "markdown": "**Vulnerability CVE-2020-20703**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | vim-minimal  | 2:8.0.1763-15.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-20703](https://access.redhat.com/security/cve/CVE-2020-20703)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-21490-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-21490 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered in GNU Binutils 2.34. It is a memory leak when process microblaze-dis.c. This one will consume memory on each insn disassembled."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-21490\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-21490](https://access.redhat.com/security/cve/CVE-2020-21490)",
+                "markdown": "**Vulnerability CVE-2020-21490**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-21490](https://access.redhat.com/security/cve/CVE-2020-21490)  |\n"
               },
               "properties": {
                 "security-severity": "5.5"
@@ -1663,6 +1933,42 @@
               },
               "properties": {
                 "security-severity": "7.5"
+              }
+            },
+            {
+              "id": "CVE-2020-22916-xz",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-22916 low vulnerability for xz package"
+              },
+              "fullDescription": {
+                "text": "An issue discovered in XZ 5.2.5 allows attackers to cause a denial of service via decompression of crafted file."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-22916\nSeverity: low\nPackage: xz\nVersion: 5.2.4-3.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-22916](https://access.redhat.com/security/cve/CVE-2020-22916)",
+                "markdown": "**Vulnerability CVE-2020-22916**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | xz  | 5.2.4-3.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-22916](https://access.redhat.com/security/cve/CVE-2020-22916)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2020-22916-xz-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-22916 low vulnerability for xz-libs package"
+              },
+              "fullDescription": {
+                "text": "An issue discovered in XZ 5.2.5 allows attackers to cause a denial of service via decompression of crafted file."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-22916\nSeverity: low\nPackage: xz-libs\nVersion: 5.2.4-3.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-22916](https://access.redhat.com/security/cve/CVE-2020-22916)",
+                "markdown": "**Vulnerability CVE-2020-22916**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | xz-libs  | 5.2.4-3.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-22916](https://access.redhat.com/security/cve/CVE-2020-22916)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
               }
             },
             {
@@ -1699,6 +2005,24 @@
               },
               "properties": {
                 "security-severity": "6.2"
+              }
+            },
+            {
+              "id": "CVE-2020-35342-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2020-35342 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "GNU Binutils before 2.34 has an uninitialized-heap vulnerability in function tic4x_print_cond (file opcodes/tic4x-dis.c) which could allow attackers to make an information leak."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2020-35342\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2020-35342](https://access.redhat.com/security/cve/CVE-2020-35342)",
+                "markdown": "**Vulnerability CVE-2020-35342**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2020-35342](https://access.redhat.com/security/cve/CVE-2020-35342)  |\n"
+              },
+              "properties": {
+                "security-severity": "7.5"
               }
             },
             {
@@ -2905,6 +3229,60 @@
               },
               "properties": {
                 "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2021-33294-elfutils-default-yama-scope",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2021-33294 low vulnerability for elfutils-default-yama-scope package"
+              },
+              "fullDescription": {
+                "text": "A flaw was found in the elfutils tools package. An infinite loop is possible in the handle_symtab function in readelf.c, which may lead to a denial of service."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2021-33294\nSeverity: low\nPackage: elfutils-default-yama-scope\nVersion: 0.182-3.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2021-33294](https://access.redhat.com/security/cve/CVE-2021-33294)",
+                "markdown": "**Vulnerability CVE-2021-33294**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | elfutils-default-yama-scope  | 0.182-3.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2021-33294](https://access.redhat.com/security/cve/CVE-2021-33294)  |\n"
+              },
+              "properties": {
+                "security-severity": "4.0"
+              }
+            },
+            {
+              "id": "CVE-2021-33294-elfutils-libelf",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2021-33294 low vulnerability for elfutils-libelf package"
+              },
+              "fullDescription": {
+                "text": "A flaw was found in the elfutils tools package. An infinite loop is possible in the handle_symtab function in readelf.c, which may lead to a denial of service."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2021-33294\nSeverity: low\nPackage: elfutils-libelf\nVersion: 0.182-3.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2021-33294](https://access.redhat.com/security/cve/CVE-2021-33294)",
+                "markdown": "**Vulnerability CVE-2021-33294**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | elfutils-libelf  | 0.182-3.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2021-33294](https://access.redhat.com/security/cve/CVE-2021-33294)  |\n"
+              },
+              "properties": {
+                "security-severity": "4.0"
+              }
+            },
+            {
+              "id": "CVE-2021-33294-elfutils-libs",
+              "name": "RpmMatcherExactIndirectMatch",
+              "shortDescription": {
+                "text": "CVE-2021-33294 low vulnerability for elfutils-libs package"
+              },
+              "fullDescription": {
+                "text": "A flaw was found in the elfutils tools package. An infinite loop is possible in the handle_symtab function in readelf.c, which may lead to a denial of service."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2021-33294\nSeverity: low\nPackage: elfutils-libs\nVersion: 0.182-3.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2021-33294](https://access.redhat.com/security/cve/CVE-2021-33294)",
+                "markdown": "**Vulnerability CVE-2021-33294**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | elfutils-libs  | 0.182-3.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2021-33294](https://access.redhat.com/security/cve/CVE-2021-33294)  |\n"
+              },
+              "properties": {
+                "security-severity": "4.0"
               }
             },
             {
@@ -4777,6 +5155,24 @@
               },
               "properties": {
                 "security-severity": "7.8"
+              }
+            },
+            {
+              "id": "CVE-2021-46174-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2021-46174 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "Heap-based Buffer Overflow in function bfd_getl32 in Binutils objdump 3.37."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2021-46174\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2021-46174](https://access.redhat.com/security/cve/CVE-2021-46174)",
+                "markdown": "**Vulnerability CVE-2021-46174**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2021-46174](https://access.redhat.com/security/cve/CVE-2021-46174)  |\n"
+              },
+              "properties": {
+                "security-severity": "7.5"
               }
             },
             {
@@ -6724,6 +7120,24 @@
               }
             },
             {
+              "id": "CVE-2022-32891-glib2",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-32891 medium vulnerability for glib2 package"
+              },
+              "fullDescription": {
+                "text": "A vulnerability was found in webkitgtk, where an issue was addressed with improved UI handling. Visiting a website that frames malicious content may lead to UI spoofing."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-32891\nSeverity: medium\nPackage: glib2\nVersion: 2.56.4-9.el8\nFix Version: 0:2.56.4-159.el8\nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-32891](https://access.redhat.com/security/cve/CVE-2022-32891)",
+                "markdown": "**Vulnerability CVE-2022-32891**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | glib2  | 2.56.4-9.el8  | 0:2.56.4-159.el8  | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-32891](https://access.redhat.com/security/cve/CVE-2022-32891)  |\n"
+              },
+              "properties": {
+                "security-severity": "6.1"
+              }
+            },
+            {
               "id": "CVE-2022-3296-vim-minimal",
               "name": "RpmMatcherExactIndirectMatch",
               "shortDescription": {
@@ -6793,6 +7207,42 @@
               },
               "properties": {
                 "security-severity": "8.6"
+              }
+            },
+            {
+              "id": "CVE-2022-35205-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-35205 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered in Binutils readelf 2.38.50, reachable assertion failure in function display_debug_names allows attackers to cause a denial of service."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-35205\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-35205](https://access.redhat.com/security/cve/CVE-2022-35205)",
+                "markdown": "**Vulnerability CVE-2022-35205**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-35205](https://access.redhat.com/security/cve/CVE-2022-35205)  |\n"
+              },
+              "properties": {
+                "security-severity": "1.0"
+              }
+            },
+            {
+              "id": "CVE-2022-35206-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-35206 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "Null pointer dereference vulnerability in Binutils readelf 2.38.50 via function read_and_display_attr_value in file dwarf.c."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-35206\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-35206](https://access.redhat.com/security/cve/CVE-2022-35206)",
+                "markdown": "**Vulnerability CVE-2022-35206**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-35206](https://access.redhat.com/security/cve/CVE-2022-35206)  |\n"
+              },
+              "properties": {
+                "security-severity": "1.0"
               }
             },
             {
@@ -7642,6 +8092,24 @@
               }
             },
             {
+              "id": "CVE-2022-44840-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-44840 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "Heap buffer overflow vulnerability in binutils readelf before 2.40 via function find_section_in_set in file readelf.c."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-44840\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-44840](https://access.redhat.com/security/cve/CVE-2022-44840)",
+                "markdown": "**Vulnerability CVE-2022-44840**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-44840](https://access.redhat.com/security/cve/CVE-2022-44840)  |\n"
+              },
+              "properties": {
+                "security-severity": "7.8"
+              }
+            },
+            {
               "id": "CVE-2022-45061-platform-python",
               "name": "RpmMatcherExactIndirectMatch",
               "shortDescription": {
@@ -7678,6 +8146,96 @@
               }
             },
             {
+              "id": "CVE-2022-45703-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-45703 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "Heap buffer overflow vulnerability in binutils readelf before 2.40 via function display_debug_section in file readelf.c."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-45703\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-45703](https://access.redhat.com/security/cve/CVE-2022-45703)",
+                "markdown": "**Vulnerability CVE-2022-45703**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-45703](https://access.redhat.com/security/cve/CVE-2022-45703)  |\n"
+              },
+              "properties": {
+                "security-severity": "7.8"
+              }
+            },
+            {
+              "id": "CVE-2022-47007-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-47007 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered function stab_demangle_v3_arg in stabs.c in Binutils 2.34 thru 2.38, allows attackers to cause a denial of service due to memory leaks."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-47007\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-47007](https://access.redhat.com/security/cve/CVE-2022-47007)",
+                "markdown": "**Vulnerability CVE-2022-47007**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-47007](https://access.redhat.com/security/cve/CVE-2022-47007)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2022-47008-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-47008 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered function make_tempdir, and make_tempname in bucomm.c in Binutils 2.34 thru 2.38, allows attackers to cause a denial of service due to memory leaks."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-47008\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-47008](https://access.redhat.com/security/cve/CVE-2022-47008)",
+                "markdown": "**Vulnerability CVE-2022-47008**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-47008](https://access.redhat.com/security/cve/CVE-2022-47008)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2022-47010-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-47010 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered function pr_function_type in prdbg.c in Binutils 2.34 thru 2.38, allows attackers to cause a denial of service due to memory leaks."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-47010\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-47010](https://access.redhat.com/security/cve/CVE-2022-47010)",
+                "markdown": "**Vulnerability CVE-2022-47010**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-47010](https://access.redhat.com/security/cve/CVE-2022-47010)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2022-47011-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-47011 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered function parse_stab_struct_fields in stabs.c in Binutils 2.34 thru 2.38, allows attackers to cause a denial of service due to memory leaks."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-47011\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-47011](https://access.redhat.com/security/cve/CVE-2022-47011)",
+                "markdown": "**Vulnerability CVE-2022-47011**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-47011](https://access.redhat.com/security/cve/CVE-2022-47011)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
               "id": "CVE-2022-47629-libksba",
               "name": "RpmMatcherExactDirectMatch",
               "shortDescription": {
@@ -7693,6 +8251,114 @@
               },
               "properties": {
                 "security-severity": "8.6"
+              }
+            },
+            {
+              "id": "CVE-2022-47673-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-47673 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered in Binutils addr2line before 2.39.3, function parse_module contains multiple out of bound reads which may cause a denial of service or other unspecified impacts."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-47673\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-47673](https://access.redhat.com/security/cve/CVE-2022-47673)",
+                "markdown": "**Vulnerability CVE-2022-47673**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-47673](https://access.redhat.com/security/cve/CVE-2022-47673)  |\n"
+              },
+              "properties": {
+                "security-severity": "7.8"
+              }
+            },
+            {
+              "id": "CVE-2022-47695-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-47695 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered Binutils objdump before 2.39.3 allows attackers to cause a denial of service or other unspecified impacts via function bfd_mach_o_get_synthetic_symtab in match-o.c."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-47695\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-47695](https://access.redhat.com/security/cve/CVE-2022-47695)",
+                "markdown": "**Vulnerability CVE-2022-47695**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-47695](https://access.redhat.com/security/cve/CVE-2022-47695)  |\n"
+              },
+              "properties": {
+                "security-severity": "7.8"
+              }
+            },
+            {
+              "id": "CVE-2022-47696-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-47696 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "An issue was discovered Binutils objdump before 2.39.3 allows attackers to cause a denial of service or other unspecified impacts via function compare_symbols."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-47696\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-47696](https://access.redhat.com/security/cve/CVE-2022-47696)",
+                "markdown": "**Vulnerability CVE-2022-47696**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-47696](https://access.redhat.com/security/cve/CVE-2022-47696)  |\n"
+              },
+              "properties": {
+                "security-severity": "7.8"
+              }
+            },
+            {
+              "id": "CVE-2022-48063-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-48063 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "GNU Binutils before 2.40 was discovered to contain an excessive memory consumption vulnerability via the function load_separate_debug_files at dwarf2.c. The attacker could supply a crafted ELF file and cause a DNS attack."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-48063\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-48063](https://access.redhat.com/security/cve/CVE-2022-48063)",
+                "markdown": "**Vulnerability CVE-2022-48063**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-48063](https://access.redhat.com/security/cve/CVE-2022-48063)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2022-48064-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-48064 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "GNU Binutils before 2.40 was discovered to contain an excessive memory consumption vulnerability via the function bfd_dwarf2_find_nearest_line_with_alt at dwarf2.c. The attacker could supply a crafted ELF file and cause a DNS attack."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-48064\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-48064](https://access.redhat.com/security/cve/CVE-2022-48064)",
+                "markdown": "**Vulnerability CVE-2022-48064**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-48064](https://access.redhat.com/security/cve/CVE-2022-48064)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
+              }
+            },
+            {
+              "id": "CVE-2022-48065-binutils",
+              "name": "RpmMatcherExactDirectMatch",
+              "shortDescription": {
+                "text": "CVE-2022-48065 low vulnerability for binutils package"
+              },
+              "fullDescription": {
+                "text": "GNU Binutils before 2.40 was discovered to contain a memory leak vulnerability var the function find_abstract_instance in dwarf2.c."
+              },
+              "helpUri": "https://github.com/anchore/grype",
+              "help": {
+                "text": "Vulnerability CVE-2022-48065\nSeverity: low\nPackage: binutils\nVersion: 2.30-93.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2022-48065](https://access.redhat.com/security/cve/CVE-2022-48065)",
+                "markdown": "**Vulnerability CVE-2022-48065**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | binutils  | 2.30-93.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2022-48065](https://access.redhat.com/security/cve/CVE-2022-48065)  |\n"
+              },
+              "properties": {
+                "security-severity": "5.5"
               }
             },
             {
@@ -8286,7 +8952,7 @@
                 "markdown": "**Vulnerability CVE-2023-2603**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| medium  | libcap  | 2.26-4.el8  | 0:2.48-5.el8_8  | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2023-2603](https://access.redhat.com/security/cve/CVE-2023-2603)  |\n"
               },
               "properties": {
-                "security-severity": "4.4"
+                "security-severity": "7.3"
               }
             },
             {
@@ -8575,42 +9241,6 @@
               },
               "properties": {
                 "security-severity": "7.5"
-              }
-            },
-            {
-              "id": "CVE-2023-28320-curl",
-              "name": "RpmMatcherExactDirectMatch",
-              "shortDescription": {
-                "text": "CVE-2023-28320 low vulnerability for curl package"
-              },
-              "fullDescription": {
-                "text": "A denial of service vulnerability exists in curl \u003cv8.1.0 in the way libcurl provides several different backends for resolving host names, selected at build time. If it is built to use the synchronous resolver, it allows name resolves to time-out slow operations using `alarm()` and `siglongjmp()`. When doing this, libcurl used a global buffer that was not mutex protected and a multi-threaded application might therefore crash or otherwise misbehave."
-              },
-              "helpUri": "https://github.com/anchore/grype",
-              "help": {
-                "text": "Vulnerability CVE-2023-28320\nSeverity: low\nPackage: curl\nVersion: 7.61.1-18.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2023-28320](https://access.redhat.com/security/cve/CVE-2023-28320)",
-                "markdown": "**Vulnerability CVE-2023-28320**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | curl  | 7.61.1-18.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2023-28320](https://access.redhat.com/security/cve/CVE-2023-28320)  |\n"
-              },
-              "properties": {
-                "security-severity": "3.7"
-              }
-            },
-            {
-              "id": "CVE-2023-28320-libcurl-minimal",
-              "name": "RpmMatcherExactIndirectMatch",
-              "shortDescription": {
-                "text": "CVE-2023-28320 low vulnerability for libcurl-minimal package"
-              },
-              "fullDescription": {
-                "text": "A denial of service vulnerability exists in curl \u003cv8.1.0 in the way libcurl provides several different backends for resolving host names, selected at build time. If it is built to use the synchronous resolver, it allows name resolves to time-out slow operations using `alarm()` and `siglongjmp()`. When doing this, libcurl used a global buffer that was not mutex protected and a multi-threaded application might therefore crash or otherwise misbehave."
-              },
-              "helpUri": "https://github.com/anchore/grype",
-              "help": {
-                "text": "Vulnerability CVE-2023-28320\nSeverity: low\nPackage: libcurl-minimal\nVersion: 7.61.1-18.el8\nFix Version: \nType: rpm\nLocation: /var/lib/rpm/Packages\nData Namespace: redhat:distro:redhat:8\nLink: [CVE-2023-28320](https://access.redhat.com/security/cve/CVE-2023-28320)",
-                "markdown": "**Vulnerability CVE-2023-28320**\n| Severity | Package | Version | Fix Version | Type | Location | Data Namespace | Link |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| low  | libcurl-minimal  | 7.61.1-18.el8  |   | rpm  | /var/lib/rpm/Packages  | redhat:distro:redhat:8  | [CVE-2023-28320](https://access.redhat.com/security/cve/CVE-2023-28320)  |\n"
-              },
-              "properties": {
-                "security-severity": "3.7"
               }
             },
             {
@@ -11534,6 +12164,384 @@
           ]
         },
         {
+          "ruleId": "CVE-2020-19185-ncurses-base",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-base at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19185-ncurses-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-libs at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19186-ncurses-base",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-base at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19186-ncurses-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-libs at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19187-ncurses-base",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-base at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19187-ncurses-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-libs at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19188-ncurses-base",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-base at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19188-ncurses-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-libs at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19189-ncurses-base",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-base at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19189-ncurses-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-libs at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19190-ncurses-base",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-base at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19190-ncurses-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports ncurses-libs at version 6.1-7.20180224.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19724-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-19726-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "ruleId": "CVE-2020-20703-vim-minimal",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports vim-minimal at version 2:8.0.1763-15.el8  which is a vulnerable (rpm) package installed in the container"
@@ -11561,9 +12569,90 @@
           ]
         },
         {
+          "ruleId": "CVE-2020-21490-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "ruleId": "CVE-2020-21674-libarchive",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports libarchive at version 3.3.3-1.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-22916-xz",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports xz at version 5.2.4-3.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-22916-xz-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports xz-libs at version 5.2.4-3.el8  which is a vulnerable (rpm) package installed in the container"
           },
           "locations": [
             {
@@ -11618,6 +12707,33 @@
           "ruleId": "CVE-2020-24736-sqlite-libs",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports sqlite-libs at version 3.26.0-13.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2020-35342-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
           },
           "locations": [
             {
@@ -13454,6 +14570,87 @@
           "ruleId": "CVE-2021-3236-vim-minimal",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports vim-minimal at version 2:8.0.1763-15.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2021-33294-elfutils-default-yama-scope",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports elfutils-default-yama-scope at version 0.182-3.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2021-33294-elfutils-libelf",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports elfutils-libelf at version 0.182-3.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2021-33294-elfutils-libs",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports elfutils-libs at version 0.182-3.el8  which is a vulnerable (rpm) package installed in the container"
           },
           "locations": [
             {
@@ -16421,6 +17618,33 @@
           ]
         },
         {
+          "ruleId": "CVE-2021-46174-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "ruleId": "CVE-2021-46828-libtirpc",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports libtirpc at version 1.1.4-4.el8  which is a vulnerable (rpm) package installed in the container"
@@ -19337,6 +20561,33 @@
           ]
         },
         {
+          "ruleId": "CVE-2022-32891-glib2",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports glib2 at version 2.56.4-9.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "ruleId": "CVE-2022-3296-vim-minimal",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports vim-minimal at version 2:8.0.1763-15.el8  which is a vulnerable (rpm) package installed in the container"
@@ -19421,6 +20672,60 @@
           "ruleId": "CVE-2022-3515-libksba",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports libksba at version 1.3.5-7.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-35205-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-35206-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
           },
           "locations": [
             {
@@ -20722,6 +22027,33 @@
           ]
         },
         {
+          "ruleId": "CVE-2022-44840-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "ruleId": "CVE-2022-45061-platform-python",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports platform-python at version 3.6.8-37.el8  which is a vulnerable (rpm) package installed in the container"
@@ -20776,9 +22108,306 @@
           ]
         },
         {
+          "ruleId": "CVE-2022-45703-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-47007-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-47008-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-47010-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-47011-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "ruleId": "CVE-2022-47629-libksba",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports libksba at version 1.3.5-7.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-47673-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-47695-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-47696-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-48063-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-48064-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "image//var/lib/rpm/Packages"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "/var/lib/rpm/Packages",
+                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2022-48065-binutils",
+          "message": {
+            "text": "The path /var/lib/rpm/Packages reports binutils at version 2.30-93.el8  which is a vulnerable (rpm) package installed in the container"
           },
           "locations": [
             {
@@ -22102,60 +23731,6 @@
           "ruleId": "CVE-2023-2828-bind-export-libs",
           "message": {
             "text": "The path /var/lib/rpm/Packages reports bind-export-libs at version 32:9.11.26-3.el8  which is a vulnerable (rpm) package installed in the container"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "image//var/lib/rpm/Packages"
-                },
-                "region": {
-                  "startLine": 1,
-                  "startColumn": 1,
-                  "endLine": 1,
-                  "endColumn": 1
-                }
-              },
-              "logicalLocations": [
-                {
-                  "name": "/var/lib/rpm/Packages",
-                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "ruleId": "CVE-2023-28320-curl",
-          "message": {
-            "text": "The path /var/lib/rpm/Packages reports curl at version 7.61.1-18.el8  which is a vulnerable (rpm) package installed in the container"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "image//var/lib/rpm/Packages"
-                },
-                "region": {
-                  "startLine": 1,
-                  "startColumn": 1,
-                  "endLine": 1,
-                  "endColumn": 1
-                }
-              },
-              "logicalLocations": [
-                {
-                  "name": "/var/lib/rpm/Packages",
-                  "fullyQualifiedName": "centos:latest@sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59:/var/lib/rpm/Packages"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "ruleId": "CVE-2023-28320-libcurl-minimal",
-          "message": {
-            "text": "The path /var/lib/rpm/Packages reports libcurl-minimal at version 7.61.1-18.el8  which is a vulnerable (rpm) package installed in the container"
           },
           "locations": [
             {

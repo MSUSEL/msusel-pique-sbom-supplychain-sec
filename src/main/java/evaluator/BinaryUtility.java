@@ -87,7 +87,6 @@ public class BinaryUtility implements IUtilityFunction {
     		lower = 1;
     	}
 
-
         return (inValue.subtract(thresholds[lower])).divide((thresholds[upper].subtract(thresholds[lower])),BigDecimalWithContext.getMC());
     }
 

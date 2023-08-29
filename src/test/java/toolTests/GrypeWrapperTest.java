@@ -12,6 +12,7 @@ import pique.analysis.Tool;
 import pique.model.Diagnostic;
 import pique.utility.PiqueProperties;
 import tool.GrypeWrapper;
+import tool.TrivyWrapper;
 
 
 import static org.junit.Assert.*;
@@ -73,6 +74,27 @@ public class GrypeWrapperTest {
         Tool grypeTest = new GrypeWrapper(nvdKeyPath.toString(), ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
+
+        Path analysisOutput = grypeTest.analyze(testSBOM);
+
+        Map<String,Diagnostic> output = grypeTest.parseAnalysis(analysisOutput);
+
+        for (Diagnostic diag : output.values()) {
+            if (diag.getChildren().size()>0) {
+                //if we hit this, we've found at least one finding
+                fail();
+            }
+        }
+    }
+
+    @Test
+    public void TestSBOMDoesNotExist() {
+        Properties prop = PiqueProperties.getProperties();
+        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
+        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
+        Tool grypeTest = new GrypeWrapper(nvdKeyPath.toString(), ghTokenPath);
+
+        Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 
         Path analysisOutput = grypeTest.analyze(testSBOM);
 

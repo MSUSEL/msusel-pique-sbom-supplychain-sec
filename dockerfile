@@ -8,11 +8,6 @@ RUN apk update && apk add \
 	git \
 	py3-pip \
 	maven \
-	## commenting for now because no operational PIQUE model uses GAMs
-	# r-base \
-	# r-base-core \
-	# r-recommended \
-	# r-base-dev \
 	## grype
 	curl \
 	## trivy
@@ -26,13 +21,13 @@ WORKDIR "/home"
 RUN pip install argparse requests json
 
 ## grype installs
-RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v0.53.1
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v0.65.2
 
 ## trivy installs
-RUN wget https://github.com/aquasecurity/trivy/releases/download/v0.36.1/trivy_0.36.1_Linux-64bit.deb
+RUN wget https://github.com/aquasecurity/trivy/releases/download/v0.44.1/trivy_0.44.1_Linux-64bit.deb
 RUN dpkg --add-architecture amd64
-RUN dpkg -i trivy_0.36.1_Linux-64bit.deb
-RUN rm trivy_0.36.1_Linux-64bit.deb
+RUN dpkg -i trivy_0.44.1_Linux-64bit.deb
+RUN rm trivy_0.44.1_Linux-64bit.deb
 
 ## PIQUE ##
 # maven install - install in opt

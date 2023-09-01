@@ -1,0 +1,50 @@
+﻿Criteria,Availability,Authenticity,Authorization,Confidentiality,Non-repudiation,Integrity,Accountability
+Availability,1,1,1,1,1,1,1
+Authenticity,1,1,1,1,1,1,1
+Authorization,1,1,1,1,1,1,1
+Confidentiality,1,1,1,1,1,1,1
+Non-repudiation,1,1,1,1,1,1,1
+Integrity,1,1,1,1,1,1,1
+Accountability,1,1,1,1,1,1,1
+Other,1,1,1,1,1,1,1
+Unknown,1,1,1,1,1,1,1
+API / Function Errors - (1228),1,1,1,1,1,1,1
+Audit / Logging - (1210),1,1,1,1,1,1,1
+Authentication Errors - (1211),1,1,1,1,1,1,1
+Authorization Errors - (1212),1,1,1,1,1,1,1
+Bad Coding Practices - (1006),1,1,1,1,1,1,1
+Behavioral Problems - (438),1,1,1,1,1,1,1
+Business Logic Errors - (840),1,1,1,1,1,1,1
+Communication Channel Errors - (417),1,1,1,1,1,1,1
+Complexity Issues - (1226),1,1,1,1,1,1,1
+Concurrency Issues - (557),1,1,1,1,1,1,1
+Credentials Management Errors - (255),1,1,1,1,1,1,1
+Cryptographic Issues - (310),1,1,1,1,1,1,1
+Key Management Errors - (320),1,1,1,1,1,1,1
+Data Integrity Issues - (1214),1,1,1,1,1,1,1
+Data Processing Errors - (19),1,1,1,1,1,1,1
+Data Neutralization Issues - (137),1,1,1,1,1,1,1
+Documentation Issues - (1225),1,1,1,1,1,1,1
+File Handling Issues - (1219),1,1,1,1,1,1,1
+Encapsulation Issues - (1227),1,1,1,1,1,1,1
+Error Conditions Return Values Status Codes - (389),1,1,1,1,1,1,1
+Expression Issues - (569),1,1,1,1,1,1,1
+Handler Errors - (429),1,1,1,1,1,1,1
+Information Management Errors - (199),1,1,1,1,1,1,1
+Initialization and Cleanup Errors - (452),1,1,1,1,1,1,1
+Data Validation Issues - (1215),1,1,1,1,1,1,1
+Lockout Mechanism Errors - (1216),1,1,1,1,1,1,1
+Memory Buffer Errors - (1218),1,1,1,1,1,1,1
+Numeric Errors - (189),1,1,1,1,1,1,1
+Permission Issues - (275),1,1,1,1,1,1,1
+Pointer Issues - (465),1,1,1,1,1,1,1
+Privilege Issues - (265),1,1,1,1,1,1,1
+Random Number Issues - (1213),1,1,1,1,1,1,1
+Resource Locking Problems - (411),1,1,1,1,1,1,1
+Resource Management Errors - (399),1,1,1,1,1,1,1
+Signal Errors - (387),1,1,1,1,1,1,1
+State Issues - (371),1,1,1,1,1,1,1
+String Errors - (133),1,1,1,1,1,1,1
+Type Errors - (136),1,1,1,1,1,1,1
+User Interface Security Issues - (355),1,1,1,1,1,1,1
+User Session Errors - (1217),1,1,1,1,1,1,1

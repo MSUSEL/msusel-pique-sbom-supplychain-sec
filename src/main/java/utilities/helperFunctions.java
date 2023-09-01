@@ -87,10 +87,10 @@ public class helperFunctions {
 	 * @param cveList An ArrayList<String> of one or more CVE names
 	 * @return An array of CWEs associated with the given CVEs
 	 */
-	public static String[] getCWE(ArrayList<String> cveList, String nvdApiKeyPath, String githubTokenPath) {
+	public static String[] getCWE(ArrayList<String> cveList, String githubTokenPath) {
 		Properties prop = PiqueProperties.getProperties();
 		String pathToScript = prop.getProperty("cveTocwe.location");
-		String pathToCache = prop.getProperty("cveCache.location");
+		String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
 
 		// Convert each cveList to a comma-separated string
 		StringBuilder cveString = new StringBuilder();
@@ -104,7 +104,7 @@ public class helperFunctions {
 		if (cveString.toString().isEmpty()) {
 			return new String[]{};
 		}
-		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--api_key", nvdApiKeyPath, "--github_token", githubTokenPath, "--cache", pathToCache};
+		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--github_token", githubTokenPath, "--nvdDict", pathToNVDDict};
 
 		String cwe = "";
 		try {
@@ -114,6 +114,30 @@ public class helperFunctions {
 			e.printStackTrace();
 		}
         return cwe.split("\n \n");
+	}
+
+	public static void downloadNVD() {
+		Properties prop = PiqueProperties.getProperties();
+		String pathToScript = prop.getProperty("downloadNVD.location");
+		String pathToDownloadTo = prop.getProperty("nvd-dictionary.location");
+		String nvdCVECount = prop.getProperty("nvd-cve-count");
+		String nvdApiKeyPath = prop.getProperty("nvd-api-key-path");
+
+		String[] cmd = {"python3", pathToScript, pathToDownloadTo, nvdCVECount, nvdApiKeyPath};
+
+		String result = "";
+		try {
+			result = getOutputFromProgram(cmd,LOGGER);
+			if (result.equals("true\n")) {
+				System.out.println("Successfully downloaded NVD.");
+			}
+			else {
+				System.err.println("Error downloading NVD " + result);
+			}
+		} catch (IOException e) {
+			System.err.println("Error running download_nvd.py");
+			e.printStackTrace();
+		}
 	}
 
 	

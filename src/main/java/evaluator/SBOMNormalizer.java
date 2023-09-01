@@ -1,4 +1,14 @@
 package evaluator;
 
-public class SBOMNormalizer {
+import pique.evaluation.Normalizer;
+
+import java.math.BigDecimal;
+
+public class SBOMNormalizer extends Normalizer {
+
+
+    @Override
+    public BigDecimal normalize(BigDecimal bigDecimal) {
+        return null;
+    }
 }

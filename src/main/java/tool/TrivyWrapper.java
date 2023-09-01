@@ -56,12 +56,10 @@ import utilities.helperFunctions;
  */
 public class TrivyWrapper extends Tool implements ITool  {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
-	private String nvdApiKey;
 	private String githubToken;
 
-	public TrivyWrapper(String nvdApiKeyPath, String githubTokenPath) {
+	public TrivyWrapper(String githubTokenPath) {
 		super("trivy", null);
-		this.nvdApiKey = nvdApiKeyPath;
 		this.githubToken = githubTokenPath;
 	}
 
@@ -117,8 +115,8 @@ public class TrivyWrapper extends Tool implements ITool  {
 				LOGGER.info("No results to read from Trivy.");
 			}
 
-			ArrayList<String> cveList = new ArrayList<String>();
-			ArrayList<Integer> severityList = new ArrayList<Integer>();
+			ArrayList<String> cveList = new ArrayList<>();
+			ArrayList<Integer> severityList = new ArrayList<>();
 
 			try {
 				JSONObject jsonResults = new JSONObject(results);
@@ -135,7 +133,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 
 				// for testing only send through first 3 results
 				//ArrayList<String> temp = new ArrayList<String>(cveList.subList(0, Math.min(3, cveList.size())));
-				String[] findingNames = helperFunctions.getCWE(cveList, this.nvdApiKey, this.githubToken);
+				String[] findingNames = helperFunctions.getCWE(cveList, this.githubToken);
  				for (int i = 0; i < findingNames.length; i++) {
 					Diagnostic diag = diagnostics.get((findingNames[i]+" Trivy Diagnostic"));
 					if (diag == null) {
@@ -203,27 +201,5 @@ public class TrivyWrapper extends Tool implements ITool  {
 
 			return severityInt;
 		}
-
-	/***
-	 * simple utility to parse a file containing a one-liner NVD api key into class variable nvdApiKey
-	 * @param path path where nvd api key exists, modified in config
-	 * @return nvd api key
-	 */
-	private String parseKey(String path){
-		//https://mkyong.com/java/java-convert-file-to-string/
-		String content = "";
-		try (Stream<String> lines = Files.lines(Paths.get(path))) {
-			// Formatting like \r\n will be lost
-
-			// UNIX \n, WIndows \r\n
-			content = lines.collect(Collectors.joining(System.lineSeparator()));
-			System.out.println(content);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return content;
-	}
-
 
 }

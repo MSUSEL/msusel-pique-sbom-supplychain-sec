@@ -26,3 +26,11 @@ replay_pid*
 # NVD API key and Github API token
 input/keys/nvd_key.txt
 input/keys/github_token.txt
+
+# ignore NVD dictionary
+src/main/resources/nvd-dictionary.json
+target/classes/nvd-dictionary.jsongit
+
+# dont need temp output files on github
+out/grype.json
+out/trivy.json

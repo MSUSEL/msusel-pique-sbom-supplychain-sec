@@ -7,8 +7,8 @@ ___
 ## Tools
 These will be automatically installed when the docker image is built.
 
-- [grype][https://github.com/anchore/grype]
-- [Trivy][https://github.com/aquasecurity/trivy]
+- [grype v0.65.2][https://github.com/anchore/grype]
+- [Trivy v0.44.1][https://github.com/aquasecurity/trivy]
 ___
 
 ## Run Environment

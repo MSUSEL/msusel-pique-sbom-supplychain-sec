@@ -43,6 +43,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.regex.*;
 
 /**
  * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-CONTENT.
@@ -54,12 +55,10 @@ import java.util.stream.Stream;
  */
 public class GrypeWrapper extends Tool implements ITool  {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GrypeWrapper.class);
-	private String nvdApiKeyPath;
 	private String githubTokenPath;
 
-	public GrypeWrapper(String nvdApiKeyPath, String githubTokenPath) {
+	public GrypeWrapper(String githubTokenPath) {
 		super("grype", null);
-		this.nvdApiKeyPath = nvdApiKeyPath;
 		this.githubTokenPath = githubTokenPath;
 	}
 
@@ -135,9 +134,9 @@ public class GrypeWrapper extends Tool implements ITool  {
 				cveList.add(findingName);
 			}
 
-			// for testing only send through first 3 results
-			//ArrayList<String> temp = new ArrayList<String>(cveList.subList(0, Math.min(3, cveList.size())));
-			String[] findingNames = helperFunctions.getCWE(cveList, this.nvdApiKeyPath, this.githubTokenPath);
+			// TODO: change CVE_to_CWE script to return both the CVE and CWE, do this by printing CVE,CWE then
+			// in this for loop split them at the comma
+			String[] findingNames = helperFunctions.getCWE(cveList, this.githubTokenPath);
 			for (int i = 0; i < findingNames.length; i++) {
 				Diagnostic diag = diagnostics.get((findingNames[i]+" Grype Diagnostic"));
 				if (diag == null) {
@@ -205,27 +204,4 @@ public class GrypeWrapper extends Tool implements ITool  {
 
 		return severityInt;
 	}
-
-	/***
-	 * simple utility to parse a file containing a one-liner NVD api key into class variable nvdApiKey
-	 * @param path path where nvd api key exists, modified in config
-	 * @return nvd api key
-	 */
-	private String parseKey(String path){
-		//https://mkyong.com/java/java-convert-file-to-string/
-		String content = "";
-		try (Stream<String> lines = Files.lines(Paths.get(path))) {
-			// Formatting like \r\n will be lost
-
-			// UNIX \n, Windows \r\n
-			content = lines.collect(Collectors.joining(System.lineSeparator()));
-			System.out.println(content);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return content;
-	}
-
-
 }

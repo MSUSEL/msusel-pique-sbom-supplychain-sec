@@ -1,7 +1,9 @@
 package runnable;
 
 import pique.utility.PiqueProperties;
+import utilities.helperFunctions;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -30,6 +32,10 @@ public class Wrapper {
                     .action(Arguments.storeTrue())
                     .setDefault(false)
                     .help("print version information and terminate program");
+            parser.addArgument("--downloadNVD")
+                    .action(Arguments.storeTrue())
+                    .setDefault(false)
+                    .help("Download the latest version of the NVD database");
 
             Namespace namespace = null;
             if (helpFlag) {
@@ -42,12 +48,25 @@ public class Wrapper {
             String runType = namespace.getString("runType");
             String fileName = namespace.getString("fileName");
             boolean printVersion = namespace.getBoolean("version");
+            boolean downloadNVDFlag = namespace.getBoolean("downloadNVD");
+            Properties prop = PiqueProperties.getProperties();
 
             if (printVersion) {
-                Properties prop = PiqueProperties.getProperties();
                 Path version = Paths.get(prop.getProperty("version"));
                 System.out.println("PIQUE-SBOM-SUPPLYCHAIN-SEC version " + version);
                 System.exit(0);
+            }
+            if (downloadNVDFlag) {
+                System.out.println("Starting NVD download");
+                helperFunctions.downloadNVD();
+                System.exit(0);
+            }
+
+            String nvdDictionaryPath = Paths.get(prop.getProperty("nvd-dictionary.location")).toString();
+            File f = new File(nvdDictionaryPath);
+            if (!f.isFile()) {
+                System.out.println("Error: the National Vulnerability Database must be downloaded before deriving or evaluating. Use --help for more information.");
+                System.exit(1);
             }
 
             if ("derive".equals(runType)) {
@@ -57,17 +76,15 @@ public class Wrapper {
                 else {
                     // kick off deriver
                     new QualityModelDeriver();
-                    System.out.println("derive hit");
                 }
             }
             else if ("evaluate".equals(runType)) {
                 if (fileName == null) {
-                    throw new IllegalArgumentException("Incorrect input parameters given. Use --help for more information");
+                    new SingleProjectEvaluator();
                 }
                 else {
                     // kick off evaluator
-                    new SingleProjectEvaluator();
-                    System.out.println("evaluate hit");
+                    new SingleProjectEvaluator(fileName);
                 }
             }
             else {

@@ -1,14 +1,16 @@
 package evaluator;
 
 import pique.evaluation.Normalizer;
+import pique.utility.BigDecimalWithContext;
+import utilities.helperFunctions;
 
 import java.math.BigDecimal;
 
 public class SBOMNormalizer extends Normalizer {
-
-
     @Override
-    public BigDecimal normalize(BigDecimal bigDecimal) {
-        return null;
+    //inValue is a non-normalized value for a measure
+    public BigDecimal normalize(BigDecimal inValue) {
+        BigDecimal packageCount = new BigDecimalWithContext(0);
+        return inValue.divide(packageCount,BigDecimalWithContext.getMC());
     }
 }

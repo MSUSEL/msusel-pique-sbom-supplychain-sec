@@ -19,9 +19,8 @@ public class TrivyWrapperTest {
     @Test
     public void TestSBOMWithFindings() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool trivyTest = new TrivyWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
 
@@ -45,9 +44,8 @@ public class TrivyWrapperTest {
     @Test
     public void TestSBOMWithNoFindings() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool trivyTest = new TrivyWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/empty_sbom.json");
 
@@ -66,9 +64,8 @@ public class TrivyWrapperTest {
     @Test
     public void TestNoFindingsWhenNoSBOMExists() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool trivyTest = new TrivyWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
 
@@ -87,9 +84,8 @@ public class TrivyWrapperTest {
     @Test
     public void TestSBOMDoesNotExist() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool trivyTest = new TrivyWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 

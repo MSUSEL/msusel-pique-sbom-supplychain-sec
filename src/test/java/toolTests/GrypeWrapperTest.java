@@ -13,6 +13,7 @@ import pique.model.Diagnostic;
 import pique.utility.PiqueProperties;
 import tool.GrypeWrapper;
 import tool.TrivyWrapper;
+import tool.sbomqsWrapper;
 
 
 import static org.junit.Assert.*;
@@ -22,9 +23,8 @@ public class GrypeWrapperTest {
     @Test
     public void TestSBOMWithFindings() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool grypeTest = new GrypeWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
 
@@ -46,11 +46,24 @@ public class GrypeWrapperTest {
     }
 
     @Test
+    @Ignore
+    public void SBOMQSTestSBOMWithFindings() {
+        sbomqsWrapper sbomqsTest = new sbomqsWrapper();
+
+        Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
+
+        Path analysisOutput = sbomqsTest.analyze(testSBOM);
+
+        Map<String, Diagnostic> output = sbomqsTest.parseAnalysis(analysisOutput);
+
+        assertTrue(output!=null);
+    }
+
+    @Test
     public void TestSBOMWithNoFindings() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool grypeTest = new GrypeWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/empty_sbom.json");
 
@@ -69,9 +82,8 @@ public class GrypeWrapperTest {
     @Test
     public void TestNoFindingsWhenNoSBOMExists() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool grypeTest = new GrypeWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
 
@@ -90,9 +102,8 @@ public class GrypeWrapperTest {
     @Test
     public void TestSBOMDoesNotExist() {
         Properties prop = PiqueProperties.getProperties();
-        Path nvdKeyPath = Paths.get(prop.getProperty("nvd-api-key-path"));
         String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(nvdKeyPath.toString(), ghTokenPath);
+        Tool grypeTest = new GrypeWrapper(ghTokenPath);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 

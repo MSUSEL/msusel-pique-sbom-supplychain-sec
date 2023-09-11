@@ -1,0 +1,2556 @@
+SPDXVersion: SPDX-2.2
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: centos:8.4.2105
+DocumentNamespace: http://aquasecurity.github.io/trivy/container_image/centos:8.4.2105-f695e365-7d40-4fe4-89ad-11d4a3eb73fe
+Creator: Organization: aquasecurity
+Creator: Tool: trivy
+Created: 2023-03-01T01:45:07.835934Z
+
+##### Package: centos:8.4.2105
+
+PackageName: centos:8.4.2105
+SPDXID: SPDXRef-ContainerImage-be8f28097e606b3
+FilesAnalyzed: false
+ExternalRef: PACKAGE-MANAGER purl pkg:oci/centos@sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177?repository_url=index.docker.io%2Flibrary%2Fcentos&arch=amd64
+PackageAttributionText: SchemaVersion: 2
+PackageAttributionText: ImageID: sha256:5d0da3dc976460b72c77d94c8a1ad043720b0416bfc16c52c45d4847e53fadb6
+PackageAttributionText: RepoDigest: centos@sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177
+PackageAttributionText: DiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+PackageAttributionText: RepoTag: centos:8.4.2105
+PackageAttributionText: RepoTag: centos:centos8
+PackageAttributionText: RepoTag: centos:centos8.4.2105
+PackageAttributionText: RepoTag: centos:latest
+
+##### Package: centos
+
+PackageName: centos
+SPDXID: SPDXRef-OperatingSystem-37845756da81d30a
+PackageVersion: 8.4.2105
+FilesAnalyzed: false
+
+##### Package: ima-evm-utils
+
+PackageName: ima-evm-utils
+SPDXID: SPDXRef-Package-102aa3c574bdeabf
+PackageVersion: 1.3.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: ima-evm-utils 1.3.2-12.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/ima-evm-utils@1.3.2-12.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: ima-evm-utils@1.3.2-12.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libxml2
+
+PackageName: libxml2
+SPDXID: SPDXRef-Package-11d5f4f3217c2d3e
+PackageVersion: 2.9.7
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libxml2 2.9.7-9.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libxml2@2.9.7-9.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libxml2@2.9.7-9.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libyaml
+
+PackageName: libyaml
+SPDXID: SPDXRef-Package-12fb274690fb0b17
+PackageVersion: 0.1.7
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libyaml 0.1.7-5.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libyaml@0.1.7-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libyaml@0.1.7-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libmnl
+
+PackageName: libmnl
+SPDXID: SPDXRef-Package-1315739a1552d4e5
+PackageVersion: 1.0.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libmnl 1.0.4-6.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libmnl@1.0.4-6.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libmnl@1.0.4-6.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: iproute
+
+PackageName: iproute
+SPDXID: SPDXRef-Package-14a7b2f1e15ac516
+PackageVersion: 5.9.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: iproute 5.9.0-4.el8
+PackageLicenseConcluded: GPLv2+ and Public Domain
+PackageLicenseDeclared: GPLv2+ and Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/iproute@5.9.0-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: iproute@5.9.0-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: rpm-build-libs
+
+PackageName: rpm-build-libs
+SPDXID: SPDXRef-Package-14ad1e6f7fce83e9
+PackageVersion: 4.14.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: rpm 4.14.3-13.el8
+PackageLicenseConcluded: GPLv2+ and LGPLv2+ with exceptions
+PackageLicenseDeclared: GPLv2+ and LGPLv2+ with exceptions
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/rpm-build-libs@4.14.3-13.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: rpm-build-libs@4.14.3-13.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: pcre
+
+PackageName: pcre
+SPDXID: SPDXRef-Package-1b0792dd8d9a50b7
+PackageVersion: 8.42
+FilesAnalyzed: false
+PackageSourceInfo: built package from: pcre 8.42-4.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/pcre@8.42-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: pcre@8.42-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: xz
+
+PackageName: xz
+SPDXID: SPDXRef-Package-1b24c9b29c662445
+PackageVersion: 5.2.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: xz 5.2.4-3.el8
+PackageLicenseConcluded: GPLv2+ and Public Domain
+PackageLicenseDeclared: GPLv2+ and Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/xz@5.2.4-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: xz@5.2.4-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: pciutils-libs
+
+PackageName: pciutils-libs
+SPDXID: SPDXRef-Package-1c172f089e3df5c
+PackageVersion: 3.7.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: pciutils 3.7.0-1.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/pciutils-libs@3.7.0-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: pciutils-libs@3.7.0-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-libs
+
+PackageName: python3-libs
+SPDXID: SPDXRef-Package-1c3ee5e95068dad2
+PackageVersion: 3.6.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: python3 3.6.8-37.el8
+PackageLicenseConcluded: Python
+PackageLicenseDeclared: Python
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-libs@3.6.8-37.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-libs@3.6.8-37.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: cryptsetup-libs
+
+PackageName: cryptsetup-libs
+SPDXID: SPDXRef-Package-1c4ca20aa821b74a
+PackageVersion: 2.3.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: cryptsetup 2.3.3-4.el8
+PackageLicenseConcluded: GPLv2+ and LGPLv2+
+PackageLicenseDeclared: GPLv2+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/cryptsetup-libs@2.3.3-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: cryptsetup-libs@2.3.3-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-setuptools-wheel
+
+PackageName: python3-setuptools-wheel
+SPDXID: SPDXRef-Package-1d9ad5702093eb20
+PackageVersion: 39.2.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: python-setuptools 39.2.0-6.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-setuptools-wheel@39.2.0-6.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-setuptools-wheel@39.2.0-6.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: hwdata
+
+PackageName: hwdata
+SPDXID: SPDXRef-Package-1f28b50c678ca63c
+PackageVersion: 0.314
+FilesAnalyzed: false
+PackageSourceInfo: built package from: hwdata 0.314-8.8.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/hwdata@0.314-8.8.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: hwdata@0.314-8.8.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: systemd
+
+PackageName: systemd
+SPDXID: SPDXRef-Package-22cc03c3519db95e
+PackageVersion: 239
+FilesAnalyzed: false
+PackageSourceInfo: built package from: systemd 239-45.el8
+PackageLicenseConcluded: LGPLv2+ and MIT and GPLv2+
+PackageLicenseDeclared: LGPLv2+ and MIT and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/systemd@239-45.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: systemd@239-45.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libblkid
+
+PackageName: libblkid
+SPDXID: SPDXRef-Package-22d54c7b30e2bb77
+PackageVersion: 2.32.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: util-linux 2.32.1-27.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libblkid@2.32.1-27.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libblkid@2.32.1-27.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: vim-minimal
+
+PackageName: vim-minimal
+SPDXID: SPDXRef-Package-232fca24da3af6fc
+PackageVersion: 8.0.1763
+FilesAnalyzed: false
+PackageSourceInfo: built package from: vim 2:8.0.1763-15.el8
+PackageLicenseConcluded: Vim and MIT
+PackageLicenseDeclared: Vim and MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/vim-minimal@2:8.0.1763-15.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: vim-minimal@8.0.1763-15.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: centos-linux-release
+
+PackageName: centos-linux-release
+SPDXID: SPDXRef-Package-23d4755b80d4d390
+PackageVersion: 8.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: centos-linux-release 8.4-1.2105.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/centos-linux-release@8.4-1.2105.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: centos-linux-release@8.4-1.2105.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: langpacks-en
+
+PackageName: langpacks-en
+SPDXID: SPDXRef-Package-26351c90448f8c7a
+PackageVersion: 1.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: langpacks 1.0-12.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/langpacks-en@1.0-12.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: langpacks-en@1.0-12.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: rpm
+
+PackageName: rpm
+SPDXID: SPDXRef-Package-2672cfc9f0fe2536
+PackageVersion: 4.14.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: rpm 4.14.3-13.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/rpm@4.14.3-13.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: rpm@4.14.3-13.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: cyrus-sasl-lib
+
+PackageName: cyrus-sasl-lib
+SPDXID: SPDXRef-Package-268e2c675018ba80
+PackageVersion: 2.1.27
+FilesAnalyzed: false
+PackageSourceInfo: built package from: cyrus-sasl 2.1.27-5.el8
+PackageLicenseConcluded: BSD with advertising
+PackageLicenseDeclared: BSD with advertising
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/cyrus-sasl-lib@2.1.27-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: cyrus-sasl-lib@2.1.27-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: rootfiles
+
+PackageName: rootfiles
+SPDXID: SPDXRef-Package-272ce3fdf8197e6b
+PackageVersion: 8.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: rootfiles 8.1-22.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/rootfiles@8.1-22.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: rootfiles@8.1-22.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: tar
+
+PackageName: tar
+SPDXID: SPDXRef-Package-27dc70f14ef2eaf8
+PackageVersion: 1.30
+FilesAnalyzed: false
+PackageSourceInfo: built package from: tar 2:1.30-5.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/tar@2:1.30-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: tar@1.30-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: acl
+
+PackageName: acl
+SPDXID: SPDXRef-Package-2804bac8d67bfba
+PackageVersion: 2.2.53
+FilesAnalyzed: false
+PackageSourceInfo: built package from: acl 2.2.53-1.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/acl@2.2.53-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: acl@2.2.53-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dbus-libs
+
+PackageName: dbus-libs
+SPDXID: SPDXRef-Package-285907a249fb41cc
+PackageVersion: 1.12.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dbus 1:1.12.8-12.el8
+PackageLicenseConcluded: (GPLv2+ or AFL) and GPLv2+
+PackageLicenseDeclared: (GPLv2+ or AFL) and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dbus-libs@1:1.12.8-12.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dbus-libs@1.12.8-12.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libdb
+
+PackageName: libdb
+SPDXID: SPDXRef-Package-2b61532b7dfba826
+PackageVersion: 5.3.28
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libdb 5.3.28-40.el8
+PackageLicenseConcluded: BSD and LGPLv2 and Sleepycat
+PackageLicenseDeclared: BSD and LGPLv2 and Sleepycat
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libdb@5.3.28-40.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libdb@5.3.28-40.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libgcc
+
+PackageName: libgcc
+SPDXID: SPDXRef-Package-2e5df17cb345f50c
+PackageVersion: 8.4.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gcc 8.4.1-1.el8
+PackageLicenseConcluded: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
+PackageLicenseDeclared: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libgcc@8.4.1-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libgcc@8.4.1-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libnghttp2
+
+PackageName: libnghttp2
+SPDXID: SPDXRef-Package-2e83a3bd120db809
+PackageVersion: 1.33.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: nghttp2 1.33.0-3.el8_2.1
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libnghttp2@1.33.0-3.el8_2.1?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libnghttp2@1.33.0-3.el8_2.1.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: setup
+
+PackageName: setup
+SPDXID: SPDXRef-Package-2ef7897b345e3d01
+PackageVersion: 2.12.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: setup 2.12.2-6.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/setup@2.12.2-6.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: setup@2.12.2-6.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libfdisk
+
+PackageName: libfdisk
+SPDXID: SPDXRef-Package-301ab94a04947bdb
+PackageVersion: 2.32.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: util-linux 2.32.1-27.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libfdisk@2.32.1-27.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libfdisk@2.32.1-27.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: elfutils-default-yama-scope
+
+PackageName: elfutils-default-yama-scope
+SPDXID: SPDXRef-Package-3035730706929ad3
+PackageVersion: 0.182
+FilesAnalyzed: false
+PackageSourceInfo: built package from: elfutils 0.182-3.el8
+PackageLicenseConcluded: GPLv2+ or LGPLv3+
+PackageLicenseDeclared: GPLv2+ or LGPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/elfutils-default-yama-scope@0.182-3.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: elfutils-default-yama-scope@0.182-3.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-rpm
+
+PackageName: python3-rpm
+SPDXID: SPDXRef-Package-31b2adb21aaa8f9e
+PackageVersion: 4.14.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: rpm 4.14.3-13.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-rpm@4.14.3-13.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-rpm@4.14.3-13.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dracut-network
+
+PackageName: dracut-network
+SPDXID: SPDXRef-Package-34d3ceb29471a6be
+PackageVersion: 049
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dracut 049-135.git20210121.el8
+PackageLicenseConcluded: GPLv2+ and LGPLv2+
+PackageLicenseDeclared: GPLv2+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dracut-network@049-135.git20210121.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dracut-network@049-135.git20210121.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libksba
+
+PackageName: libksba
+SPDXID: SPDXRef-Package-392adbac082b16d9
+PackageVersion: 1.3.5
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libksba 1.3.5-7.el8
+PackageLicenseConcluded: (LGPLv3+ or GPLv2+) and GPLv3+
+PackageLicenseDeclared: (LGPLv3+ or GPLv2+) and GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libksba@1.3.5-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libksba@1.3.5-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: hostname
+
+PackageName: hostname
+SPDXID: SPDXRef-Package-3976dc840074bf00
+PackageVersion: 3.20
+FilesAnalyzed: false
+PackageSourceInfo: built package from: hostname 3.20-6.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/hostname@3.20-6.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: hostname@3.20-6.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libverto
+
+PackageName: libverto
+SPDXID: SPDXRef-Package-39a98f6a78db18
+PackageVersion: 0.3.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libverto 0.3.0-5.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libverto@0.3.0-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libverto@0.3.0-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: platform-python-setuptools
+
+PackageName: platform-python-setuptools
+SPDXID: SPDXRef-Package-3a3a36d42e257ed1
+PackageVersion: 39.2.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: python-setuptools 39.2.0-6.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/platform-python-setuptools@39.2.0-6.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: platform-python-setuptools@39.2.0-6.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gmp
+
+PackageName: gmp
+SPDXID: SPDXRef-Package-3fdeaa367acddcf1
+PackageVersion: 6.1.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gmp 1:6.1.2-10.el8
+PackageLicenseConcluded: LGPLv3+ or GPLv2+
+PackageLicenseDeclared: LGPLv3+ or GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gmp@1:6.1.2-10.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gmp@6.1.2-10.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libcap-ng
+
+PackageName: libcap-ng
+SPDXID: SPDXRef-Package-405c33c674b7d799
+PackageVersion: 0.7.9
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libcap-ng 0.7.9-5.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libcap-ng@0.7.9-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libcap-ng@0.7.9-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: sqlite-libs
+
+PackageName: sqlite-libs
+SPDXID: SPDXRef-Package-40eef22e107ae825
+PackageVersion: 3.26.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: sqlite 3.26.0-13.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/sqlite-libs@3.26.0-13.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: sqlite-libs@3.26.0-13.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: cracklib-dicts
+
+PackageName: cracklib-dicts
+SPDXID: SPDXRef-Package-4174d4cb95ca8785
+PackageVersion: 2.9.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: cracklib 2.9.6-15.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/cracklib-dicts@2.9.6-15.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: cracklib-dicts@2.9.6-15.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libkcapi-hmaccalc
+
+PackageName: libkcapi-hmaccalc
+SPDXID: SPDXRef-Package-431814a685ef32c4
+PackageVersion: 1.2.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libkcapi 1.2.0-2.el8
+PackageLicenseConcluded: BSD or GPLv2
+PackageLicenseDeclared: BSD or GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libkcapi-hmaccalc@1.2.0-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libkcapi-hmaccalc@1.2.0-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: device-mapper
+
+PackageName: device-mapper
+SPDXID: SPDXRef-Package-457cdb5d0307c328
+PackageVersion: 1.02.175
+FilesAnalyzed: false
+PackageSourceInfo: built package from: lvm2 8:2.03.11-5.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/device-mapper@8:1.02.175-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: device-mapper@1.02.175-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: bind-export-libs
+
+PackageName: bind-export-libs
+SPDXID: SPDXRef-Package-45fdb63532f8f872
+PackageVersion: 9.11.26
+FilesAnalyzed: false
+PackageSourceInfo: built package from: bind 32:9.11.26-3.el8
+PackageLicenseConcluded: MPLv2.0
+PackageLicenseDeclared: MPLv2.0
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/bind-export-libs@32:9.11.26-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: bind-export-libs@9.11.26-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-libdnf
+
+PackageName: python3-libdnf
+SPDXID: SPDXRef-Package-46bbf12608311fa6
+PackageVersion: 0.55.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libdnf 0.55.0-7.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-libdnf@0.55.0-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-libdnf@0.55.0-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: ethtool
+
+PackageName: ethtool
+SPDXID: SPDXRef-Package-479148164a9fcf02
+PackageVersion: 5.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: ethtool 2:5.8-5.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/ethtool@2:5.8-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: ethtool@5.8-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dracut-squash
+
+PackageName: dracut-squash
+SPDXID: SPDXRef-Package-47efd95ab4834b00
+PackageVersion: 049
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dracut 049-135.git20210121.el8
+PackageLicenseConcluded: GPLv2+ and LGPLv2+
+PackageLicenseDeclared: GPLv2+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dracut-squash@049-135.git20210121.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dracut-squash@049-135.git20210121.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libnl3
+
+PackageName: libnl3
+SPDXID: SPDXRef-Package-4a875912b7370d35
+PackageVersion: 3.5.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libnl3 3.5.0-1.el8
+PackageLicenseConcluded: LGPLv2
+PackageLicenseDeclared: LGPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libnl3@3.5.0-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libnl3@3.5.0-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: findutils
+
+PackageName: findutils
+SPDXID: SPDXRef-Package-4e07272185f178a8
+PackageVersion: 4.6.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: findutils 1:4.6.0-20.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/findutils@1:4.6.0-20.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: findutils@4.6.0-20.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gnutls
+
+PackageName: gnutls
+SPDXID: SPDXRef-Package-4e20fa415051591e
+PackageVersion: 3.6.14
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gnutls 3.6.14-7.el8_3
+PackageLicenseConcluded: GPLv3+ and LGPLv2+
+PackageLicenseDeclared: GPLv3+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gnutls@3.6.14-7.el8_3?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gnutls@3.6.14-7.el8_3.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: systemd-libs
+
+PackageName: systemd-libs
+SPDXID: SPDXRef-Package-4eab7e5754f2cc7c
+PackageVersion: 239
+FilesAnalyzed: false
+PackageSourceInfo: built package from: systemd 239-45.el8
+PackageLicenseConcluded: LGPLv2+ and MIT
+PackageLicenseDeclared: LGPLv2+ and MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/systemd-libs@239-45.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: systemd-libs@239-45.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gdbm-libs
+
+PackageName: gdbm-libs
+SPDXID: SPDXRef-Package-4fa7a71d3cb35e05
+PackageVersion: 1.18
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gdbm 1:1.18-1.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gdbm-libs@1:1.18-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gdbm-libs@1.18-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: procps-ng
+
+PackageName: procps-ng
+SPDXID: SPDXRef-Package-4fafb3862867fcad
+PackageVersion: 3.3.15
+FilesAnalyzed: false
+PackageSourceInfo: built package from: procps-ng 3.3.15-6.el8
+PackageLicenseConcluded: GPL+ and GPLv2 and GPLv2+ and GPLv3+ and LGPLv2+
+PackageLicenseDeclared: GPL+ and GPLv2 and GPLv2+ and GPLv3+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/procps-ng@3.3.15-6.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: procps-ng@3.3.15-6.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libsemanage
+
+PackageName: libsemanage
+SPDXID: SPDXRef-Package-507102265c84b7e6
+PackageVersion: 2.9
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libsemanage 2.9-6.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libsemanage@2.9-6.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libsemanage@2.9-6.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: krb5-libs
+
+PackageName: krb5-libs
+SPDXID: SPDXRef-Package-50a03f49bad1fbc0
+PackageVersion: 1.18.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: krb5 1.18.2-8.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/krb5-libs@1.18.2-8.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: krb5-libs@1.18.2-8.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: grep
+
+PackageName: grep
+SPDXID: SPDXRef-Package-51c97e83df0a1054
+PackageVersion: 3.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: grep 3.1-6.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/grep@3.1-6.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: grep@3.1-6.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libdb-utils
+
+PackageName: libdb-utils
+SPDXID: SPDXRef-Package-51f367f669de56f9
+PackageVersion: 5.3.28
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libdb 5.3.28-40.el8
+PackageLicenseConcluded: BSD and LGPLv2 and Sleepycat
+PackageLicenseDeclared: BSD and LGPLv2 and Sleepycat
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libdb-utils@5.3.28-40.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libdb-utils@5.3.28-40.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libsmartcols
+
+PackageName: libsmartcols
+SPDXID: SPDXRef-Package-5213112e6ebaf5ed
+PackageVersion: 2.32.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: util-linux 2.32.1-27.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libsmartcols@2.32.1-27.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libsmartcols@2.32.1-27.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dbus-tools
+
+PackageName: dbus-tools
+SPDXID: SPDXRef-Package-5620202d7db46a3a
+PackageVersion: 1.12.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dbus 1:1.12.8-12.el8
+PackageLicenseConcluded: (GPLv2+ or AFL) and GPLv2+
+PackageLicenseDeclared: (GPLv2+ or AFL) and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dbus-tools@1:1.12.8-12.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dbus-tools@1.12.8-12.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libcap
+
+PackageName: libcap
+SPDXID: SPDXRef-Package-59cc877c34bf8c27
+PackageVersion: 2.26
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libcap 2.26-4.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libcap@2.26-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libcap@2.26-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libpcap
+
+PackageName: libpcap
+SPDXID: SPDXRef-Package-59e271091b8fc16c
+PackageVersion: 1.9.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libpcap 14:1.9.1-5.el8
+PackageLicenseConcluded: BSD with advertising
+PackageLicenseDeclared: BSD with advertising
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libpcap@14:1.9.1-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libpcap@1.9.1-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: squashfs-tools
+
+PackageName: squashfs-tools
+SPDXID: SPDXRef-Package-5a26ec143406caf
+PackageVersion: 4.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: squashfs-tools 4.3-20.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/squashfs-tools@4.3-20.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: squashfs-tools@4.3-20.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: rpm-libs
+
+PackageName: rpm-libs
+SPDXID: SPDXRef-Package-5be0eb43acbe7751
+PackageVersion: 4.14.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: rpm 4.14.3-13.el8
+PackageLicenseConcluded: GPLv2+ and LGPLv2+ with exceptions
+PackageLicenseDeclared: GPLv2+ and LGPLv2+ with exceptions
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/rpm-libs@4.14.3-13.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: rpm-libs@4.14.3-13.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gnupg2
+
+PackageName: gnupg2
+SPDXID: SPDXRef-Package-5d6fd8df7c071fbf
+PackageVersion: 2.2.20
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gnupg2 2.2.20-2.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gnupg2@2.2.20-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gnupg2@2.2.20-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: less
+
+PackageName: less
+SPDXID: SPDXRef-Package-5f4ba882e46e0b
+PackageVersion: 530
+FilesAnalyzed: false
+PackageSourceInfo: built package from: less 530-1.el8
+PackageLicenseConcluded: GPLv3+ or BSD
+PackageLicenseDeclared: GPLv3+ or BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/less@530-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: less@530-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: pam
+
+PackageName: pam
+SPDXID: SPDXRef-Package-5fc67b4620d99295
+PackageVersion: 1.3.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: pam 1.3.1-14.el8
+PackageLicenseConcluded: BSD and GPLv2+
+PackageLicenseDeclared: BSD and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/pam@1.3.1-14.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: pam@1.3.1-14.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libsigsegv
+
+PackageName: libsigsegv
+SPDXID: SPDXRef-Package-61479cc275c9ace4
+PackageVersion: 2.11
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libsigsegv 2.11-5.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libsigsegv@2.11-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libsigsegv@2.11-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-libcomps
+
+PackageName: python3-libcomps
+SPDXID: SPDXRef-Package-61bf74974abd3c0d
+PackageVersion: 0.1.11
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libcomps 0.1.11-5.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-libcomps@0.1.11-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-libcomps@0.1.11-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: pcre2
+
+PackageName: pcre2
+SPDXID: SPDXRef-Package-61d7588c69c256cc
+PackageVersion: 10.32
+FilesAnalyzed: false
+PackageSourceInfo: built package from: pcre2 10.32-2.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/pcre2@10.32-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: pcre2@10.32-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dbus
+
+PackageName: dbus
+SPDXID: SPDXRef-Package-642a018c0eedfc1d
+PackageVersion: 1.12.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dbus 1:1.12.8-12.el8
+PackageLicenseConcluded: (GPLv2+ or AFL) and GPLv2+
+PackageLicenseDeclared: (GPLv2+ or AFL) and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dbus@1:1.12.8-12.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dbus@1.12.8-12.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: info
+
+PackageName: info
+SPDXID: SPDXRef-Package-646fab50fb2f0ce9
+PackageVersion: 6.5
+FilesAnalyzed: false
+PackageSourceInfo: built package from: texinfo 6.5-6.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/info@6.5-6.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: info@6.5-6.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libassuan
+
+PackageName: libassuan
+SPDXID: SPDXRef-Package-6483625accff7e38
+PackageVersion: 2.5.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libassuan 2.5.1-3.el8
+PackageLicenseConcluded: LGPLv2+ and GPLv3+
+PackageLicenseDeclared: LGPLv2+ and GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libassuan@2.5.1-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libassuan@2.5.1-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libffi
+
+PackageName: libffi
+SPDXID: SPDXRef-Package-6548157e3a07e702
+PackageVersion: 3.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libffi 3.1-22.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libffi@3.1-22.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libffi@3.1-22.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: xz-libs
+
+PackageName: xz-libs
+SPDXID: SPDXRef-Package-65b0b49b5ce57704
+PackageVersion: 5.2.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: xz 5.2.4-3.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/xz-libs@5.2.4-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: xz-libs@5.2.4-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libtirpc
+
+PackageName: libtirpc
+SPDXID: SPDXRef-Package-67024bf994908606
+PackageVersion: 1.1.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libtirpc 1.1.4-4.el8
+PackageLicenseConcluded: SISSL and BSD
+PackageLicenseDeclared: SISSL and BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libtirpc@1.1.4-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libtirpc@1.1.4-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dnf-data
+
+PackageName: dnf-data
+SPDXID: SPDXRef-Package-672b88538503055f
+PackageVersion: 4.4.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dnf 4.4.2-11.el8
+PackageLicenseConcluded: GPLv2+ and GPLv2 and GPL
+PackageLicenseDeclared: GPLv2+ and GPLv2 and GPL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dnf-data@4.4.2-11.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dnf-data@4.4.2-11.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: kexec-tools
+
+PackageName: kexec-tools
+SPDXID: SPDXRef-Package-69dd2a1abc51e844
+PackageVersion: 2.0.20
+FilesAnalyzed: false
+PackageSourceInfo: built package from: kexec-tools 2.0.20-46.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/kexec-tools@2.0.20-46.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: kexec-tools@2.0.20-46.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: ncurses-base
+
+PackageName: ncurses-base
+SPDXID: SPDXRef-Package-6c88d487ce63d024
+PackageVersion: 6.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: ncurses 6.1-7.20180224.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/ncurses-base@6.1-7.20180224.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: ncurses-base@6.1-7.20180224.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libsepol
+
+PackageName: libsepol
+SPDXID: SPDXRef-Package-6e65170a809e3163
+PackageVersion: 2.9
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libsepol 2.9-2.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libsepol@2.9-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libsepol@2.9-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: openssl-libs
+
+PackageName: openssl-libs
+SPDXID: SPDXRef-Package-707fa1273e5ff877
+PackageVersion: 1.1.1g
+FilesAnalyzed: false
+PackageSourceInfo: built package from: openssl 1:1.1.1g-15.el8_3
+PackageLicenseConcluded: OpenSSL and ASL 2.0
+PackageLicenseDeclared: OpenSSL and ASL 2.0
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/openssl-libs@1:1.1.1g-15.el8_3?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: openssl-libs@1.1.1g-15.el8_3.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: nettle
+
+PackageName: nettle
+SPDXID: SPDXRef-Package-75e8df57b4c2fd37
+PackageVersion: 3.4.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: nettle 3.4.1-2.el8
+PackageLicenseConcluded: LGPLv3+ or GPLv2+
+PackageLicenseDeclared: LGPLv3+ or GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/nettle@3.4.1-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: nettle@3.4.1-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: lzo
+
+PackageName: lzo
+SPDXID: SPDXRef-Package-7819c3baceafacfc
+PackageVersion: 2.08
+FilesAnalyzed: false
+PackageSourceInfo: built package from: lzo 2.08-14.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/lzo@2.08-14.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: lzo@2.08-14.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libgpg-error
+
+PackageName: libgpg-error
+SPDXID: SPDXRef-Package-7a202a537673a3ff
+PackageVersion: 1.31
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libgpg-error 1.31-1.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libgpg-error@1.31-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libgpg-error@1.31-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dbus-common
+
+PackageName: dbus-common
+SPDXID: SPDXRef-Package-7c5301bc66f24de1
+PackageVersion: 1.12.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dbus 1:1.12.8-12.el8
+PackageLicenseConcluded: (GPLv2+ or AFL) and GPLv2+
+PackageLicenseDeclared: (GPLv2+ or AFL) and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dbus-common@1:1.12.8-12.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dbus-common@1.12.8-12.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: mpfr
+
+PackageName: mpfr
+SPDXID: SPDXRef-Package-7e27356ced420d60
+PackageVersion: 3.1.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: mpfr 3.1.6-1.el8
+PackageLicenseConcluded: LGPLv3+ and GPLv3+ and GFDL
+PackageLicenseDeclared: LGPLv3+ and GPLv3+ and GFDL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/mpfr@3.1.6-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: mpfr@3.1.6-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gzip
+
+PackageName: gzip
+SPDXID: SPDXRef-Package-803eac3fd5a71240
+PackageVersion: 1.9
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gzip 1.9-12.el8
+PackageLicenseConcluded: GPLv3+ and GFDL
+PackageLicenseDeclared: GPLv3+ and GFDL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gzip@1.9-12.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gzip@1.9-12.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: shadow-utils
+
+PackageName: shadow-utils
+SPDXID: SPDXRef-Package-8295d655080a13db
+PackageVersion: 4.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: shadow-utils 2:4.6-12.el8
+PackageLicenseConcluded: BSD and GPLv2+
+PackageLicenseDeclared: BSD and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/shadow-utils@2:4.6-12.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: shadow-utils@4.6-12.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dbus-daemon
+
+PackageName: dbus-daemon
+SPDXID: SPDXRef-Package-834d72a3d108db11
+PackageVersion: 1.12.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dbus 1:1.12.8-12.el8
+PackageLicenseConcluded: (GPLv2+ or AFL) and GPLv2+
+PackageLicenseDeclared: (GPLv2+ or AFL) and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dbus-daemon@1:1.12.8-12.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dbus-daemon@1.12.8-12.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libxcrypt
+
+PackageName: libxcrypt
+SPDXID: SPDXRef-Package-843071edc356bc73
+PackageVersion: 4.1.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libxcrypt 4.1.1-4.el8
+PackageLicenseConcluded: LGPLv2+ and BSD and Public Domain
+PackageLicenseDeclared: LGPLv2+ and BSD and Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libxcrypt@4.1.1-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libxcrypt@4.1.1-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: glibc-minimal-langpack
+
+PackageName: glibc-minimal-langpack
+SPDXID: SPDXRef-Package-84678c2752e12d06
+PackageVersion: 2.28
+FilesAnalyzed: false
+PackageSourceInfo: built package from: glibc 2.28-151.el8
+PackageLicenseConcluded: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL
+PackageLicenseDeclared: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/glibc-minimal-langpack@2.28-151.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: glibc-minimal-langpack@2.28-151.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libmetalink
+
+PackageName: libmetalink
+SPDXID: SPDXRef-Package-85c32219e515e34
+PackageVersion: 0.1.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libmetalink 0.1.3-7.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libmetalink@0.1.3-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libmetalink@0.1.3-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libstdc++
+
+PackageName: libstdc++
+SPDXID: SPDXRef-Package-872e9a8cf333e4bd
+PackageVersion: 8.4.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gcc 8.4.1-1.el8
+PackageLicenseConcluded: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
+PackageLicenseDeclared: GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libstdc++@8.4.1-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libstdc++@8.4.1-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libpwquality
+
+PackageName: libpwquality
+SPDXID: SPDXRef-Package-89310409a523f2a8
+PackageVersion: 1.4.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libpwquality 1.4.4-3.el8
+PackageLicenseConcluded: BSD or GPLv2+
+PackageLicenseDeclared: BSD or GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libpwquality@1.4.4-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libpwquality@1.4.4-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: openldap
+
+PackageName: openldap
+SPDXID: SPDXRef-Package-897493f18e9d2262
+PackageVersion: 2.4.46
+FilesAnalyzed: false
+PackageSourceInfo: built package from: openldap 2.4.46-16.el8
+PackageLicenseConcluded: OpenLDAP
+PackageLicenseDeclared: OpenLDAP
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/openldap@2.4.46-16.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: openldap@2.4.46-16.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: centos-gpg-keys
+
+PackageName: centos-gpg-keys
+SPDXID: SPDXRef-Package-8986d5ac5bc2f670
+PackageVersion: 8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: centos-repos 1:8-2.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/centos-gpg-keys@1:8-2.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: centos-gpg-keys@8-2.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: centos-linux-repos
+
+PackageName: centos-linux-repos
+SPDXID: SPDXRef-Package-8ac43c00b2bbc430
+PackageVersion: 8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: centos-repos 8-2.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/centos-linux-repos@8-2.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: centos-linux-repos@8-2.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: zlib
+
+PackageName: zlib
+SPDXID: SPDXRef-Package-8d8bff017c5807e6
+PackageVersion: 1.2.11
+FilesAnalyzed: false
+PackageSourceInfo: built package from: zlib 1.2.11-17.el8
+PackageLicenseConcluded: zlib and Boost
+PackageLicenseDeclared: zlib and Boost
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/zlib@1.2.11-17.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: zlib@1.2.11-17.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libcurl-minimal
+
+PackageName: libcurl-minimal
+SPDXID: SPDXRef-Package-8fcd14af2fd60796
+PackageVersion: 7.61.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: curl 7.61.1-18.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libcurl-minimal@7.61.1-18.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libcurl-minimal@7.61.1-18.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: basesystem
+
+PackageName: basesystem
+SPDXID: SPDXRef-Package-906269d3b3f3f07d
+PackageVersion: 11
+FilesAnalyzed: false
+PackageSourceInfo: built package from: basesystem 11-5.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/basesystem@11-5.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: basesystem@11-5.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: librepo
+
+PackageName: librepo
+SPDXID: SPDXRef-Package-919aeff475d98b9a
+PackageVersion: 1.12.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: librepo 1.12.0-3.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/librepo@1.12.0-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: librepo@1.12.0-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: popt
+
+PackageName: popt
+SPDXID: SPDXRef-Package-93ddefc142092d7d
+PackageVersion: 1.18
+FilesAnalyzed: false
+PackageSourceInfo: built package from: popt 1.18-1.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/popt@1.18-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: popt@1.18-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: binutils
+
+PackageName: binutils
+SPDXID: SPDXRef-Package-94107cde930fbadf
+PackageVersion: 2.30
+FilesAnalyzed: false
+PackageSourceInfo: built package from: binutils 2.30-93.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/binutils@2.30-93.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: binutils@2.30-93.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: snappy
+
+PackageName: snappy
+SPDXID: SPDXRef-Package-943015f35ce2fe79
+PackageVersion: 1.1.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: snappy 1.1.8-3.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/snappy@1.1.8-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: snappy@1.1.8-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libmount
+
+PackageName: libmount
+SPDXID: SPDXRef-Package-9493d0c6e1c82ceb
+PackageVersion: 2.32.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: util-linux 2.32.1-27.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libmount@2.32.1-27.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libmount@2.32.1-27.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dracut
+
+PackageName: dracut
+SPDXID: SPDXRef-Package-9503ed1f2646ce4c
+PackageVersion: 049
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dracut 049-135.git20210121.el8
+PackageLicenseConcluded: GPLv2+ and LGPLv2+
+PackageLicenseDeclared: GPLv2+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dracut@049-135.git20210121.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dracut@049-135.git20210121.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: bash
+
+PackageName: bash
+SPDXID: SPDXRef-Package-95be7d4530fbe443
+PackageVersion: 4.4.19
+FilesAnalyzed: false
+PackageSourceInfo: built package from: bash 4.4.19-14.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/bash@4.4.19-14.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: bash@4.4.19-14.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: lz4-libs
+
+PackageName: lz4-libs
+SPDXID: SPDXRef-Package-9674f6011c4c25b2
+PackageVersion: 1.8.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: lz4 1.8.3-2.el8
+PackageLicenseConcluded: GPLv2+ and BSD
+PackageLicenseDeclared: GPLv2+ and BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/lz4-libs@1.8.3-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: lz4-libs@1.8.3-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libmodulemd
+
+PackageName: libmodulemd
+SPDXID: SPDXRef-Package-96755e0038d87c6d
+PackageVersion: 2.9.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libmodulemd 2.9.4-2.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libmodulemd@2.9.4-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libmodulemd@2.9.4-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: elfutils-libs
+
+PackageName: elfutils-libs
+SPDXID: SPDXRef-Package-9712a7db7e6dc7cf
+PackageVersion: 0.182
+FilesAnalyzed: false
+PackageSourceInfo: built package from: elfutils 0.182-3.el8
+PackageLicenseConcluded: GPLv2+ or LGPLv3+
+PackageLicenseDeclared: GPLv2+ or LGPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/elfutils-libs@0.182-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: elfutils-libs@0.182-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: audit-libs
+
+PackageName: audit-libs
+SPDXID: SPDXRef-Package-981fdc46b7a99ac0
+PackageVersion: 3.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: audit 3.0-0.17.20191104git1c2f876.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/audit-libs@3.0-0.17.20191104git1c2f876.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: audit-libs@3.0-0.17.20191104git1c2f876.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libusbx
+
+PackageName: libusbx
+SPDXID: SPDXRef-Package-98d78e7749be8303
+PackageVersion: 1.0.23
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libusbx 1.0.23-4.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libusbx@1.0.23-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libusbx@1.0.23-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libcomps
+
+PackageName: libcomps
+SPDXID: SPDXRef-Package-98e8b4d7fba55d02
+PackageVersion: 0.1.11
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libcomps 0.1.11-5.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libcomps@0.1.11-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libcomps@0.1.11-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-pip-wheel
+
+PackageName: python3-pip-wheel
+SPDXID: SPDXRef-Package-9a386594525b42a6
+PackageVersion: 9.0.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: python-pip 9.0.3-19.el8
+PackageLicenseConcluded: MIT and Python and ASL 2.0 and BSD and ISC and LGPLv2 and MPLv2.0 and (ASL 2.0 or BSD)
+PackageLicenseDeclared: MIT and Python and ASL 2.0 and BSD and ISC and LGPLv2 and MPLv2.0 and (ASL 2.0 or BSD)
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-pip-wheel@9.0.3-19.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-pip-wheel@9.0.3-19.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libgcrypt
+
+PackageName: libgcrypt
+SPDXID: SPDXRef-Package-9b85a430e771cd95
+PackageVersion: 1.8.5
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libgcrypt 1.8.5-4.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libgcrypt@1.8.5-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libgcrypt@1.8.5-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: util-linux
+
+PackageName: util-linux
+SPDXID: SPDXRef-Package-9bce573cc3b5fb54
+PackageVersion: 2.32.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: util-linux 2.32.1-27.el8
+PackageLicenseConcluded: GPLv2 and GPLv2+ and LGPLv2+ and BSD with advertising and Public Domain
+PackageLicenseDeclared: GPLv2 and GPLv2+ and LGPLv2+ and BSD with advertising and Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/util-linux@2.32.1-27.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: util-linux@2.32.1-27.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: tzdata
+
+PackageName: tzdata
+SPDXID: SPDXRef-Package-9eeec0297f78f368
+PackageVersion: 2021a
+FilesAnalyzed: false
+PackageSourceInfo: built package from: tzdata 2021a-1.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/tzdata@2021a-1.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: tzdata@2021a-1.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libutempter
+
+PackageName: libutempter
+SPDXID: SPDXRef-Package-a03fccf9215f34c3
+PackageVersion: 1.1.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libutempter 1.1.6-14.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libutempter@1.1.6-14.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libutempter@1.1.6-14.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: elfutils-libelf
+
+PackageName: elfutils-libelf
+SPDXID: SPDXRef-Package-a09c3843d5ea7864
+PackageVersion: 0.182
+FilesAnalyzed: false
+PackageSourceInfo: built package from: elfutils 0.182-3.el8
+PackageLicenseConcluded: GPLv2+ or LGPLv3+
+PackageLicenseDeclared: GPLv2+ or LGPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/elfutils-libelf@0.182-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: elfutils-libelf@0.182-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: keyutils-libs
+
+PackageName: keyutils-libs
+SPDXID: SPDXRef-Package-a31842fc82427f70
+PackageVersion: 1.5.10
+FilesAnalyzed: false
+PackageSourceInfo: built package from: keyutils 1.5.10-6.el8
+PackageLicenseConcluded: GPLv2+ and LGPLv2+
+PackageLicenseDeclared: GPLv2+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/keyutils-libs@1.5.10-6.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: keyutils-libs@1.5.10-6.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dnf
+
+PackageName: dnf
+SPDXID: SPDXRef-Package-a4764cf32e1488e
+PackageVersion: 4.4.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dnf 4.4.2-11.el8
+PackageLicenseConcluded: GPLv2+ and GPLv2 and GPL
+PackageLicenseDeclared: GPLv2+ and GPLv2 and GPL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dnf@4.4.2-11.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dnf@4.4.2-11.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: filesystem
+
+PackageName: filesystem
+SPDXID: SPDXRef-Package-a562ac24eda1a1c7
+PackageVersion: 3.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: filesystem 3.8-3.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/filesystem@3.8-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: filesystem@3.8-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: iputils
+
+PackageName: iputils
+SPDXID: SPDXRef-Package-a8c1031ba097b2c8
+PackageVersion: 20180629
+FilesAnalyzed: false
+PackageSourceInfo: built package from: iputils 20180629-7.el8
+PackageLicenseConcluded: BSD and GPLv2+
+PackageLicenseDeclared: BSD and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/iputils@20180629-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: iputils@20180629-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libzstd
+
+PackageName: libzstd
+SPDXID: SPDXRef-Package-aa86365446de4165
+PackageVersion: 1.4.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: zstd 1.4.4-1.el8
+PackageLicenseConcluded: BSD and GPLv2
+PackageLicenseDeclared: BSD and GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libzstd@1.4.4-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libzstd@1.4.4-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-hawkey
+
+PackageName: python3-hawkey
+SPDXID: SPDXRef-Package-adaaa91d4be90cf8
+PackageVersion: 0.55.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libdnf 0.55.0-7.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-hawkey@0.55.0-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-hawkey@0.55.0-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: ca-certificates
+
+PackageName: ca-certificates
+SPDXID: SPDXRef-Package-af3298229a15d3
+PackageVersion: 2020.2.41
+FilesAnalyzed: false
+PackageSourceInfo: built package from: ca-certificates 2020.2.41-80.0.el8_2
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/ca-certificates@2020.2.41-80.0.el8_2?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: ca-certificates@2020.2.41-80.0.el8_2.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gawk
+
+PackageName: gawk
+SPDXID: SPDXRef-Package-b0f59a9172e9d8af
+PackageVersion: 4.2.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gawk 4.2.1-2.el8
+PackageLicenseConcluded: GPLv3+ and GPLv2+ and LGPLv2+ and BSD
+PackageLicenseDeclared: GPLv3+ and GPLv2+ and LGPLv2+ and BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gawk@4.2.1-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gawk@4.2.1-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libseccomp
+
+PackageName: libseccomp
+SPDXID: SPDXRef-Package-b172d9b1bfa70c88
+PackageVersion: 2.5.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libseccomp 2.5.1-1.el8
+PackageLicenseConcluded: LGPLv2
+PackageLicenseDeclared: LGPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libseccomp@2.5.1-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libseccomp@2.5.1-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dhcp-common
+
+PackageName: dhcp-common
+SPDXID: SPDXRef-Package-b3860c8a47d34764
+PackageVersion: 4.3.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dhcp 12:4.3.6-44.0.1.el8
+PackageLicenseConcluded: ISC
+PackageLicenseDeclared: ISC
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dhcp-common@12:4.3.6-44.0.1.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dhcp-common@4.3.6-44.0.1.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: lua-libs
+
+PackageName: lua-libs
+SPDXID: SPDXRef-Package-b4e14e2f2dff4ab6
+PackageVersion: 5.3.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: lua 5.3.4-11.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/lua-libs@5.3.4-11.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: lua-libs@5.3.4-11.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: systemd-pam
+
+PackageName: systemd-pam
+SPDXID: SPDXRef-Package-b7b42a09e086edcf
+PackageVersion: 239
+FilesAnalyzed: false
+PackageSourceInfo: built package from: systemd 239-45.el8
+PackageLicenseConcluded: LGPLv2+ and MIT and GPLv2+
+PackageLicenseDeclared: LGPLv2+ and MIT and GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/systemd-pam@239-45.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: systemd-pam@239-45.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libreport-filesystem
+
+PackageName: libreport-filesystem
+SPDXID: SPDXRef-Package-b87531ac8719c19a
+PackageVersion: 2.9.5
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libreport 2.9.5-15.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libreport-filesystem@2.9.5-15.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libreport-filesystem@2.9.5-15.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-gpg
+
+PackageName: python3-gpg
+SPDXID: SPDXRef-Package-bd90102466106633
+PackageVersion: 1.13.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gpgme 1.13.1-7.el8
+PackageLicenseConcluded: LGPLv2+ and MIT
+PackageLicenseDeclared: LGPLv2+ and MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-gpg@1.13.1-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-gpg@1.13.1-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dhcp-libs
+
+PackageName: dhcp-libs
+SPDXID: SPDXRef-Package-beeb22fd26db5658
+PackageVersion: 4.3.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dhcp 12:4.3.6-44.0.1.el8
+PackageLicenseConcluded: ISC
+PackageLicenseDeclared: ISC
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dhcp-libs@12:4.3.6-44.0.1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dhcp-libs@4.3.6-44.0.1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: kmod
+
+PackageName: kmod
+SPDXID: SPDXRef-Package-c1598881dfb37892
+PackageVersion: 25
+FilesAnalyzed: false
+PackageSourceInfo: built package from: kmod 25-17.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/kmod@25-17.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: kmod@25-17.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: p11-kit-trust
+
+PackageName: p11-kit-trust
+SPDXID: SPDXRef-Package-c36052a1cd862d16
+PackageVersion: 0.23.22
+FilesAnalyzed: false
+PackageSourceInfo: built package from: p11-kit 0.23.22-1.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/p11-kit-trust@0.23.22-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: p11-kit-trust@0.23.22-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libibverbs
+
+PackageName: libibverbs
+SPDXID: SPDXRef-Package-c65bfb41c421b070
+PackageVersion: 32.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: rdma-core 32.0-4.el8
+PackageLicenseConcluded: GPLv2 or BSD
+PackageLicenseDeclared: GPLv2 or BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libibverbs@32.0-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libibverbs@32.0-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: cracklib
+
+PackageName: cracklib
+SPDXID: SPDXRef-Package-c6846e34dbd62f
+PackageVersion: 2.9.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: cracklib 2.9.6-15.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/cracklib@2.9.6-15.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: cracklib@2.9.6-15.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libsolv
+
+PackageName: libsolv
+SPDXID: SPDXRef-Package-c6de3300cb7064d8
+PackageVersion: 0.7.16
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libsolv 0.7.16-2.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libsolv@0.7.16-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libsolv@0.7.16-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: crypto-policies
+
+PackageName: crypto-policies
+SPDXID: SPDXRef-Package-c9321cb56862147
+PackageVersion: 20210209
+FilesAnalyzed: false
+PackageSourceInfo: built package from: crypto-policies 20210209-1.gitbfb6bed.el8_3
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/crypto-policies@20210209-1.gitbfb6bed.el8_3?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: crypto-policies@20210209-1.gitbfb6bed.el8_3.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: expat
+
+PackageName: expat
+SPDXID: SPDXRef-Package-c9828138b9c883a2
+PackageVersion: 2.2.5
+FilesAnalyzed: false
+PackageSourceInfo: built package from: expat 2.2.5-4.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/expat@2.2.5-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: expat@2.2.5-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libidn2
+
+PackageName: libidn2
+SPDXID: SPDXRef-Package-c9a2d7c45b0de7ce
+PackageVersion: 2.2.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libidn2 2.2.0-1.el8
+PackageLicenseConcluded: (GPLv2+ or LGPLv3+) and GPLv3+
+PackageLicenseDeclared: (GPLv2+ or LGPLv3+) and GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libidn2@2.2.0-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libidn2@2.2.0-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: coreutils-single
+
+PackageName: coreutils-single
+SPDXID: SPDXRef-Package-cc8355106a7739a8
+PackageVersion: 8.30
+FilesAnalyzed: false
+PackageSourceInfo: built package from: coreutils 8.30-8.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/coreutils-single@8.30-8.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: coreutils-single@8.30-8.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libuuid
+
+PackageName: libuuid
+SPDXID: SPDXRef-Package-ccab992bbeca9e6f
+PackageVersion: 2.32.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: util-linux 2.32.1-27.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libuuid@2.32.1-27.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libuuid@2.32.1-27.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gdbm
+
+PackageName: gdbm
+SPDXID: SPDXRef-Package-cde6113a32f2d06c
+PackageVersion: 1.18
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gdbm 1:1.18-1.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gdbm@1:1.18-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gdbm@1.18-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libkcapi
+
+PackageName: libkcapi
+SPDXID: SPDXRef-Package-cf2fec4c6a80eb2f
+PackageVersion: 1.2.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libkcapi 1.2.0-2.el8
+PackageLicenseConcluded: BSD or GPLv2
+PackageLicenseDeclared: BSD or GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libkcapi@1.2.0-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libkcapi@1.2.0-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: glib2
+
+PackageName: glib2
+SPDXID: SPDXRef-Package-cf5b27e8433b3635
+PackageVersion: 2.56.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: glib2 2.56.4-9.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/glib2@2.56.4-9.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: glib2@2.56.4-9.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libtasn1
+
+PackageName: libtasn1
+SPDXID: SPDXRef-Package-cff04dab9d913476
+PackageVersion: 4.13
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libtasn1 4.13-3.el8
+PackageLicenseConcluded: GPLv3+ and LGPLv2+
+PackageLicenseDeclared: GPLv3+ and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libtasn1@4.13-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libtasn1@4.13-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libselinux
+
+PackageName: libselinux
+SPDXID: SPDXRef-Package-d24014a586073377
+PackageVersion: 2.9
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libselinux 2.9-5.el8
+PackageLicenseConcluded: Public Domain
+PackageLicenseDeclared: Public Domain
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libselinux@2.9-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libselinux@2.9-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: gpgme
+
+PackageName: gpgme
+SPDXID: SPDXRef-Package-d338ac7098ea825d
+PackageVersion: 1.13.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: gpgme 1.13.1-7.el8
+PackageLicenseConcluded: LGPLv2+ and MIT
+PackageLicenseDeclared: LGPLv2+ and MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/gpgme@1.13.1-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: gpgme@1.13.1-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: bzip2-libs
+
+PackageName: bzip2-libs
+SPDXID: SPDXRef-Package-d3a955b162b2c2e7
+PackageVersion: 1.0.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: bzip2 1.0.6-26.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/bzip2-libs@1.0.6-26.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: bzip2-libs@1.0.6-26.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: file-libs
+
+PackageName: file-libs
+SPDXID: SPDXRef-Package-d423b2bcf1fd3cf6
+PackageVersion: 5.33
+FilesAnalyzed: false
+PackageSourceInfo: built package from: file 5.33-16.el8_3.1
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/file-libs@5.33-16.el8_3.1?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: file-libs@5.33-16.el8_3.1.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libdnf
+
+PackageName: libdnf
+SPDXID: SPDXRef-Package-d4e163cdb25a0197
+PackageVersion: 0.55.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libdnf 0.55.0-7.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libdnf@0.55.0-7.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libdnf@0.55.0-7.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: curl
+
+PackageName: curl
+SPDXID: SPDXRef-Package-d6afd8118c9cc583
+PackageVersion: 7.61.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: curl 7.61.1-18.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/curl@7.61.1-18.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: curl@7.61.1-18.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: readline
+
+PackageName: readline
+SPDXID: SPDXRef-Package-da0c7e45190c258
+PackageVersion: 7.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: readline 7.0-10.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/readline@7.0-10.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: readline@7.0-10.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: tpm2-tss
+
+PackageName: tpm2-tss
+SPDXID: SPDXRef-Package-daadd5a3d1c8242c
+PackageVersion: 2.3.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: tpm2-tss 2.3.2-3.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/tpm2-tss@2.3.2-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: tpm2-tss@2.3.2-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: glibc
+
+PackageName: glibc
+SPDXID: SPDXRef-Package-de8bcc3cc1f11127
+PackageVersion: 2.28
+FilesAnalyzed: false
+PackageSourceInfo: built package from: glibc 2.28-151.el8
+PackageLicenseConcluded: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL
+PackageLicenseDeclared: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/glibc@2.28-151.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: glibc@2.28-151.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: yum
+
+PackageName: yum
+SPDXID: SPDXRef-Package-dfd599da370a1f57
+PackageVersion: 4.4.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dnf 4.4.2-11.el8
+PackageLicenseConcluded: GPLv2+ and GPLv2 and GPL
+PackageLicenseDeclared: GPLv2+ and GPLv2 and GPL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/yum@4.4.2-11.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: yum@4.4.2-11.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libcom_err
+
+PackageName: libcom_err
+SPDXID: SPDXRef-Package-e0e20152c554c409
+PackageVersion: 1.45.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: e2fsprogs 1.45.6-1.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libcom_err@1.45.6-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libcom_err@1.45.6-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: dhcp-client
+
+PackageName: dhcp-client
+SPDXID: SPDXRef-Package-e52a47cb03e81bee
+PackageVersion: 4.3.6
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dhcp 12:4.3.6-44.0.1.el8
+PackageLicenseConcluded: ISC
+PackageLicenseDeclared: ISC
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/dhcp-client@12:4.3.6-44.0.1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: dhcp-client@4.3.6-44.0.1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: glibc-common
+
+PackageName: glibc-common
+SPDXID: SPDXRef-Package-e600cbc6ec2ca761
+PackageVersion: 2.28
+FilesAnalyzed: false
+PackageSourceInfo: built package from: glibc 2.28-151.el8
+PackageLicenseConcluded: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL
+PackageLicenseDeclared: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/glibc-common@2.28-151.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: glibc-common@2.28-151.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: ncurses-libs
+
+PackageName: ncurses-libs
+SPDXID: SPDXRef-Package-e6582e58365f04f7
+PackageVersion: 6.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: ncurses 6.1-7.20180224.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/ncurses-libs@6.1-7.20180224.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: ncurses-libs@6.1-7.20180224.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libnsl2
+
+PackageName: libnsl2
+SPDXID: SPDXRef-Package-e6bafa339e006481
+PackageVersion: 1.2.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libnsl2 1.2.0-2.20180605git4a062cf.el8
+PackageLicenseConcluded: BSD and LGPLv2+
+PackageLicenseDeclared: BSD and LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libnsl2@1.2.0-2.20180605git4a062cf.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libnsl2@1.2.0-2.20180605git4a062cf.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: python3-dnf
+
+PackageName: python3-dnf
+SPDXID: SPDXRef-Package-e9ec41624052e6b7
+PackageVersion: 4.4.2
+FilesAnalyzed: false
+PackageSourceInfo: built package from: dnf 4.4.2-11.el8
+PackageLicenseConcluded: GPLv2+ and GPLv2 and GPL
+PackageLicenseDeclared: GPLv2+ and GPLv2 and GPL
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/python3-dnf@4.4.2-11.el8?arch=noarch&distro=centos-8.4.2105
+PackageAttributionText: PkgID: python3-dnf@4.4.2-11.el8.noarch
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: chkconfig
+
+PackageName: chkconfig
+SPDXID: SPDXRef-Package-ea47991e2cef5c27
+PackageVersion: 1.13
+FilesAnalyzed: false
+PackageSourceInfo: built package from: chkconfig 1.13-2.el8
+PackageLicenseConcluded: GPLv2
+PackageLicenseDeclared: GPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/chkconfig@1.13-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: chkconfig@1.13-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: kmod-libs
+
+PackageName: kmod-libs
+SPDXID: SPDXRef-Package-ea69f869a155d712
+PackageVersion: 25
+FilesAnalyzed: false
+PackageSourceInfo: built package from: kmod 25-17.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/kmod-libs@25-17.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: kmod-libs@25-17.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: cpio
+
+PackageName: cpio
+SPDXID: SPDXRef-Package-ea76692d5940da30
+PackageVersion: 2.12
+FilesAnalyzed: false
+PackageSourceInfo: built package from: cpio 2.12-10.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/cpio@2.12-10.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: cpio@2.12-10.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: p11-kit
+
+PackageName: p11-kit
+SPDXID: SPDXRef-Package-ecbe2635111b8088
+PackageVersion: 0.23.22
+FilesAnalyzed: false
+PackageSourceInfo: built package from: p11-kit 0.23.22-1.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/p11-kit@0.23.22-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: p11-kit@0.23.22-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libarchive
+
+PackageName: libarchive
+SPDXID: SPDXRef-Package-ef8119d6678ebd40
+PackageVersion: 3.3.3
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libarchive 3.3.3-1.el8
+PackageLicenseConcluded: BSD
+PackageLicenseDeclared: BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libarchive@3.3.3-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libarchive@3.3.3-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libunistring
+
+PackageName: libunistring
+SPDXID: SPDXRef-Package-f0e8b6f940eaa9b9
+PackageVersion: 0.9.9
+FilesAnalyzed: false
+PackageSourceInfo: built package from: libunistring 0.9.9-3.el8
+PackageLicenseConcluded: GPLv2+ or LGPLv3+
+PackageLicenseDeclared: GPLv2+ or LGPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libunistring@0.9.9-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libunistring@0.9.9-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: json-c
+
+PackageName: json-c
+SPDXID: SPDXRef-Package-f1a8f65a68804c82
+PackageVersion: 0.13.1
+FilesAnalyzed: false
+PackageSourceInfo: built package from: json-c 0.13.1-0.4.el8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/json-c@0.13.1-0.4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: json-c@0.13.1-0.4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: iptables-libs
+
+PackageName: iptables-libs
+SPDXID: SPDXRef-Package-f1ae54c33846bafe
+PackageVersion: 1.8.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: iptables 1.8.4-17.el8
+PackageLicenseConcluded: GPLv2 and Artistic 2.0 and ISC
+PackageLicenseDeclared: GPLv2 and Artistic 2.0 and ISC
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/iptables-libs@1.8.4-17.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: iptables-libs@1.8.4-17.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libattr
+
+PackageName: libattr
+SPDXID: SPDXRef-Package-f4086eed0c0184cd
+PackageVersion: 2.4.48
+FilesAnalyzed: false
+PackageSourceInfo: built package from: attr 2.4.48-3.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libattr@2.4.48-3.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libattr@2.4.48-3.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: libacl
+
+PackageName: libacl
+SPDXID: SPDXRef-Package-f6143ca8ab21ebae
+PackageVersion: 2.2.53
+FilesAnalyzed: false
+PackageSourceInfo: built package from: acl 2.2.53-1.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/libacl@2.2.53-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: libacl@2.2.53-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: pciutils
+
+PackageName: pciutils
+SPDXID: SPDXRef-Package-f689767d62ee5652
+PackageVersion: 3.7.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: pciutils 3.7.0-1.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/pciutils@3.7.0-1.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: pciutils@3.7.0-1.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: sed
+
+PackageName: sed
+SPDXID: SPDXRef-Package-f6a481e304c2600a
+PackageVersion: 4.5
+FilesAnalyzed: false
+PackageSourceInfo: built package from: sed 4.5-2.el8
+PackageLicenseConcluded: GPLv3+
+PackageLicenseDeclared: GPLv3+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/sed@4.5-2.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: sed@4.5-2.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: systemd-udev
+
+PackageName: systemd-udev
+SPDXID: SPDXRef-Package-f77ad3b17d8dd67
+PackageVersion: 239
+FilesAnalyzed: false
+PackageSourceInfo: built package from: systemd 239-45.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/systemd-udev@239-45.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: systemd-udev@239-45.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: rdma-core
+
+PackageName: rdma-core
+SPDXID: SPDXRef-Package-f8bace191bf23815
+PackageVersion: 32.0
+FilesAnalyzed: false
+PackageSourceInfo: built package from: rdma-core 32.0-4.el8
+PackageLicenseConcluded: GPLv2 or BSD
+PackageLicenseDeclared: GPLv2 or BSD
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/rdma-core@32.0-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: rdma-core@32.0-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: platform-python
+
+PackageName: platform-python
+SPDXID: SPDXRef-Package-fb6ee0286a0aceb8
+PackageVersion: 3.6.8
+FilesAnalyzed: false
+PackageSourceInfo: built package from: python3 3.6.8-37.el8
+PackageLicenseConcluded: Python
+PackageLicenseDeclared: Python
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/platform-python@3.6.8-37.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: platform-python@3.6.8-37.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: device-mapper-libs
+
+PackageName: device-mapper-libs
+SPDXID: SPDXRef-Package-fc24cb06b7c184ab
+PackageVersion: 1.02.175
+FilesAnalyzed: false
+PackageSourceInfo: built package from: lvm2 8:2.03.11-5.el8
+PackageLicenseConcluded: LGPLv2
+PackageLicenseDeclared: LGPLv2
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/device-mapper-libs@8:1.02.175-5.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: device-mapper-libs@1.02.175-5.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: ipcalc
+
+PackageName: ipcalc
+SPDXID: SPDXRef-Package-fd4e1cd41f998a75
+PackageVersion: 0.2.4
+FilesAnalyzed: false
+PackageSourceInfo: built package from: ipcalc 0.2.4-4.el8
+PackageLicenseConcluded: GPLv2+
+PackageLicenseDeclared: GPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/ipcalc@0.2.4-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: ipcalc@0.2.4-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Package: npth
+
+PackageName: npth
+SPDXID: SPDXRef-Package-ffd087615f398b81
+PackageVersion: 1.5
+FilesAnalyzed: false
+PackageSourceInfo: built package from: npth 1.5-4.el8
+PackageLicenseConcluded: LGPLv2+
+PackageLicenseDeclared: LGPLv2+
+ExternalRef: PACKAGE-MANAGER purl pkg:rpm/centos/npth@1.5-4.el8?arch=x86_64&distro=centos-8.4.2105
+PackageAttributionText: PkgID: npth@1.5-4.el8.x86_64
+PackageAttributionText: LayerDiffID: sha256:74ddd0ec08fa43d09f32636ba91a0a3053b02cb4627c35051aff89f853606b59
+
+##### Relationships
+
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-ContainerImage-be8f28097e606b3
+Relationship: SPDXRef-ContainerImage-be8f28097e606b3 CONTAINS SPDXRef-OperatingSystem-37845756da81d30a
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-2804bac8d67bfba
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-981fdc46b7a99ac0
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-906269d3b3f3f07d
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-95be7d4530fbe443
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-45fdb63532f8f872
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-94107cde930fbadf
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-d3a955b162b2c2e7
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-af3298229a15d3
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-8986d5ac5bc2f670
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-23d4755b80d4d390
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-8ac43c00b2bbc430
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-ea47991e2cef5c27
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-cc8355106a7739a8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-ea76692d5940da30
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c6846e34dbd62f
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-4174d4cb95ca8785
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c9321cb56862147
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1c4ca20aa821b74a
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-d6afd8118c9cc583
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-268e2c675018ba80
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-642a018c0eedfc1d
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-7c5301bc66f24de1
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-834d72a3d108db11
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-285907a249fb41cc
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-5620202d7db46a3a
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-457cdb5d0307c328
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-fc24cb06b7c184ab
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-e52a47cb03e81bee
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-b3860c8a47d34764
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-beeb22fd26db5658
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-a4764cf32e1488e
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-672b88538503055f
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9503ed1f2646ce4c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-34d3ceb29471a6be
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-47efd95ab4834b00
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-3035730706929ad3
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-a09c3843d5ea7864
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9712a7db7e6dc7cf
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-479148164a9fcf02
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c9828138b9c883a2
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-d423b2bcf1fd3cf6
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-a562ac24eda1a1c7
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-4e07272185f178a8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-b0f59a9172e9d8af
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-cde6113a32f2d06c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-4fa7a71d3cb35e05
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-cf5b27e8433b3635
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-de8bcc3cc1f11127
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-e600cbc6ec2ca761
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-84678c2752e12d06
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-3fdeaa367acddcf1
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-5d6fd8df7c071fbf
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-4e20fa415051591e
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-d338ac7098ea825d
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-51c97e83df0a1054
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-803eac3fd5a71240
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-3976dc840074bf00
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1f28b50c678ca63c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-102aa3c574bdeabf
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-646fab50fb2f0ce9
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-fd4e1cd41f998a75
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-14a7b2f1e15ac516
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f1ae54c33846bafe
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-a8c1031ba097b2c8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f1a8f65a68804c82
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-69dd2a1abc51e844
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-a31842fc82427f70
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c1598881dfb37892
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-ea69f869a155d712
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-50a03f49bad1fbc0
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-26351c90448f8c7a
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-5f4ba882e46e0b
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f6143ca8ab21ebae
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-ef8119d6678ebd40
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-6483625accff7e38
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f4086eed0c0184cd
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-22d54c7b30e2bb77
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-59cc877c34bf8c27
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-405c33c674b7d799
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-e0e20152c554c409
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-98e8b4d7fba55d02
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-8fcd14af2fd60796
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-2b61532b7dfba826
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-51f367f669de56f9
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-d4e163cdb25a0197
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-301ab94a04947bdb
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-6548157e3a07e702
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-2e5df17cb345f50c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9b85a430e771cd95
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-7a202a537673a3ff
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c65bfb41c421b070
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c9a2d7c45b0de7ce
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-cf2fec4c6a80eb2f
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-431814a685ef32c4
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-392adbac082b16d9
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-85c32219e515e34
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1315739a1552d4e5
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-96755e0038d87c6d
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9493d0c6e1c82ceb
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-2e83a3bd120db809
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-4a875912b7370d35
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-e6bafa339e006481
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-59e271091b8fc16c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-89310409a523f2a8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-919aeff475d98b9a
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-b87531ac8719c19a
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-b172d9b1bfa70c88
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-d24014a586073377
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-507102265c84b7e6
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-6e65170a809e3163
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-61479cc275c9ace4
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-5213112e6ebaf5ed
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c6de3300cb7064d8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-872e9a8cf333e4bd
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-cff04dab9d913476
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-67024bf994908606
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f0e8b6f940eaa9b9
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-98d78e7749be8303
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-a03fccf9215f34c3
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-ccab992bbeca9e6f
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-39a98f6a78db18
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-843071edc356bc73
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-11d5f4f3217c2d3e
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-12fb274690fb0b17
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-aa86365446de4165
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-b4e14e2f2dff4ab6
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9674f6011c4c25b2
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-7819c3baceafacfc
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-7e27356ced420d60
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-6c88d487ce63d024
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-e6582e58365f04f7
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-75e8df57b4c2fd37
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-ffd087615f398b81
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-897493f18e9d2262
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-707fa1273e5ff877
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-ecbe2635111b8088
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-c36052a1cd862d16
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-5fc67b4620d99295
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f689767d62ee5652
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1c172f089e3df5c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1b0792dd8d9a50b7
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-61d7588c69c256cc
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-fb6ee0286a0aceb8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-3a3a36d42e257ed1
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-93ddefc142092d7d
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-4fafb3862867fcad
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-e9ec41624052e6b7
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-bd90102466106633
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-adaaa91d4be90cf8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-61bf74974abd3c0d
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-46bbf12608311fa6
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1c3ee5e95068dad2
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9a386594525b42a6
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-31b2adb21aaa8f9e
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1d9ad5702093eb20
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f8bace191bf23815
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-da0c7e45190c258
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-272ce3fdf8197e6b
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-2672cfc9f0fe2536
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-14ad1e6f7fce83e9
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-5be0eb43acbe7751
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f6a481e304c2600a
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-2ef7897b345e3d01
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-8295d655080a13db
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-943015f35ce2fe79
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-40eef22e107ae825
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-5a26ec143406caf
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-22cc03c3519db95e
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-4eab7e5754f2cc7c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-b7b42a09e086edcf
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-f77ad3b17d8dd67
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-27dc70f14ef2eaf8
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-daadd5a3d1c8242c
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9eeec0297f78f368
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-9bce573cc3b5fb54
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-232fca24da3af6fc
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-1b24c9b29c662445
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-65b0b49b5ce57704
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-dfd599da370a1f57
+Relationship: SPDXRef-OperatingSystem-37845756da81d30a CONTAINS SPDXRef-Package-8d8bff017c5807e6
+

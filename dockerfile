@@ -29,6 +29,8 @@ RUN dpkg --add-architecture amd64
 RUN dpkg -i trivy_0.44.1_Linux-64bit.deb
 RUN rm trivy_0.44.1_Linux-64bit.deb
 
+## sbomqs install
+
 ## PIQUE ##
 # maven install - install in opt
 WORKDIR "/opt"

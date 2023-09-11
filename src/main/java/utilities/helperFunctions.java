@@ -28,10 +28,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -66,20 +63,6 @@ public class helperFunctions {
 		else {
 			return true;
 		}
-	}
-	/**
-	 * Adds a "-" to a CWE name. If a dash is already in the string, will return the string.
-	 * @param cwe String of CWE in style "CWE125"
-	 * @return String of CWE with dash, for example "CWE-125"
-	 */
-	public static String addDashtoCWEName(String cwe) {
-		String dashed = cwe;
-		if (!cwe.contains("-")) {
-			String cweName = cwe.substring(0, 3);
-			String cweNum = cwe.substring(3);
-			dashed = cweName + "-" + cweNum;
-		}
-		return dashed;
 	}
 
 	/**
@@ -140,7 +123,6 @@ public class helperFunctions {
 		}
 	}
 
-	
 	 /**
 	  * Taken directly from https://stackoverflow.com/questions/13008526/runtime-getruntime-execcmd-hanging
 	  * 
@@ -219,8 +201,8 @@ public class helperFunctions {
         }
        
 		return diagnostics;
-	}	
-	
+	}
+
 	public static String formatFileWithSpaces(String pathWithSpace) {
 		String retString = pathWithSpace.replaceAll("([a-zA-Z]*) ([a-zA-Z]*)", "'$1 $2'");
 		return retString;

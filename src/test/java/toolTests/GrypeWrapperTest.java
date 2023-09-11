@@ -46,7 +46,6 @@ public class GrypeWrapperTest {
     }
 
     @Test
-    @Ignore
     public void SBOMQSTestSBOMWithFindings() {
         sbomqsWrapper sbomqsTest = new sbomqsWrapper();
 

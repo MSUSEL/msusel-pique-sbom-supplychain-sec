@@ -1,5 +1,7 @@
 package tool;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,15 +13,9 @@ import pique.model.Diagnostic;
 import pique.utility.PiqueProperties;
 import utilities.helperFunctions;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class sbomqsWrapper extends Tool implements ITool {
     private static final Logger LOGGER = LoggerFactory.getLogger(sbomqsWrapper.class);
@@ -53,11 +49,12 @@ public class sbomqsWrapper extends Tool implements ITool {
             JSONObject jsonResults = new JSONObject(results);
             int componentCount = jsonResults.getJSONArray("files").getJSONObject(0).getInt("num_components");
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempResults));
-            writer.write(componentCount);
-            writer.close();
+            FileWriter fileWriter = new FileWriter(tempResults);
+            fileWriter.write(Integer.toString(componentCount));
+            fileWriter.close();
+
         } catch (IOException  e) {
-            LOGGER.error("Failed to run sbomqs");
+            LOGGER.error("Failed to run or save sbomqs");
             LOGGER.error(e.toString());
             e.printStackTrace();
         } catch (JSONException e) {
@@ -76,7 +73,7 @@ public class sbomqsWrapper extends Tool implements ITool {
      */
     @Override
     public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-        return null;
+        return new HashMap<>();
     }
 
     /**

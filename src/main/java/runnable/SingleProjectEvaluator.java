@@ -43,6 +43,7 @@ import pique.runnable.ASingleProjectEvaluator;
 import pique.utility.PiqueProperties;
 import tool.GrypeWrapper;
 import tool.TrivyWrapper;
+import tool.sbomqsWrapper;
 
 /**
  * Behavioral class responsible for running TQI evaluation of a single project
@@ -82,7 +83,8 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
 
         ITool gyrpeWrapper = new GrypeWrapper(prop.getProperty("github-token-path"));
         ITool trivyWrapper = new TrivyWrapper(prop.getProperty("github-token-path"));
-        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
+        ITool sbomqsWrapper_ = new sbomqsWrapper();
+        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_).collect(Collectors.toSet());
 
         Set<Path> projectRoots = new HashSet<>();
         File[] filesToAssess = projectRoot.toFile().listFiles();

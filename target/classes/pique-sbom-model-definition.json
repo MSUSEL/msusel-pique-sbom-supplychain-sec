@@ -3,7 +3,7 @@
   "additionalData" : { },
   "global_config" : {
     "benchmark_strategy" : "pique.calibration.NaiveBenchmarker",
-    "normalizer" : "pique.evaluation.NoNormalizer",
+    "normalizer" : "pique.evaluation.SBOMNormalizer",
     "weights_strategy" : "pique.calibration.NaiveWeighter"
   },
   "factors" : {

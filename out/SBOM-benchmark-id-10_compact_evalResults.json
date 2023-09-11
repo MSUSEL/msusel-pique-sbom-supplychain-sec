@@ -11,7 +11,7 @@
     "product_factors": {
       "Category CWE-1211": {
         "name": "Category CWE-1211",
-        "value": 0.8979166666666666666666667,
+        "value": 0.875,
         "description": "",
         "weights": {
           "CWE-294 Measure": 0.0625,
@@ -67,7 +67,7 @@
       },
       "Category CWE-unknown": {
         "name": "Category CWE-unknown",
-        "value": 0.2357142857142857142857143,
+        "value": 0.0,
         "description": "",
         "weights": {
           "CWE-unknown Measure": 1.0
@@ -78,7 +78,7 @@
       },
       "Category CWE-19": {
         "name": "Category CWE-19",
-        "value": 0.8771929824561403508771930,
+        "value": 0.8947368421052631578947368,
         "description": "",
         "weights": {
           "CWE-1024 Measure": 0.05263157894736842105263158,
@@ -138,7 +138,7 @@
       },
       "Category CWE-840": {
         "name": "Category CWE-840",
-        "value": 0.92,
+        "value": 0.9642857142857142857142857,
         "description": "",
         "weights": {
           "CWE-639 Measure": 0.125,
@@ -173,7 +173,7 @@
       },
       "Category CWE-389": {
         "name": "Category CWE-389",
-        "value": 0.8417849898580121703853955,
+        "value": 0.8235294117647058823529412,
         "description": "",
         "weights": {
           "CWE-584 Measure": 0.05882352941176470588235294,
@@ -200,7 +200,7 @@
       },
       "Category CWE-465": {
         "name": "Category CWE-465",
-        "value": 0.8089552238805970149253731,
+        "value": 0.8,
         "description": "",
         "weights": {
           "CWE-825 Measure": 0.1,
@@ -220,7 +220,7 @@
       },
       "Category CWE-189": {
         "name": "Category CWE-189",
-        "value": 0.5398237696110036535568450,
+        "value": 0.5333333333333333333333333,
         "description": "",
         "weights": {
           "CWE-128 Measure": 0.1,
@@ -358,7 +358,7 @@
       },
       "Category CWE-1226": {
         "name": "Category CWE-1226",
-        "value": 0.9841269841269841269841270,
+        "value": 1.0,
         "description": "",
         "weights": {
           "CWE-1123 Measure": 0.05555555555555555555555556,
@@ -417,7 +417,7 @@
       },
       "Category CWE-other": {
         "name": "Category CWE-other",
-        "value": 0.0912280701754385964912281,
+        "value": 0.0,
         "description": "",
         "weights": {
           "CWE-other Measure": 1.0
@@ -479,7 +479,7 @@
       },
       "Category CWE-557": {
         "name": "Category CWE-557",
-        "value": 0.9431818181818181818181818,
+        "value": 0.9090909090909090909090909,
         "description": "",
         "weights": {
           "CWE-386 Measure": 0.09090909090909090909090909,
@@ -500,7 +500,7 @@
       },
       "Category CWE-137": {
         "name": "Category CWE-137",
-        "value": 0.8000000000000000000000000,
+        "value": 0.75,
         "description": "",
         "weights": {
           "CWE-94 Measure": 0.05,
@@ -585,7 +585,7 @@
       },
       "Category CWE-1219": {
         "name": "Category CWE-1219",
-        "value": 0.8086389961389961389961390,
+        "value": 0.6944444444444444444444444,
         "description": "",
         "weights": {
           "CWE-379 Measure": 0.1111111111111111111111111,
@@ -604,7 +604,7 @@
       },
       "Category CWE-399": {
         "name": "Category CWE-399",
-        "value": 0.7473015873015873015873016,
+        "value": 0.7482993197278911564625850,
         "description": "",
         "weights": {
           "CWE-920 Measure": 0.04761904761904761904761905,
@@ -678,7 +678,7 @@
       },
       "Category CWE-310": {
         "name": "Category CWE-310",
-        "value": 0.9548611111111111111111111,
+        "value": 1.0,
         "description": "",
         "weights": {
           "CWE-1240 Measure": 0.08333333333333333333333333,
@@ -700,7 +700,7 @@
       },
       "Category CWE-1218": {
         "name": "Category CWE-1218",
-        "value": 0.4766321978913219789132198,
+        "value": 0.5,
         "description": "",
         "weights": {
           "CWE-787 Measure": 0.1111111111111111111111111,
@@ -856,7 +856,7 @@
       },
       "Category CWE-1214": {
         "name": "Category CWE-1214",
-        "value": 0.9583333333333333333333333,
+        "value": 1.0,
         "description": "",
         "weights": {
           "CWE-349 Measure": 0.07692307692307692307692308,
@@ -881,7 +881,7 @@
     "quality_aspects": {
       "Authorization": {
         "name": "Authorization",
-        "value": 0.864300055060703402537492259331038809335074641620264,
+        "value": 0.854943577877488283756053879875694206268541265698024,
         "description": "Individuals, entities, or processes only have access to data and processes they should.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -933,7 +933,7 @@
       },
       "Authenticity": {
         "name": "Authenticity",
-        "value": 0.864300055060703402537492259331038809335074641620264,
+        "value": 0.854943577877488283756053879875694206268541265698024,
         "description": "Identity of individuals, entities, or processes is verified correctly.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -985,7 +985,7 @@
       },
       "Availability": {
         "name": "Availability",
-        "value": 0.864300055060703402537492259331038809335074641620264,
+        "value": 0.854943577877488283756053879875694206268541265698024,
         "description": "Data and processes should be available at all times when deemed necessary.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1037,7 +1037,7 @@
       },
       "Confidentiality": {
         "name": "Confidentiality",
-        "value": 0.864300055060703402537492259331038809335074641620264,
+        "value": 0.854943577877488283756053879875694206268541265698024,
         "description": "Information is not made available or disclosed to unauthorized individuals, entities, or processes.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1089,7 +1089,7 @@
       },
       "Accountability": {
         "name": "Accountability",
-        "value": 0.864300055060703402537492259331038809335074641620264,
+        "value": 0.854943577877488283756053879875694206268541265698024,
         "description": "Degree to which the actions of an entity can be traced uniquely to the entity.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1141,7 +1141,7 @@
       },
       "Non-repudiation": {
         "name": "Non-repudiation",
-        "value": 0.864300055060703402537492259331038809335074641620264,
+        "value": 0.854943577877488283756053879875694206268541265698024,
         "description": "Individuals, entities, or processes may not deny any actions they performed.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1193,7 +1193,7 @@
       },
       "Integrity": {
         "name": "Integrity",
-        "value": 0.864300055060703402537492259331038809335074641620264,
+        "value": 0.854943577877488283756053879875694206268541265698024,
         "description": "Data or processes cannot be modified in an unauthorized way.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1247,7 +1247,7 @@
     "tqi": {
       "SBOM Content Quality": {
         "name": "SBOM Content Quality",
-        "value": 0.8643000550607034025374919,
+        "value": 0.8549435778774882837560533,
         "description": "A measure of the security quality of a software supply chain from stakeholders perspective.",
         "weights": {
           "Authorization": 0.1428571428571428571428571,
@@ -1462,7 +1462,7 @@
         "CWE-252 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        2,
         3
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -1659,15 +1659,15 @@
     "CWE-190 Measure": {
       "positive": false,
       "name": "CWE-190 Measure",
-      "value": 0.0851063829787234042553191,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-190 Trivy Diagnostic": 0.5,
         "CWE-190 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        141
+        39,
+        72
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -1676,15 +1676,15 @@
     "CWE-909 Measure": {
       "positive": false,
       "name": "CWE-909 Measure",
-      "value": 0.3333333333333333333333333,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-909 Trivy Diagnostic": 0.5,
         "CWE-909 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        6
+        2,
+        3
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -1717,8 +1717,8 @@
         "CWE-125 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        219
+        34,
+        63
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -2339,15 +2339,15 @@
     "CWE-295 Measure": {
       "positive": false,
       "name": "CWE-295 Measure",
-      "value": 0.3666666666666666666666667,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-295 Grype Diagnostic": 0.5,
         "CWE-295 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        30
+        7,
+        12
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -2424,15 +2424,15 @@
     "CWE-367 Measure": {
       "positive": false,
       "name": "CWE-367 Measure",
-      "value": 0.375,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-367 Grype Diagnostic": 0.5,
         "CWE-367 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        8
+        4,
+        5
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -2611,7 +2611,7 @@
     "CWE-93 Measure": {
       "positive": false,
       "name": "CWE-93 Measure",
-      "value": 0.6666666666666666666666667,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-93 Trivy Diagnostic": 0.5,
@@ -2619,7 +2619,7 @@
       },
       "thresholds": [
         0,
-        6
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -2645,14 +2645,14 @@
     "CWE-193 Measure": {
       "positive": false,
       "name": "CWE-193 Measure",
-      "value": 0.0909090909090909090909091,
+      "value": 0.3333333333333333333333333,
       "description": "",
       "weights": {
         "CWE-193 Grype Diagnostic": 0.5,
         "CWE-193 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        8,
         11
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -2815,15 +2815,15 @@
     "CWE-59 Measure": {
       "positive": false,
       "name": "CWE-59 Measure",
-      "value": 0.1081081081081081081081081,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-59 Grype Diagnostic": 0.5,
         "CWE-59 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        37
+        12,
+        18
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -2985,15 +2985,15 @@
     "CWE-476 Measure": {
       "positive": false,
       "name": "CWE-476 Measure",
-      "value": 0.0895522388059701492537313,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-476 Grype Diagnostic": 0.5,
         "CWE-476 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        134
+        38,
+        72
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -3163,7 +3163,7 @@
       },
       "thresholds": [
         0,
-        6
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -3197,7 +3197,7 @@
       },
       "thresholds": [
         0,
-        2
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -3281,8 +3281,8 @@
         "CWE-772 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        15
+        4,
+        6
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -3706,8 +3706,8 @@
         "CWE-89 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        4
+        1,
+        2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -3723,7 +3723,7 @@
         "CWE-681 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        2,
         4
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -3842,8 +3842,8 @@
         "CWE-843 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        4
+        1,
+        2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4013,7 +4013,7 @@
       },
       "thresholds": [
         0,
-        6
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4029,7 +4029,7 @@
         "CWE-1284 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        1,
         2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -4311,15 +4311,15 @@
     "CWE-other Measure": {
       "positive": false,
       "name": "CWE-other Measure",
-      "value": 0.0912280701754385964912281,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-other Trivy Diagnostic": 0.5,
         "CWE-other Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        855
+        194,
+        333
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4403,7 +4403,7 @@
         "CWE-276 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        2,
         4
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -4437,8 +4437,8 @@
         "CWE-444 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        8
+        1,
+        2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4464,7 +4464,7 @@
     "CWE-426 Measure": {
       "positive": false,
       "name": "CWE-426 Measure",
-      "value": 0.8571428571428571428571429,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-426 Trivy Diagnostic": 0.5,
@@ -4472,7 +4472,7 @@
       },
       "thresholds": [
         0,
-        7
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4719,14 +4719,14 @@
     "CWE-601 Measure": {
       "positive": false,
       "name": "CWE-601 Measure",
-      "value": 0.6666666666666666666666667,
+      "value": 1.0,
       "description": "",
       "weights": {
         "CWE-601 Grype Diagnostic": 0.5,
         "CWE-601 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        2,
         3
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -4804,15 +4804,15 @@
     "CWE-22 Measure": {
       "positive": false,
       "name": "CWE-22 Measure",
-      "value": 0.3125,
+      "value": 0.25,
       "description": "",
       "weights": {
         "CWE-22 Trivy Diagnostic": 0.5,
         "CWE-22 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        16
+        8,
+        12
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4896,8 +4896,8 @@
         "CWE-94 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        13
+        3,
+        4
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4930,8 +4930,8 @@
         "CWE-776 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        3
+        1,
+        2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -4965,7 +4965,7 @@
       },
       "thresholds": [
         0,
-        4
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5015,8 +5015,8 @@
         "CWE-79 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        7
+        1,
+        2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5084,7 +5084,7 @@
       },
       "thresholds": [
         0,
-        5
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5246,15 +5246,15 @@
     "CWE-369 Measure": {
       "positive": false,
       "name": "CWE-369 Measure",
-      "value": 0.2222222222222222222222222,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-369 Grype Diagnostic": 0.5,
         "CWE-369 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        9
+        2,
+        4
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5321,8 +5321,8 @@
         "CWE-319 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        9
+        4,
+        6
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5348,14 +5348,14 @@
     "CWE-120 Measure": {
       "positive": false,
       "name": "CWE-120 Measure",
-      "value": 0.1875,
+      "value": 0.5,
       "description": "",
       "weights": {
         "CWE-120 Trivy Diagnostic": 0.5,
         "CWE-120 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        10,
         16
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -5372,8 +5372,8 @@
         "CWE-835 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        42
+        6,
+        10
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5458,7 +5458,7 @@
       },
       "thresholds": [
         0,
-        3
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5858,15 +5858,15 @@
     "CWE-787 Measure": {
       "positive": false,
       "name": "CWE-787 Measure",
-      "value": 0.1021897810218978102189781,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-787 Trivy Diagnostic": 0.5,
         "CWE-787 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        137
+        51,
+        97
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -5899,7 +5899,7 @@
         "CWE-1021 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        1,
         2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -5994,15 +5994,15 @@
     "CWE-unknown Measure": {
       "positive": false,
       "name": "CWE-unknown Measure",
-      "value": 0.2357142857142857142857143,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-unknown Trivy Diagnostic": 0.5,
         "CWE-unknown Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        140
+        39,
+        60
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -6104,7 +6104,7 @@
       },
       "thresholds": [
         0,
-        1
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -6240,7 +6240,7 @@
       },
       "thresholds": [
         0,
-        1
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -6266,15 +6266,15 @@
     "CWE-617 Measure": {
       "positive": false,
       "name": "CWE-617 Measure",
-      "value": 0.3103448275862068965517241,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-617 Grype Diagnostic": 0.5,
         "CWE-617 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        29
+        3,
+        6
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -6699,7 +6699,7 @@
       },
       "thresholds": [
         0,
-        4
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -6861,15 +6861,15 @@
     "CWE-78 Measure": {
       "positive": false,
       "name": "CWE-78 Measure",
-      "value": 0.3333333333333333333333333,
+      "value": 0.0,
       "description": "",
       "weights": {
         "CWE-78 Grype Diagnostic": 0.5,
         "CWE-78 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        9
+        2,
+        4
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -6878,14 +6878,14 @@
     "CWE-347 Measure": {
       "positive": false,
       "name": "CWE-347 Measure",
-      "value": 0.4583333333333333333333333,
+      "value": 1.0,
       "description": "",
       "weights": {
         "CWE-347 Grype Diagnostic": 0.5,
         "CWE-347 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        20,
         24
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -7090,7 +7090,7 @@
       },
       "thresholds": [
         0,
-        11
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -7208,8 +7208,8 @@
         "CWE-191 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        4
+        1,
+        2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -7259,7 +7259,7 @@
         "CWE-306 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        2,
         3
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -7277,7 +7277,7 @@
       },
       "thresholds": [
         0,
-        2
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -7379,7 +7379,7 @@
       },
       "thresholds": [
         0,
-        2
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -7396,7 +7396,7 @@
       },
       "thresholds": [
         0,
-        4
+        0
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -7473,15 +7473,15 @@
     "CWE-770 Measure": {
       "positive": false,
       "name": "CWE-770 Measure",
-      "value": 0.36,
+      "value": 0.7142857142857142857142857,
       "description": "",
       "weights": {
         "CWE-770 Grype Diagnostic": 0.5,
         "CWE-770 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        25
+        14,
+        21
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -7592,14 +7592,14 @@
     "CWE-1333 Measure": {
       "positive": false,
       "name": "CWE-1333 Measure",
-      "value": 0.7142857142857142857142857,
+      "value": 1.0,
       "description": "",
       "weights": {
         "CWE-1333 Trivy Diagnostic": 0.5,
         "CWE-1333 Grype Diagnostic": 0.5
       },
       "thresholds": [
-        0,
+        5,
         7
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
@@ -7769,8 +7769,8 @@
         "CWE-131 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        4
+        1,
+        2
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",
@@ -7990,8 +7990,8 @@
         "CWE-908 Trivy Diagnostic": 0.5
       },
       "thresholds": [
-        0,
-        9
+        4,
+        7
       ],
       "eval_strategy": "pique.evaluation.DefaultMeasureEvaluator",
       "normalizer": "pique.evaluation.DefaultNormalizer",

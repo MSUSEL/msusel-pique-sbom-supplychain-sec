@@ -3,6 +3,17 @@ import time
 import json
 import sys
 
+
+# command line python script for downloading the most recent version of the NVD using their API.
+# calling convention:
+#       python3 download_nvd.py [output_file] [total_cve_count] [api_key_filepath]
+#
+#   output_file: file path to a .json file in which the NVD dictionary should be saved
+#   total_cve_count: count of all CVEs in the NVD, ideally will update this to pull the total count when the script is run
+#   api_key_filepath: file path to a .txt file containing an NVD api key, file should contain the api key on a single line
+#
+
+
 nvd_dictionary = {}
 def batch_cve_request(i, api_key):
     url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex={i}"

@@ -131,8 +131,6 @@ public class TrivyWrapper extends Tool implements ITool  {
 					cveList.add(findingName);
 				}
 
-				// for testing only send through first 3 results
-				//ArrayList<String> temp = new ArrayList<String>(cveList.subList(0, Math.min(3, cveList.size())));
 				String[] findingNames = helperFunctions.getCWE(cveList, this.githubToken);
  				for (int i = 0; i < findingNames.length; i++) {
 					Diagnostic diag = diagnostics.get((findingNames[i]+" Trivy Diagnostic"));
@@ -141,11 +139,11 @@ public class TrivyWrapper extends Tool implements ITool  {
 						//We may want to treat this in another way.
 						// My (Eric) CVE to CWE script handles if cwe is unknown so different node for other
 						// unknown means we don't know the CWE for the CVE
-						// other means it is a CWE outside of our software development view
+						// other means it is a CWE outside of the software development view
 						diag = diagnostics.get("CWE-other Trivy Diagnostic");
 						LOGGER.warn("CVE with CWE outside of CWE-699 found.");
 					}
-					Finding finding = new Finding("",0,0,severityList.get(i));
+					Finding finding = new Finding("",0,0,0/*severityList.get(i)*/);
 					finding.setName(cveList.get(i));
 					diag.setChild(finding);
 				}

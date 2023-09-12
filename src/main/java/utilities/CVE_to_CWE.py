@@ -37,7 +37,8 @@ def ghsa_to_cwe(ghsa, github_token):
                 result.append(ghsa_data['data']['securityAdvisory']['cwes']['nodes'][0]['cweId'])
             return result
         else:
-            return "CWE-unknown"
+            result.append("CWE-unknown")
+            return result
 
 def get_cwe(cve, github_token, nvd_dict):
     if cve[:4] == "GHSA":

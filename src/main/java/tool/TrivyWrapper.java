@@ -47,157 +47,149 @@ import pique.utility.PiqueProperties;
 import utilities.helperFunctions;
 
 /**
- * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-CONTENT.
- * This tool wrapper will run and analyze the output of the tool.
+ * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-SUPPLYCHAIN-SEC.
+ *
+ * This tool wrapper will run and analyze the output of the tool Trivy.
  * When parsing the output of the tool, a command line call to run a Python script is made. This script is responsible for translating from
- * CVE number to the CWE it is categorized as by the NVD.
+ * CVE number to the CWE it is categorized as by the NVD. The python script requires a github api token.
  * @author Eric O'Donoghue
  *
  */
 public class TrivyWrapper extends Tool implements ITool  {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
-	private String githubToken;
+	private final String githubToken;
 
 	public TrivyWrapper(String githubTokenPath) {
 		super("trivy", null);
 		this.githubToken = githubTokenPath;
 	}
 
-	// Methods
-		/**
-		 * @param projectLocation The path to a binary file for the desired solution of project to
-		 *             analyze
-		 * @return The path to the analysis results file
-		 */
-		@Override
-		public Path analyze(Path projectLocation) {
-			LOGGER.info(this.getName() + "  Analyzing "+ projectLocation.toString());
-			File tempResults = new File(System.getProperty("user.dir") + "/out/trivy.json");
-			tempResults.delete(); // clear out the last output. May want to change this to rename rather than delete.
-			tempResults.getParentFile().mkdirs();
+	/**
+	 * Runs trivy through the command line on the given SBOM and saves results to a temporary file.
+	 *
+	 * @param projectLocation The path to an SBOM file for the desired solution of project to analyze
+	 * @return The path to the analysis results file
+	 */
+	@Override
+	public Path analyze(Path projectLocation) {
+		LOGGER.info(this.getName() + "  Analyzing "+ projectLocation.toString());
 
-			String[] cmd = {"trivy",
-					"sbom",
-					"--format", "sarif",
-					"--quiet",
-					"--output",tempResults.toPath().toAbsolutePath().toString(),
-					projectLocation.toAbsolutePath().toString()};
-			LOGGER.info(Arrays.toString(cmd));
-			try {
-				helperFunctions.getOutputFromProgram(cmd,LOGGER);
-			} catch (IOException  e) {
-				LOGGER.error("Failed to run Trivy");
-				LOGGER.error(e.toString());
-				e.printStackTrace();
-			}
+		// clear previous results
+		File tempResults = new File(System.getProperty("user.dir") + "/out/trivy.json");
+		tempResults.delete();
+		tempResults.getParentFile().mkdirs();
 
-			return tempResults.toPath();
+		// command for running Grype on the command line
+		String[] cmd = {"trivy",
+				"sbom",
+				"--format", "sarif",
+				"--quiet",
+				"--output",tempResults.toPath().toAbsolutePath().toString(), // output path
+				projectLocation.toAbsolutePath().toString()}; // product under analysis path
+		LOGGER.info(Arrays.toString(cmd));
+
+		// runs the command built above and captures the output, trivy itself will handle the file saving
+		try {
+			helperFunctions.getOutputFromProgram(cmd,LOGGER);
+		} catch (IOException  e) {
+			LOGGER.error("Failed to run Trivy");
+			LOGGER.error(e.toString());
+			e.printStackTrace();
 		}
 
-		/**
-		 * parses output of tool from analyze().
-		 *
-		 * @param toolResults location of the results, output by analyze()
-		 * @return A Map<String,Diagnostic> with findings from the tool attached. Returns null if tool failed to run.
-		 */
-		@Override
-		public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-			System.out.println(this.getName() + " Parsing Analysis...");
-			LOGGER.debug(this.getName() + " Parsing Analysis...");
+		return tempResults.toPath();
+	}
 
-			Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
+	/**
+	 * Parses output of tool from analyze().
+	 *
+	 * @param toolResults location of the results, output by analyze()
+	 * @return A Map<String,Diagnostic> with findings from the tool attached. Returns null if tool failed to run.
+	 */
+	@Override
+	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
+		System.out.println(this.getName() + " Parsing Analysis...");
+		LOGGER.debug(this.getName() + " Parsing Analysis...");
 
-			String results = "";
+		// find all diagnostic nodes associated with Trivy
+		Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
 
-			try {
-				results = helperFunctions.readFileContent(toolResults);
-			} catch (IOException e) {
-				LOGGER.info("No results to read from Trivy.");
-			}
-
-			ArrayList<String> cveList = new ArrayList<>();
-			ArrayList<Integer> severityList = new ArrayList<>();
-
-			try {
-				JSONObject jsonResults = new JSONObject(results);
-				JSONArray vulnerabilities = jsonResults.optJSONArray("runs").optJSONObject(0).optJSONObject("tool").optJSONObject("driver").optJSONArray("rules");
-
-				for (int i = 0; i < vulnerabilities.length(); i++) {
-					JSONObject jsonFinding = (JSONObject) vulnerabilities.get(i);
-					//Need to change this for this tool. (should stay the same now when using SARIF format)
-					String findingName = jsonFinding.get("id").toString();
-					String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
-					severityList.add(this.severityToInt(findingSeverity));
-					cveList.add(findingName);
-				}
-
-				String[] findingNames = helperFunctions.getCWE(cveList, this.githubToken);
- 				for (int i = 0; i < findingNames.length; i++) {
-					Diagnostic diag = diagnostics.get((findingNames[i]+" Trivy Diagnostic"));
-					if (diag == null) {
-						//this means that either it is unknown, mapped to a CWE outside of the expected results, or is not assigned a CWE
-						//We may want to treat this in another way.
-						// My (Eric) CVE to CWE script handles if cwe is unknown so different node for other
-						// unknown means we don't know the CWE for the CVE
-						// other means it is a CWE outside of the software development view
-						diag = diagnostics.get("CWE-other Trivy Diagnostic");
-						LOGGER.warn("CVE with CWE outside of CWE-699 found.");
-					}
-					Finding finding = new Finding("",0,0,0/*severityList.get(i)*/);
-					finding.setName(cveList.get(i));
-					diag.setChild(finding);
-				}
-
-
-			} catch (JSONException e) {
-				LOGGER.warn("Unable to read results form cve-bin-tool");
-			}
-
-			return diagnostics;
+		// read Trivy results file
+		String results = "";
+		try {
+			results = helperFunctions.readFileContent(toolResults);
+		} catch (IOException e) {
+			LOGGER.info("No results to read from Trivy.");
 		}
 
-		/**
-		 * Initializes the tool by installing it through python pip from the command line.
-		 */
-		@Override
-		public Path initialize(Path toolRoot) {
-			final String[] cmd = {"trivy", "version"};
+		ArrayList<String> cveList = new ArrayList<>();
+		ArrayList<Integer> severityList = new ArrayList<>();
 
-			try {
-				helperFunctions.getOutputFromProgram(cmd, LOGGER);
-			} catch (IOException e) {
-				e.printStackTrace();
-				LOGGER.error("Failed to initialize " + this.getName());
-				LOGGER.error(e.getStackTrace().toString());
+		try {
+			// complex json access to list of findings in Trivy sarif results
+			JSONObject jsonResults = new JSONObject(results);
+			JSONArray vulnerabilities = jsonResults.optJSONArray("runs").optJSONObject(0).optJSONObject("tool").optJSONObject("driver").optJSONArray("rules");
+
+			// if vulnerabilities is null we had no findings, thus return
+			if (vulnerabilities == null) {
+				return diagnostics;
 			}
 
-			return toolRoot;
-		}
+			for (int i = 0; i < vulnerabilities.length(); i++) {
+				JSONObject jsonFinding = (JSONObject) vulnerabilities.get(i);
 
-
-		//maps low-critical to numeric values based on the highest value for each range.
-		private Integer severityToInt(String severity) {
-			Integer severityInt = 1;
-			switch(severity.toLowerCase()) {
-				case "low": {
-					severityInt = 4;
-					break;
-				}
-				case "medium": {
-					severityInt = 7;
-					break;
-				}
-				case "high": {
-					severityInt = 9;
-					break;
-				}
-				case "critical": {
-					severityInt = 10;
-					break;
-				}
+				// extract CVE id and severity score from the current finding
+				String findingName = jsonFinding.get("id").toString();
+				String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
+				severityList.add(helperFunctions.severityToInt(findingSeverity));
+				cveList.add(findingName);
 			}
 
-			return severityInt;
+			// TODO: change CVE_to_CWE script to return both the CVE and CWE, do this by printing CVE,CWE then
+			// maps CVEs to corresponding CWEs in CWE-699. If a mapped CWE is outside CWE-699 the CVE will
+			// be mapped to CWE-other (logic for this below not in python script), if a mapping can not be found or no
+			// mapping exists we map the CVE to CWE-unknown.
+			String[] findingNames = helperFunctions.getCWE(cveList, this.githubToken);
+			for (int i = 0; i < findingNames.length; i++) {
+				// CWE-unknown or CWE within CWE-699 family
+				Diagnostic diag = diagnostics.get((findingNames[i]+" Trivy Diagnostic"));
+
+				// CWE not in CWE-699
+				if (diag == null) {
+					diag = diagnostics.get("CWE-other Trivy Diagnostic");
+					LOGGER.warn("CVE with CWE outside of CWE-699 found.");
+				}
+
+				// set current finding (CVE or GHSA) as a child of the corresponding diagnostic node
+				Finding finding = new Finding("",0,0,0/*severityList.get(i)*/);
+				finding.setName(cveList.get(i));
+				diag.setChild(finding);
+			}
+		} catch (JSONException e) {
+			LOGGER.warn("Unable to read results from Trivy");
 		}
 
+		return diagnostics;
+	}
+
+	/**
+	 * Initializes the tool by installing it through python pip from the command line.
+	 *
+	 * Because of dockerization this is no longer needed and currently just prints the version.
+	 * Method must be left because it must be overridden.
+	 */
+	@Override
+	public Path initialize(Path toolRoot) {
+		final String[] cmd = {"trivy", "version"};
+
+		try {
+			helperFunctions.getOutputFromProgram(cmd, LOGGER);
+		} catch (IOException e) {
+			e.printStackTrace();
+			LOGGER.error("Failed to initialize " + this.getName());
+			LOGGER.error(e.getStackTrace().toString());
+		}
+
+		return toolRoot;
+	}
 }

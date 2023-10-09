@@ -57,7 +57,8 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
     private String propertiesLocation = "src/main/resources/pique-properties.properties";
 
     public SingleProjectEvaluator(){
-        init("input/projects");
+        Properties prop = PiqueProperties.getProperties();
+        init(prop.getProperty("project.root"));
     }
 
     public SingleProjectEvaluator(String projectToAnalyze) {

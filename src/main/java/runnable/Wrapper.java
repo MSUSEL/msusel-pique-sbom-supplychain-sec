@@ -35,7 +35,7 @@ public class Wrapper {
             parser.addArgument("--downloadNVD")
                     .action(Arguments.storeTrue())
                     .setDefault(false)
-                    .help("Download the latest version of the NVD database");
+                    .help("Download the latest version of the NVD database then terminate program");
 
             Namespace namespace = null;
             if (helpFlag) {

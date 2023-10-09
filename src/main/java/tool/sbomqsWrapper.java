@@ -17,6 +17,15 @@ import java.io.*;
 import java.nio.file.Path;
 import java.util.*;
 
+
+/**
+ * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-SUPPLYCHAIN-SEC.
+ *
+ * This tool wrapper will run and analyze the output of the tool sbomqs. This is used for
+ * getting a package count of an SBOM used for normalization
+ * @author Eric O'Donoghue
+ *
+ */
 public class sbomqsWrapper extends Tool implements ITool {
     private static final Logger LOGGER = LoggerFactory.getLogger(sbomqsWrapper.class);
     public sbomqsWrapper() {
@@ -32,8 +41,11 @@ public class sbomqsWrapper extends Tool implements ITool {
     @Override
     public Path analyze(Path projectLocation) {
         LOGGER.info("sbomqs analyzing "+ projectLocation.toString());
+
+        // clear previous results
+
         File tempResults = new File(System.getProperty("user.dir") + "/out/sbomqs.txt");
-        tempResults.delete(); // clear out the last output. May want to change this to rename rather than delete.
+        tempResults.delete();
         tempResults.getParentFile().mkdirs();
 
         Properties prop = PiqueProperties.getProperties();
@@ -46,7 +58,9 @@ public class sbomqsWrapper extends Tool implements ITool {
         LOGGER.info(Arrays.toString(cmd));
         try {
             String results = helperFunctions.getOutputFromProgram(cmd,LOGGER);
-            JSONObject jsonResults = new JSONObject(results);
+            int indexOfFirstOpenBrace = results.indexOf('{');
+            String r = indexOfFirstOpenBrace != -1 ? results.substring(indexOfFirstOpenBrace) : results;
+            JSONObject jsonResults = new JSONObject(r);
             int componentCount = jsonResults.getJSONArray("files").getJSONObject(0).getInt("num_components");
 
             FileWriter fileWriter = new FileWriter(tempResults);
@@ -94,29 +108,4 @@ public class sbomqsWrapper extends Tool implements ITool {
         return toolRoot;
     }
 
-
-    //maps low-critical to numeric values based on the highest value for each range.
-    private Integer severityToInt(String severity) {
-        Integer severityInt = 1;
-        switch(severity.toLowerCase()) {
-            case "low": {
-                severityInt = 4;
-                break;
-            }
-            case "medium": {
-                severityInt = 7;
-                break;
-            }
-            case "high": {
-                severityInt = 9;
-                break;
-            }
-            case "critical": {
-                severityInt = 10;
-                break;
-            }
-        }
-
-        return severityInt;
-    }
 }

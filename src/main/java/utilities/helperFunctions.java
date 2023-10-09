@@ -228,4 +228,29 @@ public class helperFunctions {
 		return retString;
 	}
 
+	//maps low-critical to numeric values based on the highest value for each range.
+	public static Integer severityToInt(String severity) {
+		Integer severityInt = 1;
+		switch(severity.toLowerCase()) {
+			case "low": {
+				severityInt = 4;
+				break;
+			}
+			case "medium": {
+				severityInt = 7;
+				break;
+			}
+			case "high": {
+				severityInt = 9;
+				break;
+			}
+			case "critical": {
+				severityInt = 10;
+				break;
+			}
+		}
+
+		return severityInt;
+	}
+
 }

@@ -1,6 +1,10 @@
 package runnable;
 
+import jdk.jpackage.internal.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pique.utility.PiqueProperties;
+import tool.GrypeWrapper;
 import utilities.helperFunctions;
 
 import java.io.File;
@@ -12,10 +16,23 @@ import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.Namespace;
 
+/**
+ * Entry point for the model. Handles 3 distinct operations:
+ * * Downloading the national vulnerability database utilizing the NVDs 2.0 API, see
+ *   download_nvd.py for more details.
+ * * Kicking off the derive stage of the PIQUE process, runs QualityModelDeriver.java, generating a
+ *   quality model from the benchmark repository found in resources (saved to out/SBOMSupplyChainSecurityQualityModelCWE-699.json).
+ * * Kicking off the evaluation stage of the PIQUE process, runs SingleProjectEvaluator, builds
+ *   quality models for the SBOMs in input/projects using the derived model. Results are saved to out.
+ *
+ * @author Eric O'Donoghue
+ */
 public class Wrapper {
+    //private static final Logger LOGGER = LoggerFactory.getLogger(Wrapper.class);
 
     public static void main(String[] args) {
         try {
+            // setup command line argument parsing
             boolean helpFlag = check_help(args);
             ArgumentParser parser = ArgumentParsers.newFor("Wrapper").build()
                     .defaultHelp(true).defaultHelp(true).description("Entry point for PIQUE-SBOM-SUPPLYCHAIN-SEC");
@@ -23,11 +40,8 @@ public class Wrapper {
                     .setDefault("evaluate")
                     .choices("derive", "evaluate")
                     .help("derive: derives a new quality model from the benchmark repository, using --file throws an IllegalArgumentException and prints the stack trace" +
-                            "\n evaluate: evaluates SBOM with derived quality model, --file must used otherwise throws an IllegalArgumentException and prints the stack trace");
-            parser.addArgument( "--file")
-                    .dest("fileName")
-                    .type(String.class)
-                    .help("path to SBOM for evaluation (required if runType is evaluate)");
+                            "\n evaluate: evaluates SBOMs located in input/projects with derived quality model");
+
             parser.addArgument("--version")
                     .action(Arguments.storeTrue())
                     .setDefault(false)
@@ -58,6 +72,7 @@ public class Wrapper {
             }
             if (downloadNVDFlag) {
                 System.out.println("Starting NVD download");
+                //LOGGER.info("Wrapper: Starting NVD download");
                 helperFunctions.downloadNVD();
                 System.exit(0);
             }
@@ -66,41 +81,33 @@ public class Wrapper {
             File f = new File(nvdDictionaryPath);
             if (!f.isFile()) {
                 System.out.println("Error: the National Vulnerability Database must be downloaded before deriving or evaluating. Use --help for more information.");
+                //LOGGER.info("Error: the National Vulnerability must be downloaded before deriving or evaluating.");
                 System.exit(1);
             }
 
             if ("derive".equals(runType)) {
-                if (fileName != null) {
-                    throw new IllegalArgumentException("Incorrect input parameters given. Use --help for more information");
-                }
-                else {
-                    // kick off deriver
-                    new QualityModelDeriver();
-                }
+                // kick off deriver
+                new QualityModelDeriver();
             }
             else if ("evaluate".equals(runType)) {
-                if (fileName == null) {
-                    new SingleProjectEvaluator();
-                }
-                else {
-                    // kick off evaluator
-                    new SingleProjectEvaluator(fileName);
-                }
+                // kick off evaluator
+                new SingleProjectEvaluator(fileName);
             }
             else {
+                //LOGGER.error("Illegal Argument Exception: incorrect input parameter given. Use --help for more information.");
                 throw new IllegalArgumentException("Incorrect input parameters given. Use --help for more information");
             }
 
         }
         catch (Exception e) {
             e.printStackTrace();
+            //LOGGER.error("Exception caught: " + e);
         }
 
     }
 
     private static boolean check_help(String[] args) {
         // check if the help flag was used
-        boolean help = false;
         for (String arg : args) {
             if (arg.equals("--help")) {
                 return true;

@@ -18,7 +18,7 @@ RUN apk update && apk add \
 WORKDIR "/home"
 
 ## python package installs
-RUN pip install argparse requests #json
+RUN pip install argparse requests
 
 ## grype installs
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v0.65.2
@@ -28,8 +28,6 @@ RUN wget https://github.com/aquasecurity/trivy/releases/download/v0.44.1/trivy_0
 RUN dpkg --add-architecture amd64
 RUN dpkg -i trivy_0.44.1_Linux-64bit.deb
 RUN rm trivy_0.44.1_Linux-64bit.deb
-
-## sbomqs install
 
 ## PIQUE ##
 # maven install - install in opt
@@ -47,14 +45,20 @@ RUN mvn --version
 RUN mvn install -Dmaven.test.skip
 
 # pique sbom supply chain sec (docker) install
-WORKDIR "/home"
-RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychainsec
-WORKDIR "/home/msusel-pique-sbom-supplychainsec"
-RUN mvn package -Dmaven.test.skip
+#WORKDIR "/home"
+#RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychainsec.git
+#WORKDIR "/home/msusel-pique-sbom-supplychainsec"
+#RUN mvn package -Dmaven.test.skip
+#
+### sbomqs install
+#WORKDIR "/home/msusel-pique-sbom-supplychainsec/src/main/resources"
+#RUN export INTERLYNK_DISABLE_VERSION_CHECK=true
+#RUN curl -LJ -o sbomqs https://github.com/interlynk-io/sbomqs/releases/download/v0.0.17/sbomqs-linux-amd64
+#RUN chmod a+x sbomqs
+#WORKDIR "/home/msusel-pique-sbom-supplychainsec"
 
-#create input directory
+# create input directory
 RUN mkdir "/input"
-
 # input for project files
 VOLUME ["/input"]
 

@@ -42,11 +42,13 @@ import pique.model.QualityModelImport;
 import pique.utility.PiqueProperties;
 
 /**
- * Collection of common helper functions used across the project
+ * Collection of common helper functions used across the project.
  *
+ * @author Andrew Johnson and Eric O'Donoghue
  */
 public class helperFunctions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(helperFunctions.class);
+
 	/**
 	 * A method to check for equality up to some error bounds
 	 * @param x The first number
@@ -54,19 +56,21 @@ public class helperFunctions {
 	 * @param eps The error bounds
 	 * @return True if |x-y|<|eps|, or in other words, if x is within eps of y.
 	 */
-	public static boolean EpsilonEquality(BigDecimal x, BigDecimal y, BigDecimal eps) {
-		BigDecimal val = x.subtract(y).abs();
-		int comparisonResult = val.compareTo(eps.abs());
-		if (comparisonResult==1) {
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
+//	public static boolean EpsilonEquality(BigDecimal x, BigDecimal y, BigDecimal eps) {
+//		BigDecimal val = x.subtract(y).abs();
+//		int comparisonResult = val.compareTo(eps.abs());
+//		if (comparisonResult==1) {
+//			return false;
+//		}
+//		else {
+//			return true;
+//		}
+//	}
 
 	/**
-	 * Given a set of CVE names in a string separated by spaces, return the CWEs the CVEs are associated with
+	 * Given a set of CVE and/or GHSA names, returns the CWEs the vulnerabilities are associated with. Runs
+	 * a python script, CVE_to_CWE.py, through the command line to achieve this.
+	 *
 	 * @param cveList An ArrayList<String> of one or more CVE names
 	 * @return An array of CWEs associated with the given CVEs
 	 */
@@ -84,9 +88,12 @@ public class helperFunctions {
 			cveString.append(entry);
 		}
 
+		// tool did not find any vulnerabilities
 		if (cveString.toString().isEmpty()) {
 			return new String[]{};
 		}
+
+		// command for running python script for converting vulnerabilities to CWEs
 		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--github_token", githubTokenPath, "--nvdDict", pathToNVDDict};
 
 		String cwe = "";
@@ -96,9 +103,15 @@ public class helperFunctions {
 			System.err.println("Error running CVE_to_CWE.py");
 			e.printStackTrace();
 		}
+
+		// CVE_to_CWE.py prints the results to standard out, trim the newlines and return array
         return cwe.split("\n \n");
 	}
 
+	/**
+	 * Downloads the most recent version of the national vulnerability database using the NVD API.
+	 * Achieves this running a python script, download_nvd.py, with the command line.
+	 */
 	public static void downloadNVD() {
 		Properties prop = PiqueProperties.getProperties();
 		String pathToScript = prop.getProperty("downloadNVD.location");
@@ -113,16 +126,24 @@ public class helperFunctions {
 			result = getOutputFromProgram(cmd,LOGGER);
 			if (result.equals("true\n")) {
 				System.out.println("Successfully downloaded NVD.");
+				LOGGER.info("Successfully downloaded NVD");
 			}
 			else {
 				System.err.println("Error downloading NVD " + result);
+				LOGGER.error("Error down loading NVD " + result);
 			}
 		} catch (IOException e) {
 			System.err.println("Error running download_nvd.py");
+			LOGGER.error("Error running download_nvd.py " + e);
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Opens the component count results from sbomqs tool and returns the current SBOM under analysis component count.
+	 *
+	 * @return component count as an integer
+	 */
 	public static int getComponentCount() {
 		try {
 			File tempResults = new File(System.getProperty("user.dir") + "/out/sbomqs.txt");
@@ -139,8 +160,6 @@ public class helperFunctions {
 			e.printStackTrace();
 			return 1;
 		}
-		// Close the BufferedReader
-
 	}
 
 	 /**
@@ -174,7 +193,7 @@ public class helperFunctions {
 	}
 	
 	 /**
-	  * 
+	  * Reads a given file paths contents into a string and returns the results.
 	  * 
 	  * @param filePath - Path of file to be read
 	  * @return the text output of the file content.
@@ -199,6 +218,7 @@ public class helperFunctions {
 	/**
 	 * This function finds all diagnostics associated with a certain toolName and returns them in a Map with the diagnostic name as the key.
 	 * This is used common to initialize the diagnostics for tools.
+	 *
 	 * @param toolName The desired tool name
 	 * @return All diagnostics in the model structure with tool equal to toolName
 	 */
@@ -223,12 +243,13 @@ public class helperFunctions {
 		return diagnostics;
 	}
 
-	public static String formatFileWithSpaces(String pathWithSpace) {
-		String retString = pathWithSpace.replaceAll("([a-zA-Z]*) ([a-zA-Z]*)", "'$1 $2'");
-		return retString;
-	}
 
-	//maps low-critical to numeric values based on the highest value for each range.
+	/**
+	 * Maps low-critical to numeric values based on the highest value for each range.
+	 *
+	 * @param severity
+	 * @return
+	 */
 	public static Integer severityToInt(String severity) {
 		Integer severityInt = 1;
 		switch(severity.toLowerCase()) {

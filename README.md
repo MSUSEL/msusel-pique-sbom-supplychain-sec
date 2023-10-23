@@ -15,10 +15,16 @@ ___
 Docker (built using v24.0.4)
 ___
 
-## Running
-TBD
+## API Key Requirments
+A API key from the National Vulnerability Database and a Github personal access token. Save the NVD API key in a text file, nvd_key.txt, save the Github token in a text file, github_token.txt, then place these files in the input/keys directory. 
+- [NVD API key][https://nvd.nist.gov/developers/request-an-api-key]
+- [Github Token][https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens]
+___
+
+## Running 
 
 ___
+
 ## Funding Agency:
 
 [<img src="https://www.cisa.gov/profiles/cisad8_gov/themes/custom/gesso/dist/images/backgrounds/6fdaa25709d28dfb5cca.svg" width="20%" height="20%">](https://www.cisa.gov/)

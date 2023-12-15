@@ -1,4 +1,4 @@
-# MSUSEL-PIQUE-SBOM-SUPPLYCHAINSEC
+# MSUSEL-PIQUE-SBOM-SUPPLYCHAIN-SEC
 ## Introduction
 This project is an operationalized PIQUE model for the assessment of security quality in software supply chains utilizing SBOM technology.
 

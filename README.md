@@ -7,8 +7,11 @@ ___
 ## Tools
 These will be automatically installed when the docker image is built.
 
-- [grype v0.65.2][https://github.com/anchore/grype]
-- [Trivy v0.44.1][https://github.com/aquasecurity/trivy]
+* [Grype v0.65.2](https://github.com/anchore/grype) version 0.65.2
+* [Trivy v0.44.1](https://github.com/aquasecurity/trivy) version 0.44.1
+* [Sbomqs](https://github.com/interlynk-io/sbomqs) version 0.0.17
+* [Maven](https://github.com/apache/maven) version 3.9.6
+* [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 0.9.3
 ___
 
 ## Run Environment

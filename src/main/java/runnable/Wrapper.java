@@ -1,6 +1,5 @@
 package runnable;
 
-import jdk.jpackage.internal.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pique.utility.PiqueProperties;
@@ -91,7 +90,7 @@ public class Wrapper {
             }
             else if ("evaluate".equals(runType)) {
                 // kick off evaluator
-                new SingleProjectEvaluator(fileName);
+                new SingleProjectEvaluator("input/projects");
             }
             else {
                 //LOGGER.error("Illegal Argument Exception: incorrect input parameter given. Use --help for more information.");

@@ -29,7 +29,7 @@ input/keys/github_token.txt
 
 # ignore NVD dictionary
 src/main/resources/nvd-dictionary.json
-target/classes/nvd-dictionary.jsongit
+target/classes/nvd-dictionary.json
 
 # dont need temp output files on github
 out/grype.json

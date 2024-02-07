@@ -78,6 +78,7 @@ public class helperFunctions {
 		Properties prop = PiqueProperties.getProperties();
 		String pathToScript = prop.getProperty("cveTocwe.location");
 		String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
+		String port_number = prop.getProperty("query-nvd.port");
 
 		// Convert each cveList to a comma-separated string
 		StringBuilder cveString = new StringBuilder();
@@ -94,7 +95,7 @@ public class helperFunctions {
 		}
 
 		// command for running python script for converting vulnerabilities to CWEs
-		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--github_token", githubTokenPath, "--nvdDict", pathToNVDDict};
+		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--github_token", githubTokenPath, "--nvdDict", "", "--port", port_number};
 
 		String cwe = "";
 		try {

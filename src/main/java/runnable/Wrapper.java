@@ -7,6 +7,13 @@ import tool.GrypeWrapper;
 import utilities.helperFunctions;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -14,6 +21,8 @@ import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.Namespace;
+
+import static java.lang.Thread.sleep;
 
 /**
  * Entry point for the model. Handles 3 distinct operations:
@@ -27,7 +36,7 @@ import net.sourceforge.argparse4j.inf.Namespace;
  * @author Eric O'Donoghue
  */
 public class Wrapper {
-    //private static final Logger LOGGER = LoggerFactory.getLogger(Wrapper.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Wrapper.class);
 
     public static void main(String[] args) {
         try {
@@ -38,8 +47,8 @@ public class Wrapper {
             parser.addArgument("--runType")
                     .setDefault("evaluate")
                     .choices("derive", "evaluate")
-                    .help("derive: derives a new quality model from the benchmark repository, using --file throws an IllegalArgumentException and prints the stack trace" +
-                            "\n evaluate: evaluates SBOMs located in input/projects with derived quality model");
+                    .help("derive: derives a new quality model from the benchmark repository" +
+                            "\nevaluate: evaluates SBOMs located in input/projects with derived quality model");
 
             parser.addArgument("--version")
                     .action(Arguments.storeTrue())
@@ -59,7 +68,6 @@ public class Wrapper {
             }
 
             String runType = namespace.getString("runType");
-            String fileName = namespace.getString("fileName");
             boolean printVersion = namespace.getBoolean("version");
             boolean downloadNVDFlag = namespace.getBoolean("downloadNVD");
             Properties prop = PiqueProperties.getProperties();
@@ -71,7 +79,7 @@ public class Wrapper {
             }
             if (downloadNVDFlag) {
                 System.out.println("Starting NVD download");
-                //LOGGER.info("Wrapper: Starting NVD download");
+                LOGGER.info("Wrapper: Starting NVD download");
                 helperFunctions.downloadNVD();
                 System.exit(0);
             }
@@ -80,9 +88,26 @@ public class Wrapper {
             File f = new File(nvdDictionaryPath);
             if (!f.isFile()) {
                 System.out.println("Error: the National Vulnerability Database must be downloaded before deriving or evaluating. Use --help for more information.");
-                //LOGGER.info("Error: the National Vulnerability must be downloaded before deriving or evaluating.");
+                LOGGER.info("Error: the National Vulnerability must be downloaded before deriving or evaluating.");
                 System.exit(1);
             }
+
+            // kick off query_nvd.py on its own thread
+            String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
+            String pathToScript = prop.getProperty("query-nvd.location");
+            String port_number = prop.getProperty("query-nvd.port");
+            String[] cmd = {"python3", pathToScript, pathToNVDDict, port_number};
+            Thread query_nvd = new Thread(() -> {
+                try {
+                    helperFunctions.getOutputFromProgram(cmd, LOGGER);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+            query_nvd.start();
+
+            // todo implement functionality for responding when dict is loaded instead of sleeping
+            sleep(12000);
 
             if ("derive".equals(runType)) {
                 // kick off deriver
@@ -91,18 +116,18 @@ public class Wrapper {
             else if ("evaluate".equals(runType)) {
                 // kick off evaluator
                 new SingleProjectEvaluator("input/projects");
+                System.exit(0);
             }
             else {
-                //LOGGER.error("Illegal Argument Exception: incorrect input parameter given. Use --help for more information.");
+                LOGGER.error("Illegal Argument Exception: incorrect input parameter given. Use --help for more information.");
                 throw new IllegalArgumentException("Incorrect input parameters given. Use --help for more information");
             }
-
+            //query_nvd.join();
         }
         catch (Exception e) {
             e.printStackTrace();
-            //LOGGER.error("Exception caught: " + e);
+            LOGGER.error("Exception caught: " + e);
         }
-
     }
 
     private static boolean check_help(String[] args) {

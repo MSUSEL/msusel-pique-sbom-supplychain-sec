@@ -18,7 +18,7 @@ RUN apk update && apk add \
 WORKDIR "/home"
 
 ## python package installs
-RUN pip install argparse requests
+RUN pip install argparse requests flask
 
 ## grype installs
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v0.65.2

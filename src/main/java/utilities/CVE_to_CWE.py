@@ -10,6 +10,7 @@ Command line arguments:
 --list (-l): a string of CVEs seperated by commas ie; CVE-2020-123,CVE-2022-456,CVE-2018-789
 --github_token (-g): a filepath pointing to a .txt file containing a github token on a single line. This is only needed if there are GHSA IDs to convert to CWEs.
 --nvdDict (-n): a filepath pointing to a .json file containing a downloaded version of the NVD saved as a dictionary with CVE IDs as keys.
+--port (-p): the port to communicate with the flask server on
 """
 
 import argparse
@@ -68,21 +69,27 @@ def ghsa_to_cwe(ghsa, github_token):
 # Returns:
 # list of all CWEs that map to the given CVE or GHSA
 #
-def get_cwe(vul, github_token, nvd_dict):
+def get_cwe(vul, github_token, nvd_dict, port):
     if vul[:4] == "GHSA":
         return ghsa_to_cwe(vul, github_token)
 
     result = []
-    if vul in nvd_dict:
-        if 'weaknesses' in nvd_dict[vul]:
-            for w in nvd_dict[vul]['weaknesses'][:1]:
-                cwe = w['description'][0]['value']
-                if cwe == 'NVD-CWE-Other' or cwe == 'NVD-CWE-noinfo':
-                    result.append('CWE-unknown')
-                else:
-                    result.append(cwe)
-        else:
-            result.append('CWE-unknown')
+    if nvd_dict != "":
+        if vul in nvd_dict:
+            if 'weaknesses' in nvd_dict[vul]:
+                for w in nvd_dict[vul]['weaknesses'][:1]:
+                    cwe = w['description'][0]['value']
+                    if cwe == 'NVD-CWE-Other' or cwe == 'NVD-CWE-noinfo':
+                        result.append('CWE-unknown')
+                    else:
+                        result.append(cwe)
+            else:
+                result.append('CWE-unknown')
+    else:
+        url = f"http://localhost:{port}/get_cwes"
+        response = requests.get(url=url, params={'cve': vul})
+        data = response.json()
+        result = data.get('cwes', [])
 
     return result
 
@@ -98,7 +105,7 @@ def get_cwe(vul, github_token, nvd_dict):
 # Returns:
 # list of CWEs
 #
-def get_cwe_for_vulnerabilities(vulnerabilities, github_token, nvd_dict):
+def get_cwe_for_vulnerabilities(vulnerabilities, github_token, nvd_dict, port):
     # build a list of all CWEs
     results = []
     for vul in vulnerabilities:
@@ -108,7 +115,7 @@ def get_cwe_for_vulnerabilities(vulnerabilities, github_token, nvd_dict):
         else:
             vul = '-'.join(vul.split("-", 3)[:3])
 
-        cwe = get_cwe(vul, github_token, nvd_dict=nvd_dict)
+        cwe = get_cwe(vul, github_token, nvd_dict, port)
         results.extend(cwe) # a list is returned because a CVE can map to multiple CWEs
 
     return results
@@ -126,11 +133,13 @@ def main():
     parser.add_argument("-l", "--list", dest="vulnerabilities", default="", help="Vulnerabilities List")
     parser.add_argument("-g", "--github_token", dest="github_token", default="", help="Github Token File Path")
     parser.add_argument("-n", "--nvdDict", dest="nvd_dict", default="", help="NVD Dictionary File Path")
+    parser.add_argument("-p", "--port", dest="port", default="", help="Port to communicate with flask server on")
 
     args = parser.parse_args()
     vulnerabilities = args.vulnerabilities.split(',')
     github_token_path = args.github_token
     nvd_dict_path = args.nvd_dict
+    port = args.port
 
     # try github token file
     try:
@@ -140,15 +149,18 @@ def main():
         print(f"Error - opening github token file, please supply valid filepath to .txt file containing only a github api token.\n{e}")
         exit(1)
 
-    # try nvd dictionary file
-    try:
-        with open(nvd_dict_path, "r") as json_file:
-            nvd_dict = json.load(json_file)
-    except Error as e:
-            print(f"Error - opening nvd dictionary json file.\n{e}")
-            exit(1)
+    if nvd_dict_path != "":
+        # try nvd dictionary file
+        try:
+            with open(nvd_dict_path, "r") as json_file:
+                nvd_dict = json.load(json_file)
+        except Error as e:
+                print(f"Error - opening nvd dictionary json file.\n{e}")
+                exit(1)
+        result = get_cwe_for_vulnerabilities(vulnerabilities, github_token, nvd_dict, port)
+    else:
+        result = get_cwe_for_vulnerabilities(vulnerabilities, github_token, "", port)
 
-    result = get_cwe_for_vulnerabilities(vulnerabilities, github_token, nvd_dict)
 
     # need to print out results to standard out for PIQUE to capture
     for c in result:

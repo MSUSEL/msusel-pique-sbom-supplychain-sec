@@ -31,8 +31,8 @@ ___
 
 ## API Key Requirments
 A API key from the National Vulnerability Database and a Github personal access token are needed. See [running](ttps://github.com/MSUSEL/msusel-pique-sbom-supplychainsec/tree/master#running) for details
-- [NVD API key][https://nvd.nist.gov/developers/request-an-api-key]
-- [Github Token][https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens]
+- [NVD API key](https://nvd.nist.gov/developers/request-an-api-key)
+- [Github Token](https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 ___
 
 ## Running 

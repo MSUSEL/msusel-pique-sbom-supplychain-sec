@@ -37,20 +37,20 @@ RUN source .venv/bin/activate
 RUN python3 -m pip install argparse requests flask --break-system-packages
 
 WORKDIR "/home"
-RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychainsec
-WORKDIR "/home/msusel-pique-sbom-supplychainsec"
+RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychain-sec
+WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 
-# build pique cloud dockerfile
+# build pique sbom supply chain sex
 RUN mvn package -Dmaven.test.skip
 
 #
 ### sbomqs install
-WORKDIR "/home/msusel-pique-sbom-supplychainsec/src/main/resources"
+WORKDIR "/home/msusel-pique-sbom-supplychain-sec/src/main/resources"
 RUN export INTERLYNK_DISABLE_VERSION_CHECK=true
 RUN curl -LJ -o sbomqs https://github.com/interlynk-io/sbomqs/releases/download/v$SBOMQS_VERSION/sbomqs-linux-amd64
 RUN chmod a+x sbomqs
-WORKDIR "/home/msusel-pique-sbom-supplychainsec"
+WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 # create input directory
 RUN mkdir "/input"
@@ -59,14 +59,12 @@ RUN mkdir "/input"
 VOLUME ["/input"]
 
 # output for model
-VOLUME ["/output"]
+VOLUME ["/out"]
 
-RUN chmod -R +x /input
-RUN chmod -R +x /output
 
 # symlink to jar file for cleanliness
-RUN ln -s /home/msusel-pique-sbom-supplychainsec/target/msusel-pique-sbom-supplychainsec-$PIQUE_SBOM_VERSION-jar-with-dependencies.jar \
-        /home/msusel-pique-sbom-supplychainsec/docker_entrypoint.jar
+RUN ln -s /home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-$PIQUE_SBOM_VERSION-jar-with-dependencies.jar \
+        /home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar
 
 ##### secret sauce
-ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychainsec/docker_entrypoint.jar", "--runType", "evaluate"]
+ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]

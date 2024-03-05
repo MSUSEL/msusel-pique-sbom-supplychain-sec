@@ -2,7 +2,9 @@
 ## Introduction
 This project is an operationalized PIQUE model for the assessment of security quality in software supply chains utilizing SBOM technology.
 
-PIQUE is not yet added to the Maven central repository, so this project will need to be built and installed (via Maven) before it can be used as a library.
+Because of the various development environment challenges when dealing with numerous 3rd 
+party applications, this project is also provided as a packaged standalone docker image. 
+That image is available [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supplychain-sec/general).
 ___
 ## Tools
 These will be automatically installed when the docker image is built.
@@ -19,18 +21,18 @@ ___
 docker engine 20.10.24 (not tested with versions 21+)
 
 The image for this project is hosted on dockerhub 
-[here](https://hub.docker.com/repository/docker/msusel/pique-cloud-dockerfile/general). Instructions to download 
-and run are supplied [below](https://github.com/MSUSEL/msusel-pique-cloud-dockerfile/tree/master#running)
+[here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supplychain-sec/general). Instructions to download 
+and run are supplied [below](https://github.com/MSUSEL/msusel-sbom-supplychain-sec/tree/master#running)
 
 
 #### not Docker
-It is not suggested to run PIQUE-cloud-dockerfile without the pre-built docker image, but all files and configs 
+It is not suggested to run PIQUE-SBOM-SUPPLYCHAIN-SEC without the pre-built docker image, but all files and configs 
 are supplied on this repository. 
 
 ___
 
 ## API Key Requirments
-A API key from the National Vulnerability Database and a Github personal access token are needed. See [running](ttps://github.com/MSUSEL/msusel-pique-sbom-supplychainsec/tree/master#running) for details
+A API key from the National Vulnerability Database and a Github personal access token are needed. See [running](ttps://github.com/MSUSEL/msusel-pique-sbom-supplychainsec/tree/master#running) for details.
 - [NVD API key](https://nvd.nist.gov/developers/request-an-api-key)
 - [Github Token](https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 ___
@@ -38,14 +40,14 @@ ___
 ## Running 
 1. Download and install [Docker engine](https://docs.docker.com/engine/install/)
 2. With Docker engine installed, pull the latest version of this project:
-`docker pull msusel/pique-sbom-supplychainsec:latest`
+`docker pull msusel/pique-sbom-supplychain-sec:latest`
 3. Navigate to a working directory for this project
-4. Create two directories, "input" and "output". Inside the "input directory", create two directories "keys" and "projects"
+4. Create two directories, "input" and "out". Inside the "input directory", create two directories "keys" and "projects"
 5. Generate an NVD API key [here](https://nvd.nist.gov/developers/request-an-api-key) and save the text of the key to a file 'nvd-api-key.txt'
 6. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt' 
 7. Move the files 'nvd-api-key.txt' and 'github-token.txt' to the 'input/keys' directory.
-8. Place any number of SBOMs to be analyzed in input/projects.
-10. The resulting directory structure should look like this:
+8. Place any number of SBOMs to be analyzed in input/projects. 
+9. The resulting directory structure should look like this:
 ```
 ├── $WORKDIR
 │   ├── input
@@ -54,10 +56,10 @@ ___
 │   │   │   ├── nvd-api-key.txt
 │   │   ├── projects
 │   │   │   ├── place SBOMs to analyze here
-│   ├── output
+│   ├── out
 ```
-11. Run the command `docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supplychainsec:latest`
-12. Results will be generated in the 'output' directory
+10. Run the command `docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supplychainsec:latest`
+11. Results will be generated in the 'out' directory
 ___
 
 ## Funding Agency:

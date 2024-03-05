@@ -54,10 +54,10 @@ public class Wrapper {
                     .action(Arguments.storeTrue())
                     .setDefault(false)
                     .help("print version information and terminate program");
-            parser.addArgument("--downloadNVD")
-                    .action(Arguments.storeTrue())
-                    .setDefault(false)
-                    .help("Download the latest version of the NVD database then terminate program");
+//            parser.addArgument("--downloadNVD")
+//                    .action(Arguments.storeTrue())
+//                    .setDefault(false)
+//                    .help("Download the latest version of the NVD database then terminate program");
 
             Namespace namespace = null;
             if (helpFlag) {
@@ -69,7 +69,7 @@ public class Wrapper {
 
             String runType = namespace.getString("runType");
             boolean printVersion = namespace.getBoolean("version");
-            boolean downloadNVDFlag = namespace.getBoolean("downloadNVD");
+            //boolean downloadNVDFlag = namespace.getBoolean("downloadNVD");
             Properties prop = PiqueProperties.getProperties();
 
             if (printVersion) {
@@ -77,19 +77,21 @@ public class Wrapper {
                 System.out.println("PIQUE-SBOM-SUPPLYCHAIN-SEC version " + version);
                 System.exit(0);
             }
-            if (downloadNVDFlag) {
-                System.out.println("Starting NVD download");
-                LOGGER.info("Wrapper: Starting NVD download");
-                helperFunctions.downloadNVD();
-                System.exit(0);
-            }
+//            if (downloadNVDFlag) {
+//                System.out.println("Starting NVD download");
+//                LOGGER.info("Wrapper: Starting NVD download");
+//                helperFunctions.downloadNVD();
+//                System.exit(0);
+//            }
 
             String nvdDictionaryPath = Paths.get(prop.getProperty("nvd-dictionary.location")).toString();
             File f = new File(nvdDictionaryPath);
             if (!f.isFile()) {
-                System.out.println("Error: the National Vulnerability Database must be downloaded before deriving or evaluating. Use --help for more information.");
-                LOGGER.info("Error: the National Vulnerability must be downloaded before deriving or evaluating.");
-                System.exit(1);
+                System.out.println("NVD database not yet downloaded - starting NVD download");
+                LOGGER.info("Wrapper: NVD database not yet downloaded - starting NVD download");
+                helperFunctions.downloadNVD();
+                System.out.println("finish NVD download");
+                LOGGER.info("Wrapper: finished NVD download");
             }
 
             // kick off query_nvd.py on its own thread
@@ -104,6 +106,8 @@ public class Wrapper {
                     e.printStackTrace();
                 }
             });
+            System.out.println("Starting server for converting vulnerabilities to CWEs");
+            LOGGER.info("Wrapper: Starting query_nvd.py");
             query_nvd.start();
 
             // todo implement functionality for responding when dict is loaded instead of sleeping

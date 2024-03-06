@@ -62,7 +62,7 @@ VOLUME ["/input"]
 VOLUME ["/out"]
 
 # symlink to jar file for cleanliness
-RUN ln -s /home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychainsec-$PIQUE_SBOM_VERSION-jar-with-dependencies.jar \
+RUN ln -s /home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-$PIQUE_SBOM_VERSION-jar-with-dependencies.jar \
         /home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar
 
 ##### secret sauce

@@ -66,4 +66,4 @@ RUN ln -s /home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-suppl
         /home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar
 
 ##### secret sauce
-#ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
+ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]

@@ -36,7 +36,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
-    <artifactId>msusel-pique-sbom-supplychainsec</artifactId>
+    <artifactId>msusel-pique-sbom-supplychain-sec</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>MSU PIQUE quality model implementation for software supply chain security using SBOMs</description>
     <url>https://msusel.github.io</url>

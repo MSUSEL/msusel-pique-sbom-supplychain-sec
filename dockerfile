@@ -8,7 +8,7 @@ ARG SBOMQS_VERSION=0.0.30
 
 #--------------------------------------------------------#
 RUN apk update && apk upgrade && apk add --update --no-cache \
-    curl python3 py3-pip dpkg docker openrc wget
+    curl python3 py3-pip dpkg docker openrc wget go
 
 # add user to docker group
 RUN addgroup root docker
@@ -63,7 +63,7 @@ VOLUME ["/out"]
 
 # symlink to jar file for cleanliness
 RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-jar-with-dependencies.jar" \
-        "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar" \
+        "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar"
 
 ##### secret sauce
 #ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]

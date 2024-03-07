@@ -46,11 +46,11 @@ RUN mvn package -Dmaven.test.skip
 
 #
 ### sbomqs install
-WORKDIR "/home/msusel-pique-sbom-supplychain-sec/src/main/resources"
-RUN export INTERLYNK_DISABLE_VERSION_CHECK=true
-RUN curl -LJ -o sbomqs a+sreleases/download/v$SBOMQS_VERSION/sbomqs-linux-amd64
-RUN chmod a+x sbomqs
-WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
+#WORKDIR "/home/msusel-pique-sbom-supplychain-sec/src/main/resources"
+#RUN export INTERLYNK_DISABLE_VERSION_CHECK=true
+#RUN curl -LJ -o sbomqs releases/download/v$SBOMQS_VERSION/sbomqs-linux-amd64
+#RUN chmod a+x sbomqs
+#WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 # create input directory
 RUN mkdir "/input"

@@ -50,10 +50,10 @@ RUN mvn package -Dmaven.test.skip
 #RUN curl -LJ -o sbomqs releases/download/v$SBOMQS_VERSION/sbomqs-linux-amd64
 #RUN chmod a+x sbomqs
 RUN go install github.com/interlynk-io/sbomqs@v$SBOMQS_VERSION
-RUN export PATH=${PATH}:/usr/local/go/bin
-RUN export GOPATH="${HOME}/go"
-RUN export PATH="${GOPATH}/bin:${PATH}"
-RUN export INTERLYNK_DISABLE_VERSION_CHECK=true
+ENV PATH=${PATH}:/usr/local/go/bin
+ENV GOPATH="${HOME}/go"
+ENV PATH="${GOPATH}/bin:${PATH}"
+ENV INTERLYNK_DISABLE_VERSION_CHECK=true
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 # create input directory

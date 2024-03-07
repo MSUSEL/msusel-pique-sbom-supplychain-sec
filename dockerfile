@@ -48,7 +48,7 @@ RUN mvn package -Dmaven.test.skip
 ### sbomqs install
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec/src/main/resources"
 RUN export INTERLYNK_DISABLE_VERSION_CHECK=true
-RUN curl -LJ -o sbomqs https://github.com/interlynk-io/sbomqs/releases/download/v$SBOMQS_VERSION/sbomqs-linux-amd64
+RUN curl -LJ -o sbomqs a+sreleases/download/v$SBOMQS_VERSION/sbomqs-linux-amd64
 RUN chmod a+x sbomqs
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
@@ -62,8 +62,8 @@ VOLUME ["/input"]
 VOLUME ["/out"]
 
 # symlink to jar file for cleanliness
-RUN ln -s /home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-$PIQUE_SBOM_VERSION-jar-with-dependencies.jar \
-        /home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar
+RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-jar-with-dependencies.jar" \
+        "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar" \
 
 ##### secret sauce
 #ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]

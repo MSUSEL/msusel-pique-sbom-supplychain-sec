@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="msusel-pique-sbom-supplychainsec" />
+        <module name="msusel-pique-sbom-supplychain-sec" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="main" target="1.7" />
+      <module name="msusel-pique-sbom-supplychainsec" target="1.8" />
       <module name="srcsadf" target="1.7" />
       <module name="test" target="1.7" />
     </bytecodeTargetLevel>

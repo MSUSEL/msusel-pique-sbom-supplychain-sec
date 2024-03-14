@@ -27,10 +27,12 @@ nvd_dictionary = {}
 def batch_cve_request(i, api_key):
     request_status = False
     attempts = 1
+    print(f"start index {i}")
     while request_status == False:
         url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex={i}"
         response = requests.get(url=url, headers={"apiKey": api_key})
 
+        print(f"attempt {attempts}")
         print(f"response code - {response.status_code}")
         if response.status_code != 200:
             print(f"NVD API request failures are occurring; retrying request for the {attempts} time")
@@ -64,6 +66,7 @@ def main():
             exit(1)
 
     n = 1
+    print("stat download")
     for i in range(0, nvd_cve_count, 2000): # NVD API largest and optimal page size is 2000
         s = time.time()
         batch_cve_request(i, API_KEY)

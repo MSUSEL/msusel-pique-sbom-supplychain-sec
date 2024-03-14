@@ -58,7 +58,7 @@ ___
 │   │   │   ├── place SBOMs to analyze here
 │   ├── out
 ```
-10. Run the command `docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supplychainsec:latest`
+10. Run the command `docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supplychain-sec:latest`
 11. Results will be generated in the 'out' directory
 ___
 

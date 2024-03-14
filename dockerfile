@@ -2,7 +2,7 @@ FROM msusel/pique-core:0.9.5_2
 
 ## dependency and library versions
 ARG GRYPE_VERSION=0.72.0
-ARG PIQUE_SBOM_VERSION=1.0.0
+ARG PIQUE_SBOM_VERSION=1.0
 ARG TRIVY_VERSION=0.44.1
 ARG SBOMQS_VERSION=0.0.30
 
@@ -66,8 +66,8 @@ VOLUME ["/input"]
 VOLUME ["/out"]
 
 # symlink to jar file for cleanliness
-RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-jar-with-dependencies.jar" \
+RUN ln -s RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-SNAPSHOT-jar-with-dependencies.jar" \
         "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar"
 
 ##### secret sauce
-#ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
+ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]

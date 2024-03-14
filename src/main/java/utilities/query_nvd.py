@@ -48,7 +48,7 @@ def main():
     try:
         with open(nvd_dict_path, "r") as json_file:
             nvd_dict = json.load(json_file)
-    except Error as e:
+    except OSError as e:
         print(f"Error - opening nvd dictionary json file.\n{e}")
         exit(1)
 

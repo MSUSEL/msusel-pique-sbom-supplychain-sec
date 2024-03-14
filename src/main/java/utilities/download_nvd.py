@@ -50,7 +50,7 @@ def main():
     try:
         with open(api_key_path) as f:
             API_KEY = f.readline().rstrip()
-    except Error as e:
+    except OSError as e:
             print(f"Error - opening NVD api key file, please supply valid filepath to .txt file containing only a NVD api key.\n{e}")
             exit(1)
 

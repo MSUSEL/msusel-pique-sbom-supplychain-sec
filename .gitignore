@@ -36,5 +36,7 @@ out/grype.json
 out/trivy.json
 out/sbomqs.txt
 
+.idea/*
+
 # sbomqs executable will be installed when docker image is built
 src/main/resources/sbomqs

@@ -145,7 +145,7 @@ def main():
     try:
         with open(github_token_path) as f:
             github_token = f.readline().rstrip()
-    except Error as e:
+    except OSError as e:
         print(f"Error - opening github token file, please supply valid filepath to .txt file containing only a github api token.\n{e}")
         exit(1)
 
@@ -154,7 +154,7 @@ def main():
         try:
             with open(nvd_dict_path, "r") as json_file:
                 nvd_dict = json.load(json_file)
-        except Error as e:
+        except OSError as e:
                 print(f"Error - opening nvd dictionary json file.\n{e}")
                 exit(1)
         result = get_cwe_for_vulnerabilities(vulnerabilities, github_token, nvd_dict, port)

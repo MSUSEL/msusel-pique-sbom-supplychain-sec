@@ -12,6 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="main" target="1.7" />
+      <module name="msusel-pique" target="1.5" />
       <module name="msusel-pique-sbom-supplychainsec" target="1.8" />
       <module name="srcsadf" target="1.7" />
       <module name="test" target="1.7" />

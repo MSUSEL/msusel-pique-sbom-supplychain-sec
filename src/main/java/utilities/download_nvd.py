@@ -25,9 +25,9 @@ nvd_dictionary = {}
 # api_key: string containing NVD api key
 #
 def batch_cve_request(i, api_key):
-    request_status = false
+    request_status = False
     attempts = 1
-    while request_status == false:
+    while request_status == False:
         url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex={i}"
         response = requests.get(url=url, headers={"apiKey": api_key})
 
@@ -41,7 +41,7 @@ def batch_cve_request(i, api_key):
             continue
 
         if response.status_code == 200:
-            request_status = true
+            request_status = True
 
         data = response.json()
         for cve_data in data['vulnerabilities']:

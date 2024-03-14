@@ -46,7 +46,6 @@ def main():
     downloadPath = sys.argv[1]
     nvd_cve_count = int(sys.argv[2])
     api_key_path = sys.argv[3]
-
     try:
         with open(api_key_path) as f:
             API_KEY = f.readline().rstrip()

@@ -40,14 +40,16 @@ ___
 ## Running 
 1. Download and install [Docker engine](https://docs.docker.com/engine/install/)
 2. With Docker engine installed, pull the latest version of this project:
-`docker pull msusel/pique-sbom-supplychain-sec:latest`
-3. Navigate to a working directory for this project
-4. Create two directories, "input" and "out". Inside the "input directory", create two directories "keys" and "projects"
-5. Generate an NVD API key [here](https://nvd.nist.gov/developers/request-an-api-key) and save the text of the key to a file 'nvd-api-key.txt'
-6. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt' 
-7. Move the files 'nvd-api-key.txt' and 'github-token.txt' to the 'input/keys' directory.
-8. Place any number of SBOMs to be analyzed in input/projects. 
-9. The resulting directory structure should look like this:
+```
+docker pull msusel/pique-sbom-supplychain-sec:latest
+```
+4. Navigate to a working directory for this project
+5. Create two directories, "input" and "out". Inside the "input directory", create two directories "keys" and "projects"
+6. Generate an NVD API key [here](https://nvd.nist.gov/developers/request-an-api-key) and save the text of the key to a file 'nvd-api-key.txt'
+7. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt' 
+8. Move the files 'nvd-api-key.txt' and 'github-token.txt' to the 'input/keys' directory.
+9. Place any number of SBOMs to be analyzed in input/projects. 
+10. The resulting directory structure should look like this:
 ```
 ├── $WORKDIR
 │   ├── input
@@ -58,8 +60,11 @@ ___
 │   │   │   ├── place SBOMs to analyze here
 │   ├── out
 ```
-10. Run the command `docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supplychain-sec:latest`
-11. Results will be generated in the 'out' directory
+10. Run the command (replace `/path/to/working/directory` to absolute path of `$WORKDIR`)
+```
+docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supplychain-sec:latest
+```
+12. Results will be generated in the 'out' directory
 ___
 
 ## Funding Agency:

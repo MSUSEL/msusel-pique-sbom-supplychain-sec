@@ -31,7 +31,7 @@ def batch_cve_request(i, api_key):
         url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&startIndex={i}"
         response = requests.get(url=url, headers={"apiKey": api_key})
 
-        print(response.status_code)
+        print(f"response code - {response.status_code}")
         if response.status_code != 200:
             print(f"NVD API request failures are occurring; retrying request for the {attempts} time")
             attempts += 1
@@ -70,8 +70,8 @@ def main():
         f = time.time()
 
         # ensure we do not exceed NVD API rate limit (50 requests per 30 seconds)
-        if f - s < 1.0:
-            time.sleep(1.0 - (f - s))
+        if f - s < 0.6:
+            time.sleep(0.6 - (f - s))
 
         n += 1
 

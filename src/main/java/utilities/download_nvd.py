@@ -33,7 +33,7 @@ def batch_cve_request(i, api_key):
         response = requests.get(url=url, headers={"apiKey": api_key})
 
         print(f"attempt {attempts}")
-        print(f"response code - {response.status_code}")
+        print(f"response code - {response.status_code}", flush=True)
         if response.status_code != 200:
             print(f"NVD API request failures are occurring; retrying request for the {attempts} time")
             attempts += 1

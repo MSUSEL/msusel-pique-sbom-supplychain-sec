@@ -62,7 +62,7 @@ docker pull msusel/pique-sbom-supply-chain-sec:latest
 ```
 10. Run the command (replace `/path/to/working/directory` to absolute path of `$WORKDIR`)
 ```
-docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supply-chain-sec:latest
+docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output msusel/pique-sbom-supply-chain-sec:latest
 ```
 12. Results will be generated in the 'out' directory
 ___

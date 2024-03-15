@@ -4,7 +4,7 @@ This project is an operationalized PIQUE model for the assessment of security qu
 
 Because of the various development environment challenges when dealing with numerous 3rd 
 party applications, this project is also provided as a packaged standalone docker image. 
-That image is available [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supplychain-sec/general).
+That image is available [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supply-chain-sec/general).
 ___
 ## Tools
 These will be automatically installed when the docker image is built.

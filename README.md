@@ -11,7 +11,7 @@ These will be automatically installed when the docker image is built.
 
 * [Grype](https://github.com/anchore/grype) version 0.72.0
 * [Trivy](https://github.com/aquasecurity/trivy) version 0.44.1
-* [Sbomqs](https://github.com/interlynk-io/sbomqs) version 0.0.17
+* [Sbomqs](https://github.com/interlynk-io/sbomqs) version 0.0.30
 * [Maven](https://github.com/apache/maven) version 3.9.6
 * [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 0.9.4
 ___

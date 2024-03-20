@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'release'
-      - 'ryan-include-workflow-and-volumes'
 
 jobs:
   docker:
@@ -27,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: msusel/pique-sbom-supply-chain-sec:test
+          tags: msusel/pique-sbom-supply-chain-sec:latest

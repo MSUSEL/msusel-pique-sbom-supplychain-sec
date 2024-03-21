@@ -11,7 +11,7 @@ These will be automatically installed when the docker image is built.
 
 * [Grype](https://github.com/anchore/grype) version 0.72.0
 * [Trivy](https://github.com/aquasecurity/trivy) version 0.44.1
-* [Sbomqs](https://github.com/interlynk-io/sbomqs) version 0.0.17
+* [Sbomqs](https://github.com/interlynk-io/sbomqs) version 0.0.30
 * [Maven](https://github.com/apache/maven) version 3.9.6
 * [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 0.9.4
 ___
@@ -41,7 +41,7 @@ ___
 1. Download and install [Docker engine](https://docs.docker.com/engine/install/)
 2. With Docker engine installed, pull the latest version of this project:
 ```
-docker pull msusel/pique-sbom-supplychain-sec:latest
+docker pull msusel/pique-sbom-supply-chain-sec:latest
 ```
 4. Navigate to a working directory for this project
 5. Create two directories, "input" and "out". Inside the "input directory", create two directories "keys" and "projects"
@@ -62,7 +62,7 @@ docker pull msusel/pique-sbom-supplychain-sec:latest
 ```
 10. Run the command (replace `/path/to/working/directory` to absolute path of `$WORKDIR`)
 ```
-docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output pique-sbom-supplychain-sec:latest
+docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/output:/output msusel/pique-sbom-supply-chain-sec:latest
 ```
 12. Results will be generated in the 'out' directory
 ___

@@ -84,36 +84,37 @@ public class Wrapper {
 //                System.exit(0);
 //            }
 
-            String nvdDictionaryPath = Paths.get(prop.getProperty("nvd-dictionary.location")).toString();
-            File f = new File(nvdDictionaryPath);
-            if (!f.isFile()) {
-                System.out.println("NVD database not yet downloaded - starting NVD download");
-                LOGGER.info("Wrapper: NVD database not yet downloaded - starting NVD download");
-                helperFunctions.downloadNVD();
-                System.out.println("finish NVD download");
-                LOGGER.info("Wrapper: finished NVD download");
-            }
+//            String nvdDictionaryPath = Paths.get(prop.getProperty("nvd-dictionary.location")).toString();
+//            File f = new File(nvdDictionaryPath);
+//            if (!f.isFile()) {
+//                System.out.println("NVD database not yet downloaded - starting NVD download");
+//                LOGGER.info("Wrapper: NVD database not yet downloaded - starting NVD download");
+//                helperFunctions.downloadNVD();
+//                System.out.println("finish NVD download");
+//                LOGGER.info("Wrapper: finished NVD download");
+//            }
 
             // kick off query_nvd.py on its own thread
-            String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
-            String pathToScript = prop.getProperty("query-nvd.location");
-            String port_number = prop.getProperty("query-nvd.port");
-            String[] cmd = {"python3", pathToScript, pathToNVDDict, port_number};
-            Thread query_nvd = new Thread(() -> {
-                try {
-                    helperFunctions.getOutputFromProgram(cmd, LOGGER);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
-            System.out.println("Starting server for converting vulnerabilities to CWEs");
-            LOGGER.info("Wrapper: Starting query_nvd.py");
-            query_nvd.start();
+//            String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
+//            String pathToScript = prop.getProperty("query-nvd.location");
+//            String port_number = prop.getProperty("query-nvd.port");
+//            String[] cmd = {"python3", pathToScript, pathToNVDDict, port_number};
+//            Thread query_nvd = new Thread(() -> {
+//                try {
+//                    helperFunctions.getOutputFromProgram(cmd, LOGGER);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            });
+//            System.out.println("Starting server for converting vulnerabilities to CWEs");
+//            LOGGER.info("Wrapper: Starting query_nvd.py");
+//            query_nvd.start();
 
             // todo implement functionality for responding when dict is loaded instead of sleeping
-            sleep(12000);
+            //sleep(12000);
 
             if ("derive".equals(runType)) {
+                Map<String, String[]>
                 // kick off deriver
                 new QualityModelDeriver();
             }

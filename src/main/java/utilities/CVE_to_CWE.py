@@ -74,22 +74,20 @@ def get_cwe(vul, github_token, nvd_dict, port):
         return ghsa_to_cwe(vul, github_token)
 
     result = []
-    if nvd_dict != "":
-        if vul in nvd_dict:
-            if 'weaknesses' in nvd_dict[vul]:
-                for w in nvd_dict[vul]['weaknesses'][:1]:
-                    cwe = w['description'][0]['value']
-                    if cwe == 'NVD-CWE-Other' or cwe == 'NVD-CWE-noinfo':
-                        result.append('CWE-unknown')
-                    else:
-                        result.append(cwe)
-            else:
-                result.append('CWE-unknown')
-    else:
-        url = f"http://localhost:{port}/get_cwes"
-        response = requests.get(url=url, params={'cve': vul})
-        data = response.json()
-        result = data.get('cwes', [])
+#     if nvd_dict != "":
+#         if vul in nvd_dict:
+#             if 'weaknesses' in nvd_dict[vul]:
+#                 for w in nvd_dict[vul]['weaknesses'][:1]:
+#                     cwe = w['description'][0]['value']
+#                     if cwe == 'NVD-CWE-Other' or cwe == 'NVD-CWE-noinfo':
+#                         result.append('CWE-unknown')
+#                     else:
+#                         result.append(cwe)
+#         result.append('CWE-unknown')
+    url = f"http://localhost:{port}/get_cwes"
+    response = requests.get(url=url, params={'cve': vul})
+    data = response.json()
+    result = data.get('cwes', [])
 
     return result
 
@@ -159,7 +157,7 @@ def main():
                 exit(1)
         result = get_cwe_for_vulnerabilities(vulnerabilities, github_token, nvd_dict, port)
     else:
-        result = get_cwe_for_vulnerabilities(vulnerabilities, github_token, "", port)
+        result = get_cwe_for_vulnerabilities(vulnerabilities, github_token, "", port)   // CARE ABOUT ME!!! LOOOOOOOVE ME
 
 
     # need to print out results to standard out for PIQUE to capture

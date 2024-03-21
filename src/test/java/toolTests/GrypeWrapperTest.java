@@ -117,4 +117,9 @@ public class GrypeWrapperTest {
             }
         }
     }
+
+    @Test
+    public void TestJavaMapIsPopulated() {
+        Properties prop = PiqueProperties.getProperties();
+    }
 }

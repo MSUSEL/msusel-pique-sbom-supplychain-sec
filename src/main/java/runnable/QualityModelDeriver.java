@@ -26,6 +26,7 @@ package runnable;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -60,7 +61,7 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         init(propertiesPath);
     }
 
-    public QualityModelDeriver(){
+    public QualityModelDeriver(Map<String, String[]> cveToCWE){
         init(null);
     }
 

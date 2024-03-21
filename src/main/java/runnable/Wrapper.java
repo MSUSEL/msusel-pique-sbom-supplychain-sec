@@ -119,7 +119,8 @@ public class Wrapper {
             }
             else if ("evaluate".equals(runType)) {
                 // kick off evaluator
-                new SingleProjectEvaluator("input/projects");
+                String input_path = prop.getProperty("project.root");
+                new SingleProjectEvaluator(input_path);
                 System.exit(0);
             }
             else {

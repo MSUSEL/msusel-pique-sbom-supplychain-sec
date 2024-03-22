@@ -5,14 +5,12 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Properties;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
 import pique.utility.PiqueProperties;
 import tool.GrypeWrapper;
-import tool.TrivyWrapper;
 import tool.sbomqsWrapper;
 
 
@@ -116,10 +114,5 @@ public class GrypeWrapperTest {
                 fail();
             }
         }
-    }
-
-    @Test
-    public void TestJavaMapIsPopulated() {
-        Properties prop = PiqueProperties.getProperties();
     }
 }

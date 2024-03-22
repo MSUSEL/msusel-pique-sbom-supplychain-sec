@@ -16,6 +16,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 import java.util.Properties;
 import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
@@ -114,9 +115,8 @@ public class Wrapper {
             //sleep(12000);
 
             if ("derive".equals(runType)) {
-                Map<String, String[]>
                 // kick off deriver
-                new QualityModelDeriver();
+                new QualityModelDeriver(prop.getProperty(""));
             }
             else if ("evaluate".equals(runType)) {
                 // kick off evaluator

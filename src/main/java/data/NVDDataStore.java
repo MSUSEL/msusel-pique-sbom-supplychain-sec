@@ -39,7 +39,7 @@ public class NVDDataStore {
 
 
         Integer startIndex = 0;
-        int totalResults = 20;   // This value gets set by response header in subsequent calls
+        int totalResults = 200;   // This value gets set by response header in subsequent calls
         Integer resultsPerPage = 200;
 
         URI uri = new URIBuilder(request.getURI()).addParameter("resultsPerPage", resultsPerPage.toString())
@@ -52,32 +52,29 @@ public class NVDDataStore {
                  CloseableHttpResponse response = client.execute(request)) {
 
                 JSONObject jsonResponse = handler.handleResponse(response);
-                totalResults = jsonResponse.getInt("totalResults");
-                ArrayList<String> cweIds = parseCWEIds(jsonResponse);
+                //totalResults = jsonResponse.getInt("totalResults");
+                //ArrayList<String> cweIds = parseCWEIds(jsonResponse);
 
-                // TODO this loop needs to be fixed so all CVEs get parsed into CWEs
-                nvdDataStore.put(jsonResponse.getJSONObject("cve").getString("id"), jsonResponse.)
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
+                //nvdDataStore.put(jsonResponse.getJSONObject("cve").getString("id"), jsonResponse.)
             }
         }
 
     }
 
-    private ArrayList<String> parseCWEIds(JSONObject filteredResponse) throws JSONException {
-        JSONObject cve = filteredResponse.getJSONObject("cve");
-        String cveId = cve.getString("id");
-        // TODO This nested json array parsing seems exceptionally fragile
-        JSONArray descriptions = cve.getJSONArray("weaknesses").getJSONArray(2);
-        ArrayList<String> cweIds = new ArrayList<>();
-
-        for(int i = 0; i < descriptions.length(); i++) {
-            JSONObject o = descriptions.getJSONObject(i);
-            cweIds.add(o.getString("value"));
-        }
-
-        return cweIds;
-    }
+//    private ArrayList<String> parseCWEIds(JSONObject filteredResponse) throws JSONException {
+//        JSONObject cve = filteredResponse.getJSONObject("cve");
+//        String cveId = cve.getString("id");
+//        // TODO This nested json array parsing seems exceptionally fragile
+//        JSONArray descriptions = cve.getJSONArray("weaknesses").getJSONArray(2);
+//        ArrayList<String> cweIds = new ArrayList<>();
+//
+//        for(int i = 0; i < descriptions.length(); i++) {
+//            JSONObject o = descriptions.getJSONObject(i);
+//            cweIds.add(o.getString("value"));
+//        }
+//
+//        return cweIds;
+//    }
 
     private String buildRequest() {
         // TODO encode correct request

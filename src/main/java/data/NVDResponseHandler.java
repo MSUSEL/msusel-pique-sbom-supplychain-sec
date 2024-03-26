@@ -13,17 +13,23 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class NVDResponseHandler implements ResponseHandler<JSONObject> {
+    private Map<String, ArrayList<String>> cveCweMap = new HashMap<>();
+    private String cveId = "";
+
+    public Map<String, ArrayList<String>> getCveCweMap() {
+        return cveCweMap;
+    }
 
     @Override
     public JSONObject handleResponse(HttpResponse httpResponse) throws IOException {
-        Map<String, ArrayList<String>> cveMap = new HashMap<>();
-        ArrayList<String> cweIds = new ArrayList<>();
+        //ArrayList<String> cweIds = new ArrayList<>();
         HttpEntity entity = httpResponse.getEntity();
         //Header encodingHeader = entity.getContentEncoding();
         String json = EntityUtils.toString(entity, StandardCharsets.UTF_8);
@@ -34,8 +40,8 @@ public class NVDResponseHandler implements ResponseHandler<JSONObject> {
          * Adapted from https://www.tutorialspoint.com/gson/gson_streaming.htm
          */
         JsonReader reader = new JsonReader(new StringReader(json));
-        handleJsonObject(cveMap, cweIds, reader);
-        System.out.println(cveMap.get("CVE-1999-0095"));
+
+        handleJsonObject(reader);
 
 
         try {
@@ -48,111 +54,116 @@ public class NVDResponseHandler implements ResponseHandler<JSONObject> {
         final int statusCode = httpResponse.getStatusLine().getStatusCode();
         //
 
+        cveCweMap.forEach((key, value) -> System.out.println(key + ":" + value));
         return jsonResponse;
     }
 
-    private Map<String, ArrayList<String>> mapCVEIdsToCWDIds(Map<String, ArrayList<String>> map, String cve, ArrayList<String> cweIds) {
-        map.put(cve, cweIds);
-        return map;
-    }
-
-    private void handleJsonObject(Map<String, ArrayList<String>> map, ArrayList<String> cweIds, JsonReader reader) throws IOException {
-        String cveId = "";
+    private void handleJsonObject(JsonReader reader) throws IOException {
         reader.beginObject();
         while (reader.hasNext()) {
-            String name = reader.nextName();
-            if
+            if (reader.peek().equals(JsonToken.NAME)) {
+                String name = reader.nextName();
+            }
+            if (reader.peek().equals(JsonToken.BEGIN_ARRAY)) {
+                reader.beginArray();
+                while (reader.hasNext()) {
+                    handleJsonObject(reader);
+                }
+                reader.endArray();
+            } else {
+                if (reader.peek().equals(JsonToken.NAME)) {
+                    String name = reader.nextName();
+                    switch (name) {
+                        case "id":
+                            cveId = reader.nextString();
+                            break;
+                        case "description":
+                            ArrayList<String> cweIds = getCweIdsFromDescription(reader);
+                            //getCweIdsFromDescription
+                            cveCweMap.put(cveId, cweIds);
+                            break;
+                    }
+                }
+            }
         }
     }
 
-
+//    private void handleJsonObject(JsonReader reader) throws IOException {
+//        ArrayList<String> cweIds;
+//
+//        reader.beginObject();
+//
 //        while (reader.hasNext()) {
 //            JsonToken token = reader.peek();
-//            // if json array or end of file, call handleJsonArray or return respectively
-//            if (token.equals(JsonToken.BEGIN_ARRAY)) {
-//                handleJsonArray(map, cweIds, reader);
-//            } else if (token.equals(JsonToken.BEGIN_OBJECT)) {
-//                    reader.beginObject();
-//            } else if (token.equals(JsonToken.END_OBJECT)) {
+//            if (token.equals(JsonToken.END_OBJECT)) {
 //                reader.endObject();
-//                // store values
-//            } else {
-//                // detect "CVE" and get id
-//                if (token.equals(JsonToken.NAME)) {
-//                    String name = reader.nextName();
-//                    switch (name) {
-//                        case "id":
-//                            cveId = reader.nextString();
-//                            break;
-//                        case "weaknesses":
-//                            String cweId = handleWeaknessesArray(reader);
-//                            cweIds.add(cweId);
-//                            reader.skipValue();
-//                            break;
-//                    }
-//                } else {
-//                    reader.skipValue();
+//                return;
+//            } else if (token.equals(JsonToken.BEGIN_OBJECT)) {  // Check that this condition gets hit at all
+//                reader.beginObject();
+//            } else if (token.equals(JsonToken.BEGIN_ARRAY)) {
+//                handleJsonArray(reader);
+//            } else if (token.equals(JsonToken.NAME)){
+//                String name = reader.nextName();
+//                switch (name) {
+//                    case "id":
+//                        cveId = reader.nextString();
+//                        break;
+//                    case "description":
+//                        cweIds = getCweIdsFromDescription(reader);
+//                        //getCweIdsFromDescription
+//                        cveCweMap.put(cveId, cweIds);
+//                       break;
 //                }
-//            }
-//            if (!cveId.isEmpty()) {
-//                mapCVEIdsToCWDIds(map, cveId, cweIds);
+//            } else {
+//                reader.skipValue();
 //            }
 //        }
-    }
-
-    private void handleJsonArray(Map<String, ArrayList<String>> map, ArrayList<String> cweIds, JsonReader reader) throws IOException {
+//    }
+//
+    private ArrayList<String> getCweIdsFromDescription(JsonReader reader) throws IOException {
+        ArrayList<String> cweIds = new ArrayList<>();
         reader.beginArray();
-
-        while(true) {
+        while (reader.hasNext()) {
             JsonToken token = reader.peek();
-            if (token.equals(JsonToken.END_ARRAY)) {
-                reader.endArray();
-                break;
-            } else if (token.equals(JsonToken.BEGIN_OBJECT)) {
-                handleJsonObject(map, cweIds, reader);
-            } else if (token.equals(JsonToken.END_OBJECT)) {
-                reader.endObject();
-            } else if (token.equals(JsonToken.BEGIN_ARRAY)) {
-                handleJsonArray(map, cweIds, reader);
-            } else {
-                if (token.equals(JsonToken.NAME)) {
-                    String name = reader.nextName();
-                    if (name.equals("value")) {
-                        System.out.println(name);
-                    }
-            }
-        }
-    }
-
-    private String handleWeaknessesArray(JsonReader reader) throws IOException {
-        String cweId = "";
-        reader.beginArray();
-        JsonToken token = reader.peek();
-        while (reader.hasNext()) {
+//            if (token.equals(JsonToken.BEGIN_OBJECT)) {
+//                reader.beginObject();
+//            } else if (token.equals(JsonToken.END_OBJECT)) {
+//                reader.endObject();
+//            if (token.equals(JsonToken.END_ARRAY)) {
+//                reader.endArray();
+//                break;
+//            } else {
             if (token.equals(JsonToken.NAME)) {
-                if (reader.nextName().equals("description")) {
-                    cweId = handleWeakenessDescriptionArray(reader);
+                String name = reader.nextName();
+                if (name.equals("value")) {
+                    cweIds.add(reader.nextString());
+                } else {
+                    reader.skipValue();
                 }
+//                }
             }
         }
-        reader.endArray();
-        return cweId;
+        return cweIds;
     }
-
-    private String handleWeakenessDescriptionArray(JsonReader reader) throws IOException {
-        String cweId = "";
-        reader.beginArray();
-        JsonToken token = reader.peek();
-        while (reader.hasNext()) {
-            if (token.equals(JsonToken.NAME)) {
-                if (reader.nextName().equals("value")) {
-                    cweId = reader.nextString();
-                }
-            }
-        }
-        reader.endArray();
-        return cweId;
-    }
+//
+//    private void handleJsonArray(JsonReader reader) throws IOException {
+//        reader.beginArray();
+//        while (true) {
+//            JsonToken token = reader.peek();
+//            if (token.equals(JsonToken.END_ARRAY)) {
+//                reader.endArray();
+//                break;
+//            } else if (token.equals(JsonToken.BEGIN_OBJECT)) {
+//                handleJsonObject(reader);
+//            } else if (token.equals(JsonToken.END_OBJECT)) {
+//                reader.endObject();
+//            } else if (token.equals(JsonToken.BEGIN_ARRAY)) {
+//                reader.beginArray();
+//            } else {
+//                reader.skipValue();
+//            }
+//        }
+//    }
 
     private Map<String, ArrayList<String>> writeFullDataStore() {
         // TODO handle writing entire file to store instead of filtered values for SBOM

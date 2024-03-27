@@ -39,8 +39,8 @@ public class NVDDataStore {
 
 
         Integer startIndex = 0;
-        int totalResults = 200;   // This value gets set by response header in subsequent calls
-        Integer resultsPerPage = 200;
+        int totalResults = 10;   // This value gets set by response header in subsequent calls
+        Integer resultsPerPage = 10;
 
         URI uri = new URIBuilder(request.getURI()).addParameter("resultsPerPage", resultsPerPage.toString())
                 .addParameter("startIndex", startIndex.toString())

@@ -1,62 +1,61 @@
 package data;
-import jdk.internal.util.xml.impl.Pair;
-import org.apache.commons.io.Charsets;
-import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class NVDDataStore {
-    private HashMap<String, String> nvdDataStore = new HashMap<String, String>();
+    private Map<String, String[]> nvdDataStore = new HashMap<>();
     String baseURI = "https://services.nvd.nist.gov/rest/json/cves/2.0";
 
-    public HashMap<String, String> getNvdDataStore() {
+    public Map<String, String[]> getNvdDataStore() {
         return nvdDataStore;
     }
 
-    public void initializeDataStore() throws IOException, URISyntaxException {
+    public void initializeDataStore() throws IOException, URISyntaxException, InterruptedException {
         // TODO initialize and fill the data store
         HttpGet request = new HttpGet("https://services.nvd.nist.gov/rest/json/cves/2.0");
         NVDResponseHandler handler = new NVDResponseHandler();
 
 
-        Integer startIndex = 0;
-        int totalResults = 10;   // This value gets set by response header in subsequent calls
-        Integer resultsPerPage = 10;
+        //Integer startIndex = 0;
+        int totalResults = 1;   // This value gets set by response header in subsequent calls
+        Integer resultsPerPage = 2000;
 
-        URI uri = new URIBuilder(request.getURI()).addParameter("resultsPerPage", resultsPerPage.toString())
-                .addParameter("startIndex", startIndex.toString())
-                .build();
-        request.setURI(uri);
-        request.setHeader("apiKey", "c24cc024-976f-4fa6-8d0e-90f9c78a1075");
-        for(int i = 0; i < totalResults; i += resultsPerPage){
+
+        for(Integer i = 0; i < totalResults; i += resultsPerPage){
+
+            URI uri = new URIBuilder(baseURI)
+                    .addParameter("resultsPerPage", resultsPerPage.toString())
+                    .addParameter("startIndex", i.toString())
+                    .build();
+            request.setURI(uri);
+            request.setHeader("apiKey", "c24cc024-976f-4fa6-8d0e-90f9c78a1075");
+
             try (CloseableHttpClient client = HttpClients.createDefault();
                  CloseableHttpResponse response = client.execute(request)) {
 
                 JSONObject jsonResponse = handler.handleResponse(response);
-                //totalResults = jsonResponse.getInt("totalResults");
-                //ArrayList<String> cweIds = parseCWEIds(jsonResponse);
+                if (i == 0) {
+                    totalResults = jsonResponse.getInt("totalResults");
+                }
 
-                //nvdDataStore.put(jsonResponse.getJSONObject("cve").getString("id"), jsonResponse.)
+
+                nvdDataStore = NVDResponseHandler.getCveCweMap();
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
             }
+            Thread.sleep(500);
         }
 
     }

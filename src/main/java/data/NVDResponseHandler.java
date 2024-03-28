@@ -21,12 +21,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NVDResponseHandler implements ResponseHandler<JSONObject> {
-    private Map<String, ArrayList<String>> cveCweMap = new HashMap<>();
+    private static Map<String, String[]> cveCweMap = new HashMap<>();
     private String cveId = "";
     private boolean flag;
     //private ArrayList<String> cweIds = new ArrayList<>();
 
-    public Map<String, ArrayList<String>> getCveCweMap() {
+    public static Map<String, String[]> getCveCweMap() {
         return cveCweMap;
     }
 
@@ -58,14 +58,13 @@ public class NVDResponseHandler implements ResponseHandler<JSONObject> {
         final int statusCode = httpResponse.getStatusLine().getStatusCode();
         //
 
-        cveCweMap.forEach((key, value) -> System.out.println(key + ":" + value));
+        // check where this is getting start index
+        cveCweMap.forEach((key, value) -> System.out.println(key + ":" + Arrays.toString(value)));
         //System.out.println(cveId);
         return jsonResponse;
     }
 
     private void handleJsonObject(JsonReader reader, ArrayList<String> cweIds) throws IOException {
-//        ArrayList<String> cweIds = new ArrayList<>();
-//        boolean flag = false;
         reader.beginObject();
 
         while (true) {
@@ -92,14 +91,14 @@ public class NVDResponseHandler implements ResponseHandler<JSONObject> {
                     case "value":
                         if (flag) {
                             cweIds.add(reader.nextString());
-                            cveCweMap.put(cveId, cweIds.forEach((value) -> new ArrayList<String>().add(value)));
+                            cveCweMap.put(cveId, cweIds.toArray(new String[0]));
                         }
                         break;
                     // This is kind of an ugly hack. When the next JsonObject is encountered,
                     // clear the cwe list and set flag back to false.
                     // This is necessary because of duplicate key names in different arrays
-                    case "configurations":
-                        cweIds = new ArrayList<>();
+                    case "cve":
+                        cweIds.clear();
                         flag = false;
                 }
             } else {
@@ -158,8 +157,6 @@ public class NVDResponseHandler implements ResponseHandler<JSONObject> {
         }
         return cweIds;
     }
-
-
 
     private Map<String, ArrayList<String>> writeFullDataStore() {
         // TODO handle writing entire file to store instead of filtered values for SBOM

@@ -275,4 +275,18 @@ public class helperFunctions {
 		return severityInt;
 	}
 
+	/**
+	 * Gets the actual GitHub token from the given filepath
+	 *
+	 * @param authTokenPath path to github token
+	 * @return the token as a String literal
+	 */
+	public static String getAuthToken(String authTokenPath) {
+		try {
+			return readFileContent(Paths.get(authTokenPath.substring(1)));
+		} catch (IOException e) {
+			LOGGER.error("Failed to read file", e);
+            throw new RuntimeException(e);
+        }
+    }
 }

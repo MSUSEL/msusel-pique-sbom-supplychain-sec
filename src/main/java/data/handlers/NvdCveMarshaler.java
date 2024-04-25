@@ -11,7 +11,7 @@ public class NvdCveMarshaler implements JsonMarshaler<CVEResponse> {
     private static final Logger LOGGER = LoggerFactory.getLogger(NvdCveMarshaler.class);
 
     @Override
-    public CVEResponse unmarhsalJson(String json) {
+    public CVEResponse unmarshalJson(String json) {
         try {
             return new Gson().fromJson(json, CVEResponse.class);
         } catch (JsonSyntaxException e) {

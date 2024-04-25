@@ -18,42 +18,6 @@ import static org.junit.Assert.assertNotNull;
 public class DataStoreTests {
     private static Integer totalResults;
     Properties prop = PiqueProperties.getProperties();
-    /**
-     * Call to NVD API to get total number of CVE's in database.
-     * This number is updated constantly and must be fetched before
-     * every data store refresh
-     */
-//    @BeforeClass
-//    public static void init() {
-//        Integer totalResults;
-//        totalResults = Utils.getCSVCount();
-//        System.out.println(totalResults);
-//    }
-
-//    @Test
-//    public void TestBasicNVDRequest() throws JSONException, URISyntaxException {
-//        String baseURI = "https://services.nvd.nist.gov/rest/json/cves/2.0";
-//        List<String> headers = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path"));
-//        List<NameValuePair> params = new ArrayList<>();
-//        params.add(new BasicNameValuePair("startIndex", "0"));
-//        params.add(new BasicNameValuePair("resultsPerPage", "1"));
-//
-//        BaseRequest request = new NVDRequest(HTTPMethod.GET, baseURI, headers, params);
-//        NVDResponse response = (NVDResponse) request.executeRequest();  // why do I need to cast this?
-
-        //String firstValue = "NVD-CWE-Other";
-//        ArrayList<String> value = store.getCWEByCve("CVE-1999-0095");
-//        assertNotNull(value);
-//        System.out.println(value);
-//
-//        value = store.getCWEByCve("CVE-1999-1391");
-//        assertNotNull(value);
-//        System.out.println(value);
-
-//        Map<String, String[]> map = store.getGsonCveMap();
-//        String[] values = map.get("CVE-1999-0095");
-//        assertEquals(values[0], "NVD-CWE-Other");
-//    }
 
     @Test
     public void testGetFirstCve() {

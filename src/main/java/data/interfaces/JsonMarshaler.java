@@ -1,8 +1,6 @@
 package data.interfaces;
 
-import org.json.JSONObject;
-
 public interface JsonMarshaler<T> {
-    T unmarhsalJson(String json);
+    T unmarshalJson(String json);
     String marshalJson(T obj);
 }

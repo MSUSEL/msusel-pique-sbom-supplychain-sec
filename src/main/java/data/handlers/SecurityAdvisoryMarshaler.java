@@ -16,7 +16,7 @@ public class SecurityAdvisoryMarshaler implements JsonMarshaler<SecurityAdvisory
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityAdvisoryMarshaler.class);
 
     @Override
-    public SecurityAdvisory unmarhsalJson(String json) {
+    public SecurityAdvisory unmarshalJson(String json) {
         SecurityAdvisory securityAdvisory = new SecurityAdvisory();
         Cwes cwes = new Cwes();
         try {

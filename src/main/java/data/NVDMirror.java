@@ -54,7 +54,7 @@ public class NVDMirror {
 
     // TODO Test this method!!! This hasn't been run yet
     // ISO-8601 date/time format: [YYYY][“-”][MM][“-”][DD][“T”][HH][“:”][MM][“:”][SS][Z]
-    public void getUpdate(String lastModStartDate, String lastModEndDate) {
+    public void updateNvdMirror(String lastModStartDate, String lastModEndDate) {
         NVDResponse response;
         for (int startIndex = 0; startIndex < cveCount; startIndex += Utils.NVD_MAX_PAGE_SIZE) {
             NVDRequest request = requestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKeyheader,

@@ -56,7 +56,7 @@ public class GHSARequest extends BaseRequest {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
                 String json = handler.handleResponse(response);
-                ghsaResponse.setSecurityAdvisory(securityAdvisoryMarshaler.unmarhsalJson(json));
+                ghsaResponse.setSecurityAdvisory(securityAdvisoryMarshaler.unmarshalJson(json));
                 ghsaResponse.setStatus(status);
             } else {
                 LOGGER.info("Response Status: {}", status);

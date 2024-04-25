@@ -65,7 +65,7 @@ public class NVDRequest extends BaseRequest {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
                 String json = handler.handleResponse(response);
-                nvdResponse.setCveResponse(nvdCveMarshaler.unmarhsalJson(json));
+                nvdResponse.setCveResponse(nvdCveMarshaler.unmarshalJson(json));
                 nvdResponse.setStatus(status);
             } else {
                 LOGGER.info("Response status: {}", status);

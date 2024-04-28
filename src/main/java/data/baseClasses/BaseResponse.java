@@ -3,6 +3,9 @@ package data.baseClasses;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Base class for any HTTP Response Objects
+ */
 @Getter
 @Setter
 public abstract class BaseResponse {

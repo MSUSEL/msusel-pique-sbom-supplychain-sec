@@ -4,6 +4,9 @@ import org.apache.http.NameValuePair;
 
 import java.util.List;
 
+/**
+ * Base class for any HTTP Request objects
+ */
 public abstract class BaseRequest {
     protected String httpMethod;
     protected String baseURI;

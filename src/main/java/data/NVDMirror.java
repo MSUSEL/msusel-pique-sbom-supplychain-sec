@@ -1,5 +1,10 @@
 package data;
 
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+import data.cveData.CVEResponse;
+import data.cveData.CveDetails;
 import data.cveData.Vulnerability;
 import data.interfaces.HTTPMethod;
 import lombok.Getter;
@@ -33,14 +38,9 @@ public class NVDMirror {
 
             response = request.executeRequest();
 
-            int status = response.getStatus();
-            if (status >= 200 && status < 300) {
-                ArrayList<Vulnerability> vulnerabilities = response.getCveResponse().getVulnerabilities();
-                for(Vulnerability vulnerability : vulnerabilities) {
-                    dataStore.put(vulnerability.getCve().getId(), vulnerability);
-                }
-            } else {
-                LOGGER.info("Response status: {}", status);
+            ArrayList<Vulnerability> vulnerabilities = response.getCveResponse().getVulnerabilities();
+            for(Vulnerability vulnerability : vulnerabilities) {
+                dataStore.put(vulnerability.getCve().getId(), vulnerability);
             }
 
             try {
@@ -50,6 +50,15 @@ public class NVDMirror {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    // TODO refactor to DAO / parameterized DB connection / DI
+    private void writeToMongo(CveDetails cveDetails) {
+        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+        MongoDatabase database = mongoClient.getDatabase("nvdMirror");
+
+        database.createCollection("vulnerabilities");
+        database.listCollectionNames().forEach(System.out::println);
     }
 
     // TODO Test this method!!! This hasn't been run yet

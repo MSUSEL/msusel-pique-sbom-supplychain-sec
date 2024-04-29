@@ -37,15 +37,9 @@ public class Utils {
 
         NVDRequest request = nvdRequestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKey, 0, 1);
         response = request.executeRequest();
-        int status = response.getStatus();
 
-        // TODO handle if this call fails
-        if (status >= 200 && status < 300) {
-            return response.getCveResponse().getTotalResults();
-        } else {
-            LOGGER.info("Response status: {}", status);
-            return -1;
-        }
+        return response.getCveResponse().getTotalResults();
+
     }
 
     /**

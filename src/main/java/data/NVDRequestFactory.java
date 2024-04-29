@@ -9,12 +9,12 @@ import java.util.List;
 public class NVDRequestFactory {
 
     // Constructors
-    public NVDRequest createNVDRequest(String method, String baseURI, List<String> headers, int startIndex, int resultsPerPage) {
-        return new NVDRequest(method, baseURI, headers, configureBasicParams(startIndex, resultsPerPage));
+    public NVDRequest createNVDRequest(String httpMethod, String baseURI, List<String> headers, int startIndex, int resultsPerPage) {
+        return new NVDRequest(httpMethod, baseURI, headers, configureBasicParams(startIndex, resultsPerPage));
     }
 
-    public NVDRequest createNVDRequest(String method, String baseURI, List<String> headers, int startIndex, int resultsPerPage, String lastModStartDate, String lastModEndDate) {
-        return new NVDRequest(method, baseURI, headers, configureUpdateParams(startIndex, resultsPerPage, lastModStartDate, lastModEndDate));
+    public NVDRequest createNVDRequest(String httpMethod, String baseURI, List<String> headers, int startIndex, int resultsPerPage, String lastModStartDate, String lastModEndDate) {
+        return new NVDRequest(httpMethod, baseURI, headers, configureUpdateParams(startIndex, resultsPerPage, lastModStartDate, lastModEndDate));
     }
 
     // helper methods

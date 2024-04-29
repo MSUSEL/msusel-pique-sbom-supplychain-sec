@@ -1,6 +1,7 @@
 package data.handlers;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import data.cveData.CVEResponse;
 import data.interfaces.JsonMarshaler;
@@ -21,7 +22,9 @@ public class NvdCveMarshaler implements JsonMarshaler<CVEResponse> {
     }
 
     @Override
-    public String marshalJson(CVEResponse obj) {
-        return null;
+    public String marshalJson(CVEResponse cveResponse) {
+        String json = new Gson().toJson(cveResponse);
+        System.out.println(json);
+        return new Gson().toJson(cveResponse);
     }
 }

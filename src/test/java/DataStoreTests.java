@@ -5,7 +5,6 @@ import data.*;
 import data.ghsaData.CweNode;
 import data.handlers.NvdCveMarshaler;
 import data.interfaces.HTTPMethod;
-import data.interfaces.JsonMarshaler;
 import org.bson.BsonDocument;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,10 +13,6 @@ import pique.utility.PiqueProperties;
 import utilities.helperFunctions;
 import org.bson.Document;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -46,7 +41,7 @@ public class DataStoreTests {
 
         // Define the query string
         JSONObject jsonBody = new JSONObject();
-        jsonBody.put("query", Utils.GHSA_SECURITY_ADVISORY_QUERY);
+        jsonBody.put("query", GraphQlQueries.GHSA_SECURITY_ADVISORY_QUERY);
         String query = jsonBody.toString();
         String formattedQuery = String.format(query, ghsaId);
 
@@ -80,14 +75,24 @@ public class DataStoreTests {
         MongoDatabase database = mongoClient.getDatabase("nvdMirror");
 
         database.createCollection("vulnerabilities");
-        database.listCollectionNames().forEach(System.out::println);
+        //database.listCollectionNames().forEach(System.out::println);
 
         MongoCollection<Document> collection = database.getCollection("vulnerabilities");
         NvdCveMarshaler nvdCveMarshaler = new NvdCveMarshaler();
-        String cve = nvdCveMarshaler.marshalJson(response.getCveResponse());
+        String cve = nvdCveMarshaler.marshalCve(response.getCveResponse().getVulnerabilities().get(0).getCve());
 
         collection.insertOne(Document.parse(cve));
         BsonDocument queryFilter = Filters.eq("id", "CVE-1999-1471").toBsonDocument();
+        Document document = collection.find(queryFilter).first();
+        System.out.println(document);
+    }
+
+    @Test
+    public void testMongoQuery() {
+        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+        MongoDatabase database = mongoClient.getDatabase("nvdMirror");
+        MongoCollection<Document> collection = database.getCollection("vulnerabilities");
+        BsonDocument queryFilter = Filters.eq("id", "CVE-1999-0095").toBsonDocument();
         Document document = collection.find(queryFilter).first();
         System.out.println(document);
     }

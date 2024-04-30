@@ -14,13 +14,10 @@ import java.util.*;
  *  Utility class for helper methods related to Data Access
  */
 public class Utils {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
-
     // constants for use with data access
     public static final String NVD_BASE_URI = "https://services.nvd.nist.gov/rest/json/cves/2.0";
     public static final String GHSA_URI = "https://api.github.com/graphql";
     public static final int NVD_MAX_PAGE_SIZE = 2000;
-    public static final String GHSA_SECURITY_ADVISORY_QUERY = "query { securityAdvisory(ghsaId: \"%s\") { ghsaId summary cwes(first : 1) { nodes { cweId } } } }";
 
 
     /**

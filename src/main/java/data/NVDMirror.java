@@ -3,7 +3,6 @@ package data;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
-import data.cveData.CVEResponse;
 import data.cveData.CveDetails;
 import data.cveData.Vulnerability;
 import data.interfaces.HTTPMethod;
@@ -17,32 +16,25 @@ import java.util.*;
 
 public class NVDMirror {
     private static final Logger LOGGER = LoggerFactory.getLogger(NVDMirror.class);
-    Properties prop = PiqueProperties.getProperties();
+    private final Properties prop = PiqueProperties.getProperties();
+    private final NVDRequestFactory requestFactory = new NVDRequestFactory();
+    private final List<String> apiKeyHeader = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path")));
 
     // !!!  Data store implemented for testing - Remove before merging to master !!!
     @Getter
     private final Map<String, Vulnerability> dataStore = new HashMap<>();
-    NVDRequestFactory requestFactory = new NVDRequestFactory();
-    List<String> apiKeyheader = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path")));
-    int cveCount;
-
-    public NVDMirror() {
-        cveCount = Utils.getCSVCount();
-    }
 
     public void getFullDataSet() {
-        NVDResponse response;
+        int cveCount = 1;
 
         for (int startIndex = 0; startIndex < cveCount; startIndex += Utils.NVD_MAX_PAGE_SIZE) {
-            NVDRequest request = requestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKeyheader, startIndex, Utils.NVD_MAX_PAGE_SIZE);
-
-            response = request.executeRequest();
-
+            NVDRequest request = requestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKeyHeader, startIndex, Utils.NVD_MAX_PAGE_SIZE);
+            NVDResponse response = request.executeRequest();
+            cveCount = response.getCveResponse().getTotalResults(); // reset cveCount to correctly handle pagination
             ArrayList<Vulnerability> vulnerabilities = response.getCveResponse().getVulnerabilities();
             for(Vulnerability vulnerability : vulnerabilities) {
                 dataStore.put(vulnerability.getCve().getId(), vulnerability);
             }
-
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -65,14 +57,15 @@ public class NVDMirror {
     // ISO-8601 date/time format: [YYYY][“-”][MM][“-”][DD][“T”][HH][“:”][MM][“:”][SS][Z]
     public void updateNvdMirror(String lastModStartDate, String lastModEndDate) {
         NVDResponse response;
+        int cveCount = 1;
+
         for (int startIndex = 0; startIndex < cveCount; startIndex += Utils.NVD_MAX_PAGE_SIZE) {
-            NVDRequest request = requestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKeyheader,
+            NVDRequest request = requestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKeyHeader,
                     0, Utils.NVD_MAX_PAGE_SIZE, lastModStartDate, lastModEndDate);
 
             response = request.executeRequest();
 
-            int status = response.getStatus();
-
+            cveCount = response.getCveResponse().getTotalResults();
             ArrayList<Vulnerability> vulnerabilities = response.getCveResponse().getVulnerabilities();
 
             for (Vulnerability vulnerability : vulnerabilities) {

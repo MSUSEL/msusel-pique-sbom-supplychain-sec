@@ -3,7 +3,7 @@ package data.handlers;
 import data.ghsaData.CweNode;
 import data.ghsaData.Cwes;
 import data.ghsaData.SecurityAdvisory;
-import data.interfaces.JsonMarshaler;
+import data.interfaces.IJsonMarshaler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
-public class SecurityAdvisoryMarshaler implements JsonMarshaler<SecurityAdvisory> {
+public class SecurityAdvisoryMarshaler implements IJsonMarshaler<SecurityAdvisory> {
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityAdvisoryMarshaler.class);
 
     @Override
@@ -39,7 +39,7 @@ public class SecurityAdvisoryMarshaler implements JsonMarshaler<SecurityAdvisory
     }
 
     @Override
-    public String marshalJson(SecurityAdvisory obj) {
+    public String marshalJson(SecurityAdvisory securityAdvisory) {
         return "";
     }
 

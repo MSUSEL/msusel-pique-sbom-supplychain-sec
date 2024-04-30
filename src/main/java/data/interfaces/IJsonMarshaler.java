@@ -1,6 +1,6 @@
 package data.interfaces;
 
-public interface JsonMarshaler<T> {
+public interface IJsonMarshaler<T> {
     T unmarshalJson(String json);
     String marshalJson(T obj);
 }

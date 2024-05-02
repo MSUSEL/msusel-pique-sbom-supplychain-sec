@@ -5,6 +5,9 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 import data.cveData.CveDetails;
 import data.cveData.Vulnerability;
+import data.dao.IDao;
+import data.dao.NvdBulkOperationsDao;
+import data.dao.NvdMetaDataDao;
 import data.interfaces.HTTPMethod;
 import lombok.Getter;
 import org.slf4j.Logger;
@@ -19,10 +22,8 @@ public class NVDMirror {
     private final Properties prop = PiqueProperties.getProperties();
     private final NVDRequestFactory requestFactory = new NVDRequestFactory();
     private final List<String> apiKeyHeader = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path")));
-
-    // !!!  Data store implemented for testing - Remove before merging to master !!!
-    @Getter
-    private final Map<String, Vulnerability> dataStore = new HashMap<>();
+    private final IDao<List<CveDetails>> nvdBulkOperationsDao = new NvdBulkOperationsDao();
+    private final NvdMetaDataDao metaDataDao = new NvdMetaDataDao();
 
     public void getFullDataSet() {
         int cveCount = 1;
@@ -32,9 +33,15 @@ public class NVDMirror {
             NVDResponse response = request.executeRequest();
             cveCount = response.getCveResponse().getTotalResults(); // reset cveCount to correctly handle pagination
             ArrayList<Vulnerability> vulnerabilities = response.getCveResponse().getVulnerabilities();
+            List<CveDetails> cves = new ArrayList<>();
+
+
             for(Vulnerability vulnerability : vulnerabilities) {
-                dataStore.put(vulnerability.getCve().getId(), vulnerability);
+                cves.add(vulnerability.getCve());
             }
+            nvdBulkOperationsDao.insert(cves);
+            metaDataDao.replace(response.getCveResponse());
+
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -42,15 +49,6 @@ public class NVDMirror {
                 throw new RuntimeException(e);
             }
         }
-    }
-
-    // TODO refactor to DAO / parameterized DB connection / DI
-    private void writeToMongo(CveDetails cveDetails) {
-        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
-        MongoDatabase database = mongoClient.getDatabase("nvdMirror");
-
-        database.createCollection("vulnerabilities");
-        database.listCollectionNames().forEach(System.out::println);
     }
 
     // TODO Test this method!!! This hasn't been run yet
@@ -62,14 +60,11 @@ public class NVDMirror {
         for (int startIndex = 0; startIndex < cveCount; startIndex += Utils.NVD_MAX_PAGE_SIZE) {
             NVDRequest request = requestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKeyHeader,
                     0, Utils.NVD_MAX_PAGE_SIZE, lastModStartDate, lastModEndDate);
-
             response = request.executeRequest();
-
             cveCount = response.getCveResponse().getTotalResults();
             ArrayList<Vulnerability> vulnerabilities = response.getCveResponse().getVulnerabilities();
 
             for (Vulnerability vulnerability : vulnerabilities) {
-                dataStore.put(vulnerability.getCve().getId(), vulnerability);
             }
 
             try {

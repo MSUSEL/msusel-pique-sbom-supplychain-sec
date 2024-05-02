@@ -21,6 +21,15 @@ public class NvdCveMarshaler implements IJsonMarshaler<CVEResponse> {
         }
     }
 
+    public CveDetails unmarshalToCve(String json) {
+        try {
+            return new Gson().fromJson(json, CveDetails.class);
+        } catch (JsonSyntaxException e) {
+            LOGGER.error("Incorrect JSON syntax - unable to parse to object", e);
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public String marshalJson(CVEResponse cveResponse) {
         String json = new Gson().toJson(cveResponse);

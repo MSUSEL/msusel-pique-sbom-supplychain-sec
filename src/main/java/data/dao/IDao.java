@@ -1,5 +1,7 @@
 package data.dao;
 
+import data.cveData.CveDetails;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -8,7 +10,7 @@ import java.util.Optional;
  * @param <T>
  */
 public interface IDao<T> {
-    Optional<T> getById(String id);
+    T getById(String id);
     List<T> getAll();
     void insert(T t);
     void update(T t);

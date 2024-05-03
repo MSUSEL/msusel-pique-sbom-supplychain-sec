@@ -69,7 +69,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
-            prop = propertiesLocation==null ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesLocation);
+            prop = propertiesLocation == null ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesLocation);
         } catch (IOException e) {
             e.printStackTrace();
         }

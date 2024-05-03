@@ -113,32 +113,32 @@ public class helperFunctions {
 	 * Downloads the most recent version of the national vulnerability database using the NVD API.
 	 * Achieves this running a python script, download_nvd.py, with the command line.
 	 */
-	public static void downloadNVD() {
-		Properties prop = PiqueProperties.getProperties();
-		String pathToScript = prop.getProperty("downloadNVD.location");
-		String pathToDownloadTo = prop.getProperty("nvd-dictionary.location");
-		String nvdCVECount = prop.getProperty("nvd-cve-count");
-		String nvdApiKeyPath = prop.getProperty("nvd-api-key-path");
-
-		String[] cmd = {"python3", pathToScript, pathToDownloadTo, nvdCVECount, nvdApiKeyPath};
-
-		String result = "";
-		try {
-			result = getOutputFromProgram(cmd,LOGGER);
-			if (result.equals("true\n")) {
-				System.out.println("Successfully downloaded NVD.");
-				LOGGER.info("Successfully downloaded NVD");
-			}
-			else {
-				System.err.println("Error downloading NVD " + result);
-				LOGGER.error("Error down loading NVD " + result);
-			}
-		} catch (IOException e) {
-			System.err.println("Error running download_nvd.py");
-			LOGGER.error("Error running download_nvd.py " + e);
-			e.printStackTrace();
-		}
-	}
+//	public static void downloadNVD() {
+//		Properties prop = PiqueProperties.getProperties();
+//		String pathToScript = prop.getProperty("downloadNVD.location");
+//		String pathToDownloadTo = prop.getProperty("nvd-dictionary.location");
+//		String nvdCVECount = prop.getProperty("nvd-cve-count");
+//		String nvdApiKeyPath = prop.getProperty("nvd-api-key-path");
+//
+//		String[] cmd = {"python3", pathToScript, pathToDownloadTo, nvdCVECount, nvdApiKeyPath};
+//
+//		String result = "";
+//		try {
+//			result = getOutputFromProgram(cmd,LOGGER);
+//			if (result.equals("true\n")) {
+//				System.out.println("Successfully downloaded NVD.");
+//				LOGGER.info("Successfully downloaded NVD");
+//			}
+//			else {
+//				System.err.println("Error downloading NVD " + result);
+//				LOGGER.error("Error down loading NVD " + result);
+//			}
+//		} catch (IOException e) {
+//			System.err.println("Error running download_nvd.py");
+//			LOGGER.error("Error running download_nvd.py " + e);
+//			e.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * Opens the component count results from sbomqs tool and returns the current SBOM under analysis component count.

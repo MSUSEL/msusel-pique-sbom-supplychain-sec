@@ -103,7 +103,11 @@ be used to validate queries.
 ```
 
 ## Database Access
-
+PIQUE uses the Data Access Object pattern for interacting with databases. This pattern separates the
+business logic from the code managing access to databases. Because the implementation of any individual database
+is not tightly coupled to the business logic, any database or datastore can be swapped in without affecting
+the functioning of PIQUE. By default we use MongoDB to store CVE objects as Mongo Documents, but a relational
+database could be easily used by implementing the IDao interface in a new concrete class. XXXThis secion needs workXXX
 
 
 

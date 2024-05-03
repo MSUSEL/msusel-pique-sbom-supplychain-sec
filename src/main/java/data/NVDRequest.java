@@ -45,17 +45,15 @@ public class NVDRequest extends BaseRequest {
         URI uri;
         NVDResponse nvdResponse = new NVDResponse();
         NvdCveMarshaler nvdCveMarshaler = new NvdCveMarshaler();
+        HttpGet request = new HttpGet();
 
         try {
-            uri = new URIBuilder(baseURI)
-                    .addParameters(params)
-                    .build();
+            uri = new URIBuilder(baseURI).addParameters(params).build();
         } catch (URISyntaxException e) {
             LOGGER.error("Could not build URI with given inputs", e);
             throw new RuntimeException(e);
         }
 
-        HttpGet request = new HttpGet();
         request.setURI(uri);
         request.setHeaders(Utils.resolveHeaders(headers));
 

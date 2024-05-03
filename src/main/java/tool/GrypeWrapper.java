@@ -22,6 +22,11 @@
  */
 package tool;
 
+import data.cveData.CveDetails;
+import data.cveData.Weakness;
+import data.cveData.WeaknessDescription;
+import data.dao.IDao;
+import data.dao.NvdDao;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,21 +36,13 @@ import pique.analysis.ITool;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
 import pique.model.Finding;
-import pique.utility.PiqueProperties;
+import toolOutputObjects.GrypeVulnerability;
 import utilities.helperFunctions;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Properties;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.regex.*;
+import java.util.*;
 
 /**
  * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-SUPPLYCHAIN-SEC.
@@ -108,6 +105,8 @@ public class GrypeWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
+		String results = "";
+
 		System.out.println(this.getName() + " Parsing Analysis...");
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
 
@@ -115,59 +114,14 @@ public class GrypeWrapper extends Tool implements ITool  {
 		Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
 
 		// read Grype results file
-		String results = "";
 		try {
 			results = helperFunctions.readFileContent(toolResults);
 		} catch (IOException e) {
 			LOGGER.info("No results to read from Grype.");
 		}
 
-		ArrayList<String> cveList = new ArrayList<String>();
-		ArrayList<Integer> severityList = new ArrayList<Integer>();
-
-		try {
-			// complex json access to list of findings in Grype sarif results
-			JSONObject jsonResults = new JSONObject(results);
-			JSONArray vulnerabilities = jsonResults.optJSONArray("runs").optJSONObject(0).optJSONObject("tool").optJSONObject("driver").optJSONArray("rules");
-
-			// if vulnerabilities is null we had no findings, thus return
-			if (vulnerabilities == null) {
-				return diagnostics;
-			}
-
-			for (int i = 0; i < vulnerabilities.length(); i++) {
-				JSONObject jsonFinding = (JSONObject) vulnerabilities.get(i);
-
-				// extract CVE id and severity score from the current finding
-				String findingName = jsonFinding.get("id").toString();
-				String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
-				severityList.add(helperFunctions.severityToInt(findingSeverity));
-				cveList.add(findingName);
-			}
-
-			// TODO: change CVE_to_CWE script to return both the CVE and CWE, do this by printing CVE,CWE then
-			// maps CVEs to corresponding CWEs in CWE-699. If a mapped CWE is outside CWE-699 the CVE will
-			// be mapped to CWE-other (logic for this below not in python script), if a mapping can not be found or no
-			// mapping exists we map the CVE to CWE-unknown.
-			String[] findingNames = helperFunctions.getCWE(cveList, this.githubTokenPath);
-			for (int i = 0; i < findingNames.length; i++) {
-				// CWE-unknown or CWE within CWE-699 family
-				Diagnostic diag = diagnostics.get((findingNames[i]+" Grype Diagnostic"));
-
-				// CWE not in CWE-699
-				if (diag == null) {
-					diag = diagnostics.get("CWE-other Grype Diagnostic");
-					LOGGER.warn("CVE with CWE outside of CWE-699 found.");
-				}
-
-				// set current finding (CVE or GHSA) as a child of the corresponding diagnostic node
-				Finding finding = new Finding("",0,0,severityList.get(i));
-				finding.setName(cveList.get(i));
-				diag.setChild(finding);
-			}
-		} catch (JSONException e) {
-			LOGGER.warn("Unable to read results from Grype");
-		}
+		JSONArray vulnerabilities = getVulnerabilitiesFromGrype(results);
+		addDiagnostics(vulnerabilities, diagnostics);
 
 		return diagnostics;
 	}
@@ -191,5 +145,97 @@ public class GrypeWrapper extends Tool implements ITool  {
 		}
 
 		return toolRoot;
+	}
+
+	/**
+	 * Gets the vulnerabilities array from the complete Grype results
+	 *
+	 * @param results Grype tool output in String format
+	 * @return a jsonArray of Grype results or null if no vulnerabilities are found
+	 */
+	private JSONArray getVulnerabilitiesFromGrype(String results) {
+		try {
+			JSONObject jsonResults = new JSONObject(results);
+			return jsonResults.optJSONArray("runs").optJSONObject(0).optJSONObject("tool").optJSONObject("driver").optJSONArray("rules");
+		} catch (JSONException e) {
+			LOGGER.warn("Unable to read results from Grype");
+        }
+
+		return null;
+    }
+
+	/**
+	 * Processes the JSONArray of Grype vulnerabilities into java objects.
+	 * This makes it easier to store and process data into Findings later.
+	 * Once created, these objects are read-only.
+	 *
+	 * @param jsonVulns JSONArray of Grype vulnerabilities
+	 * @return ArrayList of GrypeVulnerability java objects
+	 */
+	private ArrayList<GrypeVulnerability> processGrypeVulnerabilities(JSONArray jsonVulns) {
+		ArrayList<GrypeVulnerability> vulnerabilities = new ArrayList<>();
+
+		try {
+			for (int i = 0; i < jsonVulns.length(); i++) {
+				JSONObject jsonFinding = (JSONObject) jsonVulns.get(i);
+				String cveId = jsonFinding.get("id").toString();
+				ArrayList<String> cwe = retrieveCwe(cveId);
+				String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
+				vulnerabilities.add(new GrypeVulnerability(cveId, cwe, helperFunctions.severityToInt(findingSeverity)));
+			}
+		} catch (JSONException e) {
+			LOGGER.warn("Unable to parse json. ", e);
+		}
+
+		return vulnerabilities;
+	}
+
+	/**
+	 * Retrieves a CVE's associated CWE from the NVDMirror database
+	 *
+	 * @param cve A cveId corresponding to a valid NVD Vulnerability
+	 * @return ArrayList of CWEs (descriptions) associated with the given CVE
+	 */
+	private ArrayList<String> retrieveCwe(String cve) {
+		// TODO include GHSA vulnerabilities here
+		IDao<CveDetails> nvdDao = new NvdDao();
+		ArrayList<String> descriptions = new ArrayList<>();
+
+		for (Weakness weakness : nvdDao.getById(cve).getWeaknesses()) {
+			for (WeaknessDescription description : weakness.getDescription()) {
+				if (description.getValue().equals("NVD-CWE-Other") || description.getValue().equals("NVD-CWE-noinfo")) {
+					descriptions.add("CWE-unknown");
+				} else {
+					descriptions.add(description.getValue());
+				}
+			}
+		}
+
+		return descriptions;
+	}
+
+	/**
+	 * Builds Finding and Diagnostic objects from the list of GrypeVulnerabilities generated previously.
+	 * Adds the new Diagnostics to the PIQUE tree.
+	 *
+	 * @param vulnerabilities JSONArray of vulnerabilities (Output from Grype)
+	 * @param diagnostics Map of diagnostics for Grype output
+	 */
+	private void addDiagnostics(JSONArray vulnerabilities, Map<String, Diagnostic> diagnostics) {
+		ArrayList<GrypeVulnerability> grypeVulnerabilities;
+
+		if (vulnerabilities != null) {
+			grypeVulnerabilities = processGrypeVulnerabilities(vulnerabilities);
+			for (GrypeVulnerability grypeVulnerability : grypeVulnerabilities) {
+				Diagnostic diag = diagnostics.get(grypeVulnerability.getCve() + "Grype Diagnostic");
+				if (diag == null) {
+					diag = diagnostics.get("CWE-other Grype Diagnostic");
+					LOGGER.warn("CVE with CWE outside of CWE-699 found.");
+				}
+				Finding finding = new Finding("", 0, 0, grypeVulnerability.getSeverity());
+				finding.setName(grypeVulnerability.getCve());
+				diag.setChild(finding);
+			}
+		}
 	}
 }

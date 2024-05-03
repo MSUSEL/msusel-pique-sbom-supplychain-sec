@@ -35,7 +35,6 @@ public class NVDMirror {
             ArrayList<Vulnerability> vulnerabilities = response.getCveResponse().getVulnerabilities();
             List<CveDetails> cves = new ArrayList<>();
 
-
             for(Vulnerability vulnerability : vulnerabilities) {
                 cves.add(vulnerability.getCve());
             }

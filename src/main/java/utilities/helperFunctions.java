@@ -23,7 +23,6 @@
 package utilities;
 
 import java.io.*;
-import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,6 +31,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import data.GraphQlQueries;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -242,6 +244,25 @@ public class helperFunctions {
         }
        
 		return diagnostics;
+	}
+
+	/**
+	 * Formats the Security Advisory query for consumption by GitHub Vulnerability API
+	 * @param cveId CVE to be inserted into the query string
+	 * @return formatted query
+	 */
+	public static String formatSecurityAdvisoryQuery(String cveId) {
+		JSONObject jsonBody = new JSONObject();
+		String query;
+
+		try {
+			jsonBody.put("query", GraphQlQueries.GHSA_SECURITY_ADVISORY_QUERY);
+			query = jsonBody.toString();
+		} catch (JSONException e) {
+			LOGGER.error("Incorrect JSON format", e);
+			throw new RuntimeException(e);
+		}
+		return String.format(query, cveId);
 	}
 
 

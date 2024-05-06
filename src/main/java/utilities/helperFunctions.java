@@ -76,40 +76,40 @@ public class helperFunctions {
 	 * @param cveList An ArrayList<String> of one or more CVE names
 	 * @return An array of CWEs associated with the given CVEs
 	 */
-	public static String[] getCWE(ArrayList<String> cveList, String githubTokenPath) {
-		Properties prop = PiqueProperties.getProperties();
-		String pathToScript = prop.getProperty("cveTocwe.location");
-		String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
-		String port_number = prop.getProperty("query-nvd.port");
-
-		// Convert each cveList to a comma-separated string
-		StringBuilder cveString = new StringBuilder();
-		for (String entry : cveList) {
-			if (cveString.length() > 0) {
-				cveString.append(",");
-			}
-			cveString.append(entry);
-		}
-
-		// tool did not find any vulnerabilities
-		if (cveString.toString().isEmpty()) {
-			return new String[]{};
-		}
-
+//	public static String[] getCWE(ArrayList<String> cveList, String githubTokenPath) {
+//		Properties prop = PiqueProperties.getProperties();
+//		String pathToScript = prop.getProperty("cveTocwe.location");
+//		String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
+//		String port_number = prop.getProperty("query-nvd.port");
+//
+//		// Convert each cveList to a comma-separated string
+//		StringBuilder cveString = new StringBuilder();
+//		for (String entry : cveList) {
+//			if (cveString.length() > 0) {
+//				cveString.append(",");
+//			}
+//			cveString.append(entry);
+//		}
+//
+//		// tool did not find any vulnerabilities
+//		if (cveString.toString().isEmpty()) {
+//			return new String[]{};
+//		}
+//
 		// command for running python script for converting vulnerabilities to CWEs
-		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--github_token", githubTokenPath, "--nvdDict", "", "--port", port_number};
-
-		String cwe = "";
-		try {
-			cwe = getOutputFromProgram(cmd,LOGGER);
-		} catch (IOException e) {
-			System.err.println("Error running CVE_to_CWE.py");
-			e.printStackTrace();
-		}
-
-		// CVE_to_CWE.py prints the results to standard out, trim the newlines and return array
-        return cwe.split("\n \n");
-	}
+//		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--github_token", githubTokenPath, "--nvdDict", "", "--port", port_number};
+//
+//		String cwe = "";
+//		try {
+//			cwe = getOutputFromProgram(cmd,LOGGER);
+//		} catch (IOException e) {
+//			System.err.println("Error running CVE_to_CWE.py");
+//			e.printStackTrace();
+//		}
+//
+//		// CVE_to_CWE.py prints the results to standard out, trim the newlines and return array
+//        return cwe.split("\n \n");
+//	}
 
 	/**
 	 * Downloads the most recent version of the national vulnerability database using the NVD API.

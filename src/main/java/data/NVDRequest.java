@@ -2,7 +2,7 @@ package data;
 
 import data.baseClasses.BaseRequest;
 import data.handlers.JsonResponseHandler;
-import data.handlers.NvdCveMarshaler;
+import data.handlers.NvdCveMarshaller;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -44,7 +44,7 @@ public class NVDRequest extends BaseRequest {
     private NVDResponse executeGetRequest() {
         URI uri;
         NVDResponse nvdResponse = new NVDResponse();
-        NvdCveMarshaler nvdCveMarshaler = new NvdCveMarshaler();
+        NvdCveMarshaller nvdCveMarshaler = new NvdCveMarshaller();
         HttpGet request = new HttpGet();
 
         try {
@@ -63,7 +63,7 @@ public class NVDRequest extends BaseRequest {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
                 String json = handler.handleResponse(response);
-                nvdResponse.setCveResponse(nvdCveMarshaler.unmarshalJson(json));
+                nvdResponse.setCveResponse(nvdCveMarshaler.unmarshallJson(json));
                 nvdResponse.setStatus(status);
             } else {
                 LOGGER.info("Response status: {}", status);

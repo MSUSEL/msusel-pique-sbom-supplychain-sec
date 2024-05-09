@@ -1,7 +1,7 @@
 package data;
 
 import data.baseClasses.BaseRequest;
-import data.handlers.SecurityAdvisoryMarshaler;
+import data.handlers.SecurityAdvisoryMarshaller;
 import data.handlers.JsonResponseHandler;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -36,7 +36,7 @@ public class GHSARequest extends BaseRequest {
     private GHSAResponse executeGHSARequest() {
         URI uri;
         GHSAResponse ghsaResponse = new GHSAResponse();
-        SecurityAdvisoryMarshaler securityAdvisoryMarshaler = new SecurityAdvisoryMarshaler();
+        SecurityAdvisoryMarshaller securityAdvisoryMarshaler = new SecurityAdvisoryMarshaller();
 
         try {
             uri = new URIBuilder(baseURI).build();
@@ -56,7 +56,7 @@ public class GHSARequest extends BaseRequest {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
                 String json = handler.handleResponse(response);
-                ghsaResponse.setSecurityAdvisory(securityAdvisoryMarshaler.unmarshalJson(json));
+                ghsaResponse.setSecurityAdvisory(securityAdvisoryMarshaler.unmarshallJson(json));
                 ghsaResponse.setStatus(status);
             } else {
                 LOGGER.info("Response Status: {}", status);

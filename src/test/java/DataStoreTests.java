@@ -3,7 +3,7 @@ import data.cveData.CveDetails;
 import data.cveData.Vulnerability;
 import data.dao.IDao;
 import data.dao.NvdBulkOperationsDao;
-import data.dao.NvdDao;
+import data.dao.CveDetailsDao;
 import data.dao.NvdMetaDataDao;
 import data.ghsaData.CweNode;
 import data.interfaces.HTTPMethod;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNotNull;
 public class DataStoreTests {
     private static Integer totalResults;
     Properties prop = PiqueProperties.getProperties();
-    private IDao<CveDetails> nvdDao = new NvdDao();
+    private IDao<CveDetails> nvdDao = new CveDetailsDao();
 
     @Test
     public void testGetFirstCve() {
@@ -78,7 +78,7 @@ public class DataStoreTests {
 //        //database.listCollectionNames().forEach(System.out::println);
 //
 //        MongoCollection<Document> collection = database.getCollection("vulnerabilities");
-//        NvdCveMarshaler nvdCveMarshaler = new NvdCveMarshaler();
+//        NvdCveMarshaller nvdCveMarshaler = new NvdCveMarshaller();
 //        String cve = nvdCveMarshaler.marshalCve(response.getCveResponse().getVulnerabilities().get(0).getCve());
 //
 //        collection.insertOne(Document.parse(cve));
@@ -99,7 +99,7 @@ public class DataStoreTests {
 
     @Test
     public void testDaoQuery() {
-        nvdDao = new NvdDao();
+        nvdDao = new CveDetailsDao();
         CveDetails cve = nvdDao.getById("CVE-1999-0095");
 
         assertNotNull(cve.getId());

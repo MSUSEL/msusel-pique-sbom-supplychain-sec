@@ -1,15 +1,11 @@
 package data;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoDatabase;
 import data.cveData.CveDetails;
 import data.cveData.Vulnerability;
 import data.dao.IDao;
 import data.dao.NvdBulkOperationsDao;
 import data.dao.NvdMetaDataDao;
 import data.interfaces.HTTPMethod;
-import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pique.utility.PiqueProperties;

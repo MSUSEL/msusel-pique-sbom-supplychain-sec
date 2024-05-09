@@ -11,7 +11,6 @@ import java.util.Optional;
  */
 public interface IDao<T> {
     T getById(String id);
-    List<T> getAll();
     void insert(T t);
     void update(T t);
     void delete(T t);

@@ -8,7 +8,8 @@ import com.mongodb.client.model.InsertOneModel;
 import com.mongodb.client.model.WriteModel;
 import data.MongoConnection;
 import data.cveData.CveDetails;
-import data.handlers.NvdCveMarshaler;
+import data.handlers.CveDetailsMarshaller;
+import data.handlers.NvdCveMarshaller;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,23 +22,18 @@ import java.util.List;
  * CAUTION - This class should only be used to perform operations
  * on the entire NVD Mirror. It does not check for existing CVE
  * Documents in the collection and is thus likely to create duplicate entries.
- * Please use the NvdDao class for inserting into / updating
+ * Please use the CveDetailsDao class for inserting into / updating
  * a subset of cves in the NVD.
  */
 public class NvdBulkOperationsDao implements IDao<List<CveDetails>>{
     private final MongoClient client = MongoConnection.getInstance();
     private final MongoDatabase db = client.getDatabase("nvdMirror");
     private final MongoCollection<Document> vulnerabilities = db.getCollection("vulnerabilities");
-    private final NvdCveMarshaler nvdCveMarshaler = new NvdCveMarshaler();
+    private final CveDetailsMarshaller cveDetailsMarshaller = new CveDetailsMarshaller();
     private static final Logger LOGGER = LoggerFactory.getLogger(NvdBulkOperationsDao.class);
 
     @Override
     public List<CveDetails> getById(String id) {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public List<List<CveDetails>> getAll() {
         return Collections.emptyList();
     }
 
@@ -47,7 +43,7 @@ public class NvdBulkOperationsDao implements IDao<List<CveDetails>>{
 
         try {
             for (CveDetails cve : cves) {
-                bulkOperations.add(new InsertOneModel<>(Document.parse(nvdCveMarshaler.marshalCve(cve))));
+                bulkOperations.add(new InsertOneModel<>(Document.parse(cveDetailsMarshaller.marshallJson(cve))));
             }
             vulnerabilities.bulkWrite(bulkOperations);
         } catch (MongoBulkWriteException e) {

@@ -6,8 +6,8 @@ import data.Utils;
 import data.cveData.CveDetails;
 import data.cveData.Weakness;
 import data.cveData.WeaknessDescription;
+import data.dao.CveDetailsDao;
 import data.dao.IDao;
-import data.dao.NvdDao;
 import data.ghsaData.CweNode;
 import data.interfaces.HTTPMethod;
 import org.json.JSONArray;
@@ -44,7 +44,7 @@ public class SbomOutputProcessor implements IOutputProcessor<PiqueVulnerability>
             for (int i = 0; i < jsonVulns.length(); i++) {
                 JSONObject jsonFinding = (JSONObject) jsonVulns.get(i);
                 String cveId = jsonFinding.get("id").toString();
-                ArrayList<String> cwes = new ArrayList<>(retrieveData(cveId));
+                ArrayList<String> cwes = cveId.contains("GHSA") ? retrieveGhsaCwes(cveId) : retrieveNvdCwes(cveId);
                 String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
                 toolVulnerabilities.add(new PiqueVulnerability(cveId, cwes, helperFunctions.severityToInt(findingSeverity)));
             }
@@ -98,17 +98,6 @@ public class SbomOutputProcessor implements IOutputProcessor<PiqueVulnerability>
     }
 
     /**
-     * gets associated cwes from either the NVD mirror or the GitHub Advisory Database
-     * @param cveId
-     * @return
-     */
-    private ArrayList<String> retrieveData(String cveId) {
-        return cveId.contains("GHSA")
-            ? retrieveGhsaCwes(cveId)
-            : retrieveNvdCwes(cveId);
-    }
-
-    /**
      * Retrieves CWE list for given CVE from the GitHub Vulnerabiity Database
      *
      * @param cveId one cve identified in the tool output
@@ -147,7 +136,7 @@ public class SbomOutputProcessor implements IOutputProcessor<PiqueVulnerability>
     private ArrayList<String> retrieveNvdCwes(String cve) {
         // TODO add data access strategy: NVDMirror or API call
         // TODO Consider batch processing for large number of cwes?
-        IDao<CveDetails> nvdDao = new NvdDao();
+        IDao<CveDetails> nvdDao = new CveDetailsDao();
         ArrayList<String> descriptions = new ArrayList<>();
 
         for (Weakness weakness : nvdDao.getById(cve).getWeaknesses()) {

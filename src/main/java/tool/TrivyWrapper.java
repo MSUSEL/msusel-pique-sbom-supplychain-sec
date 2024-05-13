@@ -103,6 +103,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
 		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new SbomOutputProcessor();
 		String results = "";
+		String toolName = " Trivy Diagnostic";
 
 		System.out.println(this.getName() + " Parsing Analysis...");
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
@@ -120,7 +121,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
 		if (vulnerabilities != null) {
 			ArrayList<RelevantVulnerabilityData> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
-			outputProcessor.addDiagnostics(trivyVulnerabilities, diagnostics);
+			outputProcessor.addDiagnostics(trivyVulnerabilities, diagnostics, toolName);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");
 		}

@@ -22,6 +22,8 @@ import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabilityData> {
     private static final Logger LOGGER = LoggerFactory.getLogger(SbomOutputProcessor.class);
@@ -55,14 +57,18 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
     @Override
     public ArrayList<RelevantVulnerabilityData> processToolVulnerabilities(JSONArray jsonVulns) {
         ArrayList<RelevantVulnerabilityData> toolVulnerabilities = new ArrayList<>();
+        String regex = "CVE-\\d{3,4}-\\d{3,4}(?=.*)";
 
         try {
             for (int i = 0; i < jsonVulns.length(); i++) {
                 JSONObject jsonFinding = (JSONObject) jsonVulns.get(i);
-                String cveId = jsonFinding.get("id").toString();
-                ArrayList<String> cwes = cveId.contains("GHSA") ? retrieveGhsaCwes(cveId) : retrieveNvdCwes(cveId);
-                String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
-                toolVulnerabilities.add(new RelevantVulnerabilityData(cveId, cwes, helperFunctions.severityToInt(findingSeverity)));
+                String rawId = jsonFinding.get("id").toString();
+                String vulnId = formatVulnerabilityId(rawId, regex);
+                ArrayList<String> cwes = vulnId.contains("GHSA") ? retrieveGhsaCwes(vulnId) : retrieveNvdCwes(vulnId);
+                if (!cwes.isEmpty()) {
+                    String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
+                    toolVulnerabilities.add(new RelevantVulnerabilityData(vulnId, cwes, helperFunctions.severityToInt(findingSeverity)));
+                }
             }
         } catch (JSONException e) {
             // This intentionally lacks a throw. No Json results is a valid program state
@@ -81,12 +87,12 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
      * @param diagnostics Map of diagnostics for Tool output
      */
     @Override
-    public void addDiagnostics(ArrayList<RelevantVulnerabilityData> toolVulnerabilities, Map<String, Diagnostic> diagnostics) {
+    public void addDiagnostics(ArrayList<RelevantVulnerabilityData> toolVulnerabilities, Map<String, Diagnostic> diagnostics, String toolName) {
         for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
             // TODO I'm guessing there are some formatting issues with the CVE name here. Need some actual output/diagnostics to check.
-            Diagnostic diag = diagnostics.get(relevantVulnerabilityData.getCve() + "Tool Diagnostic");
+            Diagnostic diag = diagnostics.get(relevantVulnerabilityData.getCwe().get(0) + toolName);
             if (diag == null) {
-                diag = diagnostics.get("CWE-other Tool Diagnostic");
+                diag = diagnostics.get("CWE-other" + toolName);
                 LOGGER.warn("CVE with CWE outside of CWE-699 found.");
             }
             Finding finding = new Finding("", 0, 0, relevantVulnerabilityData.getSeverity());
@@ -134,19 +140,34 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
     private ArrayList<String> retrieveNvdCwes(String cve) {
         // TODO add data access strategy: NVDMirror or API call
         // TODO Consider batch processing for large number of cwes?
-        IDao<CveDetails> nvdDao = new CveDetailsDao();
+        IDao<CveDetails> cveDetailsDao = new CveDetailsDao();
         ArrayList<String> descriptions = new ArrayList<>();
 
-        for (Weakness weakness : nvdDao.getById(cve).getWeaknesses()) {
-            for (WeaknessDescription description : weakness.getDescription()) {
-                if (description.getValue().equals("NVD-CWE-Other") || description.getValue().equals("NVD-CWE-noinfo")) {
-                    descriptions.add("CWE-unknown");
-                } else {
-                    descriptions.add(description.getValue());
+        CveDetails cveDetails = cveDetailsDao.getById(cve);
+        if (cveDetails.getWeaknesses() != null) {
+            for (Weakness weakness : cveDetails.getWeaknesses()) {
+                for (WeaknessDescription description : weakness.getDescription()) {
+                    if (description.getValue().equals("NVD-CWE-Other") || description.getValue().equals("NVD-CWE-noinfo")) {
+                        descriptions.add("CWE-unknown");
+                    } else {
+                        descriptions.add(description.getValue());
+                    }
                 }
             }
         }
 
         return descriptions;
+    }
+
+    private String formatVulnerabilityId(String id, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(id);
+        String vulnId = "";
+
+        if (matcher.find()) {
+            vulnId = id.substring(0, matcher.end());
+        }
+
+        return vulnId;
     }
 }

@@ -15,5 +15,5 @@ import java.util.Map;
 public interface IOutputProcessor<T> {
     JSONArray getVulnerabilitiesFromToolOutput(String results);
     ArrayList<T> processToolVulnerabilities(JSONArray jsonVulns);
-    void addDiagnostics(ArrayList<T> toolVulnerabilities, Map<String, Diagnostic> diagnostics);
+    void addDiagnostics(ArrayList<T> toolVulnerabilities, Map<String, Diagnostic> diagnostics, String toolName);
 }

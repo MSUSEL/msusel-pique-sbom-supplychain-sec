@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
-@Getter
+@Getter ()
 @Setter
 public class CveDetails {
     private String id;

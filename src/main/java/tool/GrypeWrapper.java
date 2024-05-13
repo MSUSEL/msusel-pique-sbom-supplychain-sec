@@ -99,6 +99,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
 		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new SbomOutputProcessor();
 		String results = "";
+		String toolName = " Grype Diagnostic";
 
 		System.out.println(this.getName() + " Parsing Analysis...");
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
@@ -117,7 +118,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
 		if (vulnerabilities != null) {
 			ArrayList<RelevantVulnerabilityData> grypeVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
-			outputProcessor.addDiagnostics(grypeVulnerabilities, diagnostics);
+			outputProcessor.addDiagnostics(grypeVulnerabilities, diagnostics, toolName);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");
 		}

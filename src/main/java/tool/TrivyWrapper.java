@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 import pique.analysis.ITool;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
-import toolOutputObjects.PiqueVulnerability;
+import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 
 /**
@@ -101,7 +101,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-		IOutputProcessor<PiqueVulnerability> outputProcessor = new SbomOutputProcessor();
+		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new SbomOutputProcessor();
 		String results = "";
 
 		System.out.println(this.getName() + " Parsing Analysis...");
@@ -119,7 +119,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 
 		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
 		if (vulnerabilities != null) {
-			ArrayList<PiqueVulnerability> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+			ArrayList<RelevantVulnerabilityData> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
 			outputProcessor.addDiagnostics(trivyVulnerabilities, diagnostics);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");

@@ -18,44 +18,13 @@ import org.slf4j.LoggerFactory;
 import pique.model.Diagnostic;
 import pique.model.Finding;
 import pique.utility.PiqueProperties;
-import toolOutputObjects.PiqueVulnerability;
+import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 
 import java.util.*;
 
-public class SbomOutputProcessor implements IOutputProcessor<PiqueVulnerability> {
+public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabilityData> {
     private static final Logger LOGGER = LoggerFactory.getLogger(SbomOutputProcessor.class);
-
-    /**
-     * Processes the JSONArray of tool output vulnerabilities into java objects.
-     * This makes it easier to store and process data into Findings later.
-     * Once created, these objects are read-only.
-     *
-     * @param jsonVulns JSONArray of tool output vulnerabilities
-     * @return ArrayList of PiqueVulnerability java objects
-     */
-    @Override
-    public ArrayList<PiqueVulnerability> processToolVulnerabilities(JSONArray jsonVulns) {
-        // TODO given that this method has the potential to make API calls, performance could become an issue
-        // TODO consider Async calls to DB and GitHub API? Would that even help?
-        ArrayList<PiqueVulnerability> toolVulnerabilities = new ArrayList<>();
-
-        try {
-            for (int i = 0; i < jsonVulns.length(); i++) {
-                JSONObject jsonFinding = (JSONObject) jsonVulns.get(i);
-                String cveId = jsonFinding.get("id").toString();
-                ArrayList<String> cwes = cveId.contains("GHSA") ? retrieveGhsaCwes(cveId) : retrieveNvdCwes(cveId);
-                String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
-                toolVulnerabilities.add(new PiqueVulnerability(cveId, cwes, helperFunctions.severityToInt(findingSeverity)));
-            }
-        } catch (JSONException e) {
-            // This intentionally lacks a throw. No Json results is a valid program state
-            // and is handled elsewhere
-            LOGGER.warn("Unable to parse json. ", e);
-        }
-
-        return toolVulnerabilities;
-    }
 
     /**
      * Gets the vulnerabilities array from the complete Tool results
@@ -76,23 +45,52 @@ public class SbomOutputProcessor implements IOutputProcessor<PiqueVulnerability>
     }
 
     /**
+     * Processes the JSONArray of tool output vulnerabilities into java objects.
+     * This makes it easier to store and process data into Findings later.
+     * Once created, these objects are read-only.
+     *
+     * @param jsonVulns JSONArray of tool output vulnerabilities
+     * @return ArrayList of RelevantVulnerabilityData java objects
+     */
+    @Override
+    public ArrayList<RelevantVulnerabilityData> processToolVulnerabilities(JSONArray jsonVulns) {
+        ArrayList<RelevantVulnerabilityData> toolVulnerabilities = new ArrayList<>();
+
+        try {
+            for (int i = 0; i < jsonVulns.length(); i++) {
+                JSONObject jsonFinding = (JSONObject) jsonVulns.get(i);
+                String cveId = jsonFinding.get("id").toString();
+                ArrayList<String> cwes = cveId.contains("GHSA") ? retrieveGhsaCwes(cveId) : retrieveNvdCwes(cveId);
+                String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
+                toolVulnerabilities.add(new RelevantVulnerabilityData(cveId, cwes, helperFunctions.severityToInt(findingSeverity)));
+            }
+        } catch (JSONException e) {
+            // This intentionally lacks a throw. No Json results is a valid program state
+            // and is handled elsewhere
+            LOGGER.warn("Unable to parse json. ", e);
+        }
+
+        return toolVulnerabilities;
+    }
+
+    /**
      * Builds Finding and Diagnostic objects from the list of ToolVulnerabilities generated previously.
      * Adds the new Diagnostics to the PIQUE tree.
      *
-     * @param toolVulnerabilities ArrayList of PiqueVulnerability objects representing Output from Tool
+     * @param toolVulnerabilities ArrayList of RelevantVulnerabilityData objects representing Output from Tool
      * @param diagnostics Map of diagnostics for Tool output
      */
     @Override
-    public void addDiagnostics(ArrayList<PiqueVulnerability> toolVulnerabilities, Map<String, Diagnostic> diagnostics) {
-        for (PiqueVulnerability piqueVulnerability : toolVulnerabilities) {
+    public void addDiagnostics(ArrayList<RelevantVulnerabilityData> toolVulnerabilities, Map<String, Diagnostic> diagnostics) {
+        for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
             // TODO I'm guessing there are some formatting issues with the CVE name here. Need some actual output/diagnostics to check.
-            Diagnostic diag = diagnostics.get(piqueVulnerability.getCve() + "Tool Diagnostic");
+            Diagnostic diag = diagnostics.get(relevantVulnerabilityData.getCve() + "Tool Diagnostic");
             if (diag == null) {
                 diag = diagnostics.get("CWE-other Tool Diagnostic");
                 LOGGER.warn("CVE with CWE outside of CWE-699 found.");
             }
-            Finding finding = new Finding("", 0, 0, piqueVulnerability.getSeverity());
-            finding.setName(piqueVulnerability.getCve());
+            Finding finding = new Finding("", 0, 0, relevantVulnerabilityData.getSeverity());
+            finding.setName(relevantVulnerabilityData.getCve());
             diag.setChild(finding);
         }
     }

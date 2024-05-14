@@ -57,13 +57,12 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
     @Override
     public ArrayList<RelevantVulnerabilityData> processToolVulnerabilities(JSONArray jsonVulns) {
         ArrayList<RelevantVulnerabilityData> toolVulnerabilities = new ArrayList<>();
-        String regex = "CVE-\\d{3,4}-\\d{3,4}(?=.*)";
 
         try {
             for (int i = 0; i < jsonVulns.length(); i++) {
                 JSONObject jsonFinding = (JSONObject) jsonVulns.get(i);
                 String rawId = jsonFinding.get("id").toString();
-                String vulnId = formatVulnerabilityId(rawId, regex);
+                String vulnId = formatVulnerabilityId(rawId);
                 ArrayList<String> cwes = vulnId.contains("GHSA") ? retrieveGhsaCwes(vulnId) : retrieveNvdCwes(vulnId);
                 if (!cwes.isEmpty()) {
                     String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
@@ -71,8 +70,8 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
                 }
             }
         } catch (JSONException e) {
-            // This intentionally lacks a throw. No Json results is a valid program state
-            // and is handled elsewhere
+            // This intentionally lacks a throw.
+            // No Json result is a valid program state and is handled elsewhere
             LOGGER.warn("Unable to parse json. ", e);
         }
 
@@ -86,10 +85,10 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
      * @param toolVulnerabilities ArrayList of RelevantVulnerabilityData objects representing Output from Tool
      * @param diagnostics Map of diagnostics for Tool output
      */
+    // TODO This void method is a little confusing - improve?
     @Override
     public void addDiagnostics(ArrayList<RelevantVulnerabilityData> toolVulnerabilities, Map<String, Diagnostic> diagnostics, String toolName) {
         for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
-            // TODO I'm guessing there are some formatting issues with the CVE name here. Need some actual output/diagnostics to check.
             Diagnostic diag = diagnostics.get(relevantVulnerabilityData.getCwe().get(0) + toolName);
             if (diag == null) {
                 diag = diagnostics.get("CWE-other" + toolName);
@@ -108,7 +107,7 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
      * @return all associated CWEs for the cveId
      */
     private ArrayList<String> retrieveGhsaCwes(String cveId) {
-        // TODO How many GHSAs are likely? Rate limit issues? Batch API calls? Could even start collecting in DB
+        // TODO How many GHSAs are likely? Rate limit issues? Batch API calls?
         ArrayList<String> cwes = new ArrayList<>();
 
         Properties prop = PiqueProperties.getProperties();	// TODO this might already been injected at the class level
@@ -159,8 +158,8 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
         return descriptions;
     }
 
-    private String formatVulnerabilityId(String id, String regex) {
-        Pattern pattern = Pattern.compile(regex);
+    private String formatVulnerabilityId(String id) {
+        Pattern pattern = Pattern.compile("CVE-\\d{3,4}-\\d{3,4}(?=.*)");
         Matcher matcher = pattern.matcher(id);
         String vulnId = "";
 

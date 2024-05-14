@@ -61,6 +61,27 @@ public class DataStoreTests {
         assertEquals("CWE-201", nodes.get(0).getCweId());
     }
 
+    @Test
+    public void testMongoOnServer() {
+        NvdMetaDataDao dao = new NvdMetaDataDao();
+        NVDRequestFactory nvdRequestFactory = new NVDRequestFactory();
+        String username = "Ryan";
+        String password = "mytotallysecurepassword";
+        String hostname = "idkmybffjill";
+        String port = "26000";
+        String db = "mongodb";
+
+
+        NVDRequest request = nvdRequestFactory.createNVDRequest(
+                HTTPMethod.GET,
+                Utils.NVD_BASE_URI,
+                Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path"))),
+                0,
+                1
+        );
+        NVDResponse nvdResponse = request.executeRequest();
+    }
+
 //    @Test
 //    public void testMongoCreation() {
 //        // Get a single cve from NVD

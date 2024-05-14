@@ -8,7 +8,13 @@ import org.slf4j.LoggerFactory;
 import pique.utility.PiqueProperties;
 import utilities.helperFunctions;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  *  Utility class for helper methods related to Data Access
@@ -18,6 +24,8 @@ public class Utils {
     public static final String NVD_BASE_URI = "https://services.nvd.nist.gov/rest/json/cves/2.0";
     public static final String GHSA_URI = "https://api.github.com/graphql";
     public static final int NVD_MAX_PAGE_SIZE = 2000;
+    private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
+
 
 
     /**
@@ -26,18 +34,18 @@ public class Utils {
      * as is required by some PIQUE extensions
      * @return Integer representing total number of CVEs in NVD
      */
-    public static Integer getCSVCount() {
-        Properties prop = PiqueProperties.getProperties();
-        List<String> apiKey = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path")));
-        NVDRequestFactory nvdRequestFactory = new NVDRequestFactory();
-        NVDResponse response;
-
-        NVDRequest request = nvdRequestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKey, 0, 1);
-        response = request.executeRequest();
-
-        return response.getCveResponse().getTotalResults();
-
-    }
+//    public static Integer getCSVCount() {
+//        Properties prop = PiqueProperties.getProperties();
+//        List<String> apiKey = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path")));
+//        NVDRequestFactory nvdRequestFactory = new NVDRequestFactory();
+//        NVDResponse response;
+//
+//        NVDRequest request = nvdRequestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKey, 0, 1);
+//        response = request.executeRequest();
+//
+//        return response.getCveResponse().getTotalResults();
+//
+//    }
 
     /**
      * Headers need to be formatted into an array of Header Objects.
@@ -53,5 +61,23 @@ public class Utils {
             headers[i / 2] = new BasicHeader(headerStrings.get(i), headerStrings.get(i + 1));
         }
         return headers;
+    }
+
+    public static List<List<String>> getMongoCredentials() {
+        Properties prop = PiqueProperties.getProperties();
+        Path credentialsFile = Paths.get(prop.getProperty("mongo-credentials-path"));
+
+        // reads credentials file and splits into 2-D ArrayList of credentials
+        try {
+            List<List<String>> creds = Files.readAllLines(Paths.get(prop.getProperty("mongo-credentials-path")))
+                    .stream()
+                    .map(line -> Arrays.asList(line.split(",")))
+                    .collect(Collectors.toList());
+
+            return creds;
+
+        } catch(IOException e) {
+            throw(new IOException(e));
+        }
     }
 }

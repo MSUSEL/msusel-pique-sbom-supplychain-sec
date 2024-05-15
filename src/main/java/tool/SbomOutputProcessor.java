@@ -161,12 +161,7 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
     private String formatVulnerabilityId(String id) {
         Pattern pattern = Pattern.compile("CVE-\\d{3,4}-\\d{3,4}(?=.*)");
         Matcher matcher = pattern.matcher(id);
-        String vulnId = "";
 
-        if (matcher.find()) {
-            vulnId = id.substring(0, matcher.end());
-        }
-
-        return vulnId;
+        return matcher.find() ? id.substring(0, matcher.end()) : "";
     }
 }

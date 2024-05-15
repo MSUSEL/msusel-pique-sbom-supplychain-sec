@@ -13,21 +13,15 @@ import org.junit.Test;
 import pique.utility.PiqueProperties;
 import utilities.helperFunctions;
 
+import java.io.IOException;
 import java.util.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class DataStoreTests {
     private static Integer totalResults;
     Properties prop = PiqueProperties.getProperties();
     private IDao<CveDetails> nvdDao = new CveDetailsDao();
-
-    @Test
-    public void testGetFirstCve() {
-        int count = Utils.getCSVCount();
-        System.out.println(count);
-    }
 
     @Test
     public void testDataStoreFullBuild() {
@@ -65,21 +59,23 @@ public class DataStoreTests {
     public void testMongoOnServer() {
         NvdMetaDataDao dao = new NvdMetaDataDao();
         NVDRequestFactory nvdRequestFactory = new NVDRequestFactory();
-        String username = "Ryan";
-        String password = "mytotallysecurepassword";
-        String hostname = "idkmybffjill";
-        String port = "26000";
-        String db = "mongodb";
-
+        List<List<String>> creds = new ArrayList<>();
 
         NVDRequest request = nvdRequestFactory.createNVDRequest(
                 HTTPMethod.GET,
                 Utils.NVD_BASE_URI,
                 Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path"))),
                 0,
-                1
-        );
+                1);
         NVDResponse nvdResponse = request.executeRequest();
+
+        try {
+            creds = Utils.getMongoCredentials();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertFalse(creds.isEmpty());
     }
 
 //    @Test

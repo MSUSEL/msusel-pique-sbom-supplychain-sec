@@ -69,11 +69,6 @@ public class DataStoreTests {
                 1);
         NVDResponse nvdResponse = request.executeRequest();
 
-        try {
-            creds = Utils.getMongoCredentials();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
         assertFalse(creds.isEmpty());
     }

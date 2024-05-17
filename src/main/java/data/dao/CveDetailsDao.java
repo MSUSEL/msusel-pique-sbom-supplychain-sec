@@ -11,9 +11,13 @@ import data.interfaces.IJsonMarshaller;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pique.utility.PiqueProperties;
+
+import java.util.Properties;
 
 
 public class CveDetailsDao implements IDao<CveDetails> {
+
     private final MongoClient client = MongoConnection.getInstance();
     private final MongoDatabase db = client.getDatabase("nvdMirror");
     private final MongoCollection<Document> vulnerabilities = db.getCollection("vulnerabilities");

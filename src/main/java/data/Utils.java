@@ -24,8 +24,6 @@ public class Utils {
     public static final int NVD_MAX_PAGE_SIZE = 2000;
 
 
-
-
     /**
      * Gets the total number of CSVs currently listed in the NVD
      * This is necessary for requesting all the NVD data
@@ -49,6 +47,7 @@ public class Utils {
      * Headers need to be formatted into an array of Header Objects.
      * The constructor for BaseRequest passes headers as strings for ease of use.
      * This method resolves those strings to Header objects
+     *
      * @param headerStrings List of header key,value pairs as strings
      * @return array of Header objects
      */
@@ -69,16 +68,4 @@ public class Utils {
         return headers;
     }
 
-    public static List<List<String>> getMongoCredentials() throws IOException {
-        Properties prop = PiqueProperties.getProperties();
-        List<List<String>> creds;
-
-        // reads credentials file and splits into 2-D ArrayList of credentials
-        creds = Files.readAllLines(Paths.get(prop.getProperty("mongo-credentials-path")))
-                .stream()
-                .map(line -> Arrays.asList(line.split(",")))
-                .collect(Collectors.toList());
-
-        return creds;
-    }
 }

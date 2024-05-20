@@ -1,5 +1,9 @@
-package data;
+package data.nvdMirror;
 
+import data.NVDRequest;
+import data.NVDRequestFactory;
+import data.NVDResponse;
+import data.Utils;
 import data.cveData.CveDetails;
 import data.cveData.Vulnerability;
 import data.dao.IDao;

@@ -310,4 +310,26 @@ public class helperFunctions {
             throw new RuntimeException(e);
         }
     }
+
+	/**
+	 * This generates MongoDB credentials from the values in
+	 * /input/credentials/mongo_credentials.csv
+	 *
+	 * @return Map of MongoDB credentials as strings
+	 * @throws IOException
+	 */
+	public static Map<String, String> getMongoCredentials() throws IOException {
+		Properties prop = PiqueProperties.getProperties();
+		List<String> creds;
+		Map<String, String> credsMap = new HashMap<>();
+
+		// reads credentials file and builds map of credential key value pairs
+		creds = Files.readAllLines(Paths.get(prop.getProperty("mongo-credentials-path")));
+        for (String cred : creds) {
+            String[] line = cred.split(",");
+            credsMap.put(line[0], line[1]);
+        }
+
+		return credsMap;
+	}
 }

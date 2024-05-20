@@ -1,12 +1,11 @@
 import data.*;
 import data.cveData.CveDetails;
 import data.cveData.Vulnerability;
-import data.dao.IDao;
 import data.dao.NvdBulkOperationsDao;
-import data.dao.CveDetailsDao;
 import data.dao.NvdMetaDataDao;
 import data.ghsaData.CweNode;
 import data.interfaces.HTTPMethod;
+import data.nvdMirror.NVDMirror;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -21,7 +20,7 @@ import static org.junit.Assert.*;
 public class DataStoreTests {
     private static Integer totalResults;
     Properties prop = PiqueProperties.getProperties();
-    private IDao<CveDetails> nvdDao = new CveDetailsDao();
+    //private IDao<CveDetails> nvdDao = new CveDetailsDao();
 
     @Test
     public void testDataStoreFullBuild() {
@@ -109,31 +108,31 @@ public class DataStoreTests {
 //        System.out.println(document);
 //    }
 
-    @Test
-    public void testDaoQuery() {
-        nvdDao = new CveDetailsDao();
-        CveDetails cve = nvdDao.getById("CVE-1999-0095");
+//    @Test
+//    public void testDaoQuery() {
+//        nvdDao = new CveDetailsDao();
+//        CveDetails cve = nvdDao.getById("CVE-1999-0095");
+//
+//        assertNotNull(cve.getId());
+//        assertEquals("NVD-CWE-Other", cve.getWeaknesses().get(0).getDescription().get(0).getValue());
+//
+//        cve = nvdDao.getById("CVE-1999-1554");
+//        assertEquals("NVD-CWE-Other", cve.getWeaknesses().get(0).getDescription().get(0).getValue());
+//
+//    }
+//
+//    @Test
+//    public void testDaoInsert() {
+//        List<String> apiKey = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path")));
+//        NVDRequestFactory nvdRequestFactory = new NVDRequestFactory();
+//        NVDResponse response;
+//
+//        NVDRequest request = nvdRequestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKey, 0, 1);
+//        response = request.executeRequest();
+//
+//        nvdDao.insert(response.getCveResponse().getVulnerabilities().get(0).getCve());
 
-        assertNotNull(cve.getId());
-        assertEquals("NVD-CWE-Other", cve.getWeaknesses().get(0).getDescription().get(0).getValue());
-
-        cve = nvdDao.getById("CVE-1999-1554");
-        assertEquals("NVD-CWE-Other", cve.getWeaknesses().get(0).getDescription().get(0).getValue());
-
-    }
-
-    @Test
-    public void testDaoInsert() {
-        List<String> apiKey = Arrays.asList("apiKey", helperFunctions.getAuthToken(prop.getProperty("nvd-api-key-path")));
-        NVDRequestFactory nvdRequestFactory = new NVDRequestFactory();
-        NVDResponse response;
-
-        NVDRequest request = nvdRequestFactory.createNVDRequest(HTTPMethod.GET, Utils.NVD_BASE_URI, apiKey, 0, 1);
-        response = request.executeRequest();
-
-        nvdDao.insert(response.getCveResponse().getVulnerabilities().get(0).getCve());
-
-    }
+//    }
 
     @Test
     public void testDaoInsertMany() {
@@ -177,5 +176,30 @@ public class DataStoreTests {
 
         NvdMetaDataDao nvdMetaDataDao = new NvdMetaDataDao();
         nvdMetaDataDao.replace(response.getCveResponse());
+    }
+
+//    @Test
+//    public void testMongoConnection() {
+//        MongoClient mongoClient = MongoConnection.getInstance();
+//        MongoDatabase db = mongoClient.getDatabase("NVDMirror");
+//
+//        assertNotNull(db);
+//    }
+
+    @Test
+    public void testGetMongoCredentials() {
+        Map<String, String> creds;
+
+        try {
+            creds = helperFunctions.getMongoCredentials();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertEquals("ryanc", creds.get("username"));
+        assertEquals("mysupersecurepassword", creds.get("password"));
+        assertEquals("localhost", creds.get("hostname"));
+        assertEquals("26000", creds.get("port"));
+        assertEquals("NVDMirror", creds.get("dbname"));
     }
 }

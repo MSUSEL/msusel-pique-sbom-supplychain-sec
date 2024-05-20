@@ -45,3 +45,6 @@ out/sbomqs.txt
 
 # sbomqs executable will be installed when docker image is built
 src/main/resources/sbomqs
+
+# ignore .env files
+*.env

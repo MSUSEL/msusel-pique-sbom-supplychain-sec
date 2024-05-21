@@ -15,3 +15,6 @@ services:
 
 volumes:
   nvd-data: {}
+
+
+# docker run -v nvd-mirror:/data/db --hostname NVDMirror --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server:latest

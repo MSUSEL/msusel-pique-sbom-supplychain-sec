@@ -24,6 +24,7 @@ hs_err_pid*
 replay_pid*
 
 # NVD API key and Github API token
+input/keys/*
 input/keys/nvd_key.txt
 input/keys/github_token.txt
 input/credentials/*

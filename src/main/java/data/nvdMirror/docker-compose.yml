@@ -1,19 +1,24 @@
 services:
+  pique-sbom:
+    image: msusel/pique-sbom-supply-chain-sec:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ./input:/input
+      - ./output:/output
+
   mongodb:
     image: mongodb/mongodb-community-server:latest
     container_name: mongodb
     ports:
       - "27017:27017"
     environment:
-      MONGOD_INITDB_ROOT_USERNAME: ${MONGOD_INITDB_ROOT_USERNAME}
-      MONGOD_INITDB_ROOT_PASSWORD: ${MONGOD_INITDB_ROOT_PASSWORD}
-      MONGOD_INITDB_DATABASE: NVDMirror
-    volumes:
-      - nvd-mirror:/data/db
+      MONGO_INITDB_DATABASE: NVDMirror
+      volumes:
+        - nvd-mirror:/data/db
 
-volumes:
-  nvd-mirror:
-    driver: local
+#  volumes:
+#    nvd-mirror:
+#      driver: local
 
 
 # docker run -v nvd-mirror:/data/db --hostname NVDMirror --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server:latest

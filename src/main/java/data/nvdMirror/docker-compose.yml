@@ -1,3 +1,7 @@
+volumes:
+  nvd-mirror:
+    driver: local
+
 services:
   pique-sbom:
     image: msusel/pique-sbom-supply-chain-sec:latest
@@ -9,16 +13,15 @@ services:
   mongodb:
     image: mongodb/mongodb-community-server:latest
     container_name: mongodb
+    volumes:
+      - nvd-mirror:/data/db
     ports:
       - "27017:27017"
     environment:
       MONGO_INITDB_DATABASE: NVDMirror
-      volumes:
-        - nvd-mirror:/data/db
 
-#  volumes:
-#    nvd-mirror:
-#      driver: local
+
+
 
 
 # docker run -v nvd-mirror:/data/db --hostname NVDMirror --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server:latest

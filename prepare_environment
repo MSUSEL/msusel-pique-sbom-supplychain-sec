@@ -121,7 +121,7 @@ run() {
     get_authentication_keys
 
 #    docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v "$WORKDIR"/input:/input -v "$WORKDIR"/output:/output msusel/pique-sbom-supply-chain-sec:latest
-    docker-compose up
+    docker-compose -f "$WORKDIR/src/main/java/data/nvdMirror/docker-compose.yml" up --detach
 }
 run
 

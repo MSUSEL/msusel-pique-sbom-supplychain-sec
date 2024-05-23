@@ -17,6 +17,11 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+/**
+ * Some of these tests are outdated and may fail.
+ * I will be continuing to work on cleaning this up
+ * and will remove this note when these tests are updated
+ */
 public class DataStoreTests {
     private static Integer totalResults;
     Properties prop = PiqueProperties.getProperties();

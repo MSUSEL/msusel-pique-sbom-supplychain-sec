@@ -29,43 +29,52 @@ public class MongoConnection {
      * @return existing MongoClient or a new one if one does not already exist
      */
     public static MongoClient getInstance() {
-        String username, password, port, hostname, dbname;
-        Map<String, String> credentials;
-
-        try {
-            credentials = helperFunctions.getMongoCredentials();
-        } catch (IOException e) {
-            LOGGER.error("Could not read credentials file", e);
-            throw new RuntimeException(e);
-        }
-
-        username = credentials.get("username");
-        password = credentials.get("password");
-        hostname = credentials.get("hostname");
-        port = credentials.get("port");
-        dbname = credentials.get("dbname");
-
         if (mongoClient == null) {
             synchronized (MongoClient.class) {
                 if (mongoClient == null) {
-                    MongoCredential credential = MongoCredential.createCredential(username, dbname, password.toCharArray());
-                    try {
-                        mongoClient = MongoClients.create(
-                                MongoClientSettings.builder()
-                                        .applyToClusterSettings(builder ->
-                                                builder.hosts(Arrays.asList(new ServerAddress(hostname, Integer.parseInt(port)))))
-                                        .credential(credential)
-                                        .build());
-                    } catch (MongoClientException e) {
-                        LOGGER.error(String.format("Could not connect to Mongo database: {%s}.", dbname), e);
-                        throw new RuntimeException(e);
-                    }
+                    mongoClient = MongoClients.create("mongodb://localhost:27017");
                 }
             }
         }
-
         return mongoClient;
     }
 
-
+//    public static MongoClient getInstance() {
+//        String username, password, port, hostname, dbname;
+//        Map<String, String> credentials;
+//
+//        try {
+//            credentials = helperFunctions.getMongoCredentials();
+//        } catch (IOException e) {
+//            LOGGER.error("Could not read credentials file", e);
+//            throw new RuntimeException(e);
+//        }
+//
+//        username = credentials.get("username");
+//        password = credentials.get("password");
+//        hostname = credentials.get("hostname");
+//        port = credentials.get("port");
+//        dbname = credentials.get("dbname");
+//
+//        if (mongoClient == null) {
+//            synchronized (MongoClient.class) {
+//                if (mongoClient == null) {
+//                    MongoCredential credential = MongoCredential.createCredential(username, dbname, password.toCharArray());
+//                    try {
+//                        mongoClient = MongoClients.create(
+//                                MongoClientSettings.builder()
+//                                        .applyToClusterSettings(builder ->
+//                                                builder.hosts(Arrays.asList(new ServerAddress(hostname, Integer.parseInt(port)))))
+//                                        .credential(credential)
+//                                        .build());
+//                    } catch (MongoClientException e) {
+//                        LOGGER.error(String.format("Could not connect to Mongo database: {%s}.", dbname), e);
+//                        throw new RuntimeException(e);
+//                    }
+//                }
+//            }
+//        }
+//
+//        return mongoClient;
+//    }
 }

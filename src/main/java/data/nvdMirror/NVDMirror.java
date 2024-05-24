@@ -42,7 +42,7 @@ public class NVDMirror {
             metaDataDao.replace(response.getCveResponse());
 
             try {
-                Thread.sleep(500);
+                Thread.sleep(6000);
             } catch (InterruptedException e) {
                 LOGGER.error("Thread interrupted", e);   // not sure if this is reachable in single-threaded code
                 throw new RuntimeException(e);

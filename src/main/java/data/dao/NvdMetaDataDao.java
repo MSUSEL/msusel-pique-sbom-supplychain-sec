@@ -40,8 +40,8 @@ public class NvdMetaDataDao {
         ReplaceOptions opts = new ReplaceOptions().upsert(true);
         UpdateResult updateResult = vulnerabilities.replaceOne(metadataFilter, metadata, opts);
 
-        System.out.println("Modified document count: " + updateResult.getModifiedCount());
-        System.out.println("Upserted id: " + updateResult.getUpsertedId());
+//        System.out.println("Modified document count: " + updateResult.getModifiedCount());
+//        System.out.println("Upserted id: " + updateResult.getUpsertedId());
     }
 
     public NvdMirrorMetadata get(Document criteria) {

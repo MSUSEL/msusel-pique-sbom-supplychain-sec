@@ -1,24 +1,36 @@
 volumes:
   nvd-mirror:
+    name: nvd-mirror
     driver: local
 
 services:
-  pique-sbom:
-    image: msusel/pique-sbom-supply-chain-sec:latest
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:rw
-      - ./input:/input
-      - ./output:/output
-
   mongodb:
-    image: mongodb/mongodb-community-server:latest
-    container_name: mongodb
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME="${MONGO_INITDB_ROOT_USERNAME}"
+      - MONGODB_INITDB_ROOT_PASSWORD="${MONGO_INITDB_ROOT_PASSWORD}"
     volumes:
       - nvd-mirror:/data/db
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_DATABASE: NVDMirror
+#  mongodb:
+#    image: mongodb/mongodb-community-server:latest
+#    container_name: mongodb
+#    volumes:
+#      - nvd-mirror:/data/db
+#    ports:
+#      - "27017:27017"
+#    environment:
+#      MONGO_INITDB_DATABASE: NVDMirror
+
+   # We can possibly use docker-compose to coordinate both containers.
+   # For now though, we'll start the services separately
+#  pique-sbom:
+#    image: msusel/pique-sbom-supply-chain-sec:latest
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock:rw
+#      - ./input:/input
+#      - ./output:/output
+
+
 
 
 

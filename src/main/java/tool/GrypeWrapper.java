@@ -146,7 +146,4 @@ public class GrypeWrapper extends Tool implements ITool  {
 
 		return toolRoot;
 	}
-
-
-
 }

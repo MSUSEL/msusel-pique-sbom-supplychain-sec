@@ -24,26 +24,19 @@ package tool;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pique.analysis.ITool;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
-import pique.model.Finding;
-import pique.utility.PiqueProperties;
+import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 
 /**
@@ -108,65 +101,29 @@ public class TrivyWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
+		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new SbomOutputProcessor();
+		String results = "";
+		String toolName = " Trivy Diagnostic";
+
 		System.out.println(this.getName() + " Parsing Analysis...");
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
 
 		// find all diagnostic nodes associated with Trivy
 		Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
 
-		// read Trivy results file
-		String results = "";
+		// Read and process Trivy output
 		try {
 			results = helperFunctions.readFileContent(toolResults);
 		} catch (IOException e) {
 			LOGGER.info("No results to read from Trivy.");
 		}
 
-		ArrayList<String> cveList = new ArrayList<>();
-		ArrayList<Integer> severityList = new ArrayList<>();
-
-		try {
-			// complex json access to list of findings in Trivy sarif results
-			JSONObject jsonResults = new JSONObject(results);
-			JSONArray vulnerabilities = jsonResults.optJSONArray("runs").optJSONObject(0).optJSONObject("tool").optJSONObject("driver").optJSONArray("rules");
-
-			// if vulnerabilities is null we had no findings, thus return
-			if (vulnerabilities == null) {
-				return diagnostics;
-			}
-
-			for (int i = 0; i < vulnerabilities.length(); i++) {
-				JSONObject jsonFinding = (JSONObject) vulnerabilities.get(i);
-
-				// extract CVE id and severity score from the current finding
-				String findingName = jsonFinding.get("id").toString();
-				String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
-				severityList.add(helperFunctions.severityToInt(findingSeverity));
-				cveList.add(findingName);
-			}
-
-			// TODO: change CVE_to_CWE script to return both the CVE and CWE, do this by printing CVE,CWE then
-			// maps CVEs to corresponding CWEs in CWE-699. If a mapped CWE is outside CWE-699 the CVE will
-			// be mapped to CWE-other (logic for this below not in python script), if a mapping can not be found or no
-			// mapping exists we map the CVE to CWE-unknown.
-			String[] findingNames = helperFunctions.getCWE(cveList, this.githubToken);
-			for (int i = 0; i < findingNames.length; i++) {
-				// CWE-unknown or CWE within CWE-699 family
-				Diagnostic diag = diagnostics.get((findingNames[i]+" Trivy Diagnostic"));
-
-				// CWE not in CWE-699
-				if (diag == null) {
-					diag = diagnostics.get("CWE-other Trivy Diagnostic");
-					LOGGER.warn("CVE with CWE outside of CWE-699 found.");
-				}
-
-				// set current finding (CVE or GHSA) as a child of the corresponding diagnostic node
-				Finding finding = new Finding("",0,0,0/*severityList.get(i)*/);
-				finding.setName(cveList.get(i));
-				diag.setChild(finding);
-			}
-		} catch (JSONException e) {
-			LOGGER.warn("Unable to read results from Trivy");
+		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
+		if (vulnerabilities != null) {
+			ArrayList<RelevantVulnerabilityData> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+			outputProcessor.addDiagnostics(trivyVulnerabilities, diagnostics, toolName);
+		} else {
+			LOGGER.warn("Vulnerability array was empty.");
 		}
 
 		return diagnostics;

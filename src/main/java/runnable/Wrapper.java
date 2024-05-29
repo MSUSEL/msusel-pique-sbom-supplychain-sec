@@ -39,11 +39,16 @@ public class Wrapper {
     private static final Logger LOGGER = LoggerFactory.getLogger(Wrapper.class);
 
     public static void main(String[] args) {
+        Properties prop = PiqueProperties.getProperties();
+        Namespace namespace = null;
         try {
             // setup command line argument parsing
             boolean helpFlag = check_help(args);
             ArgumentParser parser = ArgumentParsers.newFor("Wrapper").build()
-                    .defaultHelp(true).defaultHelp(true).description("Entry point for PIQUE-SBOM-SUPPLYCHAIN-SEC");
+                    .defaultHelp(true)
+                    .defaultHelp(true)
+                    .description("Entry point for PIQUE-SBOM-SUPPLYCHAIN-SEC");
+            
             parser.addArgument("--runType")
                     .setDefault("evaluate")
                     .choices("derive", "evaluate")
@@ -59,7 +64,6 @@ public class Wrapper {
 //                    .setDefault(false)
 //                    .help("Download the latest version of the NVD database then terminate program");
 
-            Namespace namespace = null;
             if (helpFlag) {
                 System.out.println(parser.formatHelp());
                 System.exit(0);
@@ -70,7 +74,6 @@ public class Wrapper {
             String runType = namespace.getString("runType");
             boolean printVersion = namespace.getBoolean("version");
             //boolean downloadNVDFlag = namespace.getBoolean("downloadNVD");
-            Properties prop = PiqueProperties.getProperties();
 
             if (printVersion) {
                 Path version = Paths.get(prop.getProperty("version"));
@@ -84,34 +87,34 @@ public class Wrapper {
 //                System.exit(0);
 //            }
 
-            String nvdDictionaryPath = Paths.get(prop.getProperty("nvd-dictionary.location")).toString();
-            File f = new File(nvdDictionaryPath);
-            if (!f.isFile()) {
-                System.out.println("NVD database not yet downloaded - starting NVD download");
-                LOGGER.info("Wrapper: NVD database not yet downloaded - starting NVD download");
-                helperFunctions.downloadNVD();
-                System.out.println("finish NVD download");
-                LOGGER.info("Wrapper: finished NVD download");
-            }
-
-            // kick off query_nvd.py on its own thread
-            String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
-            String pathToScript = prop.getProperty("query-nvd.location");
-            String port_number = prop.getProperty("query-nvd.port");
-            String[] cmd = {"python3", pathToScript, pathToNVDDict, port_number};
-            Thread query_nvd = new Thread(() -> {
-                try {
-                    helperFunctions.getOutputFromProgram(cmd, LOGGER);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
-            System.out.println("Starting server for converting vulnerabilities to CWEs");
-            LOGGER.info("Wrapper: Starting query_nvd.py");
-            query_nvd.start();
-
-            // todo implement functionality for responding when dict is loaded instead of sleeping
-            sleep(12000);
+//            String nvdDictionaryPath = Paths.get(prop.getProperty("nvd-dictionary.location")).toString();
+//            File f = new File(nvdDictionaryPath);
+//            if (!f.isFile()) {
+//                System.out.println("NVD database not yet downloaded - starting NVD download");
+//                LOGGER.info("Wrapper: NVD database not yet downloaded - starting NVD download");
+//                helperFunctions.downloadNVD();
+//                System.out.println("finish NVD download");
+//                LOGGER.info("Wrapper: finished NVD download");
+//            }
+//
+//            // kick off query_nvd.py on its own thread
+//            String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
+//            String pathToScript = prop.getProperty("query-nvd.location");
+//            String port_number = prop.getProperty("query-nvd.port");
+//            String[] cmd = {"python3", pathToScript, pathToNVDDict, port_number};
+//            Thread query_nvd = new Thread(() -> {
+//                try {
+//                    helperFunctions.getOutputFromProgram(cmd, LOGGER);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            });
+//            System.out.println("Starting server for converting vulnerabilities to CWEs");
+//            LOGGER.info("Wrapper: Starting query_nvd.py");
+//            query_nvd.start();
+//
+//            // todo implement functionality for responding when dict is loaded instead of sleeping
+//            sleep(12000);
 
             if ("derive".equals(runType)) {
                 // kick off deriver

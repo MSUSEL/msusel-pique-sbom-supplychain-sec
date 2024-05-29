@@ -24,8 +24,10 @@ hs_err_pid*
 replay_pid*
 
 # NVD API key and Github API token
+input/keys/*
 input/keys/nvd_key.txt
 input/keys/github_token.txt
+input/credentials/*
 
 # ignore NVD dictionary
 src/main/resources/nvd-dictionary.json
@@ -36,7 +38,14 @@ out/grype.json
 out/trivy.json
 out/sbomqs.txt
 
-.idea/*
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
 
 # sbomqs executable will be installed when docker image is built
 src/main/resources/sbomqs
+
+# ignore .env files
+*.env

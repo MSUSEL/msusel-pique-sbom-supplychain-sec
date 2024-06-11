@@ -72,7 +72,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 		tempResults.delete();
 		tempResults.getParentFile().mkdirs();
 
-		// command for running Grype on the command line
+		// command for running Trivy on the command line
 		String[] cmd = {"trivy",
 				"sbom",
 				"--format", "sarif",

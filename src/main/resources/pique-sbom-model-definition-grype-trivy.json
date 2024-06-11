@@ -751,8 +751,8 @@
         "utility_function" : "pique.evaluation.DefaultUtility",
         "description" : "",
         "children" : {
-          "CWE-other Grype Diagnostic" : { },
-          "CWE-other Trivy Diagnostic" : { }
+          "CWE-other Grype Diagnostic": {},
+          "CWE-other Trivy Diagnostic": {}
         }
       },
       "CWE-unknown Measure": {
@@ -760,8 +760,8 @@
         "utility_function" : "pique.evaluation.DefaultUtility",
         "description" : "",
         "children" : {
-          "CWE-unknown Grype Diagnostic" : { },
-          "CWE-unknown Trivy Diagnostic" : { }
+          "CWE-unknown Grype Diagnostic": {},
+          "CWE-unknown Trivy Diagnostic": {}
         }
       },
       "CWE-242 Measure": {
@@ -7599,6 +7599,7 @@
       "toolName":"trivy",
       "description":"CVE findings of type CWE-613"
    }
-    }
+
+  }
 
 }

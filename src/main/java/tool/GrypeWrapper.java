@@ -62,7 +62,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Path analyze(Path projectLocation) {
-		LOGGER.info(this.getName() + "  Analyzing "+ projectLocation.toString());
+		LOGGER.info(this.getName() + " Analyzing "+ projectLocation.toString());
 
 		// clear previous results
 		File tempResults = new File(System.getProperty("user.dir") + "/out/grype.json");
@@ -72,7 +72,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 		// command for running Grype on the command line
 		String[] cmd = {"grype",
 				projectLocation.toAbsolutePath().toString(), // product under analysis path
-				"--output", "sarif",
+				"--output", "json",
 				"--quiet",
 				"--file",tempResults.toPath().toAbsolutePath().toString()}; // output path
 		LOGGER.info(Arrays.toString(cmd));
@@ -97,7 +97,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new SbomOutputProcessor();
+		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new TrivyGrypeOutputProcessor();
 		String results = "";
 		String toolName = " Grype Diagnostic";
 
@@ -115,9 +115,9 @@ public class GrypeWrapper extends Tool implements ITool  {
 			LOGGER.info("No results to read from Grype.");
 		}
 
-		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
+		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results, toolName);
 		if (vulnerabilities != null) {
-			ArrayList<RelevantVulnerabilityData> grypeVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+			ArrayList<RelevantVulnerabilityData> grypeVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities, toolName);
 			outputProcessor.addDiagnostics(grypeVulnerabilities, diagnostics, toolName);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");

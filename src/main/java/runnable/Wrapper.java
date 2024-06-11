@@ -59,10 +59,6 @@ public class Wrapper {
                     .action(Arguments.storeTrue())
                     .setDefault(false)
                     .help("print version information and terminate program");
-//            parser.addArgument("--downloadNVD")
-//                    .action(Arguments.storeTrue())
-//                    .setDefault(false)
-//                    .help("Download the latest version of the NVD database then terminate program");
 
             if (helpFlag) {
                 System.out.println(parser.formatHelp());

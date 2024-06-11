@@ -25,8 +25,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabilityData> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SbomOutputProcessor.class);
+public class CveBinToolOutputProcessor implements IOutputProcessor<RelevantVulnerabilityData> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TrivyGrypeOutputProcessor.class);
 
     /**
      * Gets the vulnerabilities array from the complete Tool results
@@ -35,12 +35,19 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
      * @return a jsonArray of Tool results or null if no vulnerabilities are found
      */
     @Override
-    public JSONArray getVulnerabilitiesFromToolOutput(String results) {
+    public JSONArray getVulnerabilitiesFromToolOutput(String results, String toolName) {
         try {
-            JSONObject jsonResults = new JSONObject(results);
-            return jsonResults.optJSONArray("runs").optJSONObject(0).optJSONObject("tool").optJSONObject("driver").optJSONArray("rules");
-        } catch (JSONException e) {
-            LOGGER.warn("Unable to read results from Tool");
+            JSONArray vulnerabilities = new JSONArray(results); // Assuming jsonData is a string containing the JSON array.
+            JSONArray extractedVulnerabilities = new JSONArray();
+            for (int i = 0; i < vulnerabilities.length(); i++) {
+                JSONObject vulnerability = vulnerabilities.getJSONObject(i); // Directly accessing the vulnerability object.
+                if (vulnerability != null)
+                    extractedVulnerabilities.put(vulnerability); // Adding directly to the result array if it exists.
+            }
+            return extractedVulnerabilities;
+        }
+        catch (JSONException e) {
+            LOGGER.warn("Unable to read results from {} output", toolName);
         }
 
         return null;
@@ -55,23 +62,24 @@ public class SbomOutputProcessor implements IOutputProcessor<RelevantVulnerabili
      * @return ArrayList of RelevantVulnerabilityData java objects
      */
     @Override
-    public ArrayList<RelevantVulnerabilityData> processToolVulnerabilities(JSONArray jsonVulns) {
+    public ArrayList<RelevantVulnerabilityData> processToolVulnerabilities(JSONArray jsonVulns, String toolName) {
         ArrayList<RelevantVulnerabilityData> toolVulnerabilities = new ArrayList<>();
 
         try {
             for (int i = 0; i < jsonVulns.length(); i++) {
                 JSONObject jsonFinding = (JSONObject) jsonVulns.get(i);
-                String rawId = jsonFinding.get("id").toString();
-                String vulnId = formatVulnerabilityId(rawId);
+                String vulnId = jsonFinding.get("cve_number").toString();
+                String findingSeverity = jsonFinding.optString("severity");
+                // String findingSeverity = jsonFinding.optString("score");
+                //String vulnId = formatVulnerabilityId(rawId);
                 ArrayList<String> cwes = vulnId.contains("GHSA") ? retrieveGhsaCwes(vulnId) : retrieveNvdCwes(vulnId);
                 if (!cwes.isEmpty()) {
-                    String findingSeverity = ((JSONObject) jsonFinding.get("properties")).get("security-severity").toString();
                     toolVulnerabilities.add(new RelevantVulnerabilityData(vulnId, cwes, helperFunctions.severityToInt(findingSeverity)));
                 }
             }
         } catch (JSONException e) {
             // This intentionally lacks a throw.
-            // No Json result is a valid program state and is handled elsewhere
+            // No json result is a valid program state and is handled elsewhere
             LOGGER.warn("Unable to parse json. ", e);
         }
 

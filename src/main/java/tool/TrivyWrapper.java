@@ -72,10 +72,10 @@ public class TrivyWrapper extends Tool implements ITool  {
 		tempResults.delete();
 		tempResults.getParentFile().mkdirs();
 
-		// command for running Grype on the command line
+		// command for running Trivy on the command line
 		String[] cmd = {"trivy",
 				"sbom",
-				"--format", "sarif",
+				"--format", "json",
 				"--quiet",
 				"--output",tempResults.toPath().toAbsolutePath().toString(), // output path
 				projectLocation.toAbsolutePath().toString()}; // product under analysis path
@@ -101,7 +101,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new SbomOutputProcessor();
+		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new TrivyGrypeOutputProcessor();
 		String results = "";
 		String toolName = " Trivy Diagnostic";
 
@@ -118,9 +118,9 @@ public class TrivyWrapper extends Tool implements ITool  {
 			LOGGER.info("No results to read from Trivy.");
 		}
 
-		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
+		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results, toolName);
 		if (vulnerabilities != null) {
-			ArrayList<RelevantVulnerabilityData> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+			ArrayList<RelevantVulnerabilityData> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities, toolName);
 			outputProcessor.addDiagnostics(trivyVulnerabilities, diagnostics, toolName);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");

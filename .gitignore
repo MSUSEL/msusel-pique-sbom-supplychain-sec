@@ -28,6 +28,7 @@ input/keys/*
 input/keys/nvd_key.txt
 input/keys/github_token.txt
 input/credentials/*
+input/project/sourceCode/*
 
 # ignore NVD dictionary
 src/main/resources/nvd-dictionary.json
@@ -52,3 +53,4 @@ src/main/resources/sbomqs
 
 # ignore .env files
 *.env
+/input/projects/sourceCode/

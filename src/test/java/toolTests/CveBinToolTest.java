@@ -24,9 +24,9 @@ public class CveBinToolTest {
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
 
-        //Path analysisOutput = cveBinToolTest.analyze(testSBOM);
-        File tempResults = new File(System.getProperty("user.dir") + "/out/cve_bin_tool.json");
-        Path analysisOutput = tempResults.toPath();
+        Path analysisOutput = cveBinToolTest.analyze(testSBOM);
+//        File tempResults = new File(System.getProperty("user.dir") + "/out/cve_bin_tool.json");
+//        Path analysisOutput = tempResults.toPath();
 
         Map<String, Diagnostic> output = cveBinToolTest.parseAnalysis(analysisOutput);
 

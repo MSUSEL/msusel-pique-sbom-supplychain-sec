@@ -50,17 +50,17 @@ public class sbomqsWrapper extends Tool implements ITool {
 
         // get location of sbomqs executable
         Properties prop = PiqueProperties.getProperties();
-        String pathTosbomqs = prop.getProperty("sbomqs.location");
+        File sbomqsPath = new File(System.getProperty("user.dir") + "/" + prop.getProperty("sbomqs.location"));
 
         // command for running sbomqs on the command line
-        String[] cmd = {"sbomqs",
+        String[] cmd = {"sbomqs", //sbomqsPath.toPath().toAbsolutePath().toString(),
                 "score",
                 "--json",
                 projectLocation.toAbsolutePath().toString()};
         LOGGER.info(Arrays.toString(cmd));
 
         // runs the command built above and captures the output
-        // sbomqs does not handle file saving so we must parse the captured output and save it to a text file
+        // sbomqs does not handle file saving, so we must parse the captured output and save it to a text file
         try {
             // parse results captured from standard out
             String results = helperFunctions.getOutputFromProgram(cmd,LOGGER);

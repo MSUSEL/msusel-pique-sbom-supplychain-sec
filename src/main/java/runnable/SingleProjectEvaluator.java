@@ -41,10 +41,7 @@ import pique.analysis.ITool;
 import pique.evaluation.Project;
 import pique.runnable.ASingleProjectEvaluator;
 import pique.utility.PiqueProperties;
-import tool.GrypeWrapper;
-import tool.TrivySBOMGenerationWrapper;
-import tool.TrivyWrapper;
-import tool.sbomqsWrapper;
+import tool.*;
 
 /**
  * Behavioral class responsible for running TQI evaluation of a single project
@@ -105,8 +102,9 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         // initialize SBOM analysis tools that will run on each SBOM in the input/projects/SBOM directory
         ITool gyrpeWrapper = new GrypeWrapper(prop.getProperty("github-token-path"));
         ITool trivyWrapper = new TrivyWrapper(prop.getProperty("github-token-path"));
+        ITool cveBinToolWrapper = new CveBinToolWrapper();
         ITool sbomqsWrapper_ = new sbomqsWrapper();
-        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_).collect(Collectors.toSet());
+        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
 
         // loop through each SBOM in the input/projects/SBOM directory and store paths in a list
         Set<Path> sbomRoots = new HashSet<>();

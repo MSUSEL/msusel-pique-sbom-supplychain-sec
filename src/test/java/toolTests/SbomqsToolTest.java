@@ -31,7 +31,6 @@ public class SbomqsToolTest {
 
         assertEquals(comps, 185);
 
-        //if we didn't return from the above statement, force the test to fail
         //fail();
     }
 

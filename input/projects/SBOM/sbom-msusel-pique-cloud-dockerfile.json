@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:60ad9500-1422-4fa1-8e33-d034dbbcc9a4",
+  "serialNumber": "urn:uuid:238b2e0d-6d31-4119-a600-ef2562b9ecaa",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-06-11T19:49:02+00:00",
+    "timestamp": "2024-06-11T20:06:35+00:00",
     "tools": {
       "components": [
         {
@@ -17,7 +17,7 @@
       ]
     },
     "component": {
-      "bom-ref": "1aa4b2cd-3ad4-4282-8055-0a1140b41ee7",
+      "bom-ref": "cef1e68f-9d32-4b82-95a1-8ae59b9fb020",
       "type": "application",
       "name": "/home/eric/Documents/PIQUE-SBOM-dev/current/msusel-pique-sbom-supplychain-sec/input/projects/sourceCode/msusel-pique-cloud-dockerfile",
       "properties": [
@@ -30,7 +30,7 @@
   },
   "components": [
     {
-      "bom-ref": "686f7b88-c737-447b-b8f3-76c26aa9ac66",
+      "bom-ref": "5080b73d-d164-4d93-ae19-ab3b76903efa",
       "type": "application",
       "name": "pom.xml",
       "properties": [
@@ -2237,13 +2237,7 @@
   ],
   "dependencies": [
     {
-      "ref": "1aa4b2cd-3ad4-4282-8055-0a1140b41ee7",
-      "dependsOn": [
-        "686f7b88-c737-447b-b8f3-76c26aa9ac66"
-      ]
-    },
-    {
-      "ref": "686f7b88-c737-447b-b8f3-76c26aa9ac66",
+      "ref": "5080b73d-d164-4d93-ae19-ab3b76903efa",
       "dependsOn": [
         "pkg:maven/com.github.docker-java/docker-java@3.3.3",
         "pkg:maven/com.google.code.gson/gson@2.8.5",
@@ -2261,6 +2255,12 @@
         "pkg:maven/org.slf4j/log4j-over-slf4j@1.7.12",
         "pkg:maven/org.slf4j/slf4j-api@1.7.12",
         "pkg:maven/org.slf4j/slf4j-simple@1.7.12"
+      ]
+    },
+    {
+      "ref": "cef1e68f-9d32-4b82-95a1-8ae59b9fb020",
+      "dependsOn": [
+        "5080b73d-d164-4d93-ae19-ab3b76903efa"
       ]
     },
     {

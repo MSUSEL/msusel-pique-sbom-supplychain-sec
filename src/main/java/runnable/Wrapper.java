@@ -123,8 +123,9 @@ public class Wrapper {
             else if ("evaluate".equals(runType)) {
                 // kick off evaluator
                 // get path to input projects
-                String input_path = prop.getProperty("project.root");
-                new SingleProjectEvaluator(input_path);
+                String sbomInputPath = prop.getProperty("project.sbom-input");
+                String sourceCodeInputPath = prop.getProperty("project.source-code-input");
+                new SingleProjectEvaluator(sbomInputPath, sourceCodeInputPath);
                 System.exit(0);
             }
             else {

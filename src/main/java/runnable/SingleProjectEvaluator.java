@@ -42,6 +42,7 @@ import pique.evaluation.Project;
 import pique.runnable.ASingleProjectEvaluator;
 import pique.utility.PiqueProperties;
 import tool.GrypeWrapper;
+import tool.TrivySBOMGenerationWrapper;
 import tool.TrivyWrapper;
 import tool.sbomqsWrapper;
 
@@ -56,16 +57,11 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
     @Getter @Setter
     private String propertiesLocation = "src/main/resources/pique-properties.properties";
 
-    public SingleProjectEvaluator(){
-        Properties prop = PiqueProperties.getProperties();
-        init(prop.getProperty("project.root"));
+    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory) {
+        init(sbomDirectory, sourceCodeDirectory);
     }
 
-    public SingleProjectEvaluator(String projectToAnalyze) {
-        init(projectToAnalyze);
-    }
-
-    public void init(String projectLocation){
+    public void init(String sbomDirectory, String sourceCodeDirectory){
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
@@ -75,29 +71,58 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         }
 
 
-        Path projectRoot = Paths.get(projectLocation);
+        Path sbomPath = Paths.get(sbomDirectory);
+        Path sourceCodePath = Paths.get(sourceCodeDirectory);
         Path resultsDir = Paths.get(prop.getProperty("results.directory"));
 
-        LOGGER.info("Project to analyze: " + projectRoot.toString());
+        /**
+         * Code that checks if source code is present to generate SBOMs for, we iterate through each directory or
+         * file in the source code directory. We generate SBOMs (currently using Trivy) for each project in the
+         * source code directory. The resulting SBOMs are placed in the input/projects/SBOM directory. The code
+         * then proceeds to evaluate each SBOM in the input/projects/SBOM directory.
+         */
+        Set<Path> sourceCodeRoots = new HashSet<>();
+        File[] sourceCodeToGenerateSbomsFrom = sourceCodePath.toFile().listFiles();
+        assert sourceCodeToGenerateSbomsFrom != null; // Ensure the directory is not empty
+        for (File f : sourceCodeToGenerateSbomsFrom) {
+            if (!f.getName().equals(".gitignore")) { // Check to avoid adding .gitignore
+                sourceCodeRoots.add(f.toPath()); // Add both files and directories except .gitignore
+            }
+        }
 
+        TrivySBOMGenerationWrapper trivySBOMGenerator = new TrivySBOMGenerationWrapper();
+
+        // Generate SBOMs for each project in the source code directory
+        for (Path projectToGenerateSbomFor : sourceCodeRoots){
+            LOGGER.info("Generating SBOM for: {}", projectToGenerateSbomFor.toString());
+            System.out.println("Generating SBOM for: " + projectToGenerateSbomFor);
+            trivySBOMGenerator.generate(projectToGenerateSbomFor);
+        }
+
+        // get derived quality model location
         Path qmLocation = Paths.get(prop.getProperty("derived.qm"));
 
+        // initialize SBOM analysis tools that will run on each SBOM in the input/projects/SBOM directory
         ITool gyrpeWrapper = new GrypeWrapper(prop.getProperty("github-token-path"));
         ITool trivyWrapper = new TrivyWrapper(prop.getProperty("github-token-path"));
         ITool sbomqsWrapper_ = new sbomqsWrapper();
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_).collect(Collectors.toSet());
 
-        Set<Path> projectRoots = new HashSet<>();
-        File[] filesToAssess = projectRoot.toFile().listFiles();
-        for (File f : filesToAssess){
+        // loop through each SBOM in the input/projects/SBOM directory and store paths in a list
+        Set<Path> sbomRoots = new HashSet<>();
+        File[] sbomsToAssess = sbomPath.toFile().listFiles();
+        assert sbomsToAssess != null;
+        for (File f : sbomsToAssess){
             if (f.isFile() && !f.getName().equals(".gitignore")){
-                //skip .gitignore file which is included for convenience of packaging/distributing
-                projectRoots.add(f.toPath());
+                sbomRoots.add(f.toPath());
             }
         }
-        for (Path projectPath : projectRoots){
-            Path outputPath = runEvaluator(projectPath, resultsDir, qmLocation, tools);
-            LOGGER.info("output: " + outputPath.getFileName());
+
+        // PIQUE entry point - evaluates each SBOM in the input/projects/SBOM directory and stores results in out directory
+        for (Path projectUnderAnalysisPath : sbomRoots){
+            LOGGER.info("Project to analyze: {}", projectUnderAnalysisPath.toString());
+            Path outputPath = runEvaluator(projectUnderAnalysisPath, resultsDir, qmLocation, tools);
+            LOGGER.info("output: {}", outputPath.getFileName());
             System.out.println("output: " + outputPath.getFileName());
             System.out.println("exporting compact: " + project.exportToJson(resultsDir, true));
         }

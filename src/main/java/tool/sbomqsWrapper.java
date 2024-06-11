@@ -53,7 +53,7 @@ public class sbomqsWrapper extends Tool implements ITool {
         String pathTosbomqs = prop.getProperty("sbomqs.location");
 
         // command for running sbomqs on the command line
-        String[] cmd = {pathTosbomqs,
+        String[] cmd = {"sbomqs",
                 "score",
                 "--json",
                 projectLocation.toAbsolutePath().toString()};

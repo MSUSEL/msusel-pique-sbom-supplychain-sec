@@ -19,7 +19,12 @@ import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 import pique.utility.PiqueProperties;
 
-
+/**
+ * Wraps the functionality of the CVE-bin-tool to analyze software bill of materials (SBOMs) for known vulnerabilities.
+ * This class handles command-line execution of CVE-bin-tool, result parsing, and diagnostic reporting within the PIQUE framework.
+ *
+ * @author Eric O'Donoghue
+ */
 public class CveBinToolWrapper extends Tool implements ITool {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
 
@@ -28,11 +33,14 @@ public class CveBinToolWrapper extends Tool implements ITool {
     }
 
     /**
-     * Runs trivy through the command line on the given SBOM and saves results to a temporary file.
+     * Executes the CVE-bin-tool via the command line to analyze vulnerabilities in the given SBOM file.
+     * Results are stored in a JSON file in the output directory specified in the system properties.
      *
-     * @param projectLocation The path to an SBOM file for the desired solution of project to analyze
-     * @return The path to the analysis results file
+     * @param projectLocation The file path of the SBOM to analyze.
+     * @return Path to the file containing the analysis results.
+     * @throws IOException if there is an error executing the tool or handling the file operations.
      */
+
     @Override
     public Path analyze(Path projectLocation) {
         LOGGER.info(this.getName() + "  Analyzing "+ projectLocation.toString());
@@ -75,11 +83,13 @@ public class CveBinToolWrapper extends Tool implements ITool {
     }
 
     /**
-     * Parses output of tool from analyze().
+     * Parses the JSON output from the CVE-bin-tool and converts it into a map of diagnostic information suitable for further analysis.
+     * This method reads the tool output, processes the vulnerabilities found, and associates them with diagnostics defined in PIQUE.
      *
-     * @param toolResults location of the results, output by analyze()
-     * @return A Map<String,Diagnostic> with findings from the tool attached. Returns null if tool failed to run.
+     * @param toolResults The file path containing the results of the CVE-bin-tool analysis.
+     * @return A map containing the diagnostic results, or null if an error occurs during parsing or if the tool fails to run.
      */
+
     @Override
     public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
         IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new CveBinToolOutputProcessor();
@@ -111,10 +121,11 @@ public class CveBinToolWrapper extends Tool implements ITool {
     }
 
     /**
-     * Initializes the tool by installing it through python pip from the command line.
+     * Initializes the CVE-bin-tool by checking its version. This method is a placeholder due to dockerization,
+     * which handles the actual installation and setup of the tool. Must remain implemented to fulfill interface obligations.
      *
-     * Because of dockerization this is no longer needed and currently just prints the version.
-     * Method must be left because it must be overridden.
+     * @param toolRoot The root directory for the tool, not utilized in the current dockerized setup.
+     * @return The same toolRoot path passed as an argument.
      */
     @Override
     public Path initialize(Path toolRoot) {

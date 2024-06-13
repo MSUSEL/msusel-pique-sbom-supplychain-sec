@@ -49,16 +49,12 @@ import utilities.helperFunctions;
  */
 public class TrivyWrapper extends Tool implements ITool  {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
-	private final String githubToken;
-
 	/**
-	 * Constructs a TrivyWrapper instance initialized with a GitHub token for API access.
+	 * Constructs a TrivyWrapper instance.
 	 *
-	 * @param githubTokenPath The path to the file containing the GitHub token.
 	 */
-	public TrivyWrapper(String githubTokenPath) {
+	public TrivyWrapper() {
 		super("trivy", null);
-		this.githubToken = githubTokenPath;
 	}
 
 	/**
@@ -139,7 +135,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 	}
 
 	/**
-	 * Initializes the Trivy by checking its version. This method is a placeholder due to dockerization,
+	 * Prints the version of Trivy via a command line call. This method is a placeholder due to dockerization,
 	 * which handles the actual installation and setup of the tool. Must remain implemented to fulfill interface obligations.
 	 *
 	 * @param toolRoot The root directory for the tool, not utilized in the current dockerized setup.

@@ -1,3 +1,6 @@
+#################### DEPRECATED ####################
+# This script is no longer used
+
 #
 # command line python script for downloading the most recent version of the NVD using their 2.0 http API.
 # calling convention:

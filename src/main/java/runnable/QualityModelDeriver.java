@@ -81,8 +81,8 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         String projectRootFlag = "";
         Path benchmarkRepo = Paths.get(prop.getProperty("benchmark.repo"));
 
-        ITool gyrpeWrapper = new GrypeWrapper(prop.getProperty("github-token-path"));
-        ITool trivyWrapper = new TrivyWrapper(prop.getProperty("github-token-path"));
+        ITool gyrpeWrapper = new GrypeWrapper();
+        ITool trivyWrapper = new TrivyWrapper();
         ITool sbomqsWrapper_ = new sbomqsWrapper();
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_).collect(Collectors.toSet());
         QualityModelImport qmImport = new QualityModelImport(blankqmFilePath);

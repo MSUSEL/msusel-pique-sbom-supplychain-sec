@@ -40,7 +40,6 @@ public class CveBinToolWrapper extends Tool implements ITool {
      * @return Path to the file containing the analysis results.
      * @throws IOException if there is an error executing the tool or handling the file operations.
      */
-
     @Override
     public Path analyze(Path projectLocation) {
         LOGGER.info(this.getName() + "  Analyzing "+ projectLocation.toString());
@@ -89,7 +88,6 @@ public class CveBinToolWrapper extends Tool implements ITool {
      * @param toolResults The file path containing the results of the CVE-bin-tool analysis.
      * @return A map containing the diagnostic results, or null if an error occurs during parsing or if the tool fails to run.
      */
-
     @Override
     public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
         IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new CveBinToolOutputProcessor();
@@ -121,7 +119,7 @@ public class CveBinToolWrapper extends Tool implements ITool {
     }
 
     /**
-     * Initializes the CVE-bin-tool by checking its version. This method is a placeholder due to dockerization,
+     * Prints the version of CVE-bin-tool via a command line call. This method is a placeholder due to dockerization,
      * which handles the actual installation and setup of the tool. Must remain implemented to fulfill interface obligations.
      *
      * @param toolRoot The root directory for the tool, not utilized in the current dockerized setup.
@@ -129,7 +127,7 @@ public class CveBinToolWrapper extends Tool implements ITool {
      */
     @Override
     public Path initialize(Path toolRoot) {
-        final String[] cmd = {"trivy", "version"};
+        final String[] cmd = {"cve-bin-tool", "--version"};
 
         try {
             helperFunctions.getOutputFromProgram(cmd, LOGGER);

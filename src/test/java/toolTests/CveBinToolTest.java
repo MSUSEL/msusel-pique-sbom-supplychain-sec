@@ -12,14 +12,12 @@ import pique.analysis.Tool;
 import pique.model.Diagnostic;
 import pique.utility.PiqueProperties;
 import tool.CveBinToolWrapper;
-import tool.TrivyWrapper;
 
 import static org.junit.Assert.*;
 
 public class CveBinToolTest {
     @Test
     public void TestSBOMWithFindings() {
-        Properties prop = PiqueProperties.getProperties();
         Tool cveBinToolTest = new CveBinToolWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
@@ -46,14 +44,13 @@ public class CveBinToolTest {
     @Test
     public void TestSBOMWithNoFindings() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(ghTokenPath);
+        Tool cveBinToolTest = new CveBinToolWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/empty_sbom.json");
 
-        Path analysisOutput = trivyTest.analyze(testSBOM);
+        Path analysisOutput = cveBinToolTest.analyze(testSBOM);
 
-        Map<String,Diagnostic> output = trivyTest.parseAnalysis(analysisOutput);
+        Map<String,Diagnostic> output = cveBinToolTest.parseAnalysis(analysisOutput);
 
         for (Diagnostic diag : output.values()) {
             if (diag.getChildren().size()>0) {
@@ -66,14 +63,13 @@ public class CveBinToolTest {
     @Test
     public void TestNoFindingsWhenNoSBOMExists() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(ghTokenPath);
+        Tool cveBinToolTest = new CveBinToolWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
 
-        Path analysisOutput = trivyTest.analyze(testSBOM);
+        Path analysisOutput = cveBinToolTest.analyze(testSBOM);
 
-        Map<String,Diagnostic> output = trivyTest.parseAnalysis(analysisOutput);
+        Map<String,Diagnostic> output = cveBinToolTest.parseAnalysis(analysisOutput);
 
         for (Diagnostic diag : output.values()) {
             if (diag.getChildren().size()>0) {
@@ -86,14 +82,13 @@ public class CveBinToolTest {
     @Test
     public void TestSBOMDoesNotExist() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(ghTokenPath);
+        Tool cveBinToolTest = new CveBinToolWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 
-        Path analysisOutput = trivyTest.analyze(testSBOM);
+        Path analysisOutput = cveBinToolTest.analyze(testSBOM);
 
-        Map<String,Diagnostic> output = trivyTest.parseAnalysis(analysisOutput);
+        Map<String,Diagnostic> output = cveBinToolTest.parseAnalysis(analysisOutput);
 
         for (Diagnostic diag : output.values()) {
             if (diag.getChildren().size()>0) {

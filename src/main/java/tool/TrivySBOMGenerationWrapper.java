@@ -9,14 +9,29 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utilities.helperFunctions;
 
-
+/**
+ * Provides a wrapper around the Trivy tool to generate Software Bill of Materials (SBOM) from file systems.
+ * This class simplifies the process of SBOM generation by encapsulating the command line execution of Trivy,
+ * handling of output paths, and logging of activities and errors.
+ */
 public class TrivySBOMGenerationWrapper {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
 
+    /**
+     * Initializes a new instance of the TrivySBOMGenerationWrapper class.
+     */
     public TrivySBOMGenerationWrapper() {
 
     }
 
+    /**
+     * Generates an SBOM for a given project location using Trivy. The SBOM is created in the CycloneDX format
+     * and saved to a predetermined directory under the project's root directory.
+     * This method constructs the command to run Trivy with the necessary arguments to produce the SBOM,
+     * executes the command, and logs the process and potential errors.
+     *
+     * @param projectLocation The file path of the project directory for which to generate the SBOM.
+     */
     public void generate(Path projectLocation) {
         LOGGER.info("Trivy Generation --- Generating SBOM for {}", projectLocation.toString());
 

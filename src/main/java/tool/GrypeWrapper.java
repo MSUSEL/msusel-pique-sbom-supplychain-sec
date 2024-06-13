@@ -46,16 +46,12 @@ import java.util.*;
  */
 public class GrypeWrapper extends Tool implements ITool  {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GrypeWrapper.class);
-	private final String githubTokenPath;
 
 	/**
-	 * Constructs a GrypeWrapper instance initialized with a GitHub token for API access.
-	 *
-	 * @param githubTokenPath The path to the file containing the GitHub token.
+	 * Constructs a GrypeWrapper instance.
 	 */
-	public GrypeWrapper(String githubTokenPath) {
+	public GrypeWrapper() {
 		super("grype", null);
-		this.githubTokenPath = githubTokenPath;
 	}
 
 	/**
@@ -136,7 +132,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 	}
 
 	/**
-	 * Initializes the Grype by checking its version. This method is a placeholder due to dockerization,
+	 * Prints the version of Grype via a command line call. This method is a placeholder due to dockerization,
 	 * which handles the actual installation and setup of the tool. Must remain implemented to fulfill interface obligations.
 	 *
 	 * @param toolRoot The root directory for the tool, not utilized in the current dockerized setup.

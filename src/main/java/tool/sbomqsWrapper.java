@@ -16,7 +16,6 @@ import java.util.*;
 
 
 /**
- * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-SUPPLYCHAIN-SEC.
  *
  * This tool wrapper will run and analyze the output of the tool sbomqs. This is used for
  * getting a package count of an SBOM used for normalization.
@@ -96,10 +95,11 @@ public class sbomqsWrapper extends Tool implements ITool {
     }
 
     /**
-     * Initializes the tool by installing it through python pip from the command line.
+     * Prints the version of sbomqs via a command line call. This method is a placeholder due to dockerization,
+     * which handles the actual installation and setup of the tool. Must remain implemented to fulfill interface obligations.
      *
-     * Because of dockerization this is no longer needed and currently just prints the version.
-     * Method must be left because it must be overridden.
+     * @param toolRoot The root directory for the tool, not utilized in the current dockerized setup.
+     * @return The same toolRoot path passed as an argument.
      */
     @Override
     public Path initialize(Path toolRoot) {

@@ -58,6 +58,17 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         init(sbomDirectory, sourceCodeDirectory);
     }
 
+    /**
+     * Initializes the evaluation process for a single project by setting up the necessary paths and properties,
+     * generating Software Bill of Materials (SBOM) for each project found in the source code directory using Trivy,
+     * and preparing the analysis tools. This method first checks for source code files, generates SBOMs for them,
+     * and then proceeds to evaluate these SBOMs using a set of predefined tools (GrypeWrapper, TrivyWrapper, etc.).
+     * Results of the evaluations are saved in a specified results directory. This method effectively serves as
+     * a setup and execution pipeline for SBOM generation and subsequent vulnerability analysis within the PIQUE framework.
+     *
+     * @param sbomDirectory The directory where the generated SBOMs are stored.
+     * @param sourceCodeDirectory The directory containing the source code projects to analyze.
+     */
     public void init(String sbomDirectory, String sourceCodeDirectory){
         LOGGER.info("Starting Analysis");
         Properties prop = null;
@@ -96,12 +107,14 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             trivySBOMGenerator.generate(projectToGenerateSbomFor);
         }
 
+        // now that SBOMs have been generated from any present source code we proceed as a normal pique run
+
         // get derived quality model location
         Path qmLocation = Paths.get(prop.getProperty("derived.qm"));
 
         // initialize SBOM analysis tools that will run on each SBOM in the input/projects/SBOM directory
-        ITool gyrpeWrapper = new GrypeWrapper(prop.getProperty("github-token-path"));
-        ITool trivyWrapper = new TrivyWrapper(prop.getProperty("github-token-path"));
+        ITool gyrpeWrapper = new GrypeWrapper();
+        ITool trivyWrapper = new TrivyWrapper();
         ITool cveBinToolWrapper = new CveBinToolWrapper();
         ITool sbomqsWrapper_ = new sbomqsWrapper();
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
@@ -116,7 +129,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             }
         }
 
-        // PIQUE entry point - evaluates each SBOM in the input/projects/SBOM directory and stores results in out directory
+        // PIQUE evaluator entry point - evaluates each SBOM in the input/projects/SBOM directory and stores results in out directory
         for (Path projectUnderAnalysisPath : sbomRoots){
             LOGGER.info("Project to analyze: {}", projectUnderAnalysisPath.toString());
             Path outputPath = runEvaluator(projectUnderAnalysisPath, resultsDir, qmLocation, tools);
@@ -125,10 +138,5 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             System.out.println("exporting compact: " + project.exportToJson(resultsDir, true));
         }
     }
-    //region Get / Set
-    public Project getEvaluatedProject() {
-        return project;
-    }
-
 
 }

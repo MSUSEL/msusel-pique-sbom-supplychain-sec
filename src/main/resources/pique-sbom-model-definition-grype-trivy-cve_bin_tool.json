@@ -2,13 +2,13 @@
   "name": "SBOM Supply Chain Security Quality Model CWE-699",
   "additionalData": {},
   "global_config": {
-    "benchmark_strategy": "pique.calibration.NaiveBenchmarker",
-    "normalizer": "evaluator.SBOMNormalizer",
+    "benchmark_strategy": "pique.calibration.MeanSDBenchmarker",
+    "normalizer": "pique.evaluation.NoNormalizer",
     "weights_strategy": "pique.calibration.NaiveWeighter"
   },
   "factors": {
     "tqi": {
-      "SBOM Content Quality": {
+      "SBOM Security Quality": {
         "description": "A measure of the security quality of SBOM components from stakeholders perspective."
       }
     },

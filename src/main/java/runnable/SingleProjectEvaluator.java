@@ -104,7 +104,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         for (Path projectToGenerateSbomFor : sourceCodeRoots){
             LOGGER.info("Generating SBOM for: {}", projectToGenerateSbomFor.toString());
             System.out.println("Generating SBOM for: " + projectToGenerateSbomFor);
-            trivySBOMGenerator.generate(projectToGenerateSbomFor);
+            //trivySBOMGenerator.generate(projectToGenerateSbomFor);
         }
 
         // now that SBOMs have been generated from any present source code we proceed as a normal pique run
@@ -116,8 +116,9 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         ITool gyrpeWrapper = new GrypeWrapper();
         ITool trivyWrapper = new TrivyWrapper();
         ITool cveBinToolWrapper = new CveBinToolWrapper();
-        ITool sbomqsWrapper_ = new sbomqsWrapper();
-        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
+        //ITool sbomqsWrapper_ = new sbomqsWrapper();
+        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
+        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
 
         // loop through each SBOM in the input/projects/SBOM directory and store paths in a list
         Set<Path> sbomRoots = new HashSet<>();

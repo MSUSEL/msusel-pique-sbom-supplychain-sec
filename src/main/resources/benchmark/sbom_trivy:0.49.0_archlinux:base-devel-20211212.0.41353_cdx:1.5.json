@@ -1,0 +1,56 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:33ab9dbd-fe96-447d-8087-f20de0a27da0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-02-09T04:19:23+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.49.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "pkg:oci/archlinux@sha256%3A194b86f20848b1302eed16416e5da1b419a776c0b597978f57c7943f6f4a0c98?arch=amd64&repository_url=index.docker.io%2Flibrary%2Farchlinux",
+      "type": "container",
+      "name": "archlinux:base-devel-20211212.0.41353",
+      "purl": "pkg:oci/archlinux@sha256%3A194b86f20848b1302eed16416e5da1b419a776c0b597978f57c7943f6f4a0c98?arch=amd64&repository_url=index.docker.io%2Flibrary%2Farchlinux",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:DiffID",
+          "value": "sha256:96fe55f6e58a5110a7c01a78ae016ae1a4bb2709c401527d3ad29c7d6d2ae5d7,sha256:3f90ccceb2522066ceb5d7a233a62a1dffdc42fdb52fc9443546ec27124762fd"
+        },
+        {
+          "name": "aquasecurity:trivy:ImageID",
+          "value": "sha256:9d14b4d8145ee19af2fa2ae3f5cab6e1afe5908c9c8b72a1161e9d7f001e413c"
+        },
+        {
+          "name": "aquasecurity:trivy:RepoDigest",
+          "value": "archlinux@sha256:194b86f20848b1302eed16416e5da1b419a776c0b597978f57c7943f6f4a0c98"
+        },
+        {
+          "name": "aquasecurity:trivy:RepoTag",
+          "value": "archlinux:base-devel-20211212.0.41353"
+        },
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [],
+  "dependencies": [
+    {
+      "ref": "pkg:oci/archlinux@sha256%3A194b86f20848b1302eed16416e5da1b419a776c0b597978f57c7943f6f4a0c98?arch=amd64&repository_url=index.docker.io%2Flibrary%2Farchlinux",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

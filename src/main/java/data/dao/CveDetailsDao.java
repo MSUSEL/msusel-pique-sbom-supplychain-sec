@@ -27,7 +27,7 @@ public class CveDetailsDao implements IDao<CveDetails> {
         if (retrievedDoc != null) {
             cve = cveDetailsMarshaller.unmarshallJson(retrievedDoc.toJson());
         } else {
-            LOGGER.info("Requested data is not in the collection");
+            LOGGER.info("Requested data is not in the collection {}", id);
         }
 
         return cve;

@@ -40,6 +40,7 @@ import pique.model.QualityModelExport;
 import pique.model.QualityModelImport;
 import pique.runnable.AQualityModelDeriver;
 import pique.utility.PiqueProperties;
+import tool.CveBinToolWrapper;
 import tool.GrypeWrapper;
 import tool.TrivyWrapper;
 import tool.sbomqsWrapper;
@@ -83,8 +84,10 @@ public class QualityModelDeriver extends AQualityModelDeriver {
 
         ITool gyrpeWrapper = new GrypeWrapper();
         ITool trivyWrapper = new TrivyWrapper();
-        ITool sbomqsWrapper_ = new sbomqsWrapper();
-        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_).collect(Collectors.toSet());
+        ITool cveBinToolWrapper = new CveBinToolWrapper();
+        //ITool sbomqsWrapper_ = new sbomqsWrapper();
+        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_, cveBinToolWrapper).collect(Collectors.toSet());
+        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         QualityModelImport qmImport = new QualityModelImport(blankqmFilePath);
         QualityModel qmDescription = qmImport.importQualityModel();
         qmDescription = pique.utility.TreeTrimmingUtility.trimQualityModelTree(qmDescription);
@@ -92,9 +95,7 @@ public class QualityModelDeriver extends AQualityModelDeriver {
 
         QualityModel derivedQualityModel = deriveModel(qmDescription, tools, benchmarkRepo, projectRootFlag);
 
-        Path jsonOutput = new QualityModelExport(derivedQualityModel)
-                .exportToJson(derivedQualityModel
-                        .getName(), derivedModelFilePath);
+        Path jsonOutput = new QualityModelExport(derivedQualityModel).exportToJson(derivedQualityModel.getName(), derivedModelFilePath);
 
         LOGGER.info("Quality Model derivation finished. You can find the file at " + jsonOutput.toAbsolutePath().toString());
     }

@@ -23,8 +23,7 @@ public class GrypeWrapperTest {
     @Test
     public void TestSBOMWithFindings() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(ghTokenPath);
+        Tool grypeTest = new GrypeWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
 
@@ -61,8 +60,7 @@ public class GrypeWrapperTest {
     @Test
     public void TestSBOMWithNoFindings() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(ghTokenPath);
+        Tool grypeTest = new GrypeWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/empty_sbom.json");
 
@@ -81,8 +79,7 @@ public class GrypeWrapperTest {
     @Test
     public void TestNoFindingsWhenNoSBOMExists() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(ghTokenPath);
+        Tool grypeTest = new GrypeWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
 
@@ -101,8 +98,7 @@ public class GrypeWrapperTest {
     @Test
     public void TestSBOMDoesNotExist() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool grypeTest = new GrypeWrapper(ghTokenPath);
+        Tool grypeTest = new GrypeWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 

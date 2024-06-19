@@ -11,6 +11,7 @@ These will be automatically installed when the docker image is built.
 
 * [Grype](https://github.com/anchore/grype) version 0.72.0
 * [Trivy](https://github.com/aquasecurity/trivy) version 0.44.1
+* [CVE-bin-tool]() version 3.2.1
 * [Sbomqs](https://github.com/interlynk-io/sbomqs) version 0.0.30
 * [Maven](https://github.com/apache/maven) version 3.9.6
 * [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 0.9.4
@@ -48,7 +49,11 @@ docker pull msusel/pique-sbom-supply-chain-sec:latest
 6. Generate an NVD API key [here](https://nvd.nist.gov/developers/request-an-api-key) and save the text of the key to a file 'nvd-api-key.txt'
 7. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt' 
 8. Move the files 'nvd-api-key.txt' and 'github-token.txt' to the 'input/keys' directory.
-9. Place any number of SBOMs to be analyzed in input/projects. 
+9. There are two options for input projects. If you have already generated SBOMs
+   place any number of SBOMs to be analyzed in input/projects/SBOM. If you wish to assess the
+   software supply chain security quality of a project but you haven't built an SBOM simply place
+   the root folder of the project in input/projects/sourceCode. The resulting SBOMs will be 
+   placed in input/projects/SBOM and the model will continue as normal.
 10. The resulting directory structure should look like this:
 ```
 ├── $WORKDIR
@@ -57,7 +62,10 @@ docker pull msusel/pique-sbom-supply-chain-sec:latest
 │   │   │   ├── github-token.txt
 │   │   │   ├── nvd-api-key.txt
 │   │   ├── projects
-│   │   │   ├── place SBOMs to analyze here
+│   │   │   ├── SBOM
+│   │   │   │   ├── place SBOMs to analyze here (SPDX or CycloneDX in json format)
+│   │   │   ├── sourceCode
+│   │   │   │   ├── place source code file systems to generate SBOMs for here 
 │   ├── out
 ```
 10. Run the command (replace `/path/to/working/directory` to absolute path of `$WORKDIR`)

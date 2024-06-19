@@ -37,32 +37,34 @@ import java.nio.file.Path;
 import java.util.*;
 
 /**
- * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-SUPPLYCHAIN-SEC.
+ * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-SUPPLYCHAIN-SEC
  *
- * This tool wrapper will run and analyze the output of the tool Grype.
- * When parsing the output of the tool, a command line call to run a Python script is made. This script is responsible for translating from
- * CVE number to the CWE it is categorized as by the NVD. The python script requires a github api token.
+ * This class provides a wrapper for executing the Grype tool, a comprehensive security scanner.
+ * This class handles command-line execution of Grype, result parsing, and diagnostic reporting within the PIQUE framework.
+ *
  * @author Eric O'Donoghue
- *
  */
 public class GrypeWrapper extends Tool implements ITool  {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GrypeWrapper.class);
-	private final String githubTokenPath;
 
-	public GrypeWrapper(String githubTokenPath) {
+	/**
+	 * Constructs a GrypeWrapper instance.
+	 */
+	public GrypeWrapper() {
 		super("grype", null);
-		this.githubTokenPath = githubTokenPath;
 	}
 
 	/**
-	 * Runs grype through the command line on the given SBOM and saves results to a temporary file.
+	 * Executes the Grype scanner via command line against an SBOM specified by the project location.
+	 * Results are formatted as JSON and saved to a temporary file in the system's output directory.
 	 *
-	 * @param projectLocation The path to an SBOM file for the desired solution of project to analyze
-	 * @return The path to the analysis results file
+	 * @param projectLocation The file path of the SBOM to be analyzed.
+	 * @return The path to the file containing the analysis results.
+	 * @throws IOException if there is an error executing the tool or handling file operations.
 	 */
 	@Override
 	public Path analyze(Path projectLocation) {
-		LOGGER.info(this.getName() + "  Analyzing "+ projectLocation.toString());
+		LOGGER.info(this.getName() + " Analyzing "+ projectLocation.toString());
 
 		// clear previous results
 		File tempResults = new File(System.getProperty("user.dir") + "/out/grype.json");
@@ -72,7 +74,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 		// command for running Grype on the command line
 		String[] cmd = {"grype",
 				projectLocation.toAbsolutePath().toString(), // product under analysis path
-				"--output", "sarif",
+				"--output", "json",
 				"--quiet",
 				"--file",tempResults.toPath().toAbsolutePath().toString()}; // output path
 		LOGGER.info(Arrays.toString(cmd));
@@ -90,14 +92,17 @@ public class GrypeWrapper extends Tool implements ITool  {
 	}
 
 	/**
-	 * Parses output of tool from analyze().
+	 * Parses the JSON output from Grype and converts it into a map of Diagnostic objects,
+	 * encapsulating the findings in a format usable by other components of the PIQUE framework.
+	 * This method reads the tool's output, processes the vulnerabilities identified, and
+	 * maps them to diagnostics based on their characteristics.
 	 *
-	 * @param toolResults location of the results, output by analyze()
-	 * @return A Map<String,Diagnostic> with findings from the tool attached. Returns null if tool failed to run.
+	 * @param toolResults The file path containing the results of the Grype scan.
+	 * @return A map containing the diagnostic results, or null if an error occurs during parsing or if the tool fails to run.
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new SbomOutputProcessor();
+		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new TrivyGrypeOutputProcessor();
 		String results = "";
 		String toolName = " Grype Diagnostic";
 
@@ -115,9 +120,9 @@ public class GrypeWrapper extends Tool implements ITool  {
 			LOGGER.info("No results to read from Grype.");
 		}
 
-		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
+		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results, toolName);
 		if (vulnerabilities != null) {
-			ArrayList<RelevantVulnerabilityData> grypeVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+			ArrayList<RelevantVulnerabilityData> grypeVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities, toolName);
 			outputProcessor.addDiagnostics(grypeVulnerabilities, diagnostics, toolName);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");
@@ -127,10 +132,11 @@ public class GrypeWrapper extends Tool implements ITool  {
 	}
 
 	/**
-	 * Initializes the tool by installing it through python pip from the command line.
+	 * Prints the version of Grype via a command line call. This method is a placeholder due to dockerization,
+	 * which handles the actual installation and setup of the tool. Must remain implemented to fulfill interface obligations.
 	 *
-	 * Because of dockerization this is no longer needed and currently just prints the version.
-	 * Method must be left because it must be overridden.
+	 * @param toolRoot The root directory for the tool, not utilized in the current dockerized setup.
+	 * @return The same toolRoot path passed as an argument.
 	 */
 	@Override
 	public Path initialize(Path toolRoot) {

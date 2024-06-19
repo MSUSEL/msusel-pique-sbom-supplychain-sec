@@ -19,8 +19,7 @@ public class TrivyWrapperTest {
     @Test
     public void TestSBOMWithFindings() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(ghTokenPath);
+        Tool trivyTest = new TrivyWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
 
@@ -44,8 +43,7 @@ public class TrivyWrapperTest {
     @Test
     public void TestSBOMWithNoFindings() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(ghTokenPath);
+        Tool trivyTest = new TrivyWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/empty_sbom.json");
 
@@ -64,8 +62,7 @@ public class TrivyWrapperTest {
     @Test
     public void TestNoFindingsWhenNoSBOMExists() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(ghTokenPath);
+        Tool trivyTest = new TrivyWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
 
@@ -84,8 +81,7 @@ public class TrivyWrapperTest {
     @Test
     public void TestSBOMDoesNotExist() {
         Properties prop = PiqueProperties.getProperties();
-        String ghTokenPath = Paths.get(prop.getProperty("github-token-path")).toString();
-        Tool trivyTest = new TrivyWrapper(ghTokenPath);
+        Tool trivyTest = new TrivyWrapper();
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 

@@ -1,3 +1,7 @@
+
+#################### DEPRECATED ####################
+# This script is no longer used
+
 _help="""Python script for converting given CVEs to their corresponding CWEs using the a local copy of the NVD.
 If there is no corresponding CWE or the CWE is unknown the CVE will be mapped CWE-unknown. The script
 also contains functionality for converting a GHSA to its corresponding CWE. In order to do this

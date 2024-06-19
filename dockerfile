@@ -1,10 +1,12 @@
 FROM msusel/pique-core:0.9.5_2
 
 ## dependency and library versions
-ARG GRYPE_VERSION=0.72.0
 ARG PIQUE_SBOM_VERSION=1.0
+ARG GRYPE_VERSION=0.72.0
+ARG CVE_BIN_TOOL_VERSION=3.2.1
 ARG TRIVY_VERSION=0.44.1
 ARG SBOMQS_VERSION=0.0.30
+
 
 #--------------------------------------------------------#
 RUN apk update && apk upgrade && apk add --update --no-cache \
@@ -26,6 +28,8 @@ RUN dpkg --add-architecture amd64
 RUN dpkg -i "trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
 RUN rm "trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
 
+## todo add CVE-bin-tool install
+
 ##################################################
 ############ pique SBOM install ##################
 ##################################################
@@ -34,14 +38,14 @@ RUN rm "trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
 # [IMPORTANT the venv declaration is important because the host environment (pique-cloud) might have conflicting dependencies]
 RUN python3 -m venv .venv
 RUN source .venv/bin/activate
-RUN python3 -m pip install argparse requests flask --break-system-packages
+RUN python3 -m pip install argparse requests flask cve-bin-tool==$CVE_BIN_TOOL_VERSION --break-system-packages
 
 WORKDIR "/home"
 RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychain-sec
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 
-# build pique sbom supply chain sex
+# build pique sbom supply chain sec
 RUN mvn package -Dmaven.test.skip
 
 #

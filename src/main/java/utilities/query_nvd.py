@@ -1,3 +1,6 @@
+#################### DEPRECATED ####################
+# This script is no longer used
+
 #
 # Command line python script for keeping a copy of the NVD open locally. This script communications with CVE_to_CWE.py
 # using RESTful API calls.

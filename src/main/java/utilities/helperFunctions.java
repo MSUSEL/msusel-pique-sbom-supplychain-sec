@@ -152,10 +152,10 @@ public class helperFunctions {
 			File tempResults = new File(System.getProperty("user.dir") + "/out/sbomqs.txt");
 			FileReader fileReader = new FileReader(tempResults);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			int componenetCount = Integer.parseInt(bufferedReader.readLine());
+			int componentCount = Integer.parseInt(bufferedReader.readLine());
 			bufferedReader.close();
 
-			return componenetCount;
+			return componentCount;
 		}
 		catch (IOException  e) {
 			LOGGER.error("Failed to open sbomqs.txt could not get component count return 1");

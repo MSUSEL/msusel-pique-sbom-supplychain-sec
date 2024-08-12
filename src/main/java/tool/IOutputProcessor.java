@@ -13,7 +13,7 @@ import java.util.Map;
  * @param <T> java class that contains the fields needed to build findings and diagnostics
  */
 public interface IOutputProcessor<T> {
-    JSONArray getVulnerabilitiesFromToolOutput(String results);
-    ArrayList<T> processToolVulnerabilities(JSONArray jsonVulns);
+    JSONArray getVulnerabilitiesFromToolOutput(String results, String toolName);
+    ArrayList<T> processToolVulnerabilities(JSONArray jsonVulns, String toolName);
     void addDiagnostics(ArrayList<T> toolVulnerabilities, Map<String, Diagnostic> diagnostics, String toolName);
 }

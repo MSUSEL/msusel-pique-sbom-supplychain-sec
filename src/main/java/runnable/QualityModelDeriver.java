@@ -40,6 +40,7 @@ import pique.model.QualityModelExport;
 import pique.model.QualityModelImport;
 import pique.runnable.AQualityModelDeriver;
 import pique.utility.PiqueProperties;
+import tool.CveBinToolWrapper;
 import tool.GrypeWrapper;
 import tool.TrivyWrapper;
 import tool.sbomqsWrapper;
@@ -81,10 +82,12 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         String projectRootFlag = "";
         Path benchmarkRepo = Paths.get(prop.getProperty("benchmark.repo"));
 
-        ITool gyrpeWrapper = new GrypeWrapper(prop.getProperty("github-token-path"));
-        ITool trivyWrapper = new TrivyWrapper(prop.getProperty("github-token-path"));
-        ITool sbomqsWrapper_ = new sbomqsWrapper();
-        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_).collect(Collectors.toSet());
+        ITool gyrpeWrapper = new GrypeWrapper();
+        ITool trivyWrapper = new TrivyWrapper();
+        ITool cveBinToolWrapper = new CveBinToolWrapper();
+        //ITool sbomqsWrapper_ = new sbomqsWrapper();
+        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_, cveBinToolWrapper).collect(Collectors.toSet());
+        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         QualityModelImport qmImport = new QualityModelImport(blankqmFilePath);
         QualityModel qmDescription = qmImport.importQualityModel();
         qmDescription = pique.utility.TreeTrimmingUtility.trimQualityModelTree(qmDescription);
@@ -92,9 +95,7 @@ public class QualityModelDeriver extends AQualityModelDeriver {
 
         QualityModel derivedQualityModel = deriveModel(qmDescription, tools, benchmarkRepo, projectRootFlag);
 
-        Path jsonOutput = new QualityModelExport(derivedQualityModel)
-                .exportToJson(derivedQualityModel
-                        .getName(), derivedModelFilePath);
+        Path jsonOutput = new QualityModelExport(derivedQualityModel).exportToJson(derivedQualityModel.getName(), derivedModelFilePath);
 
         LOGGER.info("Quality Model derivation finished. You can find the file at " + jsonOutput.toAbsolutePath().toString());
     }

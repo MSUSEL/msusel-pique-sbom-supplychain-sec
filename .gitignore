@@ -45,8 +45,8 @@ out/sbomqs.txt
 .idea/**/dictionaries
 .idea/**/shelf
 
+# don't push compiled classes or compiled targets
 target/*
-
 
 # sbomqs executable will be installed when docker image is built
 src/main/resources/sbomqs

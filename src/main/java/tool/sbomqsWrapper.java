@@ -1,8 +1,5 @@
 package tool;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -19,7 +16,6 @@ import java.util.*;
 
 
 /**
- * CODE TAKEN FROM PIQUE-BIN-DOCKER AND MODIFIED FOR PIQUE-SBOM-SUPPLYCHAIN-SEC.
  *
  * This tool wrapper will run and analyze the output of the tool sbomqs. This is used for
  * getting a package count of an SBOM used for normalization.
@@ -50,17 +46,17 @@ public class sbomqsWrapper extends Tool implements ITool {
 
         // get location of sbomqs executable
         Properties prop = PiqueProperties.getProperties();
-        String pathTosbomqs = prop.getProperty("sbomqs.location");
+        File sbomqsPath = new File(System.getProperty("user.dir") + "/" + prop.getProperty("sbomqs.location"));
 
         // command for running sbomqs on the command line
-        String[] cmd = {"sbomqs",
+        String[] cmd = {"sbomqs", //sbomqsPath.toPath().toAbsolutePath().toString(),
                 "score",
                 "--json",
                 projectLocation.toAbsolutePath().toString()};
         LOGGER.info(Arrays.toString(cmd));
 
         // runs the command built above and captures the output
-        // sbomqs does not handle file saving so we must parse the captured output and save it to a text file
+        // sbomqs does not handle file saving, so we must parse the captured output and save it to a text file
         try {
             // parse results captured from standard out
             String results = helperFunctions.getOutputFromProgram(cmd,LOGGER);
@@ -99,10 +95,11 @@ public class sbomqsWrapper extends Tool implements ITool {
     }
 
     /**
-     * Initializes the tool by installing it through python pip from the command line.
+     * Prints the version of sbomqs via a command line call. This method is a placeholder due to dockerization,
+     * which handles the actual installation and setup of the tool. Must remain implemented to fulfill interface obligations.
      *
-     * Because of dockerization this is no longer needed and currently just prints the version.
-     * Method must be left because it must be overridden.
+     * @param toolRoot The root directory for the tool, not utilized in the current dockerized setup.
+     * @return The same toolRoot path passed as an argument.
      */
     @Override
     public Path initialize(Path toolRoot) {

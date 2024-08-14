@@ -11,6 +11,8 @@ import org.junit.Test;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
 import pique.utility.PiqueProperties;
+import presentation.PiqueData;
+import presentation.PiqueDataFactory;
 import tool.GrypeWrapper;
 import tool.TrivyWrapper;
 import tool.sbomqsWrapper;
@@ -19,11 +21,12 @@ import tool.sbomqsWrapper;
 import static org.junit.Assert.*;
 
 public class GrypeWrapperTest {
+    private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();
 
     @Test
     public void TestSBOMWithFindings() {
         Properties prop = PiqueProperties.getProperties();
-        Tool grypeTest = new GrypeWrapper();
+        Tool grypeTest = new GrypeWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
 
@@ -60,7 +63,7 @@ public class GrypeWrapperTest {
     @Test
     public void TestSBOMWithNoFindings() {
         Properties prop = PiqueProperties.getProperties();
-        Tool grypeTest = new GrypeWrapper();
+        Tool grypeTest = new GrypeWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/empty_sbom.json");
 
@@ -79,7 +82,7 @@ public class GrypeWrapperTest {
     @Test
     public void TestNoFindingsWhenNoSBOMExists() {
         Properties prop = PiqueProperties.getProperties();
-        Tool grypeTest = new GrypeWrapper();
+        Tool grypeTest = new GrypeWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
 
@@ -98,7 +101,7 @@ public class GrypeWrapperTest {
     @Test
     public void TestSBOMDoesNotExist() {
         Properties prop = PiqueProperties.getProperties();
-        Tool grypeTest = new GrypeWrapper();
+        Tool grypeTest = new GrypeWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 

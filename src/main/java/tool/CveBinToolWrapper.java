@@ -3,10 +3,7 @@ package tool;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 import org.json.JSONArray;
 import org.slf4j.Logger;
@@ -15,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import pique.analysis.ITool;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
+import presentation.PiqueData;
 import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 import pique.utility.PiqueProperties;
@@ -26,10 +24,13 @@ import pique.utility.PiqueProperties;
  * @author Eric O'Donoghue
  */
 public class CveBinToolWrapper extends Tool implements ITool {
+    private PiqueData piqueData;
     private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
+    private final String toolName = " CVE-bin-tool Diagnostic";
 
-    public CveBinToolWrapper() {
+    public CveBinToolWrapper(PiqueData piqueData) {
         super("cve_bin_tool", null);
+        this.piqueData = piqueData;
     }
 
     /**
@@ -90,9 +91,8 @@ public class CveBinToolWrapper extends Tool implements ITool {
      */
     @Override
     public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-        IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new CveBinToolOutputProcessor();
+        IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new ToolOutputProcessor(new VulnerabilityService(piqueData, toolName));
         String results = "";
-        String toolName = " CVE-bin-tool Diagnostic";
 
         System.out.println(this.getName() + " Parsing Analysis...");
         LOGGER.debug(this.getName() + " Parsing Analysis...");
@@ -107,10 +107,10 @@ public class CveBinToolWrapper extends Tool implements ITool {
             LOGGER.info("No results to read from CVE-bin-tool.");
         }
 
-        JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results, toolName);
+        JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
         if (vulnerabilities != null) {
-            ArrayList<RelevantVulnerabilityData> cveBinToolVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities, toolName);
-            outputProcessor.addDiagnostics(cveBinToolVulnerabilities, diagnostics, toolName);
+            List<RelevantVulnerabilityData> cveBinToolVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+            outputProcessor.addDiagnostics(cveBinToolVulnerabilities, diagnostics);
         } else {
             LOGGER.warn("Vulnerability array was empty.");
         }

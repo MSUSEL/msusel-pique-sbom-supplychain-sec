@@ -3,7 +3,7 @@ package tool;
 import org.json.JSONArray;
 import pique.model.Diagnostic;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Map;
  * @param <T> java class that contains the fields needed to build findings and diagnostics
  */
 public interface IOutputProcessor<T> {
-    JSONArray getVulnerabilitiesFromToolOutput(String results, String toolName);
-    ArrayList<T> processToolVulnerabilities(JSONArray jsonVulns, String toolName);
-    void addDiagnostics(ArrayList<T> toolVulnerabilities, Map<String, Diagnostic> diagnostics, String toolName);
+    JSONArray getVulnerabilitiesFromToolOutput(String results);
+    List<T> processToolVulnerabilities(JSONArray jsonVulns);
+    void addDiagnostics(List<T> toolVulnerabilities, Map<String, Diagnostic> diagnostics);
 }

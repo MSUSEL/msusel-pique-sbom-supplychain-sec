@@ -24,9 +24,9 @@ import pique.utility.PiqueProperties;
  * @author Eric O'Donoghue
  */
 public class CveBinToolWrapper extends Tool implements ITool {
-    private PiqueData piqueData;
-    private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
+    private final PiqueData piqueData;
     private final String toolName = " CVE-bin-tool Diagnostic";
+    private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
 
     public CveBinToolWrapper(PiqueData piqueData) {
         super("cve_bin_tool", null);

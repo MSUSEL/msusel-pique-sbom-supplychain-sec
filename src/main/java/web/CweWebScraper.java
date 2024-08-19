@@ -9,27 +9,8 @@ import java.io.IOException;
 
 
 public class CweWebScraper {
-    //    private WebDriver driver;
-    private final String BASE_URL = "https://cwe.mitre.org/data/definitions/";
-    private final String HTML = ".html";
-    //
-//    public CweWebScraper() {
-//        WebDriverManager.firefoxdriver().setup();
-//        this.driver = new FirefoxDriver();
-//    }
-//
-//    public String getCweDescription(String cweId) {
-//        String url = BASE_URL + formatCweId(cweId) + HTML;
-//        driver.navigate().to(url);
-//        WebElement cweStatus = driver.findElement(By.className("status"));
-//        WebElement vulnMapping = cweStatus.findElement(By.className("tool"));
-//        WebElement mappingStatusSpan = vulnMapping.findElement(By.tagName("span"));
-//        String mappingStatus = mappingStatusSpan.getText();
-//
-//        return mappingStatus;
-//    }
-//
-    public String getCweDescription(String cweId) {
+
+    public String getCweStatus(String cweId) {
         Document document = getWebPage(cweId);
         Element vulnMapping;
         Element mappingStatusSpan;
@@ -37,12 +18,9 @@ public class CweWebScraper {
 
         Element cweStatus = document.getElementsByClass("status").first();
         try {
-            checkElementNotNull(cweStatus);
-            vulnMapping = cweStatus.getElementsByClass("tool").first();
-            checkElementNotNull(vulnMapping);
-            mappingStatusSpan = vulnMapping.getElementsByTag("span").first();
-            checkElementNotNull(mappingStatusSpan);
-            mappingStatus = mappingStatusSpan.text();
+            vulnMapping = checkElementNotNull(cweStatus).getElementsByClass("tool").first();
+            mappingStatusSpan = checkElementNotNull(vulnMapping).getElementsByTag("span").first();
+            mappingStatus = checkElementNotNull(mappingStatusSpan).text();
             System.out.println(mappingStatus);
         } catch (ElementNotFoundException e) {
             System.out.println("INFO: Element not found in document");
@@ -51,7 +29,12 @@ public class CweWebScraper {
         return mappingStatus;
     }
 
+    public
+
     private String formatURL(String cweId) {
+        String BASE_URL = "https://cwe.mitre.org/data/definitions/";
+        String HTML = ".html";
+
         return BASE_URL + cweId.substring(4) + HTML;
     }
 
@@ -63,9 +46,11 @@ public class CweWebScraper {
         }
     }
 
-    private void checkElementNotNull(Element element) throws ElementNotFoundException {
+    private Element checkElementNotNull(Element element) throws ElementNotFoundException {
         if (element == null) {
             throw new ElementNotFoundException("element not found in Document");
+        } else {
+            return element;
         }
     }
 }

@@ -10,7 +10,7 @@ public class WebScraperTest {
 
     @Test
     public void testGetCweDescription() {
-        String result = cweWebScraper.getCweDescription("CWE-502");
+        String result = cweWebScraper.getCweStatus("CWE-502");
         assertEquals("ALLOWED", result);
     }
 }

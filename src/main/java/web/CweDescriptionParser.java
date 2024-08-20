@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import org.bson.json.JsonObject;
 
 import javax.xml.stream.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -46,8 +48,19 @@ public class CweDescriptionParser {
         Map<String, String> cweDescriptions = buildCweDescriptionsMap(cweDescriptionXmlPath);
         String jsonCweDescription = gson.toJson(cweDescriptions);
 
-        try (FileWriter writer = new FileWriter("./out/CweDescriptions")) {
+        try (FileWriter writer = new FileWriter("./out/CweDescriptions.json")) {
             writer.write(jsonCweDescription);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void buildWeaknessDescriptionMapFromFile(String jsonCweDescriptionsPath) {
+        Gson gson = new Gson();
+        Map<String, String> cweDescriptions;
+
+        try (FileReader reader = new FileReader("./out/CweDescriptions.json")) {
+            String descriptions = reader.toString();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

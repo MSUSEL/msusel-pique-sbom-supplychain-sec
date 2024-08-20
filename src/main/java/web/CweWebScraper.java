@@ -4,11 +4,13 @@ import exceptions.ElementNotFoundException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-
 public class CweWebScraper {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CweWebScraper.class);
 
     public String getCweStatus(String cweId) {
         Document document = getWebPage(cweId);
@@ -20,16 +22,13 @@ public class CweWebScraper {
         try {
             vulnMapping = checkElementNotNull(cweStatus).getElementsByClass("tool").first();
             mappingStatusSpan = checkElementNotNull(vulnMapping).getElementsByTag("span").first();
-            mappingStatus = checkElementNotNull(mappingStatusSpan).text();
-            System.out.println(mappingStatus);
+            mappingStatus = checkElementNotNull(mappingStatusSpan).child(0).text();
         } catch (ElementNotFoundException e) {
-            System.out.println("INFO: Element not found in document");
+            LOGGER.info("Element not found in document");
         }
 
         return mappingStatus;
     }
-
-    public
 
     private String formatURL(String cweId) {
         String BASE_URL = "https://cwe.mitre.org/data/definitions/";

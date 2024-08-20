@@ -1,46 +1,36 @@
 package web;
 
+import com.google.gson.Gson;
+import org.bson.json.JsonObject;
+
 import javax.xml.stream.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CweDescriptionParser {
-    public Map<String, String> buildCweDescriptions(String cweDescriptionXmlPath) {
-        XMLInputFactory factory = XMLInputFactory.newInstance();
-        Map<String, String> weaknessDescriptions = new HashMap<>();
+    private final XMLInputFactory factory = XMLInputFactory.newInstance();
+
+    public Map<String, String> buildCweDescriptionsMap(String cweDescriptionXmlPath) {
+        String tagName;
         String WEAKNESS_TAG = "Weakness";
         String DESCRIPTION_TAG = "Description";
-        String weaknessId = "";
-        String description = "";
-        String tagName;
+        Queue<String> tokenQueue = new LinkedList<>();
+        Map<String, String> weaknessDescriptions = new HashMap<>();
 
         try {
             XMLStreamReader reader = factory.createXMLStreamReader(Files.newInputStream(Paths.get(cweDescriptionXmlPath)));
             while(reader.hasNext()) {
-                int event = reader.next();
-                switch (event) {
-                    case XMLStreamConstants.START_ELEMENT:
-                        tagName = reader.getLocalName();
-                        if (WEAKNESS_TAG.equals(tagName)) {
-                            weaknessId = reader.getAttributeValue(null, "ID");
-                        } else if (DESCRIPTION_TAG.equals(tagName)) {
-                            description = reader.getAttributeValue(null, DESCRIPTION_TAG);
-                        }
-                        break;
-                    case XMLStreamConstants.END_ELEMENT:
-                        tagName = reader.getLocalName();
-                        if (WEAKNESS_TAG.equals(tagName)) {
-                            weaknessId = "";
-                            description = "";
-                        }
-                        break;
-                }
-                if(!weaknessId.isEmpty() && !description.isEmpty()) {
-                    weaknessDescriptions.put("id", weaknessId);
-                    weaknessDescriptions.put("description", description);
+                if (reader.next() == XMLStreamConstants.START_ELEMENT) {
+                    tagName = reader.getLocalName();
+                    if (tagName.equals(WEAKNESS_TAG)) {
+                        tokenQueue.add(reader.getAttributeValue(null, "ID"));
+                    } else if (tagName.equals(DESCRIPTION_TAG) && !tokenQueue.isEmpty()) {
+                        tokenQueue.add(reader.getElementText());
+                        weaknessDescriptions.put(tokenQueue.remove(), tokenQueue.remove());
+                    }
                 }
             }
             reader.close();
@@ -49,5 +39,17 @@ public class CweDescriptionParser {
         }
 
         return weaknessDescriptions;
+    }
+
+    public void dumpWeaknessDescriptionsToFile(String cweDescriptionXmlPath) {
+        Gson gson = new Gson();
+        Map<String, String> cweDescriptions = buildCweDescriptionsMap(cweDescriptionXmlPath);
+        String jsonCweDescription = gson.toJson(cweDescriptions);
+
+        try (FileWriter writer = new FileWriter("./out/CweDescriptions")) {
+            writer.write(jsonCweDescription);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

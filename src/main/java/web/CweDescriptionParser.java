@@ -58,12 +58,12 @@ public class CweDescriptionParser {
 
     public Map<String, String> buildWeaknessDescriptionMapFromFile(String jsonCweDescriptionsPath) {
         Gson gson = new Gson();
-        Map<String, String> cweDescriptions = new HashMap<>();
+        Map<String, String> cweDescriptions;
         String fileContent;
         Type type = new TypeToken<Map<String, String>>(){}.getType();
 
         try {
-            File file = new File("./out/CweDescriptions.json");
+            File file = new File(jsonCweDescriptionsPath);
             fileContent = FileUtils.readFileToString(file, "UTF-8");
             cweDescriptions = gson.fromJson(fileContent, type);
 

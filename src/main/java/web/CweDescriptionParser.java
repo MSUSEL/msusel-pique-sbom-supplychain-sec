@@ -8,7 +8,6 @@ import javax.xml.stream.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -45,29 +44,17 @@ public class CweDescriptionParser {
     }
 
     public void dumpWeaknessDescriptionsToFile(String cweDescriptionXmlPath) {
-        Gson gson = new Gson();
-        Map<String, String> cweDescriptions = buildCweDescriptionsMap(cweDescriptionXmlPath);
-        String jsonCweDescription = gson.toJson(cweDescriptions);
-
         try (FileWriter writer = new FileWriter("./out/CweDescriptions.json")) {
-            writer.write(jsonCweDescription);
+            writer.write(new Gson().toJson(buildCweDescriptionsMap(cweDescriptionXmlPath)));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public Map<String, String> buildWeaknessDescriptionMapFromFile(String jsonCweDescriptionsPath) {
-        Gson gson = new Gson();
-        Map<String, String> cweDescriptions;
-        String fileContent;
-        Type type = new TypeToken<Map<String, String>>(){}.getType();
-
         try {
-            File file = new File(jsonCweDescriptionsPath);
-            fileContent = FileUtils.readFileToString(file, "UTF-8");
-            cweDescriptions = gson.fromJson(fileContent, type);
-
-            return cweDescriptions;
+            return new Gson().fromJson(FileUtils.readFileToString(new File(jsonCweDescriptionsPath), "UTF-8"),
+                    new TypeToken<Map<String, String>>(){}.getType());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

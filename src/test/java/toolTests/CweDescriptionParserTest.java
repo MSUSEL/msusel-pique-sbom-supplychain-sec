@@ -12,12 +12,12 @@ public class CweDescriptionParserTest {
 
     @Test
     public void testBuildCweDescriptions() {
-        Map<String, String> descriptions = cweDescriptionParser.buildCweDescriptionsMap("./src/main/resources/cwe_v4.15.xml");
+        Map<String, String> descriptions = cweDescriptionParser.buildCweDescriptionsMap("./src/main/resources/cwec_v4.15.xml");
     }
 
     @Test
     public void testDumpWeaknessToFile() {
-        cweDescriptionParser.dumpWeaknessDescriptionsToFile("./src/main/resources/cwe_v4.15.xml");
+        cweDescriptionParser.dumpWeaknessDescriptionsToFile("./src/main/resources/cwec_v4.15.xml");
     }
 
     @Test

@@ -1,4 +1,4 @@
-FROM msusel/pique-core:1.0.0
+FROM msusel/pique-core:latest
 
 ## dependency and library versions
 ARG PIQUE_SBOM_VERSION=1.0

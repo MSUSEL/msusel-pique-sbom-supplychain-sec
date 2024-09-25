@@ -40,6 +40,8 @@ import pique.model.QualityModelExport;
 import pique.model.QualityModelImport;
 import pique.runnable.AQualityModelDeriver;
 import pique.utility.PiqueProperties;
+import presentation.PiqueData;
+import presentation.PiqueDataFactory;
 import tool.CveBinToolWrapper;
 import tool.GrypeWrapper;
 import tool.TrivyWrapper;
@@ -54,8 +56,8 @@ import tool.sbomqsWrapper;
  * (3) Apply these results to the quality model to generate a fully derived quality model
  */
 public class QualityModelDeriver extends AQualityModelDeriver {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(QualityModelDeriver.class);
+    PiqueData piqueData = new PiqueDataFactory().getPiqueData();
 
     public QualityModelDeriver(String propertiesPath){
         init(propertiesPath);
@@ -63,6 +65,7 @@ public class QualityModelDeriver extends AQualityModelDeriver {
 
     public QualityModelDeriver(){
         init(null);
+
     }
 
     private void init(String propertiesPath){
@@ -82,9 +85,9 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         String projectRootFlag = "";
         Path benchmarkRepo = Paths.get(prop.getProperty("benchmark.repo"));
 
-        ITool gyrpeWrapper = new GrypeWrapper();
-        ITool trivyWrapper = new TrivyWrapper();
-        ITool cveBinToolWrapper = new CveBinToolWrapper();
+        ITool gyrpeWrapper = new GrypeWrapper(piqueData);
+        ITool trivyWrapper = new TrivyWrapper(piqueData);
+        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
         //ITool sbomqsWrapper_ = new sbomqsWrapper();
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());

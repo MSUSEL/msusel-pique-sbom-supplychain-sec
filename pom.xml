@@ -47,6 +47,11 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
+            <groupId>edu.montana.gsoc.msusel</groupId>
+            <artifactId>msusecl-data-utility</artifactId>
+            <version>0.0.4</version>
+        </dependency>
+        <dependency>
             <groupId>net.sourceforge.argparse4j</groupId>
             <artifactId>argparse4j</artifactId>
             <version>0.9.0</version>
@@ -67,6 +72,11 @@
             <version>2.9.1</version>
         </dependency>
         <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.18.1</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.wnameless.json</groupId>
             <artifactId>json-flattener</artifactId>
             <version>0.16.6</version>
@@ -81,6 +91,16 @@
             <artifactId>mongodb-driver-sync</artifactId>
             <version>5.0.1</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.seleniumhq.selenium</groupId>-->
+<!--            <artifactId>selenium-java</artifactId>-->
+<!--            <version>4.23.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>io.github.bonigarcia</groupId>-->
+<!--            <artifactId>webdrivermanager</artifactId>-->
+<!--            <version>5.9.2</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

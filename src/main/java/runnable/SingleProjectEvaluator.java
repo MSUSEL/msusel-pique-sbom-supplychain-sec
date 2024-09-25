@@ -41,6 +41,8 @@ import pique.analysis.ITool;
 import pique.evaluation.Project;
 import pique.runnable.ASingleProjectEvaluator;
 import pique.utility.PiqueProperties;
+import presentation.PiqueData;
+import presentation.PiqueDataFactory;
 import tool.*;
 
 /**
@@ -48,6 +50,7 @@ import tool.*;
  */
 // TODO (1.0): turn into static methods (maybe unless logger problems)
 public class SingleProjectEvaluator extends ASingleProjectEvaluator {
+    private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleProjectEvaluator.class);
 
     //default properties location
@@ -113,9 +116,9 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         Path qmLocation = Paths.get(prop.getProperty("derived.qm"));
 
         // initialize SBOM analysis tools that will run on each SBOM in the input/projects/SBOM directory
-        ITool gyrpeWrapper = new GrypeWrapper();
-        ITool trivyWrapper = new TrivyWrapper();
-        ITool cveBinToolWrapper = new CveBinToolWrapper();
+        ITool gyrpeWrapper = new GrypeWrapper(piqueData);
+        ITool trivyWrapper = new TrivyWrapper(piqueData);
+        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
         //ITool sbomqsWrapper_ = new sbomqsWrapper();
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());

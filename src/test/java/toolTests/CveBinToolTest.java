@@ -1,6 +1,5 @@
 package toolTests;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
@@ -11,14 +10,18 @@ import org.junit.Test;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
 import pique.utility.PiqueProperties;
+import presentation.PiqueData;
+import presentation.PiqueDataFactory;
 import tool.CveBinToolWrapper;
 
 import static org.junit.Assert.*;
 
 public class CveBinToolTest {
+    private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();
+
     @Test
     public void TestSBOMWithFindings() {
-        Tool cveBinToolTest = new CveBinToolWrapper();
+        Tool cveBinToolTest = new CveBinToolWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/S1.json");
 
@@ -44,7 +47,7 @@ public class CveBinToolTest {
     @Test
     public void TestSBOMWithNoFindings() {
         Properties prop = PiqueProperties.getProperties();
-        Tool cveBinToolTest = new CveBinToolWrapper();
+        Tool cveBinToolTest = new CveBinToolWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/empty_sbom.json");
 
@@ -63,7 +66,7 @@ public class CveBinToolTest {
     @Test
     public void TestNoFindingsWhenNoSBOMExists() {
         Properties prop = PiqueProperties.getProperties();
-        Tool cveBinToolTest = new CveBinToolWrapper();
+        Tool cveBinToolTest = new CveBinToolWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark");
 
@@ -82,7 +85,7 @@ public class CveBinToolTest {
     @Test
     public void TestSBOMDoesNotExist() {
         Properties prop = PiqueProperties.getProperties();
-        Tool cveBinToolTest = new CveBinToolWrapper();
+        Tool cveBinToolTest = new CveBinToolWrapper(piqueData);
 
         Path testSBOM = Paths.get("src/test/resources/benchmark/test.json");
 

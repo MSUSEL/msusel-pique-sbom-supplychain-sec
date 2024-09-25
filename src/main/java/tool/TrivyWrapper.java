@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -36,6 +37,7 @@ import org.slf4j.LoggerFactory;
 import pique.analysis.ITool;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
+import presentation.PiqueData;
 import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 
@@ -48,13 +50,16 @@ import utilities.helperFunctions;
  * @author Eric O'Donoghue
  */
 public class TrivyWrapper extends Tool implements ITool  {
+	private final PiqueData piqueData;
+	private final String toolName = " Trivy Diagnostic";
 	private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
 	/**
 	 * Constructs a TrivyWrapper instance.
 	 *
 	 */
-	public TrivyWrapper() {
+	public TrivyWrapper(PiqueData piqueData) {
 		super("trivy", null);
+		this.piqueData = piqueData;
 	}
 
 	/**
@@ -106,9 +111,8 @@ public class TrivyWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new TrivyGrypeOutputProcessor();
+		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new ToolOutputProcessor(new VulnerabilityService(piqueData, toolName));
 		String results = "";
-		String toolName = " Trivy Diagnostic";
 
 		System.out.println(this.getName() + " Parsing Analysis...");
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
@@ -123,10 +127,10 @@ public class TrivyWrapper extends Tool implements ITool  {
 			LOGGER.info("No results to read from Trivy.");
 		}
 
-		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results, toolName);
+		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
 		if (vulnerabilities != null) {
-			ArrayList<RelevantVulnerabilityData> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities, toolName);
-			outputProcessor.addDiagnostics(trivyVulnerabilities, diagnostics, toolName);
+			List<RelevantVulnerabilityData> trivyVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+			outputProcessor.addDiagnostics(trivyVulnerabilities, diagnostics);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");
 		}

@@ -3,17 +3,6 @@ package runnable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pique.utility.PiqueProperties;
-import tool.GrypeWrapper;
-import utilities.helperFunctions;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -21,8 +10,6 @@ import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.Namespace;
-
-import static java.lang.Thread.sleep;
 
 /**
  * Main entry point for the PIQUE-SBOM-SUPPLYCHAIN-SEC application. This class handles the

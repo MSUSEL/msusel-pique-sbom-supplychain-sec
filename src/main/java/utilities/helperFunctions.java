@@ -31,9 +31,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import data.GraphQlQueries;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,79 +63,6 @@ public class helperFunctions {
 //		}
 //		else {
 //			return true;
-//		}
-//	}
-
-	/**
-	 * Given a set of CVE and/or GHSA names, returns the CWEs the vulnerabilities are associated with. Runs
-	 * a python script, CVE_to_CWE.py, through the command line to achieve this.
-	 *
-	 * @param cveList An ArrayList<String> of one or more CVE names
-	 * @return An array of CWEs associated with the given CVEs
-	 */
-//	public static String[] getCWE(ArrayList<String> cveList, String githubTokenPath) {
-//		Properties prop = PiqueProperties.getProperties();
-//		String pathToScript = prop.getProperty("cveTocwe.location");
-//		String pathToNVDDict = prop.getProperty("nvd-dictionary.location");
-//		String port_number = prop.getProperty("query-nvd.port");
-//
-//		// Convert each cveList to a comma-separated string
-//		StringBuilder cveString = new StringBuilder();
-//		for (String entry : cveList) {
-//			if (cveString.length() > 0) {
-//				cveString.append(",");
-//			}
-//			cveString.append(entry);
-//		}
-//
-//		// tool did not find any vulnerabilities
-//		if (cveString.toString().isEmpty()) {
-//			return new String[]{};
-//		}
-//
-		// command for running python script for converting vulnerabilities to CWEs
-//		String[] cmd = {"python3", pathToScript, "--list", cveString.toString(), "--github_token", githubTokenPath, "--nvdDict", "", "--port", port_number};
-//
-//		String cwe = "";
-//		try {
-//			cwe = getOutputFromProgram(cmd,LOGGER);
-//		} catch (IOException e) {
-//			System.err.println("Error running CVE_to_CWE.py");
-//			e.printStackTrace();
-//		}
-//
-//		// CVE_to_CWE.py prints the results to standard out, trim the newlines and return array
-//        return cwe.split("\n \n");
-//	}
-
-	/**
-	 * Downloads the most recent version of the national vulnerability database using the NVD API.
-	 * Achieves this running a python script, download_nvd.py, with the command line.
-	 */
-//	public static void downloadNVD() {
-//		Properties prop = PiqueProperties.getProperties();
-//		String pathToScript = prop.getProperty("downloadNVD.location");
-//		String pathToDownloadTo = prop.getProperty("nvd-dictionary.location");
-//		String nvdCVECount = prop.getProperty("nvd-cve-count");
-//		String nvdApiKeyPath = prop.getProperty("nvd-api-key-path");
-//
-//		String[] cmd = {"python3", pathToScript, pathToDownloadTo, nvdCVECount, nvdApiKeyPath};
-//
-//		String result = "";
-//		try {
-//			result = getOutputFromProgram(cmd,LOGGER);
-//			if (result.equals("true\n")) {
-//				System.out.println("Successfully downloaded NVD.");
-//				LOGGER.info("Successfully downloaded NVD");
-//			}
-//			else {
-//				System.err.println("Error downloading NVD " + result);
-//				LOGGER.error("Error down loading NVD " + result);
-//			}
-//		} catch (IOException e) {
-//			System.err.println("Error running download_nvd.py");
-//			LOGGER.error("Error running download_nvd.py " + e);
-//			e.printStackTrace();
 //		}
 //	}
 
@@ -247,26 +171,6 @@ public class helperFunctions {
 	}
 
 	/**
-	 * Formats the Security Advisory query for consumption by GitHub Vulnerability API
-	 * @param cveId CVE to be inserted into the query string
-	 * @return formatted query
-	 */
-	public static String formatSecurityAdvisoryQuery(String cveId) {
-		JSONObject jsonBody = new JSONObject();
-		String query;
-
-		try {
-			jsonBody.put("query", GraphQlQueries.GHSA_SECURITY_ADVISORY_QUERY);
-			query = jsonBody.toString();
-		} catch (JSONException e) {
-			LOGGER.error("Incorrect JSON format", e);
-			throw new RuntimeException(e);
-		}
-		return String.format(query, cveId);
-	}
-
-
-	/**
 	 * Maps low-critical to numeric values based on the highest value for each range.
 	 *
 	 * @param severity
@@ -294,42 +198,5 @@ public class helperFunctions {
 		}
 
 		return severityInt;
-	}
-
-	/**
-	 * Gets the actual GitHub token from the given filepath
-	 *
-	 * @param authTokenPath path to github token
-	 * @return the token as a String literal
-	 */
-	public static String getAuthToken(String authTokenPath) {
-		try {
-			return readFileContent(Paths.get(authTokenPath.substring(1)));
-		} catch (IOException e) {
-			LOGGER.error("Failed to read file", e);
-            throw new RuntimeException(e);
-        }
-    }
-
-	/**
-	 * This generates MongoDB credentials from the values in
-	 * /input/credentials/mongo_credentials.csv
-	 *
-	 * @return Map of MongoDB credentials as strings
-	 * @throws IOException
-	 */
-	public static Map<String, String> getMongoCredentials() throws IOException {
-		Properties prop = PiqueProperties.getProperties();
-		List<String> creds;
-		Map<String, String> credsMap = new HashMap<>();
-
-		// reads credentials file and builds map of credential key value pairs
-		creds = Files.readAllLines(Paths.get(prop.getProperty("mongo-credentials-path")));
-        for (String cred : creds) {
-            String[] line = cred.split(",");
-            credsMap.put(line[0], line[1]);
-        }
-
-		return credsMap;
 	}
 }

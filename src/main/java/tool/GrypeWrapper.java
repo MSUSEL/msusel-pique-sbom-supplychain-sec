@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 import pique.analysis.ITool;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
+import presentation.PiqueData;
 import toolOutputObjects.RelevantVulnerabilityData;
 import utilities.helperFunctions;
 
@@ -45,13 +46,16 @@ import java.util.*;
  * @author Eric O'Donoghue
  */
 public class GrypeWrapper extends Tool implements ITool  {
+	private final PiqueData piqueData;
+	private final String toolName = " Grype Diagnostic";
 	private static final Logger LOGGER = LoggerFactory.getLogger(GrypeWrapper.class);
 
 	/**
 	 * Constructs a GrypeWrapper instance.
 	 */
-	public GrypeWrapper() {
+	public GrypeWrapper(PiqueData piqueData) {
 		super("grype", null);
+		this.piqueData = piqueData;
 	}
 
 	/**
@@ -102,9 +106,8 @@ public class GrypeWrapper extends Tool implements ITool  {
 	 */
 	@Override
 	public Map<String, Diagnostic> parseAnalysis(Path toolResults) {
-		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new TrivyGrypeOutputProcessor();
+		IOutputProcessor<RelevantVulnerabilityData> outputProcessor = new ToolOutputProcessor(new VulnerabilityService(piqueData, toolName));
 		String results = "";
-		String toolName = " Grype Diagnostic";
 
 		System.out.println(this.getName() + " Parsing Analysis...");
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
@@ -120,10 +123,10 @@ public class GrypeWrapper extends Tool implements ITool  {
 			LOGGER.info("No results to read from Grype.");
 		}
 
-		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results, toolName);
+		JSONArray vulnerabilities = outputProcessor.getVulnerabilitiesFromToolOutput(results);
 		if (vulnerabilities != null) {
-			ArrayList<RelevantVulnerabilityData> grypeVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities, toolName);
-			outputProcessor.addDiagnostics(grypeVulnerabilities, diagnostics, toolName);
+			List<RelevantVulnerabilityData> grypeVulnerabilities = outputProcessor.processToolVulnerabilities(vulnerabilities);
+			outputProcessor.addDiagnostics(grypeVulnerabilities, diagnostics);
 		} else {
 			LOGGER.warn("Vulnerability array was empty.");
 		}

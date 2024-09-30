@@ -122,6 +122,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         //ITool sbomqsWrapper_ = new sbomqsWrapper();
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
+        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
 
         // loop through each SBOM in the input/projects/SBOM directory and store paths in a list
         Set<Path> sbomRoots = new HashSet<>();

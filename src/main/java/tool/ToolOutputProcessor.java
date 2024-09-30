@@ -77,6 +77,7 @@ public class ToolOutputProcessor implements IOutputProcessor<RelevantVulnerabili
         String toolName = vulnerabilityService.getToolName();
 
         for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
+            // todo fix so it gets all CWEs
             Diagnostic diag = diagnostics.get(relevantVulnerabilityData.getCwe().get(0) + toolName);
             if (diag == null) {
                 diag = diagnostics.get("CWE-other" + toolName);

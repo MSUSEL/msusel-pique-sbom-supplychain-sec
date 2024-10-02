@@ -180,15 +180,15 @@ public class helperFunctions {
 		Integer severityInt = 1;
 		switch(severity.toLowerCase()) {
 			case "low": {
-				severityInt = 4;
+				severityInt = 1;
 				break;
 			}
 			case "medium": {
-				severityInt = 7;
+				severityInt = 3;
 				break;
 			}
 			case "high": {
-				severityInt = 9;
+				severityInt = 6;
 				break;
 			}
 			case "critical": {

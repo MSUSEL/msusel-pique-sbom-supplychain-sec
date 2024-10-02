@@ -748,7 +748,6 @@
   "measures": {
     "CWE-other Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-other Grype Diagnostic": {},
@@ -758,7 +757,6 @@
     },
     "CWE-unknown Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-unknown Grype Diagnostic": {},
@@ -768,7 +766,6 @@
     },
     "CWE-242 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-242 Grype Diagnostic": {},
@@ -778,7 +775,6 @@
     },
     "CWE-474 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-474 Grype Diagnostic": {},
@@ -788,7 +784,6 @@
     },
     "CWE-475 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-475 Grype Diagnostic": {},
@@ -798,7 +793,6 @@
     },
     "CWE-477 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-477 Grype Diagnostic": {},
@@ -808,7 +802,6 @@
     },
     "CWE-676 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-676 Grype Diagnostic": {},
@@ -818,7 +811,6 @@
     },
     "CWE-695 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-695 Grype Diagnostic": {},
@@ -828,7 +820,6 @@
     },
     "CWE-749 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-749 Grype Diagnostic": {},
@@ -838,7 +829,6 @@
     },
     "CWE-117 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-117 Grype Diagnostic": {},
@@ -848,7 +838,6 @@
     },
     "CWE-222 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-222 Grype Diagnostic": {},
@@ -858,7 +847,6 @@
     },
     "CWE-223 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-223 Grype Diagnostic": {},
@@ -868,7 +856,6 @@
     },
     "CWE-224 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-224 Grype Diagnostic": {},
@@ -878,7 +865,6 @@
     },
     "CWE-532 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-532 Grype Diagnostic": {},
@@ -888,7 +874,6 @@
     },
     "CWE-778 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-778 Grype Diagnostic": {},
@@ -898,7 +883,6 @@
     },
     "CWE-779 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-779 Grype Diagnostic": {},
@@ -908,7 +892,6 @@
     },
     "CWE-288 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-288 Grype Diagnostic": {},
@@ -918,7 +901,6 @@
     },
     "CWE-290 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-290 Grype Diagnostic": {},
@@ -928,7 +910,6 @@
     },
     "CWE-294 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-294 Grype Diagnostic": {},
@@ -938,7 +919,6 @@
     },
     "CWE-295 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-295 Grype Diagnostic": {},
@@ -948,7 +928,6 @@
     },
     "CWE-301 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-301 Grype Diagnostic": {},
@@ -958,7 +937,6 @@
     },
     "CWE-303 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-303 Grype Diagnostic": {},
@@ -968,7 +946,6 @@
     },
     "CWE-305 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-305 Grype Diagnostic": {},
@@ -978,7 +955,6 @@
     },
     "CWE-306 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-306 Grype Diagnostic": {},
@@ -988,7 +964,6 @@
     },
     "CWE-307 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-307 Grype Diagnostic": {},
@@ -998,7 +973,6 @@
     },
     "CWE-308 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-308 Grype Diagnostic": {},
@@ -1008,7 +982,6 @@
     },
     "CWE-309 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-309 Grype Diagnostic": {},
@@ -1018,7 +991,6 @@
     },
     "CWE-322 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-322 Grype Diagnostic": {},
@@ -1028,7 +1000,6 @@
     },
     "CWE-603 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-603 Grype Diagnostic": {},
@@ -1038,7 +1009,6 @@
     },
     "CWE-645 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-645 Grype Diagnostic": {},
@@ -1048,7 +1018,6 @@
     },
     "CWE-804 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-804 Grype Diagnostic": {},
@@ -1058,7 +1027,6 @@
     },
     "CWE-836 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-836 Grype Diagnostic": {},
@@ -1068,7 +1036,6 @@
     },
     "CWE-425 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-425 Grype Diagnostic": {},
@@ -1078,7 +1045,6 @@
     },
     "CWE-551 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-551 Grype Diagnostic": {},
@@ -1088,7 +1054,6 @@
     },
     "CWE-552 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-552 Grype Diagnostic": {},
@@ -1098,7 +1063,6 @@
     },
     "CWE-639 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-639 Grype Diagnostic": {},
@@ -1108,7 +1072,6 @@
     },
     "CWE-653 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-653 Grype Diagnostic": {},
@@ -1118,7 +1081,6 @@
     },
     "CWE-939 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-939 Grype Diagnostic": {},
@@ -1128,7 +1090,6 @@
     },
     "CWE-842 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-842 Grype Diagnostic": {},
@@ -1138,7 +1099,6 @@
     },
     "CWE-1220 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1220 Grype Diagnostic": {},
@@ -1148,7 +1108,6 @@
     },
     "CWE-358 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-358 Grype Diagnostic": {},
@@ -1158,7 +1117,6 @@
     },
     "CWE-360 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-360 Grype Diagnostic": {},
@@ -1168,7 +1126,6 @@
     },
     "CWE-478 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-478 Grype Diagnostic": {},
@@ -1178,7 +1135,6 @@
     },
     "CWE-487 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-487 Grype Diagnostic": {},
@@ -1188,7 +1144,6 @@
     },
     "CWE-489 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-489 Grype Diagnostic": {},
@@ -1198,7 +1153,6 @@
     },
     "CWE-547 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-547 Grype Diagnostic": {},
@@ -1208,7 +1162,6 @@
     },
     "CWE-561 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-561 Grype Diagnostic": {},
@@ -1218,7 +1171,6 @@
     },
     "CWE-562 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-562 Grype Diagnostic": {},
@@ -1228,7 +1180,6 @@
     },
     "CWE-563 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-563 Grype Diagnostic": {},
@@ -1238,7 +1189,6 @@
     },
     "CWE-581 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-581 Grype Diagnostic": {},
@@ -1248,7 +1198,6 @@
     },
     "CWE-586 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-586 Grype Diagnostic": {},
@@ -1258,7 +1207,6 @@
     },
     "CWE-605 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-605 Grype Diagnostic": {},
@@ -1268,7 +1216,6 @@
     },
     "CWE-654 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-654 Grype Diagnostic": {},
@@ -1278,7 +1225,6 @@
     },
     "CWE-656 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-656 Grype Diagnostic": {},
@@ -1288,7 +1234,6 @@
     },
     "CWE-628 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-628 Grype Diagnostic": {},
@@ -1298,7 +1243,6 @@
     },
     "CWE-694 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-694 Grype Diagnostic": {},
@@ -1308,7 +1252,6 @@
     },
     "CWE-807 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-807 Grype Diagnostic": {},
@@ -1318,7 +1261,6 @@
     },
     "CWE-1041 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1041 Grype Diagnostic": {},
@@ -1328,7 +1270,6 @@
     },
     "CWE-1043 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1043 Grype Diagnostic": {},
@@ -1338,7 +1279,6 @@
     },
     "CWE-1044 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1044 Grype Diagnostic": {},
@@ -1348,7 +1288,6 @@
     },
     "CWE-1045 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1045 Grype Diagnostic": {},
@@ -1358,7 +1297,6 @@
     },
     "CWE-1046 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1046 Grype Diagnostic": {},
@@ -1368,7 +1306,6 @@
     },
     "CWE-1048 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1048 Grype Diagnostic": {},
@@ -1378,7 +1315,6 @@
     },
     "CWE-1049 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1049 Grype Diagnostic": {},
@@ -1388,7 +1324,6 @@
     },
     "CWE-1050 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1050 Grype Diagnostic": {},
@@ -1398,7 +1333,6 @@
     },
     "CWE-1063 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1063 Grype Diagnostic": {},
@@ -1408,7 +1342,6 @@
     },
     "CWE-1065 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1065 Grype Diagnostic": {},
@@ -1418,7 +1351,6 @@
     },
     "CWE-1066 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1066 Grype Diagnostic": {},
@@ -1428,7 +1360,6 @@
     },
     "CWE-1067 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1067 Grype Diagnostic": {},
@@ -1438,7 +1369,6 @@
     },
     "CWE-1070 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1070 Grype Diagnostic": {},
@@ -1448,7 +1378,6 @@
     },
     "CWE-1071 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1071 Grype Diagnostic": {},
@@ -1458,7 +1387,6 @@
     },
     "CWE-1072 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1072 Grype Diagnostic": {},
@@ -1468,7 +1396,6 @@
     },
     "CWE-1073 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1073 Grype Diagnostic": {},
@@ -1478,7 +1405,6 @@
     },
     "CWE-1079 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1079 Grype Diagnostic": {},
@@ -1488,7 +1414,6 @@
     },
     "CWE-1082 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1082 Grype Diagnostic": {},
@@ -1498,7 +1423,6 @@
     },
     "CWE-1084 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1084 Grype Diagnostic": {},
@@ -1508,7 +1432,6 @@
     },
     "CWE-1085 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1085 Grype Diagnostic": {},
@@ -1518,7 +1441,6 @@
     },
     "CWE-1087 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1087 Grype Diagnostic": {},
@@ -1528,7 +1450,6 @@
     },
     "CWE-1089 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1089 Grype Diagnostic": {},
@@ -1538,7 +1459,6 @@
     },
     "CWE-1092 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1092 Grype Diagnostic": {},
@@ -1548,7 +1468,6 @@
     },
     "CWE-1094 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1094 Grype Diagnostic": {},
@@ -1558,7 +1477,6 @@
     },
     "CWE-1097 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1097 Grype Diagnostic": {},
@@ -1568,7 +1486,6 @@
     },
     "CWE-1098 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1098 Grype Diagnostic": {},
@@ -1578,7 +1495,6 @@
     },
     "CWE-1099 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1099 Grype Diagnostic": {},
@@ -1588,7 +1504,6 @@
     },
     "CWE-1101 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1101 Grype Diagnostic": {},
@@ -1598,7 +1513,6 @@
     },
     "CWE-1102 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1102 Grype Diagnostic": {},
@@ -1608,7 +1522,6 @@
     },
     "CWE-1103 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1103 Grype Diagnostic": {},
@@ -1618,7 +1531,6 @@
     },
     "CWE-1104 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1104 Grype Diagnostic": {},
@@ -1628,7 +1540,6 @@
     },
     "CWE-1106 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1106 Grype Diagnostic": {},
@@ -1638,7 +1549,6 @@
     },
     "CWE-1107 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1107 Grype Diagnostic": {},
@@ -1648,7 +1558,6 @@
     },
     "CWE-1108 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1108 Grype Diagnostic": {},
@@ -1658,7 +1567,6 @@
     },
     "CWE-1109 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1109 Grype Diagnostic": {},
@@ -1668,7 +1576,6 @@
     },
     "CWE-1113 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1113 Grype Diagnostic": {},
@@ -1678,7 +1585,6 @@
     },
     "CWE-1114 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1114 Grype Diagnostic": {},
@@ -1688,7 +1594,6 @@
     },
     "CWE-1115 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1115 Grype Diagnostic": {},
@@ -1698,7 +1603,6 @@
     },
     "CWE-1116 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1116 Grype Diagnostic": {},
@@ -1708,7 +1612,6 @@
     },
     "CWE-1117 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1117 Grype Diagnostic": {},
@@ -1718,7 +1621,6 @@
     },
     "CWE-1126 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1126 Grype Diagnostic": {},
@@ -1728,7 +1630,6 @@
     },
     "CWE-1127 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1127 Grype Diagnostic": {},
@@ -1738,7 +1639,6 @@
     },
     "CWE-1235 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1235 Grype Diagnostic": {},
@@ -1748,7 +1648,6 @@
     },
     "CWE-115 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-115 Grype Diagnostic": {},
@@ -1758,7 +1657,6 @@
     },
     "CWE-179 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-179 Grype Diagnostic": {},
@@ -1768,7 +1666,6 @@
     },
     "CWE-408 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-408 Grype Diagnostic": {},
@@ -1778,7 +1675,6 @@
     },
     "CWE-437 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-437 Grype Diagnostic": {},
@@ -1788,7 +1684,6 @@
     },
     "CWE-439 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-439 Grype Diagnostic": {},
@@ -1798,7 +1693,6 @@
     },
     "CWE-440 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-440 Grype Diagnostic": {},
@@ -1808,7 +1702,6 @@
     },
     "CWE-444 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-444 Grype Diagnostic": {},
@@ -1818,7 +1711,6 @@
     },
     "CWE-480 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-480 Grype Diagnostic": {},
@@ -1828,7 +1720,6 @@
     },
     "CWE-483 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-483 Grype Diagnostic": {},
@@ -1838,7 +1729,6 @@
     },
     "CWE-484 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-484 Grype Diagnostic": {},
@@ -1848,7 +1738,6 @@
     },
     "CWE-698 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-698 Grype Diagnostic": {},
@@ -1858,7 +1747,6 @@
     },
     "CWE-733 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-733 Grype Diagnostic": {},
@@ -1868,7 +1756,6 @@
     },
     "CWE-783 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-783 Grype Diagnostic": {},
@@ -1878,7 +1765,6 @@
     },
     "CWE-835 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-835 Grype Diagnostic": {},
@@ -1888,7 +1774,6 @@
     },
     "CWE-1025 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1025 Grype Diagnostic": {},
@@ -1898,7 +1783,6 @@
     },
     "CWE-1037 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1037 Grype Diagnostic": {},
@@ -1908,7 +1792,6 @@
     },
     "CWE-283 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-283 Grype Diagnostic": {},
@@ -1918,7 +1801,6 @@
     },
     "CWE-640 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-640 Grype Diagnostic": {},
@@ -1928,7 +1810,6 @@
     },
     "CWE-708 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-708 Grype Diagnostic": {},
@@ -1938,7 +1819,6 @@
     },
     "CWE-770 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-770 Grype Diagnostic": {},
@@ -1948,7 +1828,6 @@
     },
     "CWE-826 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-826 Grype Diagnostic": {},
@@ -1958,7 +1837,6 @@
     },
     "CWE-837 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-837 Grype Diagnostic": {},
@@ -1968,7 +1846,6 @@
     },
     "CWE-841 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-841 Grype Diagnostic": {},
@@ -1978,7 +1855,6 @@
     },
     "CWE-346 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-346 Grype Diagnostic": {},
@@ -1988,7 +1864,6 @@
     },
     "CWE-385 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-385 Grype Diagnostic": {},
@@ -1998,7 +1873,6 @@
     },
     "CWE-419 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-419 Grype Diagnostic": {},
@@ -2008,7 +1882,6 @@
     },
     "CWE-420 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-420 Grype Diagnostic": {},
@@ -2018,7 +1891,6 @@
     },
     "CWE-515 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-515 Grype Diagnostic": {},
@@ -2028,7 +1900,6 @@
     },
     "CWE-918 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-918 Grype Diagnostic": {},
@@ -2038,7 +1909,6 @@
     },
     "CWE-924 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-924 Grype Diagnostic": {},
@@ -2048,7 +1918,6 @@
     },
     "CWE-940 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-940 Grype Diagnostic": {},
@@ -2058,7 +1927,6 @@
     },
     "CWE-941 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-941 Grype Diagnostic": {},
@@ -2068,7 +1936,6 @@
     },
     "CWE-1327 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1327 Grype Diagnostic": {},
@@ -2078,7 +1945,6 @@
     },
     "CWE-1047 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1047 Grype Diagnostic": {},
@@ -2088,7 +1954,6 @@
     },
     "CWE-1055 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1055 Grype Diagnostic": {},
@@ -2098,7 +1963,6 @@
     },
     "CWE-1056 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1056 Grype Diagnostic": {},
@@ -2108,7 +1972,6 @@
     },
     "CWE-1060 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1060 Grype Diagnostic": {},
@@ -2118,7 +1981,6 @@
     },
     "CWE-1064 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1064 Grype Diagnostic": {},
@@ -2128,7 +1990,6 @@
     },
     "CWE-1074 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1074 Grype Diagnostic": {},
@@ -2138,7 +1999,6 @@
     },
     "CWE-1075 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1075 Grype Diagnostic": {},
@@ -2148,7 +2008,6 @@
     },
     "CWE-1080 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1080 Grype Diagnostic": {},
@@ -2158,7 +2017,6 @@
     },
     "CWE-1086 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1086 Grype Diagnostic": {},
@@ -2168,7 +2026,6 @@
     },
     "CWE-1095 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1095 Grype Diagnostic": {},
@@ -2178,7 +2035,6 @@
     },
     "CWE-1119 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1119 Grype Diagnostic": {},
@@ -2188,7 +2044,6 @@
     },
     "CWE-1121 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1121 Grype Diagnostic": {},
@@ -2198,7 +2053,6 @@
     },
     "CWE-1122 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1122 Grype Diagnostic": {},
@@ -2208,7 +2062,6 @@
     },
     "CWE-1123 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1123 Grype Diagnostic": {},
@@ -2218,7 +2071,6 @@
     },
     "CWE-1124 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1124 Grype Diagnostic": {},
@@ -2228,7 +2080,6 @@
     },
     "CWE-1333 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1333 Grype Diagnostic": {},
@@ -2238,7 +2089,6 @@
     },
     "CWE-1125 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1125 Grype Diagnostic": {},
@@ -2248,7 +2098,6 @@
     },
     "CWE-364 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-364 Grype Diagnostic": {},
@@ -2258,7 +2107,6 @@
     },
     "CWE-366 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-366 Grype Diagnostic": {},
@@ -2268,7 +2116,6 @@
     },
     "CWE-367 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-367 Grype Diagnostic": {},
@@ -2278,7 +2125,6 @@
     },
     "CWE-368 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-368 Grype Diagnostic": {},
@@ -2288,7 +2134,6 @@
     },
     "CWE-386 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-386 Grype Diagnostic": {},
@@ -2298,7 +2143,6 @@
     },
     "CWE-421 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-421 Grype Diagnostic": {},
@@ -2308,7 +2152,6 @@
     },
     "CWE-663 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-663 Grype Diagnostic": {},
@@ -2318,7 +2161,6 @@
     },
     "CWE-820 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-820 Grype Diagnostic": {},
@@ -2328,7 +2170,6 @@
     },
     "CWE-821 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-821 Grype Diagnostic": {},
@@ -2338,7 +2179,6 @@
     },
     "CWE-1058 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1058 Grype Diagnostic": {},
@@ -2348,7 +2188,6 @@
     },
     "CWE-1322 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1322 Grype Diagnostic": {},
@@ -2358,7 +2197,6 @@
     },
     "CWE-256 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-256 Grype Diagnostic": {},
@@ -2368,7 +2206,6 @@
     },
     "CWE-257 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-257 Grype Diagnostic": {},
@@ -2378,7 +2215,6 @@
     },
     "CWE-260 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-260 Grype Diagnostic": {},
@@ -2388,7 +2224,6 @@
     },
     "CWE-261 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-261 Grype Diagnostic": {},
@@ -2398,7 +2233,6 @@
     },
     "CWE-262 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-262 Grype Diagnostic": {},
@@ -2408,7 +2242,6 @@
     },
     "CWE-263 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-263 Grype Diagnostic": {},
@@ -2418,7 +2251,6 @@
     },
     "CWE-324 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-324 Grype Diagnostic": {},
@@ -2428,7 +2260,6 @@
     },
     "CWE-521 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-521 Grype Diagnostic": {},
@@ -2438,7 +2269,6 @@
     },
     "CWE-523 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-523 Grype Diagnostic": {},
@@ -2448,7 +2278,6 @@
     },
     "CWE-549 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-549 Grype Diagnostic": {},
@@ -2458,7 +2287,6 @@
     },
     "CWE-620 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-620 Grype Diagnostic": {},
@@ -2468,7 +2296,6 @@
     },
     "CWE-798 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-798 Grype Diagnostic": {},
@@ -2478,7 +2305,6 @@
     },
     "CWE-916 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-916 Grype Diagnostic": {},
@@ -2488,7 +2314,6 @@
     },
     "CWE-1392 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1392 Grype Diagnostic": {},
@@ -2498,7 +2323,6 @@
     },
     "CWE-325 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-325 Grype Diagnostic": {},
@@ -2508,7 +2332,6 @@
     },
     "CWE-328 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-328 Grype Diagnostic": {},
@@ -2518,7 +2341,6 @@
     },
     "CWE-331 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-331 Grype Diagnostic": {},
@@ -2528,7 +2350,6 @@
     },
     "CWE-334 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-334 Grype Diagnostic": {},
@@ -2538,7 +2359,6 @@
     },
     "CWE-335 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-335 Grype Diagnostic": {},
@@ -2548,7 +2368,6 @@
     },
     "CWE-338 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-338 Grype Diagnostic": {},
@@ -2558,7 +2377,6 @@
     },
     "CWE-347 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-347 Grype Diagnostic": {},
@@ -2568,7 +2386,6 @@
     },
     "CWE-1204 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1204 Grype Diagnostic": {},
@@ -2578,7 +2395,6 @@
     },
     "CWE-1240 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1240 Grype Diagnostic": {},
@@ -2588,7 +2404,6 @@
     },
     "CWE-323 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-323 Grype Diagnostic": {},
@@ -2598,7 +2413,6 @@
     },
     "CWE-348 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-348 Grype Diagnostic": {},
@@ -2608,7 +2422,6 @@
     },
     "CWE-349 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-349 Grype Diagnostic": {},
@@ -2618,7 +2431,6 @@
     },
     "CWE-351 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-351 Grype Diagnostic": {},
@@ -2628,7 +2440,6 @@
     },
     "CWE-353 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-353 Grype Diagnostic": {},
@@ -2638,7 +2449,6 @@
     },
     "CWE-354 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-354 Grype Diagnostic": {},
@@ -2648,7 +2458,6 @@
     },
     "CWE-494 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-494 Grype Diagnostic": {},
@@ -2658,7 +2467,6 @@
     },
     "CWE-565 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-565 Grype Diagnostic": {},
@@ -2668,7 +2476,6 @@
     },
     "CWE-649 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-649 Grype Diagnostic": {},
@@ -2678,7 +2485,6 @@
     },
     "CWE-829 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-829 Grype Diagnostic": {},
@@ -2688,7 +2494,6 @@
     },
     "CWE-130 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-130 Grype Diagnostic": {},
@@ -2698,7 +2503,6 @@
     },
     "CWE-166 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-166 Grype Diagnostic": {},
@@ -2708,7 +2512,6 @@
     },
     "CWE-167 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-167 Grype Diagnostic": {},
@@ -2718,7 +2521,6 @@
     },
     "CWE-168 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-168 Grype Diagnostic": {},
@@ -2728,7 +2530,6 @@
     },
     "CWE-178 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-178 Grype Diagnostic": {},
@@ -2738,7 +2539,6 @@
     },
     "CWE-182 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-182 Grype Diagnostic": {},
@@ -2748,7 +2548,6 @@
     },
     "CWE-186 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-186 Grype Diagnostic": {},
@@ -2758,7 +2557,6 @@
     },
     "CWE-229 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-229 Grype Diagnostic": {},
@@ -2768,7 +2566,6 @@
     },
     "CWE-233 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-233 Grype Diagnostic": {},
@@ -2778,7 +2575,6 @@
     },
     "CWE-237 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-237 Grype Diagnostic": {},
@@ -2788,7 +2584,6 @@
     },
     "CWE-241 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-241 Grype Diagnostic": {},
@@ -2798,7 +2593,6 @@
     },
     "CWE-409 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-409 Grype Diagnostic": {},
@@ -2808,7 +2602,6 @@
     },
     "CWE-472 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-472 Grype Diagnostic": {},
@@ -2818,7 +2611,6 @@
     },
     "CWE-601 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-601 Grype Diagnostic": {},
@@ -2828,7 +2620,6 @@
     },
     "CWE-611 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-611 Grype Diagnostic": {},
@@ -2838,7 +2629,6 @@
     },
     "CWE-624 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-624 Grype Diagnostic": {},
@@ -2848,7 +2638,6 @@
     },
     "CWE-625 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-625 Grype Diagnostic": {},
@@ -2858,7 +2647,6 @@
     },
     "CWE-776 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-776 Grype Diagnostic": {},
@@ -2868,7 +2656,6 @@
     },
     "CWE-1024 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1024 Grype Diagnostic": {},
@@ -2878,7 +2665,6 @@
     },
     "CWE-76 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-76 Grype Diagnostic": {},
@@ -2888,7 +2674,6 @@
     },
     "CWE-78 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-78 Grype Diagnostic": {},
@@ -2898,7 +2683,6 @@
     },
     "CWE-79 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-79 Grype Diagnostic": {},
@@ -2908,7 +2692,6 @@
     },
     "CWE-88 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-88 Grype Diagnostic": {},
@@ -2918,7 +2701,6 @@
     },
     "CWE-89 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-89 Grype Diagnostic": {},
@@ -2928,7 +2710,6 @@
     },
     "CWE-90 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-90 Grype Diagnostic": {},
@@ -2938,7 +2719,6 @@
     },
     "CWE-91 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-91 Grype Diagnostic": {},
@@ -2948,7 +2728,6 @@
     },
     "CWE-93 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-93 Grype Diagnostic": {},
@@ -2958,7 +2737,6 @@
     },
     "CWE-94 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-94 Grype Diagnostic": {},
@@ -2968,7 +2746,6 @@
     },
     "CWE-140 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-140 Grype Diagnostic": {},
@@ -2978,7 +2755,6 @@
     },
     "CWE-170 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-170 Grype Diagnostic": {},
@@ -2988,7 +2764,6 @@
     },
     "CWE-463 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-463 Grype Diagnostic": {},
@@ -2998,7 +2773,6 @@
     },
     "CWE-464 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-464 Grype Diagnostic": {},
@@ -3008,7 +2782,6 @@
     },
     "CWE-641 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-641 Grype Diagnostic": {},
@@ -3018,7 +2791,6 @@
     },
     "CWE-791 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-791 Grype Diagnostic": {},
@@ -3028,7 +2800,6 @@
     },
     "CWE-838 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-838 Grype Diagnostic": {},
@@ -3038,7 +2809,6 @@
     },
     "CWE-917 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-917 Grype Diagnostic": {},
@@ -3048,7 +2818,6 @@
     },
     "CWE-1236 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1236 Grype Diagnostic": {},
@@ -3058,7 +2827,6 @@
     },
     "CWE-1053 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1053 Grype Diagnostic": {},
@@ -3068,7 +2836,6 @@
     },
     "CWE-1068 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1068 Grype Diagnostic": {},
@@ -3078,7 +2845,6 @@
     },
     "CWE-1110 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1110 Grype Diagnostic": {},
@@ -3088,7 +2854,6 @@
     },
     "CWE-1111 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1111 Grype Diagnostic": {},
@@ -3098,7 +2863,6 @@
     },
     "CWE-1112 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1112 Grype Diagnostic": {},
@@ -3108,7 +2872,6 @@
     },
     "CWE-1118 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1118 Grype Diagnostic": {},
@@ -3118,7 +2881,6 @@
     },
     "CWE-22 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-22 Grype Diagnostic": {},
@@ -3128,7 +2890,6 @@
     },
     "CWE-41 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-41 Grype Diagnostic": {},
@@ -3138,7 +2899,6 @@
     },
     "CWE-59 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-59 Grype Diagnostic": {},
@@ -3148,7 +2908,6 @@
     },
     "CWE-66 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-66 Grype Diagnostic": {},
@@ -3158,7 +2917,6 @@
     },
     "CWE-378 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-378 Grype Diagnostic": {},
@@ -3168,7 +2926,6 @@
     },
     "CWE-379 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-379 Grype Diagnostic": {},
@@ -3178,7 +2935,6 @@
     },
     "CWE-426 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-426 Grype Diagnostic": {},
@@ -3188,7 +2944,6 @@
     },
     "CWE-427 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-427 Grype Diagnostic": {},
@@ -3198,7 +2953,6 @@
     },
     "CWE-428 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-428 Grype Diagnostic": {},
@@ -3208,7 +2962,6 @@
     },
     "CWE-1054 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1054 Grype Diagnostic": {},
@@ -3218,7 +2971,6 @@
     },
     "CWE-1057 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1057 Grype Diagnostic": {},
@@ -3228,7 +2980,6 @@
     },
     "CWE-1062 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1062 Grype Diagnostic": {},
@@ -3238,7 +2989,6 @@
     },
     "CWE-1083 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1083 Grype Diagnostic": {},
@@ -3248,7 +2998,6 @@
     },
     "CWE-1090 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1090 Grype Diagnostic": {},
@@ -3258,7 +3007,6 @@
     },
     "CWE-1100 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1100 Grype Diagnostic": {},
@@ -3268,7 +3016,6 @@
     },
     "CWE-1105 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1105 Grype Diagnostic": {},
@@ -3278,7 +3025,6 @@
     },
     "CWE-209 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-209 Grype Diagnostic": {},
@@ -3288,7 +3034,6 @@
     },
     "CWE-248 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-248 Grype Diagnostic": {},
@@ -3298,7 +3043,6 @@
     },
     "CWE-252 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-252 Grype Diagnostic": {},
@@ -3308,7 +3052,6 @@
     },
     "CWE-253 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-253 Grype Diagnostic": {},
@@ -3318,7 +3061,6 @@
     },
     "CWE-390 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-390 Grype Diagnostic": {},
@@ -3328,7 +3070,6 @@
     },
     "CWE-391 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-391 Grype Diagnostic": {},
@@ -3338,7 +3079,6 @@
     },
     "CWE-392 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-392 Grype Diagnostic": {},
@@ -3348,7 +3088,6 @@
     },
     "CWE-393 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-393 Grype Diagnostic": {},
@@ -3358,7 +3097,6 @@
     },
     "CWE-394 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-394 Grype Diagnostic": {},
@@ -3368,7 +3106,6 @@
     },
     "CWE-395 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-395 Grype Diagnostic": {},
@@ -3378,7 +3115,6 @@
     },
     "CWE-396 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-396 Grype Diagnostic": {},
@@ -3388,7 +3124,6 @@
     },
     "CWE-397 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-397 Grype Diagnostic": {},
@@ -3398,7 +3133,6 @@
     },
     "CWE-544 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-544 Grype Diagnostic": {},
@@ -3408,7 +3142,6 @@
     },
     "CWE-584 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-584 Grype Diagnostic": {},
@@ -3418,7 +3151,6 @@
     },
     "CWE-600 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-600 Grype Diagnostic": {},
@@ -3428,7 +3160,6 @@
     },
     "CWE-617 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-617 Grype Diagnostic": {},
@@ -3438,7 +3169,6 @@
     },
     "CWE-756 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-756 Grype Diagnostic": {},
@@ -3448,7 +3178,6 @@
     },
     "CWE-570 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-570 Grype Diagnostic": {},
@@ -3458,7 +3187,6 @@
     },
     "CWE-571 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-571 Grype Diagnostic": {},
@@ -3468,7 +3196,6 @@
     },
     "CWE-430 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-430 Grype Diagnostic": {},
@@ -3478,7 +3205,6 @@
     },
     "CWE-431 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-431 Grype Diagnostic": {},
@@ -3488,7 +3214,6 @@
     },
     "CWE-434 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-434 Grype Diagnostic": {},
@@ -3498,7 +3223,6 @@
     },
     "CWE-201 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-201 Grype Diagnostic": {},
@@ -3508,7 +3232,6 @@
     },
     "CWE-204 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-204 Grype Diagnostic": {},
@@ -3518,7 +3241,6 @@
     },
     "CWE-205 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-205 Grype Diagnostic": {},
@@ -3528,7 +3250,6 @@
     },
     "CWE-208 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-208 Grype Diagnostic": {},
@@ -3538,7 +3259,6 @@
     },
     "CWE-212 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-212 Grype Diagnostic": {},
@@ -3548,7 +3268,6 @@
     },
     "CWE-213 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-213 Grype Diagnostic": {},
@@ -3558,7 +3277,6 @@
     },
     "CWE-214 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-214 Grype Diagnostic": {},
@@ -3568,7 +3286,6 @@
     },
     "CWE-215 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-215 Grype Diagnostic": {},
@@ -3578,7 +3295,6 @@
     },
     "CWE-312 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-312 Grype Diagnostic": {},
@@ -3588,7 +3304,6 @@
     },
     "CWE-319 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-319 Grype Diagnostic": {},
@@ -3598,7 +3313,6 @@
     },
     "CWE-359 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-359 Grype Diagnostic": {},
@@ -3608,7 +3322,6 @@
     },
     "CWE-497 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-497 Grype Diagnostic": {},
@@ -3618,7 +3331,6 @@
     },
     "CWE-524 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-524 Grype Diagnostic": {},
@@ -3628,7 +3340,6 @@
     },
     "CWE-538 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-538 Grype Diagnostic": {},
@@ -3638,7 +3349,6 @@
     },
     "CWE-921 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-921 Grype Diagnostic": {},
@@ -3648,7 +3358,6 @@
     },
     "CWE-1230 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1230 Grype Diagnostic": {},
@@ -3658,7 +3367,6 @@
     },
     "CWE-454 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-454 Grype Diagnostic": {},
@@ -3668,7 +3376,6 @@
     },
     "CWE-455 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-455 Grype Diagnostic": {},
@@ -3678,7 +3385,6 @@
     },
     "CWE-459 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-459 Grype Diagnostic": {},
@@ -3688,7 +3394,6 @@
     },
     "CWE-460 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-460 Grype Diagnostic": {},
@@ -3698,7 +3403,6 @@
     },
     "CWE-1051 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1051 Grype Diagnostic": {},
@@ -3708,7 +3412,6 @@
     },
     "CWE-1052 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1052 Grype Diagnostic": {},
@@ -3718,7 +3421,6 @@
     },
     "CWE-1188 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1188 Grype Diagnostic": {},
@@ -3728,7 +3430,6 @@
     },
     "CWE-112 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-112 Grype Diagnostic": {},
@@ -3738,7 +3439,6 @@
     },
     "CWE-183 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-183 Grype Diagnostic": {},
@@ -3748,7 +3448,6 @@
     },
     "CWE-184 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-184 Grype Diagnostic": {},
@@ -3758,7 +3457,6 @@
     },
     "CWE-606 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-606 Grype Diagnostic": {},
@@ -3768,7 +3466,6 @@
     },
     "CWE-1173 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1173 Grype Diagnostic": {},
@@ -3778,7 +3475,6 @@
     },
     "CWE-1285 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1285 Grype Diagnostic": {},
@@ -3788,7 +3484,6 @@
     },
     "CWE-1286 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1286 Grype Diagnostic": {},
@@ -3798,7 +3493,6 @@
     },
     "CWE-1287 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1287 Grype Diagnostic": {},
@@ -3808,7 +3502,6 @@
     },
     "CWE-1288 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1288 Grype Diagnostic": {},
@@ -3818,7 +3511,6 @@
     },
     "CWE-1289 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1289 Grype Diagnostic": {},
@@ -3828,7 +3520,6 @@
     },
     "CWE-1284 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1284 Grype Diagnostic": {},
@@ -3838,7 +3529,6 @@
     },
     "CWE-120 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-120 Grype Diagnostic": {},
@@ -3848,7 +3538,6 @@
     },
     "CWE-124 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-124 Grype Diagnostic": {},
@@ -3858,7 +3547,6 @@
     },
     "CWE-125 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-125 Grype Diagnostic": {},
@@ -3868,7 +3556,6 @@
     },
     "CWE-131 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-131 Grype Diagnostic": {},
@@ -3878,7 +3565,6 @@
     },
     "CWE-786 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-786 Grype Diagnostic": {},
@@ -3888,7 +3574,6 @@
     },
     "CWE-787 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-787 Grype Diagnostic": {},
@@ -3898,7 +3583,6 @@
     },
     "CWE-788 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-788 Grype Diagnostic": {},
@@ -3908,7 +3592,6 @@
     },
     "CWE-805 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-805 Grype Diagnostic": {},
@@ -3918,7 +3601,6 @@
     },
     "CWE-128 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-128 Grype Diagnostic": {},
@@ -3928,7 +3610,6 @@
     },
     "CWE-190 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-190 Grype Diagnostic": {},
@@ -3938,7 +3619,6 @@
     },
     "CWE-191 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-191 Grype Diagnostic": {},
@@ -3948,7 +3628,6 @@
     },
     "CWE-193 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-193 Grype Diagnostic": {},
@@ -3958,7 +3637,6 @@
     },
     "CWE-369 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-369 Grype Diagnostic": {},
@@ -3968,7 +3646,6 @@
     },
     "CWE-681 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-681 Grype Diagnostic": {},
@@ -3978,7 +3655,6 @@
     },
     "CWE-839 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-839 Grype Diagnostic": {},
@@ -3988,7 +3664,6 @@
     },
     "CWE-1335 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1335 Grype Diagnostic": {},
@@ -3998,7 +3673,6 @@
     },
     "CWE-1339 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1339 Grype Diagnostic": {},
@@ -4008,7 +3682,6 @@
     },
     "CWE-1389 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1389 Grype Diagnostic": {},
@@ -4018,7 +3691,6 @@
     },
     "CWE-276 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-276 Grype Diagnostic": {},
@@ -4028,7 +3700,6 @@
     },
     "CWE-277 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-277 Grype Diagnostic": {},
@@ -4038,7 +3709,6 @@
     },
     "CWE-278 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-278 Grype Diagnostic": {},
@@ -4048,7 +3718,6 @@
     },
     "CWE-279 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-279 Grype Diagnostic": {},
@@ -4058,7 +3727,6 @@
     },
     "CWE-280 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-280 Grype Diagnostic": {},
@@ -4068,7 +3736,6 @@
     },
     "CWE-281 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-281 Grype Diagnostic": {},
@@ -4078,7 +3745,6 @@
     },
     "CWE-618 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-618 Grype Diagnostic": {},
@@ -4088,7 +3754,6 @@
     },
     "CWE-766 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-766 Grype Diagnostic": {},
@@ -4098,7 +3763,6 @@
     },
     "CWE-767 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-767 Grype Diagnostic": {},
@@ -4108,7 +3772,6 @@
     },
     "CWE-466 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-466 Grype Diagnostic": {},
@@ -4118,7 +3781,6 @@
     },
     "CWE-468 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-468 Grype Diagnostic": {},
@@ -4128,7 +3790,6 @@
     },
     "CWE-469 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-469 Grype Diagnostic": {},
@@ -4138,7 +3799,6 @@
     },
     "CWE-476 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-476 Grype Diagnostic": {},
@@ -4148,7 +3808,6 @@
     },
     "CWE-587 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-587 Grype Diagnostic": {},
@@ -4158,7 +3817,6 @@
     },
     "CWE-763 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-763 Grype Diagnostic": {},
@@ -4168,7 +3826,6 @@
     },
     "CWE-822 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-822 Grype Diagnostic": {},
@@ -4178,7 +3835,6 @@
     },
     "CWE-823 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-823 Grype Diagnostic": {},
@@ -4188,7 +3844,6 @@
     },
     "CWE-824 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-824 Grype Diagnostic": {},
@@ -4198,7 +3853,6 @@
     },
     "CWE-825 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-825 Grype Diagnostic": {},
@@ -4208,7 +3862,6 @@
     },
     "CWE-243 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-243 Grype Diagnostic": {},
@@ -4218,7 +3871,6 @@
     },
     "CWE-250 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-250 Grype Diagnostic": {},
@@ -4228,7 +3880,6 @@
     },
     "CWE-266 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-266 Grype Diagnostic": {},
@@ -4238,7 +3889,6 @@
     },
     "CWE-267 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-267 Grype Diagnostic": {},
@@ -4248,7 +3898,6 @@
     },
     "CWE-268 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-268 Grype Diagnostic": {},
@@ -4258,7 +3907,6 @@
     },
     "CWE-270 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-270 Grype Diagnostic": {},
@@ -4268,7 +3916,6 @@
     },
     "CWE-272 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-272 Grype Diagnostic": {},
@@ -4278,7 +3925,6 @@
     },
     "CWE-273 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-273 Grype Diagnostic": {},
@@ -4288,7 +3934,6 @@
     },
     "CWE-274 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-274 Grype Diagnostic": {},
@@ -4298,7 +3943,6 @@
     },
     "CWE-501 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-501 Grype Diagnostic": {},
@@ -4308,7 +3952,6 @@
     },
     "CWE-580 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-580 Grype Diagnostic": {},
@@ -4318,7 +3961,6 @@
     },
     "CWE-648 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-648 Grype Diagnostic": {},
@@ -4328,7 +3970,6 @@
     },
     "CWE-341 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-341 Grype Diagnostic": {},
@@ -4338,7 +3979,6 @@
     },
     "CWE-342 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-342 Grype Diagnostic": {},
@@ -4348,7 +3988,6 @@
     },
     "CWE-343 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-343 Grype Diagnostic": {},
@@ -4358,7 +3997,6 @@
     },
     "CWE-344 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-344 Grype Diagnostic": {},
@@ -4368,7 +4006,6 @@
     },
     "CWE-1241 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1241 Grype Diagnostic": {},
@@ -4378,7 +4015,6 @@
     },
     "CWE-412 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-412 Grype Diagnostic": {},
@@ -4388,7 +4024,6 @@
     },
     "CWE-413 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-413 Grype Diagnostic": {},
@@ -4398,7 +4033,6 @@
     },
     "CWE-414 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-414 Grype Diagnostic": {},
@@ -4408,7 +4042,6 @@
     },
     "CWE-609 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-609 Grype Diagnostic": {},
@@ -4418,7 +4051,6 @@
     },
     "CWE-764 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-764 Grype Diagnostic": {},
@@ -4428,7 +4060,6 @@
     },
     "CWE-765 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-765 Grype Diagnostic": {},
@@ -4438,7 +4069,6 @@
     },
     "CWE-832 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-832 Grype Diagnostic": {},
@@ -4448,7 +4078,6 @@
     },
     "CWE-833 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-833 Grype Diagnostic": {},
@@ -4458,7 +4087,6 @@
     },
     "CWE-73 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-73 Grype Diagnostic": {},
@@ -4468,7 +4096,6 @@
     },
     "CWE-403 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-403 Grype Diagnostic": {},
@@ -4478,7 +4105,6 @@
     },
     "CWE-410 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-410 Grype Diagnostic": {},
@@ -4488,7 +4114,6 @@
     },
     "CWE-470 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-470 Grype Diagnostic": {},
@@ -4498,7 +4123,6 @@
     },
     "CWE-502 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-502 Grype Diagnostic": {},
@@ -4508,7 +4132,6 @@
     },
     "CWE-619 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-619 Grype Diagnostic": {},
@@ -4518,7 +4141,6 @@
     },
     "CWE-771 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-771 Grype Diagnostic": {},
@@ -4528,7 +4150,6 @@
     },
     "CWE-772 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-772 Grype Diagnostic": {},
@@ -4538,7 +4159,6 @@
     },
     "CWE-908 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-908 Grype Diagnostic": {},
@@ -4548,7 +4168,6 @@
     },
     "CWE-909 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-909 Grype Diagnostic": {},
@@ -4558,7 +4177,6 @@
     },
     "CWE-910 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-910 Grype Diagnostic": {},
@@ -4568,7 +4186,6 @@
     },
     "CWE-911 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-911 Grype Diagnostic": {},
@@ -4578,7 +4195,6 @@
     },
     "CWE-914 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-914 Grype Diagnostic": {},
@@ -4588,7 +4204,6 @@
     },
     "CWE-915 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-915 Grype Diagnostic": {},
@@ -4598,7 +4213,6 @@
     },
     "CWE-920 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-920 Grype Diagnostic": {},
@@ -4608,7 +4222,6 @@
     },
     "CWE-15 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-15 Grype Diagnostic": {},
@@ -4618,7 +4231,6 @@
     },
     "CWE-372 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-372 Grype Diagnostic": {},
@@ -4628,7 +4240,6 @@
     },
     "CWE-374 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-374 Grype Diagnostic": {},
@@ -4638,7 +4249,6 @@
     },
     "CWE-375 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-375 Grype Diagnostic": {},
@@ -4648,7 +4258,6 @@
     },
     "CWE-1265 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1265 Grype Diagnostic": {},
@@ -4658,7 +4267,6 @@
     },
     "CWE-134 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-134 Grype Diagnostic": {},
@@ -4668,7 +4276,6 @@
     },
     "CWE-135 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-135 Grype Diagnostic": {},
@@ -4678,7 +4285,6 @@
     },
     "CWE-843 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-843 Grype Diagnostic": {},
@@ -4688,7 +4294,6 @@
     },
     "CWE-356 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-356 Grype Diagnostic": {},
@@ -4698,7 +4303,6 @@
     },
     "CWE-357 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-357 Grype Diagnostic": {},
@@ -4708,7 +4312,6 @@
     },
     "CWE-447 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-447 Grype Diagnostic": {},
@@ -4718,7 +4321,6 @@
     },
     "CWE-448 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-448 Grype Diagnostic": {},
@@ -4728,7 +4330,6 @@
     },
     "CWE-449 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-449 Grype Diagnostic": {},
@@ -4738,7 +4339,6 @@
     },
     "CWE-1007 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1007 Grype Diagnostic": {},
@@ -4748,7 +4348,6 @@
     },
     "CWE-1021 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-1021 Grype Diagnostic": {},
@@ -4758,7 +4357,6 @@
     },
     "CWE-488 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-488 Grype Diagnostic": {},
@@ -4768,7 +4366,6 @@
     },
     "CWE-613 Measure": {
       "positive": false,
-      "utility_function": "pique.evaluation.DefaultUtility",
       "description": "",
       "children": {
         "CWE-613 Grype Diagnostic": {},

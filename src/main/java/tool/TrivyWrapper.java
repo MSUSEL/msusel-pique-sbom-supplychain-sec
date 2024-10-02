@@ -83,7 +83,7 @@ public class TrivyWrapper extends Tool implements ITool  {
 		String[] cmd = {"trivy",
 				"sbom",
 				"--format", "json",
-				"--quiet",
+				//"--quiet",
 				"--output",tempResults.toPath().toAbsolutePath().toString(), // output path
 				projectLocation.toAbsolutePath().toString()}; // product under analysis path
 		LOGGER.info(Arrays.toString(cmd));

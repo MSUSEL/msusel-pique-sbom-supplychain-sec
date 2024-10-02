@@ -54,3 +54,4 @@ src/main/resources/sbomqs
 # ignore .env files
 *.env
 /input/projects/sourceCode/
+/out/resuts with initial benchmark repo/

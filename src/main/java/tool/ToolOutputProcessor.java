@@ -77,15 +77,17 @@ public class ToolOutputProcessor implements IOutputProcessor<RelevantVulnerabili
         String toolName = vulnerabilityService.getToolName();
 
         for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
-            // todo fix so it gets all CWEs
+            // TODO fix so it gets all CWEs
             Diagnostic diag = diagnostics.get(relevantVulnerabilityData.getCwe().get(0) + toolName);
             if (diag == null) {
                 diag = diagnostics.get("CWE-other" + toolName);
                 LOGGER.warn("CVE with CWE outside of CWE-699 found.");
             }
+            // TODO add package information somewhere around here
             Finding finding = new Finding("", 0, 0, relevantVulnerabilityData.getSeverity());
             finding.setName(relevantVulnerabilityData.getCve());
             diag.setChild(finding);
+            LOGGER.info("Added finding: {} to diagnostic: {}", finding.getName(), diag.getName());
         }
     }
 }

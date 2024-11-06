@@ -156,6 +156,8 @@ public class helperFunctions {
 		QualityModelImport qmImport = new QualityModelImport(blankqmFilePath);
         QualityModel qmDescription = qmImport.importQualityModel();
 
+		//TODO change this to use SBOMDiagnostic looks like I may need to copy a bunch of code from PIQUE core
+
         Map<String, Diagnostic> diagnostics = new HashMap<>();
         
         // for each diagnostic in the model, if it is associated with this tool, 

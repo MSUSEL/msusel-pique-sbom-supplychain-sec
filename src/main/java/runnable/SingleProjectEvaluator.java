@@ -57,8 +57,8 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
     @Getter @Setter
     private String propertiesLocation = "src/main/resources/pique-properties.properties";
 
-    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory) {
-        init(sbomDirectory, sourceCodeDirectory);
+    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory, String genTool) {
+        init(sbomDirectory, sourceCodeDirectory, genTool);
     }
 
     /**
@@ -72,7 +72,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
      * @param sbomDirectory The directory where the generated SBOMs are stored.
      * @param sourceCodeDirectory The directory containing the source code projects to analyze.
      */
-    public void init(String sbomDirectory, String sourceCodeDirectory){
+    public void init(String sbomDirectory, String sourceCodeDirectory, String genTool){
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
@@ -101,13 +101,29 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             }
         }
 
-        TrivySBOMGenerationWrapper trivySBOMGenerator = new TrivySBOMGenerationWrapper();
+        IGenerationTool sbomGenerator;
+        if (genTool.contains("syft")) {
+            sbomGenerator = new SyftSBOMGenerationWrapper();
+        }
+        else if (genTool.contains("trivy")) {
+            sbomGenerator = new TrivySBOMGenerationWrapper();
+        }
+        else if (genTool.contains("cdxgen")) {
+            sbomGenerator = new CdxgenSBOMGenerationWrapper();
+        }
+        else {
+            sbomGenerator = null;
+        }
 
-        // Generate SBOMs for each project in the source code directory
+        // Generate SBOMs for each project in the source code directory, if one wasn't specified skip generation
         for (Path projectToGenerateSbomFor : sourceCodeRoots){
+            if (sbomGenerator == null) {
+                LOGGER.warn("No SBOM generation tool specified. Skipping generation of SBOMs.");
+                break;
+            }
             LOGGER.info("Generating SBOM for: {}", projectToGenerateSbomFor.toString());
             System.out.println("Generating SBOM for: " + projectToGenerateSbomFor);
-            //trivySBOMGenerator.generate(projectToGenerateSbomFor);
+            sbomGenerator.generate(projectToGenerateSbomFor, genTool);
         }
 
         // now that SBOMs have been generated from any present source code we proceed as a normal pique run

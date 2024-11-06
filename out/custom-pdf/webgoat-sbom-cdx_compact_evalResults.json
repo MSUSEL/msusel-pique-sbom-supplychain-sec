@@ -159,7 +159,7 @@
       },
       "Category CWE-840": {
         "name": "Category CWE-840",
-        "value": 0.09751000725351633149596213,
+        "value": 0.125875,
         "description": "",
         "weights": {
           "CWE-639 Measure": 0.125,
@@ -474,7 +474,7 @@
       },
       "Category CWE-other": {
         "name": "Category CWE-other",
-        "value": 0.2032852845429346735961983,
+        "value": 0.7047958739082309908328140,
         "description": "",
         "weights": {
           "CWE-other Measure": 1.0
@@ -669,7 +669,7 @@
       },
       "Category CWE-1219": {
         "name": "Category CWE-1219",
-        "value": 0.223,
+        "value": 0.2012716958403633099487223,
         "description": "",
         "weights": {
           "CWE-379 Measure": 0.1111111111111111111111111,
@@ -691,7 +691,7 @@
       },
       "Category CWE-399": {
         "name": "Category CWE-399",
-        "value": 0.1258909502192813248394994,
+        "value": 0.1389543607237306333592204,
         "description": "",
         "weights": {
           "CWE-920 Measure": 0.04761904761904761904761905,
@@ -774,7 +774,7 @@
       },
       "Category CWE-310": {
         "name": "Category CWE-310",
-        "value": 0.07719068649320807149400692,
+        "value": 0.08425,
         "description": "",
         "weights": {
           "CWE-1240 Measure": 0.08333333333333333333333333,
@@ -979,7 +979,7 @@
       },
       "Category CWE-1214": {
         "name": "Category CWE-1214",
-        "value": 0.2169443433654447869375077,
+        "value": 0.2315384615384615384615385,
         "description": "",
         "weights": {
           "CWE-349 Measure": 0.07692307692307692307692308,
@@ -1007,7 +1007,7 @@
     "quality_aspects": {
       "Authorization": {
         "name": "Authorization",
-        "value": 0.0705522047186631153881526870449805783472348712289016,
+        "value": 0.0834775409123869554890841314054982159228490265084416,
         "description": "Individuals, entities, or processes only have access to data and processes they should.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1062,7 +1062,7 @@
       },
       "Authenticity": {
         "name": "Authenticity",
-        "value": 0.0705522047186631153881526870449805783472348712289016,
+        "value": 0.0834775409123869554890841314054982159228490265084416,
         "description": "Identity of individuals, entities, or processes is verified correctly.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1117,7 +1117,7 @@
       },
       "Availability": {
         "name": "Availability",
-        "value": 0.0705522047186631153881526870449805783472348712289016,
+        "value": 0.0834775409123869554890841314054982159228490265084416,
         "description": "Data and processes should be available at all times when deemed necessary.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1172,7 +1172,7 @@
       },
       "Confidentiality": {
         "name": "Confidentiality",
-        "value": 0.0705522047186631153881526870449805783472348712289016,
+        "value": 0.0834775409123869554890841314054982159228490265084416,
         "description": "Information is not made available or disclosed to unauthorized individuals, entities, or processes.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1227,7 +1227,7 @@
       },
       "Accountability": {
         "name": "Accountability",
-        "value": 0.0705522047186631153881526870449805783472348712289016,
+        "value": 0.0834775409123869554890841314054982159228490265084416,
         "description": "Degree to which the actions of an entity can be traced uniquely to the entity.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1282,7 +1282,7 @@
       },
       "Non-repudiation": {
         "name": "Non-repudiation",
-        "value": 0.0705522047186631153881526870449805783472348712289016,
+        "value": 0.0834775409123869554890841314054982159228490265084416,
         "description": "Individuals, entities, or processes may not deny any actions they performed.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1337,7 +1337,7 @@
       },
       "Integrity": {
         "name": "Integrity",
-        "value": 0.0705522047186631153881526870449805783472348712289016,
+        "value": 0.0834775409123869554890841314054982159228490265084416,
         "description": "Data or processes cannot be modified in an unauthorized way.",
         "weights": {
           "Category CWE-1211": 0.02380952380952380952380952,
@@ -1394,7 +1394,7 @@
     "tqi": {
       "SBOM Content Quality": {
         "name": "SBOM Content Quality",
-        "value": 0.07055220471866311538815266,
+        "value": 0.08347754091238695548908409,
         "description": "A measure of the security quality of SBOM components from stakeholders perspective.",
         "weights": {
           "Authorization": 0.1428571428571428571428571,
@@ -4604,7 +4604,7 @@
     "CWE-772 Measure": {
       "positive": false,
       "name": "CWE-772 Measure",
-      "value": 0.95258832137843386911816197,
+      "value": 1.0,
       "description": "",
       "weights": {
         "CWE-772 Trivy Diagnostic": 0.5,
@@ -6251,7 +6251,7 @@
     "CWE-other Measure": {
       "positive": false,
       "name": "CWE-other Measure",
-      "value": 0.20328528454293467359619830,
+      "value": 0.70479587390823099083281402,
       "description": "",
       "weights": {
         "CWE-other Trivy Diagnostic": 0.5,
@@ -7034,7 +7034,7 @@
     "CWE-22 Measure": {
       "positive": false,
       "name": "CWE-22 Measure",
-      "value": 1.0,
+      "value": 0.80444526256326978953850059,
       "description": "",
       "weights": {
         "CWE-22 Trivy Diagnostic": 0.5,
@@ -10328,7 +10328,7 @@
     "CWE-347 Measure": {
       "positive": false,
       "name": "CWE-347 Measure",
-      "value": 0.91528823791849685792808309,
+      "value": 1.0,
       "description": "",
       "weights": {
         "CWE-347 Grype Diagnostic": 0.5,
@@ -11273,7 +11273,7 @@
     "CWE-770 Measure": {
       "positive": false,
       "name": "CWE-770 Measure",
-      "value": 0.77308005802813065196769707,
+      "value": 1.0,
       "description": "",
       "weights": {
         "CWE-770 Grype Diagnostic": 0.5,
@@ -12245,7 +12245,7 @@
     "CWE-354 Measure": {
       "positive": false,
       "name": "CWE-354 Measure",
-      "value": 0.89498822583228537225951699,
+      "value": 1.0,
       "description": "",
       "weights": {
         "CWE-354 Grype Diagnostic": 0.5,
@@ -13029,7 +13029,7 @@
     "CWE-252 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-252 Trivy Diagnostic",
-      "value": 3.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-252",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -13094,7 +13094,7 @@
     "CWE-601 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-601 Trivy Diagnostic",
-      "value": 3.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-601",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -13562,7 +13562,7 @@
     "CWE-unknown Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-unknown Trivy Diagnostic",
-      "value": 39.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-Other",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -13939,7 +13939,7 @@
     "CWE-other Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-other Trivy Diagnostic",
-      "value": 54.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-Other",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -13978,7 +13978,7 @@
     "CWE-466 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-466 Trivy Diagnostic",
-      "value": 3.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-466",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -14290,7 +14290,7 @@
     "CWE-354 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-354 Trivy Diagnostic",
-      "value": 3.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-354",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -14953,7 +14953,7 @@
     "CWE-190 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-190 Trivy Diagnostic",
-      "value": 1.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-190",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -15291,7 +15291,7 @@
     "CWE-770 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-770 Trivy Diagnostic",
-      "value": 6.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-770",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -15928,7 +15928,7 @@
     "CWE-347 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-347 Trivy Diagnostic",
-      "value": 3.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-347",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -16110,7 +16110,7 @@
     "CWE-125 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-125 Trivy Diagnostic",
-      "value": 1.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-125",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -16877,7 +16877,7 @@
     "CWE-22 Grype Diagnostic": {
       "toolName": "grype",
       "name": "CWE-22 Grype Diagnostic",
-      "value": 0.0,
+      "value": 6.0,
       "description": "CVE findings of type CWE-22",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -17007,7 +17007,7 @@
     "CWE-248 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-248 Trivy Diagnostic",
-      "value": 3.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-248",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -18372,7 +18372,7 @@
     "CWE-476 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-476 Trivy Diagnostic",
-      "value": 6.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-476",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -19802,7 +19802,7 @@
     "CWE-208 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-208 Trivy Diagnostic",
-      "value": 3.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-208",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -21167,7 +21167,7 @@
     "CWE-617 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-617 Trivy Diagnostic",
-      "value": 6.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-617",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -21687,7 +21687,7 @@
     "CWE-787 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-787 Trivy Diagnostic",
-      "value": 14.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-787",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",
@@ -22740,7 +22740,7 @@
     "CWE-772 Trivy Diagnostic": {
       "toolName": "trivy",
       "name": "CWE-772 Trivy Diagnostic",
-      "value": 1.0,
+      "value": 0.0,
       "description": "CVE findings of type CWE-772",
       "weights": {},
       "eval_strategy": "pique.evaluation.DefaultDiagnosticEvaluator",

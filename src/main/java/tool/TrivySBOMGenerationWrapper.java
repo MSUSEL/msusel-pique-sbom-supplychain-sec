@@ -14,7 +14,7 @@ import utilities.helperFunctions;
  * This class simplifies the process of SBOM generation by encapsulating the command line execution of Trivy,
  * handling of output paths, and logging of activities and errors.
  */
-public class TrivySBOMGenerationWrapper {
+public class TrivySBOMGenerationWrapper implements IGenerationTool {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
 
     /**
@@ -32,31 +32,54 @@ public class TrivySBOMGenerationWrapper {
      *
      * @param projectLocation The file path of the project directory for which to generate the SBOM.
      */
-    public void generate(Path projectLocation) {
+    public void generate(Path projectLocation, String genTool) {
         LOGGER.info("Trivy Generation --- Generating SBOM for {}", projectLocation.toString());
 
-        File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-" + projectLocation.getFileName() + ".json");
+        File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-trivy-cdx-" + projectLocation.getFileName() + ".json");
         String spec = "cyclonedx"; // output format
 
         // command for running Trivy SBOM generation on the command line
         // trivy fs --format {spec} --output {output_name.json} {file_system}
-        String[] cmd = {"trivy",
-                "fs", // arg to indicate file system generation
-                "--format", spec,
-                "--output", generatedSbom.toPath().toAbsolutePath().toString(), // output path
-                projectLocation.toAbsolutePath().toString()}; // product under analysis path
-        LOGGER.info(Arrays.toString(cmd));
 
-        // runs the command built above and captures the output, trivy itself will handle the file saving
-        try {
-            helperFunctions.getOutputFromProgram(cmd,LOGGER);
-            LOGGER.info("Exporting SBOM to: {}", generatedSbom.toPath());
-            System.out.println("Exporting SBOM to: " + generatedSbom.toPath());
-        } catch (IOException e) {
-            LOGGER.error("Failed to run Trivy for SBOM generation");
-            LOGGER.error(e.toString());
-            e.printStackTrace();
+        // TODO messy if statement but can improve later
+        if (genTool.contains("fs")) {
+            String[] cmd = {"trivy",
+                    "fs", // arg to indicate file system generation
+                    "--format", spec,
+                    "--output", generatedSbom.toPath().toAbsolutePath().toString(), // output path
+                    projectLocation.toAbsolutePath().toString()}; // product under analysis path
+            LOGGER.info(Arrays.toString(cmd));
+            // runs the command built above and captures the output, trivy itself will handle the file saving
+            try {
+                helperFunctions.getOutputFromProgram(cmd,LOGGER);
+                LOGGER.info("Exporting SBOM to: {}", generatedSbom.toPath());
+                System.out.println("Exporting SBOM to: " + generatedSbom.toPath());
+            } catch (IOException e) {
+                LOGGER.error("Failed to run Trivy for SBOM generation");
+                LOGGER.error(e.toString());
+                e.printStackTrace();
+            }
         }
+        // TODO: figure out how to allow user to specify images right now this is just a placeholder
+        else if (genTool.contains("image")) {
+            String[] cmd = {"trivy",
+                    "image", // arg to indicate image generation
+                    "--format", spec,
+                    "--output", generatedSbom.toPath().toAbsolutePath().toString(), // output path
+                    projectLocation.toAbsolutePath().toString()}; // product under analysis path
+            LOGGER.info(Arrays.toString(cmd));
+            // runs the command built above and captures the output, trivy itself will handle the file saving
+            try {
+                helperFunctions.getOutputFromProgram(cmd,LOGGER);
+                LOGGER.info("Exporting SBOM to: {}", generatedSbom.toPath());
+                System.out.println("Exporting SBOM to: " + generatedSbom.toPath());
+            } catch (IOException e) {
+                LOGGER.error("Failed to run Trivy for SBOM generation");
+                LOGGER.error(e.toString());
+                e.printStackTrace();
+            }
+        }
+
     }
 
 

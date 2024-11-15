@@ -24,6 +24,7 @@ package runnable;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Path;
@@ -34,11 +35,15 @@ import java.util.stream.Stream;
 
 import lombok.Getter;
 import lombok.Setter;
+import model.SBOMQualityModelImport;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pique.analysis.ITool;
 import pique.evaluation.Project;
+import pique.model.*;
 import pique.runnable.ASingleProjectEvaluator;
 import pique.utility.PiqueProperties;
 import presentation.PiqueData;
@@ -57,8 +62,8 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
     @Getter @Setter
     private String propertiesLocation = "src/main/resources/pique-properties.properties";
 
-    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory, String genTool) {
-        init(sbomDirectory, sourceCodeDirectory, genTool);
+    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory, String genTool, String parameters) {
+        init(sbomDirectory, sourceCodeDirectory, genTool, parameters);
     }
 
     /**
@@ -72,7 +77,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
      * @param sbomDirectory The directory where the generated SBOMs are stored.
      * @param sourceCodeDirectory The directory containing the source code projects to analyze.
      */
-    public void init(String sbomDirectory, String sourceCodeDirectory, String genTool){
+    public void init(String sbomDirectory, String sourceCodeDirectory, String genTool, String parameters) {
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
@@ -157,7 +162,39 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             LOGGER.info("output: {}", outputPath.getFileName());
             System.out.println("output: " + outputPath.getFileName());
             System.out.println("exporting compact: " + project.exportToJson(resultsDir, true));
+
+            // TODO: Remove later (only here for experimenting with the pdf utility function)
+            Pair<String, String> name = Pair.of("projectName", project.getName());
+            String fileName = project.getName() + "_compact_evalResults_" + parameters;
+            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
+            qmExport.exportToJson(fileName, resultsDir);
         }
     }
 
+    @Override
+    public Path runEvaluator(Path projectDir, Path resultsDir, Path qmLocation, Set<ITool> tools) {
+        // Initialize data structures
+        initialize(projectDir, resultsDir, qmLocation);
+        SBOMQualityModelImport qmImport = new SBOMQualityModelImport(qmLocation);
+        QualityModel qualityModel = qmImport.importQualityModel();
+        project = new Project(FilenameUtils.getBaseName(projectDir.getFileName().toString()), projectDir, qualityModel);
+
+        // Validate State
+        // TODO: validate more objects such as if the quality model has thresholds and weights, are there expected diagnostics, etc
+        validatePreEvaluationState(project);
+
+        // Run the static analysis tools process
+        Map<String, Diagnostic> allDiagnostics = new HashMap<>();
+        tools.forEach(tool -> {
+            allDiagnostics.putAll(runTool(projectDir, tool));
+        });
+
+        // Apply tool results to Project object
+        project.updateDiagnosticsWithFindings(allDiagnostics);
+
+        BigDecimal tqiValue = project.evaluateTqi();
+
+        // Create a file of the results and return its path
+        return project.exportToJson(resultsDir);
+    }
 }

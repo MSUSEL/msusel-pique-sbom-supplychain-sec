@@ -25,6 +25,7 @@ package model;
 
 import com.google.gson.annotations.Expose;
 import lombok.Getter;
+import lombok.Setter;
 import pique.evaluation.IEvaluator;
 import pique.evaluation.INormalizer;
 import pique.evaluation.IUtilityFunction;
@@ -79,5 +80,9 @@ public class SbomDiagnostic extends Diagnostic {
 
         return getName().equals(otherDiagnostic.getName())
                 && getToolName().equals(otherDiagnostic.getToolName());
+    }
+
+    public void updatePackages(String packageName, String packageVersion) {
+        this.packages.add(packageName + ":" + packageVersion);
     }
 }

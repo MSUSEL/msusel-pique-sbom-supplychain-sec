@@ -23,6 +23,7 @@
 
 package tool;
 
+import model.SbomDiagnostic;
 import org.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,14 +79,15 @@ public class ToolOutputProcessor implements IOutputProcessor<RelevantVulnerabili
 
         for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
             // TODO fix so it gets all CWEs
-            Diagnostic diag = diagnostics.get(relevantVulnerabilityData.getCwe().get(0) + toolName);
+            SbomDiagnostic diag = (SbomDiagnostic) diagnostics.get(relevantVulnerabilityData.getCwe().get(0) + toolName);
             if (diag == null) {
-                diag = diagnostics.get("CWE-other" + toolName);
+                diag = (SbomDiagnostic) diagnostics.get("CWE-other" + toolName);
                 LOGGER.warn("CVE with CWE outside of CWE-699 found.");
             }
             // TODO add package information somewhere around here
             Finding finding = new Finding("", 0, 0, relevantVulnerabilityData.getSeverity());
             finding.setName(relevantVulnerabilityData.getCve());
+            diag.updatePackages(relevantVulnerabilityData.getPackageName(), relevantVulnerabilityData.getPackageVersion());
             diag.setChild(finding);
             LOGGER.info("Added finding: {} to diagnostic: {}", finding.getName(), diag.getName());
         }

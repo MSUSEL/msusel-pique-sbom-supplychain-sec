@@ -31,6 +31,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import model.SBOMQualityModelImport;
+import model.SbomDiagnostic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -153,17 +155,17 @@ public class helperFunctions {
 		// load the qm structure
 		Properties prop = PiqueProperties.getProperties();
 		Path blankqmFilePath = Paths.get(prop.getProperty("blankqm.filepath"));
-		QualityModelImport qmImport = new QualityModelImport(blankqmFilePath);
-        QualityModel qmDescription = qmImport.importQualityModel();
 
-		//TODO change this to use SBOMDiagnostic looks like I may need to copy a bunch of code from PIQUE core
+		// Custom quality model import so that we can use SBOMDiagnostic
+		SBOMQualityModelImport qmImport = new SBOMQualityModelImport(blankqmFilePath);
+        QualityModel qmDescription = qmImport.importQualityModel();
 
         Map<String, Diagnostic> diagnostics = new HashMap<>();
         
         // for each diagnostic in the model, if it is associated with this tool, 
         // add it to the list of diagnostics
         for (ModelNode x : qmDescription.getDiagnostics().values()) {
-        	Diagnostic diag = (Diagnostic) x;
+			Diagnostic diag = (SbomDiagnostic) x;
         	if (diag.getToolName().equals(toolName)) {
         		diagnostics.put(diag.getName(),diag);
         	}

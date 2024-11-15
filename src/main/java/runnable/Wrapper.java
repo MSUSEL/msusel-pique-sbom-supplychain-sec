@@ -72,7 +72,7 @@ public class Wrapper {
                 // get path to input projects
                 String sbomInputPath = prop.getProperty("project.sbom-input");
                 String sourceCodeInputPath = prop.getProperty("project.source-code-input");
-                new SingleProjectEvaluator(sbomInputPath, sourceCodeInputPath, genTool);
+                new SingleProjectEvaluator(sbomInputPath, sourceCodeInputPath, genTool, "");
                 System.exit(0);
             }
             else {

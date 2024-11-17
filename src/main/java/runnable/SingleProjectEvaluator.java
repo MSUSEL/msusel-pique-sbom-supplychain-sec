@@ -124,11 +124,12 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         // Generate SBOMs for each project in the source code directory, if one wasn't specified skip generation
         for (Path projectToGenerateSbomFor : sourceCodeRoots){
             if (sbomGenerator == null) {
+                System.out.println("No SBOM generation tool specified. Skipping generation of SBOMs.");
                 LOGGER.warn("No SBOM generation tool specified. Skipping generation of SBOMs.");
                 break;
             }
-            LOGGER.info("Generating SBOM for: {}", projectToGenerateSbomFor.toString());
-            System.out.println("Generating SBOM for: " + projectToGenerateSbomFor);
+            LOGGER.info("Generating SBOM for: {}\nwith generation tool: {}", projectToGenerateSbomFor.toString(), genTool);
+            System.out.println("Generating SBOM for: " + projectToGenerateSbomFor + "\nwith generation tool: " + genTool);
             sbomGenerator.generate(projectToGenerateSbomFor, genTool);
         }
 

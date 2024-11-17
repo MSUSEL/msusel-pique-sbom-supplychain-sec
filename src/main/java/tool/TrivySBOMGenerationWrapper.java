@@ -2,9 +2,11 @@ package tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utilities.helperFunctions;
@@ -62,11 +64,24 @@ public class TrivySBOMGenerationWrapper implements IGenerationTool {
         }
         // TODO: figure out how to allow user to specify images right now this is just a placeholder
         else if (genTool.contains("image")) {
+            // open the txt file given with projectLocation and extract the image name:version as a string
+            String imageName = helperFunctions.getImageName(projectLocation);
+
+            if (imageName.isEmpty()) {
+                System.out.println("Failed to read image name from file: " + projectLocation);
+                System.out.println("Expected input format: text file containing a single docker image in the format name:tag");
+                System.out.println("Skipping generation");
+                LOGGER.error("Failed to read image name from file: {}", projectLocation);
+                LOGGER.error("Expected input format: text file containing a single docker image in the format name:tag");
+                LOGGER.error("Skipping generation");
+                return;
+            }
+
             String[] cmd = {"trivy",
                     "image", // arg to indicate image generation
                     "--format", spec,
                     "--output", generatedSbom.toPath().toAbsolutePath().toString(), // output path
-                    projectLocation.toAbsolutePath().toString()}; // product under analysis path
+                    imageName}; // product under analysis path
             LOGGER.info(Arrays.toString(cmd));
             // runs the command built above and captures the output, trivy itself will handle the file saving
             try {
@@ -81,6 +96,4 @@ public class TrivySBOMGenerationWrapper implements IGenerationTool {
         }
 
     }
-
-
 }

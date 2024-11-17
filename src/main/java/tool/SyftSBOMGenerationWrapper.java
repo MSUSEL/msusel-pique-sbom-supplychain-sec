@@ -2,6 +2,7 @@ package tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 
@@ -53,8 +54,21 @@ public class SyftSBOMGenerationWrapper implements IGenerationTool {
             }
         }
         else if (genTool.contains("image")) {
+            // open the txt file given with projectLocation and extract the image name:version as a string
+            String imageName = helperFunctions.getImageName(projectLocation);
+
+            if (imageName.isEmpty()) {
+                System.out.println("Failed to read image name from file: " + projectLocation);
+                System.out.println("Expected input format: text file containing a single docker image in the format name:tag");
+                System.out.println("Skipping generation");
+                LOGGER.error("Failed to read image name from file: {}", projectLocation);
+                LOGGER.error("Expected input format: text file containing a single docker image in the format name:tag");
+                LOGGER.error("Skipping generation");
+                return;
+            }
+
             String[] cmd = {"syft",
-                    projectLocation.toAbsolutePath().toString(),
+                    imageName,
                     "--file", generatedSbom.toPath().toAbsolutePath().toString(),
                     "-o", spec};
             LOGGER.info(Arrays.toString(cmd));

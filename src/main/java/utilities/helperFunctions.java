@@ -31,6 +31,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import model.SBOMQualityModelImport;
 import model.SbomDiagnostic;
 import org.slf4j.Logger;
@@ -172,6 +177,57 @@ public class helperFunctions {
         }
        
 		return diagnostics;
+	}
+
+	/***
+	 * COPIED from PIQUE-cloud-dockerfile
+	 *
+	 * @param projectsRepository
+	 *              import a path to a file that contains meta-data information about which image to download
+	 * @return
+	 *              awkward, but return a set of Paths, where each Path is a string of format "imageName:version"
+	 *              This is not a valid Path on disk, it is a workaround because of PIQUE core's heavy reliance
+	 *              on things existing on disk before analysis.
+	 */
+	public static Set<Path> getDockerImagesToAnalyze(Path projectsRepository){
+		Set<Path> images = new HashSet<>();
+		try {
+			JSONObject jsonResults = new JSONObject(readFileContent(projectsRepository));
+			JSONArray perProject = jsonResults.getJSONArray("images");
+
+			for (int i = 0; i < perProject.length(); i++){
+				JSONObject obj = perProject.getJSONObject(i);
+				//get versions
+				JSONArray jsonVersions = obj.getJSONArray("versions");
+				for (int j = 0; j < jsonVersions.length(); j++){
+					images.add(Paths.get(obj.getString("name") + ":" + jsonVersions.getString(j)));
+				}
+			}
+		}catch(IOException e){
+			LOGGER.info("No image data to read in");
+
+		}catch (JSONException e) {
+			LOGGER.info("Improper JSON format for docker projects in file " + projectsRepository.toString());
+		}
+		return images;
+	}
+
+	public static String getImageName(Path projectLocation) {
+		try {
+			String imageName = Files.readString(projectLocation);
+
+			return imageName;
+		}
+		catch (IOException e) {
+			System.out.println("Failed to read image name from file: " + projectLocation);
+			System.out.println("Expected input format: text file containing a single docker image in the format name:tag");
+			LOGGER.error("Failed to read image name from file: {}", projectLocation);
+			LOGGER.error("Expected input format: text file containing a single docker image in the format name:tag");
+			LOGGER.error(e.toString());
+			e.printStackTrace();
+		}
+
+		return "";
 	}
 
 	/**

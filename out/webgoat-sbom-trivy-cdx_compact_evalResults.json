@@ -12565,7 +12565,11 @@
       }
     },
     "CWE-125 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "bctls-jdk18on:1.71",
+        "bcprov-jdk18on:1.71",
+        "binutils:2.38-4ubuntu2.3"
+      ],
       "toolName": "grype",
       "name": "CWE-125 Grype Diagnostic",
       "value": 4.0,
@@ -12999,7 +13003,9 @@
       }
     },
     "CWE-617 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "binutils:2.38-4ubuntu2.3"
+      ],
       "toolName": "grype",
       "name": "CWE-617 Grype Diagnostic",
       "value": 3.0,
@@ -13083,7 +13089,9 @@
       }
     },
     "CWE-252 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libssh-4:0.9.6-2ubuntu0.22.04.1"
+      ],
       "toolName": "trivy",
       "name": "CWE-252 Trivy Diagnostic",
       "value": 3.0,
@@ -13153,7 +13161,9 @@
       }
     },
     "CWE-601 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "wget:1.21.2-2ubuntu1"
+      ],
       "toolName": "trivy",
       "name": "CWE-601 Trivy Diagnostic",
       "value": 3.0,
@@ -13657,7 +13667,31 @@
       }
     },
     "CWE-unknown Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libsmartcols1:2.37.2-4ubuntu3",
+        "curl:7.81.0-1ubuntu1.14",
+        "tar:1.34+dfsg-1ubuntu0.1.22.04.1",
+        "libmount1:2.37.2-4ubuntu3",
+        "mount:2.37.2-4ubuntu3",
+        "libncurses6:6.3-2ubuntu0.1",
+        "ncurses-bin:6.3-2ubuntu0.1",
+        "bsdutils:1:2.37.2-4ubuntu3",
+        "libkrb5-3:1.19.2-2ubuntu0.3",
+        "libncursesw6:6.3-2ubuntu0.1",
+        "libtinfo6:6.3-2ubuntu0.1",
+        "libblkid1:2.37.2-4ubuntu3",
+        "libgssapi-krb5-2:1.19.2-2ubuntu0.3",
+        "libssl3:3.0.2-0ubuntu1.12",
+        "util-linux:2.37.2-4ubuntu3",
+        "libcurl4:7.81.0-1ubuntu1.14",
+        "libkrb5support0:1.19.2-2ubuntu0.3",
+        "openssl:3.0.2-0ubuntu1.12",
+        "ncurses-base:6.3-2ubuntu0.1",
+        "libk5crypto3:1.19.2-2ubuntu0.3",
+        "wget:1.21.2-2ubuntu1",
+        "libexpat1:2.4.7-1ubuntu0.2",
+        "libuuid1:2.37.2-4ubuntu3"
+      ],
       "toolName": "trivy",
       "name": "CWE-unknown Trivy Diagnostic",
       "value": 40.0,
@@ -13853,7 +13887,9 @@
       }
     },
     "CWE-208 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libgcrypt20:1.9.4-3ubuntu3"
+      ],
       "toolName": "grype",
       "name": "CWE-208 Grype Diagnostic",
       "value": 3.0,
@@ -13909,7 +13945,9 @@
       }
     },
     "CWE-770 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "binutils:2.38-4ubuntu2.3"
+      ],
       "toolName": "grype",
       "name": "CWE-770 Grype Diagnostic",
       "value": 2.0,
@@ -14063,7 +14101,43 @@
       }
     },
     "CWE-other Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libctf0:2.38-4ubuntu2.3",
+        "libgnutls30:3.7.3-4ubuntu1.3",
+        "libzstd1:1.4.8+dfsg-3build1",
+        "libncurses6:6.3-2ubuntu0.1",
+        "ncurses-bin:6.3-2ubuntu0.1",
+        "gcc-12-base:12.3.0-1ubuntu1~22.04",
+        "libsystemd0:249.11-0ubuntu3.11",
+        "login:1:4.8.1-2ubuntu2.1",
+        "libudev1:249.11-0ubuntu3.11",
+        "locales:2.35-0ubuntu3.4",
+        "binutils:2.38-4ubuntu2.3",
+        "libncursesw6:6.3-2ubuntu0.1",
+        "libstdc++6:12.3.0-1ubuntu1~22.04",
+        "libtinfo6:6.3-2ubuntu0.1",
+        "libssl3:3.0.2-0ubuntu1.12",
+        "libpcre3:2:8.39-13ubuntu0.22.04.1",
+        "openssl:3.0.2-0ubuntu1.12",
+        "libssh-4:0.9.6-2ubuntu0.22.04.1",
+        "libgcc-s1:12.3.0-1ubuntu1~22.04",
+        "libexpat1:2.4.7-1ubuntu0.2",
+        "passwd:1:4.8.1-2ubuntu2.1",
+        "curl:7.81.0-1ubuntu1.14",
+        "libpam-runtime:1.4.0-11ubuntu2.3",
+        "libpam-modules-bin:1.4.0-11ubuntu2.3",
+        "libc6:2.35-0ubuntu3.4",
+        "binutils-common:2.38-4ubuntu2.3",
+        "libctf-nobfd0:2.38-4ubuntu2.3",
+        "libbinutils:2.38-4ubuntu2.3",
+        "coreutils:8.32-4.1ubuntu1",
+        "libcurl4:7.81.0-1ubuntu1.14",
+        "ncurses-base:6.3-2ubuntu0.1",
+        "libpam-modules:1.4.0-11ubuntu2.3",
+        "libc-bin:2.35-0ubuntu3.4",
+        "binutils-x86-64-linux-gnu:2.38-4ubuntu2.3",
+        "libpam0g:1.4.0-11ubuntu2.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-other Trivy Diagnostic",
       "value": 54.0,
@@ -14105,7 +14179,11 @@
       }
     },
     "CWE-466 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libc6:2.35-0ubuntu3.4",
+        "libc-bin:2.35-0ubuntu3.4",
+        "locales:2.35-0ubuntu3.4"
+      ],
       "toolName": "trivy",
       "name": "CWE-466 Trivy Diagnostic",
       "value": 3.0,
@@ -14441,7 +14519,9 @@
       }
     },
     "CWE-354 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libssh-4:0.9.6-2ubuntu0.22.04.1"
+      ],
       "toolName": "trivy",
       "name": "CWE-354 Trivy Diagnostic",
       "value": 3.0,
@@ -15155,7 +15235,9 @@
       }
     },
     "CWE-190 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libpcre2-8-0:10.39-3ubuntu0.1"
+      ],
       "toolName": "trivy",
       "name": "CWE-190 Trivy Diagnostic",
       "value": 1.0,
@@ -15197,7 +15279,9 @@
       }
     },
     "CWE-476 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "binutils:2.38-4ubuntu2.3"
+      ],
       "toolName": "grype",
       "name": "CWE-476 Grype Diagnostic",
       "value": 1.0,
@@ -15281,7 +15365,11 @@
       }
     },
     "CWE-502 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "xstream:1.4.5",
+        "logback-classic:1.4.11",
+        "logback-core:1.4.11"
+      ],
       "toolName": "grype",
       "name": "CWE-502 Grype Diagnostic",
       "value": 3.0,
@@ -15435,7 +15523,9 @@
       }
     },
     "CWE-918 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "xstream:1.4.5"
+      ],
       "toolName": "grype",
       "name": "CWE-918 Grype Diagnostic",
       "value": 6.0,
@@ -15519,7 +15609,18 @@
       }
     },
     "CWE-770 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libctf0:2.38-4ubuntu2.3",
+        "libc6:2.35-0ubuntu3.4",
+        "binutils-common:2.38-4ubuntu2.3",
+        "libctf-nobfd0:2.38-4ubuntu2.3",
+        "libbinutils:2.38-4ubuntu2.3",
+        "libc-bin:2.35-0ubuntu3.4",
+        "locales:2.35-0ubuntu3.4",
+        "binutils:2.38-4ubuntu2.3",
+        "binutils-x86-64-linux-gnu:2.38-4ubuntu2.3",
+        "libnghttp2-14:1.43.0-1ubuntu0.1"
+      ],
       "toolName": "trivy",
       "name": "CWE-770 Trivy Diagnostic",
       "value": 6.0,
@@ -16079,7 +16180,9 @@
       }
     },
     "CWE-193 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libtasn1-6:4.18.0-4build1"
+      ],
       "toolName": "grype",
       "name": "CWE-193 Grype Diagnostic",
       "value": 1.0,
@@ -16205,7 +16308,9 @@
       }
     },
     "CWE-347 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libgnutls30:3.7.3-4ubuntu1.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-347 Trivy Diagnostic",
       "value": 3.0,
@@ -16261,7 +16366,9 @@
       }
     },
     "CWE-94 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "xstream:1.4.5"
+      ],
       "toolName": "grype",
       "name": "CWE-94 Grype Diagnostic",
       "value": 6.0,
@@ -16401,7 +16508,14 @@
       }
     },
     "CWE-125 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libctf0:2.38-4ubuntu2.3",
+        "binutils-common:2.38-4ubuntu2.3",
+        "libctf-nobfd0:2.38-4ubuntu2.3",
+        "libbinutils:2.38-4ubuntu2.3",
+        "binutils:2.38-4ubuntu2.3",
+        "binutils-x86-64-linux-gnu:2.38-4ubuntu2.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-125 Trivy Diagnostic",
       "value": 1.0,
@@ -17227,7 +17341,9 @@
       }
     },
     "CWE-22 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "spring-webmvc:6.0.13"
+      ],
       "toolName": "grype",
       "name": "CWE-22 Grype Diagnostic",
       "value": 6.0,
@@ -17367,7 +17483,9 @@
       }
     },
     "CWE-248 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libgnutls30:3.7.3-4ubuntu1.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-248 Trivy Diagnostic",
       "value": 3.0,
@@ -17927,7 +18045,9 @@
       }
     },
     "CWE-120 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "xstream:1.4.5"
+      ],
       "toolName": "grype",
       "name": "CWE-120 Grype Diagnostic",
       "value": 6.0,
@@ -18053,7 +18173,9 @@
       }
     },
     "CWE-772 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "binutils:2.38-4ubuntu2.3"
+      ],
       "toolName": "grype",
       "name": "CWE-772 Grype Diagnostic",
       "value": 1.0,
@@ -18445,7 +18567,11 @@
       }
     },
     "CWE-787 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "openssl:3.0.2-0ubuntu1.12",
+        "bash:5.1-6ubuntu1",
+        "binutils:2.38-4ubuntu2.3"
+      ],
       "toolName": "grype",
       "name": "CWE-787 Grype Diagnostic",
       "value": 10.0,
@@ -18837,7 +18963,18 @@
       }
     },
     "CWE-476 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libctf0:2.38-4ubuntu2.3",
+        "libc6:2.35-0ubuntu3.4",
+        "binutils-common:2.38-4ubuntu2.3",
+        "libctf-nobfd0:2.38-4ubuntu2.3",
+        "libbinutils:2.38-4ubuntu2.3",
+        "libldap-2.5-0:2.5.16+dfsg-0ubuntu0.22.04.1",
+        "libc-bin:2.35-0ubuntu3.4",
+        "locales:2.35-0ubuntu3.4",
+        "binutils:2.38-4ubuntu2.3",
+        "binutils-x86-64-linux-gnu:2.38-4ubuntu2.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-476 Trivy Diagnostic",
       "value": 5.0,
@@ -18893,7 +19030,9 @@
       }
     },
     "CWE-78 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "xstream:1.4.5"
+      ],
       "toolName": "grype",
       "name": "CWE-78 Grype Diagnostic",
       "value": 3.0,
@@ -19131,7 +19270,10 @@
       }
     },
     "CWE-601 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "spring-web:6.0.13",
+        "wget:1.21.2-2ubuntu1"
+      ],
       "toolName": "grype",
       "name": "CWE-601 Grype Diagnostic",
       "value": 9.0,
@@ -20293,7 +20435,24 @@
       }
     },
     "CWE-other Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "snakeyaml:1.33",
+        "curl:7.81.0-1ubuntu1.14",
+        "spring-security-web:6.1.5",
+        "jose4j:0.9.3",
+        "xnio-api:3.8.8.Final",
+        "nimbus-jose-jwt:9.24.4",
+        "spring-security-core:6.1.5",
+        "undertow-core:2.3.10.Final",
+        "bcprov-jdk18on:1.71",
+        "binutils:2.38-4ubuntu2.3",
+        "bcpkix-jdk18on:1.71",
+        "bctls-jdk18on:1.71",
+        "spring-web:6.0.13",
+        "xstream:1.4.5",
+        "coreutils:8.32-4.1ubuntu1",
+        "openssl:3.0.2-0ubuntu1.12"
+      ],
       "toolName": "grype",
       "name": "CWE-other Grype Diagnostic",
       "value": 25.0,
@@ -20377,7 +20536,9 @@
       }
     },
     "CWE-208 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libgcrypt20:1.9.4-3ubuntu3"
+      ],
       "toolName": "trivy",
       "name": "CWE-208 Trivy Diagnostic",
       "value": 3.0,
@@ -21497,7 +21658,9 @@
       }
     },
     "CWE-434 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "xstream:1.4.5"
+      ],
       "toolName": "grype",
       "name": "CWE-434 Grype Diagnostic",
       "value": 3.0,
@@ -21847,7 +22010,17 @@
       }
     },
     "CWE-617 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libctf0:2.38-4ubuntu2.3",
+        "libc6:2.35-0ubuntu3.4",
+        "binutils-common:2.38-4ubuntu2.3",
+        "libctf-nobfd0:2.38-4ubuntu2.3",
+        "libbinutils:2.38-4ubuntu2.3",
+        "libc-bin:2.35-0ubuntu3.4",
+        "locales:2.35-0ubuntu3.4",
+        "binutils:2.38-4ubuntu2.3",
+        "binutils-x86-64-linux-gnu:2.38-4ubuntu2.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-617 Trivy Diagnostic",
       "value": 6.0,
@@ -22169,7 +22342,10 @@
       }
     },
     "CWE-835 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "bctls-jdk18on:1.71",
+        "bcprov-jdk18on:1.71"
+      ],
       "toolName": "grype",
       "name": "CWE-835 Grype Diagnostic",
       "value": 3.0,
@@ -22337,7 +22513,16 @@
       }
     },
     "CWE-unknown Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "spring-webmvc:6.0.13",
+        "curl:7.81.0-1ubuntu1.14",
+        "tar:1.34+dfsg-1ubuntu0.1.22.04.1",
+        "spring-boot-actuator:3.1.5",
+        "util-linux:2.37.2-4ubuntu3",
+        "openssl:3.0.2-0ubuntu1.12",
+        "wget:1.21.2-2ubuntu1",
+        "bcprov-jdk18on:1.71"
+      ],
       "toolName": "grype",
       "name": "CWE-unknown Grype Diagnostic",
       "value": 35.0,
@@ -22407,7 +22592,21 @@
       }
     },
     "CWE-787 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libctf0:2.38-4ubuntu2.3",
+        "locales:2.35-0ubuntu3.4",
+        "binutils:2.38-4ubuntu2.3",
+        "libc6:2.35-0ubuntu3.4",
+        "libssl3:3.0.2-0ubuntu1.12",
+        "binutils-common:2.38-4ubuntu2.3",
+        "gpgv:2.2.27-3ubuntu2.1",
+        "libctf-nobfd0:2.38-4ubuntu2.3",
+        "libbinutils:2.38-4ubuntu2.3",
+        "openssl:3.0.2-0ubuntu1.12",
+        "bash:5.1-6ubuntu1",
+        "libc-bin:2.35-0ubuntu3.4",
+        "binutils-x86-64-linux-gnu:2.38-4ubuntu2.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-787 Trivy Diagnostic",
       "value": 14.0,
@@ -22491,7 +22690,9 @@
       }
     },
     "CWE-178 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "spring-context:6.0.13"
+      ],
       "toolName": "grype",
       "name": "CWE-178 Grype Diagnostic",
       "value": 3.0,
@@ -22743,7 +22944,9 @@
       }
     },
     "CWE-295 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "bcprov-jdk18on:1.71"
+      ],
       "toolName": "grype",
       "name": "CWE-295 Grype Diagnostic",
       "value": 3.0,
@@ -22897,7 +23100,9 @@
       }
     },
     "CWE-73 Grype Diagnostic": {
-      "packages": [],
+      "packages": [
+        "xstream:1.4.5"
+      ],
       "toolName": "grype",
       "name": "CWE-73 Grype Diagnostic",
       "value": 3.0,
@@ -23541,7 +23746,14 @@
       }
     },
     "CWE-772 Trivy Diagnostic": {
-      "packages": [],
+      "packages": [
+        "libctf0:2.38-4ubuntu2.3",
+        "binutils-common:2.38-4ubuntu2.3",
+        "libctf-nobfd0:2.38-4ubuntu2.3",
+        "libbinutils:2.38-4ubuntu2.3",
+        "binutils:2.38-4ubuntu2.3",
+        "binutils-x86-64-linux-gnu:2.38-4ubuntu2.3"
+      ],
       "toolName": "trivy",
       "name": "CWE-772 Trivy Diagnostic",
       "value": 1.0,

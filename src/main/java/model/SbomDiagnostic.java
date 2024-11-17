@@ -34,6 +34,7 @@ import pique.model.ModelNode;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -42,24 +43,24 @@ public class SbomDiagnostic extends Diagnostic {
 
     @Getter
     @Expose
-    private List<String> packages;
+    private HashSet<String> packages;
 
-    public SbomDiagnostic(String id, String description, String toolName, List<String> packages) {
+    public SbomDiagnostic(String id, String description, String toolName, HashSet<String> packages) {
         super(id, description, toolName);
         this.packages = packages;
     }
 
-    public SbomDiagnostic(String id, String description, String toolName, IEvaluator evaluator, List<String> packages) {
+    public SbomDiagnostic(String id, String description, String toolName, IEvaluator evaluator, HashSet<String> packages) {
         super(id, description, toolName, evaluator);
         this.packages = packages;
     }
 
-    public SbomDiagnostic(String id, String description, String toolName, IEvaluator evaluator, INormalizer normalizer, IUtilityFunction utilityFunction, Map<String, BigDecimal> weights, BigDecimal[] thresholds, List<String> packages) {
+    public SbomDiagnostic(String id, String description, String toolName, IEvaluator evaluator, INormalizer normalizer, IUtilityFunction utilityFunction, Map<String, BigDecimal> weights, BigDecimal[] thresholds, HashSet<String> packages) {
         super(id, description, toolName, evaluator, normalizer, utilityFunction, weights, thresholds);
         this.packages = packages;
     }
 
-    public SbomDiagnostic(BigDecimal value, String name, String description, IEvaluator evaluator, INormalizer normalizer, IUtilityFunction utilityFunction, Map<String, BigDecimal> weights, BigDecimal[] thresholds, Map<String, ModelNode> children, List<String> packages) {
+    public SbomDiagnostic(BigDecimal value, String name, String description, IEvaluator evaluator, INormalizer normalizer, IUtilityFunction utilityFunction, Map<String, BigDecimal> weights, BigDecimal[] thresholds, Map<String, ModelNode> children, HashSet<String> packages) {
         super(value, name, description, evaluator, normalizer, utilityFunction, weights, thresholds, children);
         this.packages = packages;
     }
@@ -84,5 +85,9 @@ public class SbomDiagnostic extends Diagnostic {
 
     public void updatePackages(String packageName, String packageVersion) {
         this.packages.add(packageName + ":" + packageVersion);
+    }
+
+    public void setPackages(HashSet<String> packages) {
+        this.packages = packages;
     }
 }

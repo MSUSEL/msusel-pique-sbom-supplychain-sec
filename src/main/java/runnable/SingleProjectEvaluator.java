@@ -33,6 +33,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import evaluator.SbomProject;
 import lombok.Getter;
 import lombok.Setter;
 import model.SBOMQualityModelImport;
@@ -177,7 +178,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         initialize(projectDir, resultsDir, qmLocation);
         SBOMQualityModelImport qmImport = new SBOMQualityModelImport(qmLocation);
         QualityModel qualityModel = qmImport.importQualityModel();
-        project = new Project(FilenameUtils.getBaseName(projectDir.getFileName().toString()), projectDir, qualityModel);
+        project = new SbomProject(FilenameUtils.getBaseName(projectDir.getFileName().toString()), projectDir, qualityModel);
 
         // Validate State
         // TODO: validate more objects such as if the quality model has thresholds and weights, are there expected diagnostics, etc

@@ -128,7 +128,7 @@ public class SBOMQualityModelImport {
 
             // CHANGES TO USE THE SBOM DIAGNOSTIC NODE
             Diagnostic d = new SbomDiagnostic(diagnosticName, diagnosticDescription, diagnosticToolName,
-                    evaluator, normalizer, utilityFunction, weights, thresholds, new ArrayList<>());
+                    evaluator, normalizer, utilityFunction, weights, thresholds, new HashSet<>());
 
             // Add to the collection
             if (tempDiagnostics.containsKey(d.getName())) {

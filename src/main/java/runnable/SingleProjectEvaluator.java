@@ -24,6 +24,7 @@ package runnable;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Path;
@@ -32,13 +33,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import evaluator.SbomProject;
 import lombok.Getter;
 import lombok.Setter;
+import model.SBOMQualityModelImport;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pique.analysis.ITool;
 import pique.evaluation.Project;
+import pique.model.*;
 import pique.runnable.ASingleProjectEvaluator;
 import pique.utility.PiqueProperties;
 import presentation.PiqueData;
@@ -57,8 +63,8 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
     @Getter @Setter
     private String propertiesLocation = "src/main/resources/pique-properties.properties";
 
-    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory) {
-        init(sbomDirectory, sourceCodeDirectory);
+    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory, String genTool, String parameters) {
+        init(sbomDirectory, sourceCodeDirectory, genTool, parameters);
     }
 
     /**
@@ -72,7 +78,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
      * @param sbomDirectory The directory where the generated SBOMs are stored.
      * @param sourceCodeDirectory The directory containing the source code projects to analyze.
      */
-    public void init(String sbomDirectory, String sourceCodeDirectory){
+    public void init(String sbomDirectory, String sourceCodeDirectory, String genTool, String parameters) {
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
@@ -101,13 +107,30 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             }
         }
 
-        TrivySBOMGenerationWrapper trivySBOMGenerator = new TrivySBOMGenerationWrapper();
+        IGenerationTool sbomGenerator;
+        if (genTool.contains("syft")) {
+            sbomGenerator = new SyftSBOMGenerationWrapper();
+        }
+        else if (genTool.contains("trivy")) {
+            sbomGenerator = new TrivySBOMGenerationWrapper();
+        }
+        else if (genTool.contains("cdxgen")) {
+            sbomGenerator = new CdxgenSBOMGenerationWrapper();
+        }
+        else {
+            sbomGenerator = null;
+        }
 
-        // Generate SBOMs for each project in the source code directory
+        // Generate SBOMs for each project in the source code directory, if one wasn't specified skip generation
         for (Path projectToGenerateSbomFor : sourceCodeRoots){
-            LOGGER.info("Generating SBOM for: {}", projectToGenerateSbomFor.toString());
-            System.out.println("Generating SBOM for: " + projectToGenerateSbomFor);
-            //trivySBOMGenerator.generate(projectToGenerateSbomFor);
+            if (sbomGenerator == null) {
+                System.out.println("No SBOM generation tool specified. Skipping generation of SBOMs.");
+                LOGGER.warn("No SBOM generation tool specified. Skipping generation of SBOMs.");
+                break;
+            }
+            LOGGER.info("Generating SBOM for: {}\nwith generation tool: {}", projectToGenerateSbomFor.toString(), genTool);
+            System.out.println("Generating SBOM for: " + projectToGenerateSbomFor + "\nwith generation tool: " + genTool);
+            sbomGenerator.generate(projectToGenerateSbomFor, genTool);
         }
 
         // now that SBOMs have been generated from any present source code we proceed as a normal pique run
@@ -121,7 +144,8 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
         //ITool sbomqsWrapper_ = new sbomqsWrapper();
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
-        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
+        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
+        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
 
         // loop through each SBOM in the input/projects/SBOM directory and store paths in a list
         Set<Path> sbomRoots = new HashSet<>();
@@ -140,7 +164,39 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             LOGGER.info("output: {}", outputPath.getFileName());
             System.out.println("output: " + outputPath.getFileName());
             System.out.println("exporting compact: " + project.exportToJson(resultsDir, true));
+
+            // TODO: Remove later (only here for experimenting with the pdf utility function)
+            Pair<String, String> name = Pair.of("projectName", project.getName());
+            String fileName = project.getName() + "_compact_evalResults_" + parameters;
+            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
+            qmExport.exportToJson(fileName, resultsDir);
         }
     }
 
+    @Override
+    public Path runEvaluator(Path projectDir, Path resultsDir, Path qmLocation, Set<ITool> tools) {
+        // Initialize data structures
+        initialize(projectDir, resultsDir, qmLocation);
+        SBOMQualityModelImport qmImport = new SBOMQualityModelImport(qmLocation);
+        QualityModel qualityModel = qmImport.importQualityModel();
+        project = new SbomProject(FilenameUtils.getBaseName(projectDir.getFileName().toString()), projectDir, qualityModel);
+
+        // Validate State
+        // TODO: validate more objects such as if the quality model has thresholds and weights, are there expected diagnostics, etc
+        validatePreEvaluationState(project);
+
+        // Run the static analysis tools process
+        Map<String, Diagnostic> allDiagnostics = new HashMap<>();
+        tools.forEach(tool -> {
+            allDiagnostics.putAll(runTool(projectDir, tool));
+        });
+
+        // Apply tool results to Project object
+        project.updateDiagnosticsWithFindings(allDiagnostics);
+
+        BigDecimal tqiValue = project.evaluateTqi();
+
+        // Create a file of the results and return its path
+        return project.exportToJson(resultsDir);
+    }
 }

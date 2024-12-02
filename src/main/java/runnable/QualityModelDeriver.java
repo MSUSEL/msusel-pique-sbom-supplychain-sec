@@ -31,6 +31,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import model.SBOMQualityModelImport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,8 +91,9 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
         //ITool sbomqsWrapper_ = new sbomqsWrapper();
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_, cveBinToolWrapper).collect(Collectors.toSet());
-        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
-        QualityModelImport qmImport = new QualityModelImport(blankqmFilePath);
+        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
+        Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
+        SBOMQualityModelImport qmImport = new SBOMQualityModelImport(blankqmFilePath);
         QualityModel qmDescription = qmImport.importQualityModel();
         qmDescription = pique.utility.TreeTrimmingUtility.trimQualityModelTree(qmDescription);
 

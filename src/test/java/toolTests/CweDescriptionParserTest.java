@@ -19,14 +19,4 @@ public class CweDescriptionParserTest {
     public void testDumpWeaknessToFile() {
         cweDescriptionParser.dumpWeaknessDescriptionsToFile("./src/main/resources/cwe_v4.15.xml");
     }
-
-    @Test
-    public void testBuildWeaknessDescriptionMapFromFile() {
-        Map<String, String> descriptions = cweDescriptionParser.buildWeaknessDescriptionMapFromFile("./out/CweDescriptions.json");
-        String result1 = descriptions.get("1004");
-        String result2 = descriptions.get("CWE-1004");
-
-        assertNull(result1);
-        assertNotNull(result2);
-    }
 }

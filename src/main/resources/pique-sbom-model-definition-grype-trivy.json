@@ -1,9 +1,9 @@
 {
-  "name" : "SBOM Supply Chain Security Quality Model CWE-699",
+  "name" : "SBOM Supply Chain Security Quality Model CWE-699 - Naive Utility",
   "additionalData" : { },
   "global_config" : {
     "benchmark_strategy" : "pique.calibration.NaiveBenchmarker",
-    "normalizer" : "evaluator.SBOMNormalizer",
+    "normalizer" : "evaluation.NoNormalizer",
     "weights_strategy" : "pique.calibration.NaiveWeighter"
   },
   "factors" : {
@@ -748,7 +748,7 @@
     "measures" : {
       "CWE-other Measure": {
         "positive": false,
-        "utility_function" : "pique.evaluation.DefaultUtility",
+        "utility_function": "pique.evaluation.DefaultUtility",
         "description" : "",
         "children" : {
           "CWE-other Grype Diagnostic": {},
@@ -757,7 +757,7 @@
       },
       "CWE-unknown Measure": {
         "positive": false,
-        "utility_function" : "pique.evaluation.DefaultUtility",
+        "utility_function": "pique.evaluation.DefaultUtility",
         "description" : "",
         "children" : {
           "CWE-unknown Grype Diagnostic": {},

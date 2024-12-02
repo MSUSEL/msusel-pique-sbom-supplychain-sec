@@ -79,7 +79,7 @@ public class GrypeWrapper extends Tool implements ITool  {
 		String[] cmd = {"grype",
 				projectLocation.toAbsolutePath().toString(), // product under analysis path
 				"--output", "json",
-				"--quiet",
+				//"--quiet",
 				"--file",tempResults.toPath().toAbsolutePath().toString()}; // output path
 		LOGGER.info(Arrays.toString(cmd));
 

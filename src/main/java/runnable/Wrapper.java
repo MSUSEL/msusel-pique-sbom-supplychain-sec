@@ -41,6 +41,10 @@ public class Wrapper {
                     .action(Arguments.storeTrue())
                     .setDefault(false)
                     .help("print version information and terminate program");
+            parser.addArgument("--gen_tool")
+                    .setDefault("none")
+                    .choices("syft-fs", "trivy-fs", "syft-image", "trivy-image", "cdxgen")
+                    .help("specify the tool to use for SBOM generation");
 
             if (helpFlag) {
                 System.out.println(parser.formatHelp());
@@ -50,6 +54,7 @@ public class Wrapper {
             }
 
             String runType = namespace.getString("runType");
+            String genTool = namespace.getString("gen_tool");
             boolean printVersion = namespace.getBoolean("version");
 
             if (printVersion) {
@@ -67,7 +72,7 @@ public class Wrapper {
                 // get path to input projects
                 String sbomInputPath = prop.getProperty("project.sbom-input");
                 String sourceCodeInputPath = prop.getProperty("project.source-code-input");
-                new SingleProjectEvaluator(sbomInputPath, sourceCodeInputPath);
+                new SingleProjectEvaluator(sbomInputPath, sourceCodeInputPath, genTool, "");
                 System.exit(0);
             }
             else {

@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Properties;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
@@ -14,7 +14,8 @@ import presentation.PiqueData;
 import presentation.PiqueDataFactory;
 import tool.CveBinToolWrapper;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class CveBinToolTest {
     private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();

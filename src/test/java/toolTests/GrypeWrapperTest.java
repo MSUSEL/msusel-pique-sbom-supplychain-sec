@@ -18,7 +18,8 @@ import tool.TrivyWrapper;
 import tool.sbomqsWrapper;
 
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class GrypeWrapperTest {
     private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();

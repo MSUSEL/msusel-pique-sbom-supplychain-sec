@@ -39,6 +39,9 @@ out/grype.json
 out/trivy.json
 out/sbomqs.txt
 
+# ignore large model files
+out/SBOMSupplyChainSecurityQualityModelCWE-699-PDFUtility-test.json
+
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml

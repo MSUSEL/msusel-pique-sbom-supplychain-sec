@@ -78,6 +78,7 @@ public class ToolOutputProcessor implements IOutputProcessor<RelevantVulnerabili
         String toolName = vulnerabilityService.getToolName();
 
         LOGGER.info("Adding diagnostics for tool: {}", toolName);
+        int i = 0;
         for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
             for (String cwe: relevantVulnerabilityData.getCwe()) {
                 SbomDiagnostic diag = (SbomDiagnostic) diagnostics.get(cwe + toolName);
@@ -86,10 +87,12 @@ public class ToolOutputProcessor implements IOutputProcessor<RelevantVulnerabili
                     LOGGER.warn("CVE with CWE outside of CWE-699 found.");
                 }
                 Finding finding = new Finding("", 0, 0, relevantVulnerabilityData.getSeverity());
-                finding.setName(relevantVulnerabilityData.getCve());
+                finding.setName(relevantVulnerabilityData.getCve() + " " + i);
+                //findings.setName("same name");
                 diag.updatePackages(relevantVulnerabilityData.getPackageName(), relevantVulnerabilityData.getPackageVersion());
                 diag.setChild(finding);
                 LOGGER.info("Added finding: {} to diagnostic: {}", finding.getName(), diag.getName());
+                i++;
             }
         }
     }

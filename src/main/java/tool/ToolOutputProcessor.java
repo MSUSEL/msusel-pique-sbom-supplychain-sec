@@ -1,6 +1,7 @@
-/**
+/*
  * MIT License
- * Copyright (c) 2019 Montana State University Software Engineering Labs
+ *
+ * Copyright (c) 2023 Montana State University Software Engineering Labs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package tool;
 
 import model.SbomDiagnostic;
@@ -77,19 +77,23 @@ public class ToolOutputProcessor implements IOutputProcessor<RelevantVulnerabili
     public void addDiagnostics(List<RelevantVulnerabilityData> toolVulnerabilities, Map<String, Diagnostic> diagnostics) {
         String toolName = vulnerabilityService.getToolName();
 
+        LOGGER.info("Adding diagnostics for tool: {}", toolName);
+        int i = 0;
         for (RelevantVulnerabilityData relevantVulnerabilityData : toolVulnerabilities) {
-            // TODO fix so it gets all CWEs
-            SbomDiagnostic diag = (SbomDiagnostic) diagnostics.get(relevantVulnerabilityData.getCwe().get(0) + toolName);
-            if (diag == null) {
-                diag = (SbomDiagnostic) diagnostics.get("CWE-other" + toolName);
-                LOGGER.warn("CVE with CWE outside of CWE-699 found.");
+            for (String cwe: relevantVulnerabilityData.getCwe()) {
+                SbomDiagnostic diag = (SbomDiagnostic) diagnostics.get(cwe + toolName);
+                if (diag == null) {
+                    diag = (SbomDiagnostic) diagnostics.get("CWE-other" + toolName);
+                    LOGGER.warn("CVE with CWE outside of CWE-699 found.");
+                }
+                Finding finding = new Finding("", 0, 0, relevantVulnerabilityData.getSeverity());
+                finding.setName(relevantVulnerabilityData.getCve() + " " + i);
+                //findings.setName("same name");
+                diag.updatePackages(relevantVulnerabilityData.getPackageName(), relevantVulnerabilityData.getPackageVersion());
+                diag.setChild(finding);
+                LOGGER.info("Added finding: {} to diagnostic: {}", finding.getName(), diag.getName());
+                i++;
             }
-            // TODO add package information somewhere around here
-            Finding finding = new Finding("", 0, 0, relevantVulnerabilityData.getSeverity());
-            finding.setName(relevantVulnerabilityData.getCve());
-            diag.updatePackages(relevantVulnerabilityData.getPackageName(), relevantVulnerabilityData.getPackageVersion());
-            diag.setChild(finding);
-            LOGGER.info("Added finding: {} to diagnostic: {}", finding.getName(), diag.getName());
         }
     }
 }

@@ -1,6 +1,7 @@
-/**
+/*
  * MIT License
- * Copyright (c) 2019 Montana State University Software Engineering Labs
+ *
+ * Copyright (c) 2023 Montana State University Software Engineering Labs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,8 +26,6 @@ package runnable;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -36,14 +35,13 @@ import java.util.stream.Stream;
 import evaluator.SbomProject;
 import lombok.Getter;
 import lombok.Setter;
-import model.SBOMQualityModelImport;
+import model.SbomQualityModelImport;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pique.analysis.ITool;
-import pique.evaluation.Project;
 import pique.model.*;
 import pique.runnable.ASingleProjectEvaluator;
 import pique.utility.PiqueProperties;
@@ -59,12 +57,16 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
     private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleProjectEvaluator.class);
 
-    //default properties location
-    @Getter @Setter
-    private String propertiesLocation = "src/main/resources/pique-properties.properties";
+//    //default properties location
+//    @Getter @Setter
+//    private String propertiesLocation = "src/main/resources/pique-properties.properties";
 
-    public SingleProjectEvaluator(String sbomDirectory, String sourceCodeDirectory, String genTool, String parameters) {
-        init(sbomDirectory, sourceCodeDirectory, genTool, parameters);
+    public SingleProjectEvaluator(String sbomDirectory, String genTool, String parameters) {
+        init(sbomDirectory, genTool, parameters, null);
+    }
+
+    public SingleProjectEvaluator(String sbomDirectory, String genTool, String parameters, String propertiesPath) {
+        init(sbomDirectory, genTool, parameters, propertiesPath);
     }
 
     /**
@@ -76,28 +78,32 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
      * a setup and execution pipeline for SBOM generation and subsequent vulnerability analysis within the PIQUE framework.
      *
      * @param sbomDirectory The directory where the generated SBOMs are stored.
-     * @param sourceCodeDirectory The directory containing the source code projects to analyze.
      */
-    public void init(String sbomDirectory, String sourceCodeDirectory, String genTool, String parameters) {
+    public void init(String sbomDirectory, String genTool, String parameters, String propertiesPath) {
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
-            prop = propertiesLocation == null ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesLocation);
+            prop = propertiesPath == null ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesPath);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
         Path sbomPath = Paths.get(sbomDirectory);
-        Path sourceCodePath = Paths.get(sourceCodeDirectory);
+
+        String sourceCodeInputPath = prop.getProperty("project.source-code-input");
+        String imageInputPath = prop.getProperty("project.image-input");
+        Path sourceCodePath = Paths.get(sourceCodeInputPath);
+        Path imagesPath = Paths.get(imageInputPath);
         Path resultsDir = Paths.get(prop.getProperty("results.directory"));
 
         /**
          * Code that checks if source code is present to generate SBOMs for, we iterate through each directory or
-         * file in the source code directory. We generate SBOMs (currently using Trivy) for each project in the
+         * file in the source code directory. We generate SBOMs (currently using specificed gen tool) for each project in the
          * source code directory. The resulting SBOMs are placed in the input/projects/SBOM directory. The code
          * then proceeds to evaluate each SBOM in the input/projects/SBOM directory.
          */
+        LOGGER.info("Generating SBOMs for source code and images");
         Set<Path> sourceCodeRoots = new HashSet<>();
         File[] sourceCodeToGenerateSbomsFrom = sourceCodePath.toFile().listFiles();
         assert sourceCodeToGenerateSbomsFrom != null; // Ensure the directory is not empty
@@ -107,31 +113,44 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             }
         }
 
+        Set<Path> imageRoots = new HashSet<>();
+        File[] imagesToGenerateSbomsFrom = imagesPath.toFile().listFiles();
+        assert imagesToGenerateSbomsFrom != null; // Ensure the directory is not empty
+        for (File f : imagesToGenerateSbomsFrom) {
+            if (!f.getName().equals(".gitignore")) { // Check to avoid adding .gitignore
+                imageRoots.add(f.toPath()); // Add both files and directories except .gitignore
+            }
+        }
+
         IGenerationTool sbomGenerator;
         if (genTool.contains("syft")) {
-            sbomGenerator = new SyftSBOMGenerationWrapper();
+            sbomGenerator = new SyftSbomGenerationWrapper();
         }
         else if (genTool.contains("trivy")) {
-            sbomGenerator = new TrivySBOMGenerationWrapper();
-        }
-        else if (genTool.contains("cdxgen")) {
-            sbomGenerator = new CdxgenSBOMGenerationWrapper();
+            sbomGenerator = new TrivySbomGenerationWrapper();
         }
         else {
             sbomGenerator = null;
         }
 
         // Generate SBOMs for each project in the source code directory, if one wasn't specified skip generation
-        for (Path projectToGenerateSbomFor : sourceCodeRoots){
-            if (sbomGenerator == null) {
-                System.out.println("No SBOM generation tool specified. Skipping generation of SBOMs.");
-                LOGGER.warn("No SBOM generation tool specified. Skipping generation of SBOMs.");
-                break;
+        if (sbomGenerator != null) {
+            for (Path projectToGenerateSbomFor : sourceCodeRoots){
+                LOGGER.info("Generating SBOM for: {}\nwith generation tool: {}", projectToGenerateSbomFor.toString(), genTool);
+                System.out.println("Generating SBOM for: " + projectToGenerateSbomFor + "\nwith generation tool: " + genTool);
+                sbomGenerator.generateSource(projectToGenerateSbomFor);
             }
-            LOGGER.info("Generating SBOM for: {}\nwith generation tool: {}", projectToGenerateSbomFor.toString(), genTool);
-            System.out.println("Generating SBOM for: " + projectToGenerateSbomFor + "\nwith generation tool: " + genTool);
-            sbomGenerator.generate(projectToGenerateSbomFor, genTool);
+            for (Path projectToGenerateSbomFor : imageRoots){
+                LOGGER.info("Generating SBOM for: {}\nwith generation tool: {}", projectToGenerateSbomFor.toString(), genTool);
+                System.out.println("Generating SBOM for: " + projectToGenerateSbomFor + "\nwith generation tool: " + genTool);
+                sbomGenerator.generateImage(projectToGenerateSbomFor);
+            }
         }
+        else {
+            System.out.println("No SBOM generation tool specified. Skipping generation of SBOMs.");
+            LOGGER.warn("No SBOM generation tool specified. Skipping generation of SBOMs.");
+        }
+
 
         // now that SBOMs have been generated from any present source code we proceed as a normal pique run
 
@@ -139,15 +158,15 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         Path qmLocation = Paths.get(prop.getProperty("derived.qm"));
 
         // initialize SBOM analysis tools that will run on each SBOM in the input/projects/SBOM directory
+        LOGGER.info("Initializing SBOM analysis tools");
         ITool gyrpeWrapper = new GrypeWrapper(piqueData);
         ITool trivyWrapper = new TrivyWrapper(piqueData);
         ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
-        //ITool sbomqsWrapper_ = new sbomqsWrapper();
-        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper, sbomqsWrapper_).collect(Collectors.toSet());
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
 
         // loop through each SBOM in the input/projects/SBOM directory and store paths in a list
+        LOGGER.info("Evaluating SBOMs");
         Set<Path> sbomRoots = new HashSet<>();
         File[] sbomsToAssess = sbomPath.toFile().listFiles();
         assert sbomsToAssess != null;
@@ -166,10 +185,10 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             System.out.println("exporting compact: " + project.exportToJson(resultsDir, true));
 
             // TODO: Remove later (only here for experimenting with the pdf utility function)
-            Pair<String, String> name = Pair.of("projectName", project.getName());
-            String fileName = project.getName() + "_compact_evalResults_" + parameters;
-            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
-            qmExport.exportToJson(fileName, resultsDir);
+//            Pair<String, String> name = Pair.of("projectName", project.getName());
+//            String fileName = project.getName() + "_compact_evalResults_" + parameters;
+//            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
+//            qmExport.exportToJson(fileName, resultsDir);
         }
     }
 
@@ -177,7 +196,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
     public Path runEvaluator(Path projectDir, Path resultsDir, Path qmLocation, Set<ITool> tools) {
         // Initialize data structures
         initialize(projectDir, resultsDir, qmLocation);
-        SBOMQualityModelImport qmImport = new SBOMQualityModelImport(qmLocation);
+        SbomQualityModelImport qmImport = new SbomQualityModelImport(qmLocation);
         QualityModel qualityModel = qmImport.importQualityModel();
         project = new SbomProject(FilenameUtils.getBaseName(projectDir.getFileName().toString()), projectDir, qualityModel);
 
@@ -195,6 +214,8 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         project.updateDiagnosticsWithFindings(allDiagnostics);
 
         BigDecimal tqiValue = project.evaluateTqi();
+        LOGGER.info("TQI value: {}", tqiValue);
+        System.out.println("TQI value: " + tqiValue);
 
         // Create a file of the results and return its path
         return project.exportToJson(resultsDir);

@@ -12,7 +12,6 @@ These will be automatically installed when the docker image is built.
 * [Grype](https://github.com/anchore/grype) version 0.72.0
 * [Trivy](https://github.com/aquasecurity/trivy) version 0.44.1
 * [CVE-bin-tool]() version 3.2.1
-* [Sbomqs](https://github.com/interlynk-io/sbomqs) version 0.0.30
 * [Maven](https://github.com/apache/maven) version 3.9.6
 * [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 0.9.4
 ___
@@ -66,9 +65,11 @@ docker pull msusel/pique-sbom-supply-chain-sec:latest
 │   │   │   │   ├── place SBOMs to analyze here (SPDX or CycloneDX in json format)
 │   │   │   ├── sourceCode
 │   │   │   │   ├── place source code file systems to generate SBOMs for here 
+│   │   │   ├── images
+│   │   │   │   ├── place text files with docker image name and tag here ([name]:[tag])
 │   ├── out
 ```
-10. Run the command (replace `/path/to/working/directory` to absolute path of `$WORKDIR`)
+11. Run the command (replace `/path/to/working/directory` to absolute path of `$WORKDIR`)
 ```
 docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/out:/out msusel/pique-sbom-supply-chain-sec:latest
 ```

@@ -1,6 +1,7 @@
-/**
+/*
  * MIT License
- * Copyright (c) 2019 Montana State University Software Engineering Labs
+ *
+ * Copyright (c) 2023 Montana State University Software Engineering Labs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -115,7 +116,6 @@ public class GrypeWrapper extends Tool implements ITool  {
 		// find all diagnostic nodes associated with Grype
 		Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
 
-		// TODO double check / document our conventions for log levels
 		// read and process Grype output
 		try {
 			results = helperFunctions.readFileContent(toolResults);

@@ -38,6 +38,8 @@ target/classes/nvd-dictionary.json
 out/grype.json
 out/trivy.json
 out/sbomqs.txt
+out/NPM/*
+out/NPM-trimmed/*
 
 # ignore large model files
 out/SBOMSupplyChainSecurityQualityModelCWE-699-PDFUtility-test.json
@@ -53,6 +55,8 @@ target/*
 
 # sbomqs executable will be installed when docker image is built
 src/main/resources/sbomqs
+
+src/test/resources/out/*
 
 # ignore .env files
 *.env

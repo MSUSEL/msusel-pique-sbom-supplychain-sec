@@ -1,6 +1,7 @@
-/**
+/*
  * MIT License
- * Copyright (c) 2019 Montana State University Software Engineering Labs
+ *
+ * Copyright (c) 2023 Montana State University Software Engineering Labs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package runnable;
 
 import java.io.IOException;
@@ -31,14 +31,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import model.SBOMQualityModelImport;
+import model.SbomQualityModelImport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pique.analysis.ITool;
 import pique.model.QualityModel;
 import pique.model.QualityModelExport;
-import pique.model.QualityModelImport;
 import pique.runnable.AQualityModelDeriver;
 import pique.utility.PiqueProperties;
 import presentation.PiqueData;
@@ -46,7 +45,8 @@ import presentation.PiqueDataFactory;
 import tool.CveBinToolWrapper;
 import tool.GrypeWrapper;
 import tool.TrivyWrapper;
-import tool.sbomqsWrapper;
+
+import utilities.helperFunctions;
 
 /**
  * Utility driver class responsible for running the calibration module's procedure.
@@ -86,23 +86,27 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         String projectRootFlag = "";
         Path benchmarkRepo = Paths.get(prop.getProperty("benchmark.repo"));
 
+        LOGGER.info("Initializing tools");
         ITool gyrpeWrapper = new GrypeWrapper(piqueData);
         ITool trivyWrapper = new TrivyWrapper(piqueData);
         ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
-        //ITool sbomqsWrapper_ = new sbomqsWrapper();
-        //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, sbomqsWrapper_, cveBinToolWrapper).collect(Collectors.toSet());
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
-        SBOMQualityModelImport qmImport = new SBOMQualityModelImport(blankqmFilePath);
+        SbomQualityModelImport qmImport = new SbomQualityModelImport(blankqmFilePath);
         QualityModel qmDescription = qmImport.importQualityModel();
-        qmDescription = pique.utility.TreeTrimmingUtility.trimQualityModelTree(qmDescription);
+        //qmDescription = pique.utility.TreeTrimmingUtility.trimQualityModelTree(qmDescription);
 
 
         QualityModel derivedQualityModel = deriveModel(qmDescription, tools, benchmarkRepo, projectRootFlag);
-
         Path jsonOutput = new QualityModelExport(derivedQualityModel).exportToJson(derivedQualityModel.getName(), derivedModelFilePath);
 
+        QualityModel trimmedDerivedQualityModel = helperFunctions.trimBenchmarkedMeasuresWithNoFindings(derivedQualityModel);
+        Path trimmedJsonOutput = new QualityModelExport(trimmedDerivedQualityModel)
+                .exportToJson(trimmedDerivedQualityModel
+                        .getName() + "_trimmed", derivedModelFilePath);
+
         LOGGER.info("Quality Model derivation finished. You can find the file at " + jsonOutput.toAbsolutePath().toString());
+        System.out.println("Quality Model derivation finished. You can find the file at " + jsonOutput.toAbsolutePath().toString());
     }
 
 }

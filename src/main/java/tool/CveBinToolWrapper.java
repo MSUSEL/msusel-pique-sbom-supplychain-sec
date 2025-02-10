@@ -1,7 +1,31 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2023 Montana State University Software Engineering Labs
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 package tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -53,12 +77,16 @@ public class CveBinToolWrapper extends Tool implements ITool {
         // get NVD api key for cve-bin-tool
         Properties prop = PiqueProperties.getProperties();
         String nvdApiKeyPath = prop.getProperty("nvd-api-key-path");
-        String spec = "cyclonedx";
+
+        String detectedFormat = detectFormat(projectLocation.toAbsolutePath());
+
+        String spec = "";
+        if (detectedFormat.equals("spdx")) {
+            spec = "spdx.json";
+        }
         // command for running cve-bin-tool on the command line
         // cve-bin-tool --disable-version-check --nvd-api-key {nvdApiKeyPath} --sbom {spec} -f json --output {output_path} --sbom-file {sbom_path}
-        /** TODO: need to figure out a way to get the SBOM format that we are running this command it seems that
-         *  CVE-bin-tool is not nearly as sophisticated as Trivy/Grype when determining SBOM format, it just defualts to SPDX
-        */
+
         String[] cmd = {"cve-bin-tool",
                 "--disable-version-check",
                 "--nvd-api-key", nvdApiKeyPath,
@@ -138,5 +166,38 @@ public class CveBinToolWrapper extends Tool implements ITool {
         }
 
         return toolRoot;
+    }
+
+    /**
+     * Inspects the SBOM file at the given path and returns the detected format.
+     * It returns "spdx" if an SPDX signature is found, "cyclonedx" if a CycloneDX signature is found,
+     * or a default (for example, "spdx") if no clear signature is identified.
+     *
+     * @param sbomPath the path to the SBOM file
+     * @return a string indicating the format ("spdx" or "cyclonedx")
+     */
+    private String detectFormat(Path sbomPath) {
+        try {
+            // Read the first 1000 bytes (or a set number of lines) to get a good sample of the content
+            List<String> lines = Files.readAllLines(sbomPath);
+            for (String line : lines) {
+                // Check for SPDX signature
+                if (line.contains("SPDXVersion:")) {
+                    return "spdx";
+                }
+                // Check for CycloneDX signature (if the SBOM is JSON, for instance)
+                if (line.contains("\"bomFormat\"") && line.contains("CycloneDX")) {
+                    return "cyclonedx";
+                }
+                // Optionally, check for an XML signature if you expect CycloneDX in XML format:
+                if (line.contains("<bom") && line.contains("CycloneDX")) {
+                    return "cyclonedx";
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // Fallback decision: you might choose to default to SPDX if no signature is found
+        return "spdx";
     }
 }

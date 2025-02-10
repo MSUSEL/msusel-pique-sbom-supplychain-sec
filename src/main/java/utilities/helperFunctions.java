@@ -1,6 +1,7 @@
-/**
+/*
  * MIT License
- * Copyright (c) 2019 Montana State University Software Engineering Labs
+ *
+ * Copyright (c) 2023 Montana State University Software Engineering Labs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +24,7 @@
 package utilities;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -31,12 +33,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import model.SBOMQualityModelImport;
+import model.SbomQualityModelImport;
 import model.SbomDiagnostic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +41,7 @@ import org.slf4j.LoggerFactory;
 import pique.model.Diagnostic;
 import pique.model.ModelNode;
 import pique.model.QualityModel;
-import pique.model.QualityModelImport;
+import pique.utility.BigDecimalWithContext;
 import pique.utility.PiqueProperties;
 
 /**
@@ -56,44 +53,33 @@ public class helperFunctions {
 	private static final Logger LOGGER = LoggerFactory.getLogger(helperFunctions.class);
 
 	/**
-	 * A method to check for equality up to some error bounds
-	 * @param x The first number
-	 * @param y	The second number
-	 * @param eps The error bounds
-	 * @return True if |x-y|<|eps|, or in other words, if x is within eps of y.
-	 */
-//	public static boolean EpsilonEquality(BigDecimal x, BigDecimal y, BigDecimal eps) {
-//		BigDecimal val = x.subtract(y).abs();
-//		int comparisonResult = val.compareTo(eps.abs());
-//		if (comparisonResult==1) {
-//			return false;
-//		}
-//		else {
-//			return true;
-//		}
-//	}
-
-	/**
-	 * Opens the component count results from sbomqs tool and returns the current SBOM under analysis component count.
+	 * This function finds all diagnostics associated with a certain toolName and returns them in a Map with the diagnostic name as the key.
+	 * This is used common to initialize the diagnostics for tools.
 	 *
-	 * @return component count as an integer
+	 * @param toolName The desired tool name
+	 * @return All diagnostics in the model structure with tool equal to toolName
 	 */
-	public static int getComponentCount() {
-		try {
-			File tempResults = new File(System.getProperty("user.dir") + "/out/sbomqs.txt");
-			FileReader fileReader = new FileReader(tempResults);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			int componentCount = Integer.parseInt(bufferedReader.readLine());
-			bufferedReader.close();
+	public static Map<String, Diagnostic> initializeDiagnostics(String toolName) {
+		// load the qm structure
+		Properties prop = PiqueProperties.getProperties();
+		Path blankqmFilePath = Paths.get(prop.getProperty("blankqm.filepath"));
 
-			return componentCount;
+		// Custom quality model import so that we can use SBOMDiagnostic
+		SbomQualityModelImport qmImport = new SbomQualityModelImport(blankqmFilePath);
+		QualityModel qmDescription = qmImport.importQualityModel();
+
+		Map<String, Diagnostic> diagnostics = new HashMap<>();
+
+		// for each diagnostic in the model, if it is associated with this tool,
+		// add it to the list of diagnostics
+		for (ModelNode x : qmDescription.getDiagnostics().values()) {
+			Diagnostic diag = (SbomDiagnostic) x;
+			if (diag.getToolName().equals(toolName)) {
+				diagnostics.put(diag.getName(),diag);
+			}
 		}
-		catch (IOException  e) {
-			LOGGER.error("Failed to open sbomqs.txt could not get component count return 1");
-			LOGGER.error(e.toString());
-			e.printStackTrace();
-			return 1;
-		}
+
+		return diagnostics;
 	}
 
 	 /**
@@ -148,69 +134,6 @@ public class helperFunctions {
  
         return contentBuilder.toString();
     }
-	
-	/**
-	 * This function finds all diagnostics associated with a certain toolName and returns them in a Map with the diagnostic name as the key.
-	 * This is used common to initialize the diagnostics for tools.
-	 *
-	 * @param toolName The desired tool name
-	 * @return All diagnostics in the model structure with tool equal to toolName
-	 */
-	public static Map<String, Diagnostic> initializeDiagnostics(String toolName) {
-		// load the qm structure
-		Properties prop = PiqueProperties.getProperties();
-		Path blankqmFilePath = Paths.get(prop.getProperty("blankqm.filepath"));
-
-		// Custom quality model import so that we can use SBOMDiagnostic
-		SBOMQualityModelImport qmImport = new SBOMQualityModelImport(blankqmFilePath);
-        QualityModel qmDescription = qmImport.importQualityModel();
-
-        Map<String, Diagnostic> diagnostics = new HashMap<>();
-        
-        // for each diagnostic in the model, if it is associated with this tool, 
-        // add it to the list of diagnostics
-        for (ModelNode x : qmDescription.getDiagnostics().values()) {
-			Diagnostic diag = (SbomDiagnostic) x;
-        	if (diag.getToolName().equals(toolName)) {
-        		diagnostics.put(diag.getName(),diag);
-        	}
-        }
-       
-		return diagnostics;
-	}
-
-	/***
-	 * COPIED from PIQUE-cloud-dockerfile
-	 *
-	 * @param projectsRepository
-	 *              import a path to a file that contains meta-data information about which image to download
-	 * @return
-	 *              awkward, but return a set of Paths, where each Path is a string of format "imageName:version"
-	 *              This is not a valid Path on disk, it is a workaround because of PIQUE core's heavy reliance
-	 *              on things existing on disk before analysis.
-	 */
-	public static Set<Path> getDockerImagesToAnalyze(Path projectsRepository){
-		Set<Path> images = new HashSet<>();
-		try {
-			JSONObject jsonResults = new JSONObject(readFileContent(projectsRepository));
-			JSONArray perProject = jsonResults.getJSONArray("images");
-
-			for (int i = 0; i < perProject.length(); i++){
-				JSONObject obj = perProject.getJSONObject(i);
-				//get versions
-				JSONArray jsonVersions = obj.getJSONArray("versions");
-				for (int j = 0; j < jsonVersions.length(); j++){
-					images.add(Paths.get(obj.getString("name") + ":" + jsonVersions.getString(j)));
-				}
-			}
-		}catch(IOException e){
-			LOGGER.info("No image data to read in");
-
-		}catch (JSONException e) {
-			LOGGER.info("Improper JSON format for docker projects in file " + projectsRepository.toString());
-		}
-		return images;
-	}
 
 	public static String getImageName(Path projectLocation) {
 		try {
@@ -233,8 +156,8 @@ public class helperFunctions {
 	/**
 	 * Maps low-critical to numeric values based on the highest value for each range.
 	 *
-	 * @param severity
-	 * @return
+	 * @param severity low, medium, high, or critical CVSS score
+	 * @return severity as an Integer
 	 */
 	public static Integer severityToInt(String severity) {
 		Integer severityInt = 1;
@@ -258,5 +181,60 @@ public class helperFunctions {
 		}
 
 		return severityInt;
+	}
+
+	public static QualityModel trimBenchmarkedMeasuresWithNoFindings(QualityModel qm){
+		for (ModelNode qa : qm.getQualityAspects().values()){
+			for (ModelNode pf : qa.getChildren().values()){
+				recursiveRemoveAllZeroes(pf);
+			}
+		}
+		return qm;
+	}
+
+	public static boolean doThresholdsHaveNonZero(BigDecimal[] thresholds){
+		if (thresholds != null) {
+			//will be null when evaluate is called on a non measures node
+			for (BigDecimal threshold : thresholds) {
+				if (threshold.compareTo(BigDecimal.ZERO) != 0) {
+					//found a nonZero
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private static boolean doThresholdsHaveNonZero(ModelNode node){
+		return doThresholdsHaveNonZero(node.getThresholds());
+	}
+
+	//return children of node
+	private static void recursiveRemoveAllZeroes(ModelNode node){
+		boolean foundNonZero = false;
+		if (node instanceof Diagnostic){
+			//base case, return. We should always run into a diagnostic node
+			return;
+		}
+		Map<String, ModelNode> newChildren = new HashMap<>();
+		for (ModelNode existingChild : node.getChildren().values()){
+			foundNonZero = doThresholdsHaveNonZero(existingChild);
+			recursiveRemoveAllZeroes(existingChild);
+			if (foundNonZero){
+				//keep this node and this node's children, but still need to evaluate children
+				newChildren.put(existingChild.getName(), existingChild);
+			}
+			if (existingChild instanceof Diagnostic){ //keep diagnostic nodes regardless; if
+				newChildren.put(existingChild.getName(), existingChild);
+			}
+		}
+		node.setChildren(newChildren);
+		Map<String, BigDecimal> newWeights = new HashMap<>();
+		for (ModelNode newChild : node.getChildren().values()){
+			double newWeight = 1 / (double) newChildren.size();
+			newWeights.put(newChild.getName(), new BigDecimalWithContext(newWeight));
+		}
+		node.setWeights(newWeights);
+
 	}
 }

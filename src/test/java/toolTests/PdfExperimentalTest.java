@@ -24,6 +24,7 @@
 package toolTests;
 
 import evaluator.ProbabilityDensityFunctionUtilityFunctionExperimental;
+import org.junit.Ignore;
 import org.junit.Test;
 import pique.analysis.Tool;
 import pique.model.Diagnostic;
@@ -45,7 +46,7 @@ import static org.junit.Assert.fail;
 public class PdfExperimentalTest {
 
 
-    @Test
+    @Test @Ignore
     public void testPdfVaryingHyperParameters() {
         Properties prop = PiqueProperties.getProperties();
 

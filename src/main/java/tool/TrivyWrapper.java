@@ -53,6 +53,7 @@ import utilities.helperFunctions;
 public class TrivyWrapper extends Tool implements ITool  {
 	private final PiqueData piqueData;
 	private final String toolName = " Trivy Diagnostic";
+	private final String propertiesPath;
 	private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
 	/**
 	 * Constructs a TrivyWrapper instance.
@@ -61,6 +62,12 @@ public class TrivyWrapper extends Tool implements ITool  {
 	public TrivyWrapper(PiqueData piqueData) {
 		super("trivy", null);
 		this.piqueData = piqueData;
+		this.propertiesPath = "src/main/resources/pique-properties.properties";
+	}
+	public TrivyWrapper(PiqueData piqueData, String propertiesPath) {
+		super("trivy", null);
+		this.piqueData = piqueData;
+		this.propertiesPath = propertiesPath;
 	}
 
 	/**
@@ -119,9 +126,14 @@ public class TrivyWrapper extends Tool implements ITool  {
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
 
 		// find all diagnostic nodes associated with Trivy
-		Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
+        Map<String, Diagnostic> diagnostics = null;
+        try {
+            diagnostics = helperFunctions.initializeDiagnostics(this.getName(), propertiesPath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-		// Read and process Trivy output
+        // Read and process Trivy output
 		try {
 			results = helperFunctions.readFileContent(toolResults);
 		} catch (IOException e) {

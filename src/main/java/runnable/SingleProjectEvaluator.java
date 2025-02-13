@@ -106,19 +106,21 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         LOGGER.info("Generating SBOMs for source code and images");
         Set<Path> sourceCodeRoots = new HashSet<>();
         File[] sourceCodeToGenerateSbomsFrom = sourceCodePath.toFile().listFiles();
-        assert sourceCodeToGenerateSbomsFrom != null; // Ensure the directory is not empty
-        for (File f : sourceCodeToGenerateSbomsFrom) {
-            if (!f.getName().equals(".gitignore")) { // Check to avoid adding .gitignore
-                sourceCodeRoots.add(f.toPath()); // Add both files and directories except .gitignore
+        if (sourceCodeToGenerateSbomsFrom != null) {
+            for (File f : sourceCodeToGenerateSbomsFrom) {
+                if (!f.getName().equals(".gitignore")) { // Check to avoid adding .gitignore
+                    sourceCodeRoots.add(f.toPath()); // Add both files and directories except .gitignore
+                }
             }
         }
 
         Set<Path> imageRoots = new HashSet<>();
         File[] imagesToGenerateSbomsFrom = imagesPath.toFile().listFiles();
-        assert imagesToGenerateSbomsFrom != null; // Ensure the directory is not empty
-        for (File f : imagesToGenerateSbomsFrom) {
-            if (!f.getName().equals(".gitignore")) { // Check to avoid adding .gitignore
-                imageRoots.add(f.toPath()); // Add both files and directories except .gitignore
+        if (imagesToGenerateSbomsFrom != null) {
+            for (File f : imagesToGenerateSbomsFrom) {
+                if (!f.getName().equals(".gitignore")) { // Check to avoid adding .gitignore
+                    imageRoots.add(f.toPath()); // Add both files and directories except .gitignore
+                }
             }
         }
 
@@ -159,9 +161,9 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
 
         // initialize SBOM analysis tools that will run on each SBOM in the input/projects/SBOM directory
         LOGGER.info("Initializing SBOM analysis tools");
-        ITool gyrpeWrapper = new GrypeWrapper(piqueData);
-        ITool trivyWrapper = new TrivyWrapper(piqueData);
-        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
+        ITool gyrpeWrapper = new GrypeWrapper(piqueData, propertiesPath);
+        ITool trivyWrapper = new TrivyWrapper(piqueData, propertiesPath);
+        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
 

@@ -65,7 +65,7 @@ public class QualityModelDeriver extends AQualityModelDeriver {
     }
 
     public QualityModelDeriver(){
-        init(null);
+        init("");
 
     }
 
@@ -74,7 +74,7 @@ public class QualityModelDeriver extends AQualityModelDeriver {
 
         Properties prop = null;
         try {
-            prop = propertiesPath==null ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesPath);
+            prop = propertiesPath.isEmpty() ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesPath);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,9 +87,9 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         Path benchmarkRepo = Paths.get(prop.getProperty("benchmark.repo"));
 
         LOGGER.info("Initializing tools");
-        ITool gyrpeWrapper = new GrypeWrapper(piqueData);
-        ITool trivyWrapper = new TrivyWrapper(piqueData);
-        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData);
+        ITool gyrpeWrapper = new GrypeWrapper(piqueData, propertiesPath);
+        ITool trivyWrapper = new TrivyWrapper(piqueData, propertiesPath);
+        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
         SbomQualityModelImport qmImport = new SbomQualityModelImport(blankqmFilePath);

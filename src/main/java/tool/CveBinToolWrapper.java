@@ -50,11 +50,18 @@ import pique.utility.PiqueProperties;
 public class CveBinToolWrapper extends Tool implements ITool {
     private final PiqueData piqueData;
     private final String toolName = " CVE-bin-tool Diagnostic";
+    private final String propertiesPath;
     private static final Logger LOGGER = LoggerFactory.getLogger(TrivyWrapper.class);
 
     public CveBinToolWrapper(PiqueData piqueData) {
         super("cve_bin_tool", null);
         this.piqueData = piqueData;
+        this.propertiesPath = "src/main/resources/pique-properties.properties";
+    }
+    public CveBinToolWrapper(PiqueData piqueData, String propertiesPath) {
+        super("cve_bin_tool", null);
+        this.piqueData = piqueData;
+        this.propertiesPath = propertiesPath;
     }
 
     /**
@@ -75,7 +82,12 @@ public class CveBinToolWrapper extends Tool implements ITool {
         tempResults.getParentFile().mkdirs();
 
         // get NVD api key for cve-bin-tool
-        Properties prop = PiqueProperties.getProperties();
+        Properties prop = null;
+        try {
+            prop = PiqueProperties.getProperties(propertiesPath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         String nvdApiKeyPath = prop.getProperty("nvd-api-key-path");
 
         String detectedFormat = detectFormat(projectLocation.toAbsolutePath());
@@ -126,7 +138,12 @@ public class CveBinToolWrapper extends Tool implements ITool {
         LOGGER.debug(this.getName() + " Parsing Analysis...");
 
         // find all diagnostic nodes associated with CVE-bin-tool
-        Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
+        Map<String, Diagnostic> diagnostics = null;
+        try {
+            diagnostics = helperFunctions.initializeDiagnostics(this.getName(), propertiesPath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         // Read and process cve-bin-tool output
         try {

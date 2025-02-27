@@ -49,6 +49,7 @@ import java.util.*;
 public class GrypeWrapper extends Tool implements ITool  {
 	private final PiqueData piqueData;
 	private final String toolName = " Grype Diagnostic";
+	private final String propertiesPath;
 	private static final Logger LOGGER = LoggerFactory.getLogger(GrypeWrapper.class);
 
 	/**
@@ -57,6 +58,12 @@ public class GrypeWrapper extends Tool implements ITool  {
 	public GrypeWrapper(PiqueData piqueData) {
 		super("grype", null);
 		this.piqueData = piqueData;
+		this.propertiesPath = "src/main/resources/pique-properties.properties";
+	}
+	public GrypeWrapper(PiqueData piqueData, String propertiesPath) {
+		super("grype", null);
+		this.piqueData = piqueData;
+		this.propertiesPath = propertiesPath;
 	}
 
 	/**
@@ -114,9 +121,14 @@ public class GrypeWrapper extends Tool implements ITool  {
 		LOGGER.debug(this.getName() + " Parsing Analysis...");
 
 		// find all diagnostic nodes associated with Grype
-		Map<String, Diagnostic> diagnostics = helperFunctions.initializeDiagnostics(this.getName());
+        Map<String, Diagnostic> diagnostics = null;
+        try {
+            diagnostics = helperFunctions.initializeDiagnostics(this.getName(), propertiesPath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-		// read and process Grype output
+        // read and process Grype output
 		try {
 			results = helperFunctions.readFileContent(toolResults);
 		} catch (IOException e) {

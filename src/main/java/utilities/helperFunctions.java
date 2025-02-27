@@ -40,6 +40,7 @@ import org.slf4j.LoggerFactory;
 
 import pique.model.Diagnostic;
 import pique.model.ModelNode;
+import pique.model.ProductFactor;
 import pique.model.QualityModel;
 import pique.utility.BigDecimalWithContext;
 import pique.utility.PiqueProperties;
@@ -59,9 +60,9 @@ public class helperFunctions {
 	 * @param toolName The desired tool name
 	 * @return All diagnostics in the model structure with tool equal to toolName
 	 */
-	public static Map<String, Diagnostic> initializeDiagnostics(String toolName) {
+	public static Map<String, Diagnostic> initializeDiagnostics(String toolName, String propertiesPath) throws IOException {
 		// load the qm structure
-		Properties prop = PiqueProperties.getProperties();
+		Properties prop = PiqueProperties.getProperties(propertiesPath);
 		Path blankqmFilePath = Paths.get(prop.getProperty("blankqm.filepath"));
 
 		// Custom quality model import so that we can use SBOMDiagnostic
@@ -226,6 +227,12 @@ public class helperFunctions {
 			}
 			if (existingChild instanceof Diagnostic){ //keep diagnostic nodes regardless; if
 				newChildren.put(existingChild.getName(), existingChild);
+			}
+			if (existingChild instanceof ProductFactor){
+				if (!existingChild.getChildren().isEmpty()) {
+					//product factor's children have been retained from the recursive call
+					newChildren.put(existingChild.getName(), existingChild);
+				}
 			}
 		}
 		node.setChildren(newChildren);

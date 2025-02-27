@@ -27,6 +27,8 @@ import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pique.utility.PiqueProperties;
+
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -46,8 +48,7 @@ import net.sourceforge.argparse4j.inf.Namespace;
 public class Wrapper {
     private static final Logger LOGGER = LoggerFactory.getLogger(Wrapper.class);
 
-    public static void main(String[] args) throws ArgumentParserException {
-        Properties prop = PiqueProperties.getProperties();
+    public static void main(String[] args) throws ArgumentParserException, IOException {
         Namespace namespace = null;
         // setup command line argument parsing
         boolean helpFlag = check_help(args);
@@ -68,7 +69,9 @@ public class Wrapper {
                 .setDefault("none")
                 .choices("syft", "trivy", "none")
                 .help("specify the tool to use for SBOM generation");
-
+        parser.addArgument("--properties")
+                .setDefault("")
+                .help("specify the properties file to use for configuration");
 
         if (helpFlag) {
             System.out.println(parser.formatHelp());
@@ -77,25 +80,34 @@ public class Wrapper {
             namespace = parser.parseArgs(args);
         }
 
+
         String runType = namespace.getString("runType");
         String genTool = namespace.getString("gen_tool");
         boolean printVersion = namespace.getBoolean("version");
 
         if (printVersion) {
-            Path version = Paths.get(prop.getProperty("version"));
+            String version = "1.0"; // TODO FIX TO BE DYNAMIC
             System.out.println("PIQUE-SBOM-SUPPLYCHAIN-SEC version " + version);
             return;
         }
+        Properties prop;
+        String propertiesPath = namespace.getString("properties");
+        if (propertiesPath.isEmpty()) {
+            prop = PiqueProperties.getProperties();
+        } else {
+            prop = PiqueProperties.getProperties(propertiesPath);
+        }
+
 
         if ("derive".equals(runType)) {
             // kick off deriver
-            new QualityModelDeriver();
+            new QualityModelDeriver(propertiesPath);
         }
         else if ("evaluate".equals(runType)) {
             // kick off evaluator
             // get path to input projects
             String sbomInputPath = prop.getProperty("project.sbom-input");
-            new SingleProjectEvaluator(sbomInputPath, genTool, "");
+            new SingleProjectEvaluator(sbomInputPath, genTool, "", propertiesPath);
         }
         else {
             LOGGER.error("Illegal Argument Exception: incorrect input parameter given. Use --help for more information.");

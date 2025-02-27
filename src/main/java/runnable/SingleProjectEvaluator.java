@@ -54,7 +54,7 @@ import tool.*;
  */
 // TODO (1.0): turn into static methods (maybe unless logger problems)
 public class SingleProjectEvaluator extends ASingleProjectEvaluator {
-    private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();
+    private final PiqueData piqueData = new PiqueDataFactory("./src/main/resources/configuration.json").getPiqueData();
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleProjectEvaluator.class);
 
 //    //default properties location
@@ -203,7 +203,6 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         project = new SbomProject(FilenameUtils.getBaseName(projectDir.getFileName().toString()), projectDir, qualityModel);
 
         // Validate State
-        // TODO: validate more objects such as if the quality model has thresholds and weights, are there expected diagnostics, etc
         validatePreEvaluationState(project);
 
         // Run the static analysis tools process

@@ -1,19 +1,25 @@
 # MSUSEL-PIQUE-SBOM-SUPPLYCHAIN-SEC
 ## Introduction
-This project is an operationalized PIQUE model for the assessment of security quality in software supply chains utilizing SBOM technology.
+The MSUSEL-PIQUE-SBOM-SUPPLYCHAIN-SEC project offers an operationalized Platform for Investigative Quality
+Understanding and Evaluation (PIQUE) model designed to assess security quality within software
+supply chains using Software Bill of Materials (SBOM) technology. To address challenges
+associated with various development environments and third-party applications, this project
+is also available as a standalone Docker image. That image is available That image is available [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supply-chain-sec/general)..
 
-Because of the various development environment challenges when dealing with numerous 3rd 
-party applications, this project is also provided as a packaged standalone docker image. 
-That image is available [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supply-chain-sec/general).
+## Features
+* Security Assessment: Evaluates the security posture of software supply chains by analyzing SBOMs.
+* Tool Integration: Incorporates multiple security tools to provide comprehensive analysis.
+* Docker Support: Offers a Docker image for simplified deployment and environment consistency.
 ___
 ## Tools
-These will be automatically installed when the docker image is built.
+The project relies on the following tools. These will be automatically installed when the Docker image is built, but must 
+be manually installed if not using the Docker image.
 
-* [Grype](https://github.com/anchore/grype) version 0.72.0
-* [Trivy](https://github.com/aquasecurity/trivy) version 0.44.1
-* [CVE-bin-tool]() version 3.2.1
+* [Grype](https://github.com/anchore/grype) version 0.87.0
+* [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1
 * [Maven](https://github.com/apache/maven) version 3.9.6
-* [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 0.9.4
+* [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 1.0.1
+* [PIQUE-data](https://github.com/MSUSEL/msusecl-pique-data) version 1.1.0
 ___
 
 ## Run Environment

@@ -58,7 +58,7 @@ import utilities.helperFunctions;
  */
 public class QualityModelDeriver extends AQualityModelDeriver {
     private static final Logger LOGGER = LoggerFactory.getLogger(QualityModelDeriver.class);
-    PiqueData piqueData = new PiqueDataFactory("./src/main/resources/configuration.json").getPiqueData();
+    PiqueData piqueData = new PiqueDataFactory().getPiqueData();
 
     public QualityModelDeriver(String propertiesPath){
         init(propertiesPath);

@@ -54,7 +54,7 @@ import tool.*;
  */
 // TODO (1.0): turn into static methods (maybe unless logger problems)
 public class SingleProjectEvaluator extends ASingleProjectEvaluator {
-    private final PiqueData piqueData = new PiqueDataFactory("./src/main/resources/configuration.json").getPiqueData();
+    private final PiqueData piqueData = new PiqueDataFactory().getPiqueData();
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleProjectEvaluator.class);
 
 //    //default properties location

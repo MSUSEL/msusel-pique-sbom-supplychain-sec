@@ -3,8 +3,7 @@ name: Build And Push Docker Image
 on:
   push:
     branches:
-#      - 'master'
-       - 'neverbranchname'
+      - 'master'
 
 jobs:
   docker:

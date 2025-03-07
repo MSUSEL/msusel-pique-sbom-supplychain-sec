@@ -89,7 +89,7 @@ public class QualityModelDeriver extends AQualityModelDeriver {
         LOGGER.info("Initializing tools");
         ITool gyrpeWrapper = new GrypeWrapper(piqueData, propertiesPath);
         ITool trivyWrapper = new TrivyWrapper(piqueData, propertiesPath);
-        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
+        //ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
         SbomQualityModelImport qmImport = new SbomQualityModelImport(blankqmFilePath);

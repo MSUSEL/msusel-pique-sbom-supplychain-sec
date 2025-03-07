@@ -26,12 +26,12 @@ FROM msusel/pique-core:1.0.1
 
 ## dependency and library versions
 ARG PIQUE_SBOM_VERSION=1.1.0
-ARG GRYPE_VERSION=0.72.0
-ARG TRIVY_VERSION=0.44.1
+ARG GRYPE_VERSION=0.87.0
+ARG TRIVY_VERSION=0.59.1
 
 #--------------------------------------------------------#
 RUN apk update && apk upgrade && apk add --update --no-cache \
-    curl python3 py3-pip dpkg docker openrc wget go
+    curl python3 py3-pip dpkg docker openrc wget go docker-compose
 
 # add user to docker group
 RUN addgroup root docker
@@ -46,12 +46,16 @@ WORKDIR "/home"
 
 ## grype installs
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v$GRYPE_VERSION
+RUN grype db update
 
 ## trivy installs
 RUN wget "https://github.com/aquasecurity/trivy/releases/download/v"$TRIVY_VERSION"/trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
 RUN dpkg --add-architecture amd64
 RUN dpkg -i "trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
 RUN rm "trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
+
+RUN trivy image --download-db-only
+RUN trivy image --download-java-db-only
 
 ##################################################
 ############ pique data install ##################
@@ -63,6 +67,10 @@ ENV PG_PORT="5433"
 ENV PG_DBNAME="nvd_mirror"
 ENV PG_USERNAME="postgres"
 ENV PG_PASS="postgres"
+
+
+#RUN curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusecl-pique-data/refs/heads/master/src/main/resources/docker-compose.yml
+#RUN docker-compose up -d
 
 ##################################################
 ############ pique SBOM install ##################
@@ -76,7 +84,10 @@ RUN python3 -m pip install argparse requests flask --break-system-packages
 
 WORKDIR "/home"
 RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychain-sec
+#RUN git clone -b deployment git@github.com:MSUSEL/msusel-pique-sbom-supplychain-sec.git
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
+RUN git checkout -b deployment
+
 # build pique sbom supply chain sec
 RUN mvn package -Dmaven.test.skip
 
@@ -95,4 +106,4 @@ RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supp
 
 ##### secret sauce
 ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
-CMD ["--gen_tool", "none"]
+#CMD ["--gen_tool", "none"]

@@ -42,6 +42,7 @@ out/trivy.json
 out/sbomqs.txt
 out/NPM/*
 out/NPM-trimmed/*
+out/trimming-testing/*
 
 # ignore large model files
 out/SBOMSupplyChainSecurityQualityModelCWE-699-PDFUtility-test.json

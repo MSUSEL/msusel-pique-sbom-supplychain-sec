@@ -83,7 +83,12 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
-            prop = propertiesPath == null || propertiesPath.isEmpty() ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesPath);
+            if (propertiesPath == null || propertiesPath.isEmpty()) {
+                prop = PiqueProperties.getProperties();
+            }
+            else {
+                PiqueProperties.getProperties(propertiesPath);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -163,7 +168,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         LOGGER.info("Initializing SBOM analysis tools");
         ITool gyrpeWrapper = new GrypeWrapper(piqueData, propertiesPath);
         ITool trivyWrapper = new TrivyWrapper(piqueData, propertiesPath);
-        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
+        //ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
 

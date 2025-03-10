@@ -25,13 +25,14 @@
 FROM msusel/pique-core:1.0.1
 
 ## dependency and library versions
-ARG PIQUE_SBOM_VERSION=1.0
-ARG GRYPE_VERSION=0.72.0
-ARG TRIVY_VERSION=0.44.1
+ARG PIQUE_SBOM_VERSION=2.0
+ARG GRYPE_VERSION=0.87.0
+ARG TRIVY_VERSION=0.59.1
+
 
 #--------------------------------------------------------#
 RUN apk update && apk upgrade && apk add --update --no-cache \
-    curl python3 py3-pip dpkg docker openrc wget go
+    curl python3 py3-pip dpkg docker openrc wget go docker-compose
 
 # add user to docker group
 RUN addgroup root docker
@@ -40,8 +41,13 @@ RUN rc-update add docker boot
 # move to home for a fresh start
 WORKDIR "/home"
 
+##################################################
+############ SBOM analysis tool install ##########
+##################################################
+
 ## grype installs
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v$GRYPE_VERSION
+RUN grype db update
 
 ## trivy installs
 RUN wget "https://github.com/aquasecurity/trivy/releases/download/v"$TRIVY_VERSION"/trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
@@ -49,6 +55,19 @@ RUN dpkg --add-architecture amd64
 RUN dpkg -i "trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
 RUN rm "trivy_"$TRIVY_VERSION"_Linux-64bit.deb"
 
+RUN trivy image --download-db-only
+RUN trivy image --download-java-db-only
+
+##################################################
+############ pique data install ##################
+##################################################
+
+ENV PG_DRIVER="jdbc:postgresql"
+ENV PG_HOSTNAME="localhost"
+ENV PG_PORT="5433"
+ENV PG_DBNAME="nvd_mirror"
+ENV PG_USERNAME="postgres"
+ENV PG_PASS="postgres"
 
 ##################################################
 ############ pique SBOM install ##################
@@ -62,23 +81,15 @@ RUN python3 -m pip install argparse requests flask --break-system-packages
 
 WORKDIR "/home"
 RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychain-sec
+
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
+## REMOVE
+RUN git fetch origin deployment
+RUN git checkout deployment
 
 # build pique sbom supply chain sec
 RUN mvn package -Dmaven.test.skip
-
-#
-# ### sbomqs install
-# #WORKDIR "/home/msusel-pique-sbom-supplychain-sec/src/main/resources"
-# #RUN curl -LJ -o sbomqs releases/download/v$SBOMQS_VERSION/sbomqs-linux-amd64
-# #RUN chmod a+x sbomqs
-# ENV PATH=${PATH}:/usr/local/go/bin
-# ENV GOPATH="${HOME}/go"
-# ENV PATH="${GOPATH}/bin:${PATH}"
-# ENV INTERLYNK_DISABLE_VERSION_CHECK=true
-# RUN go install github.com/interlynk-io/sbomqs@v$SBOMQS_VERSION
-WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 # create input directory
 RUN mkdir "/input"
@@ -90,8 +101,14 @@ VOLUME ["/input"]
 VOLUME ["/out"]
 
 # symlink to jar file for cleanliness
+#RUN chmod +x "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-SNAPSHOT-jar-with-dependencies.jar"
 RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-SNAPSHOT-jar-with-dependencies.jar" \
         "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar"
+#RUN chmod +x /home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar
+
+#RUN ls "/home/msusel-pique-sbom-supplychain-sec"
 
 ##### secret sauce
 ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
+#ENTRYPOINT ["ls", "/home/msusel-pique-sbom-supplychain-sec"]
+#CMD ["--gen_tool", "none"]

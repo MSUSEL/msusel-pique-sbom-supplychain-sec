@@ -62,7 +62,12 @@ public class helperFunctions {
 	 */
 	public static Map<String, Diagnostic> initializeDiagnostics(String toolName, String propertiesPath) throws IOException {
 		// load the qm structure
-		Properties prop = PiqueProperties.getProperties(propertiesPath);
+		Properties prop = null;
+		try {
+			prop = propertiesPath == null || propertiesPath.isEmpty() ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesPath);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		Path blankqmFilePath = Paths.get(prop.getProperty("blankqm.filepath"));
 
 		// Custom quality model import so that we can use SBOMDiagnostic

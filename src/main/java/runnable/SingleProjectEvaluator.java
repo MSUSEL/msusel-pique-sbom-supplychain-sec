@@ -83,7 +83,12 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         LOGGER.info("Starting Analysis");
         Properties prop = null;
         try {
-            prop = propertiesPath == null ? PiqueProperties.getProperties() : PiqueProperties.getProperties(propertiesPath);
+            if (propertiesPath == null || propertiesPath.isEmpty()) {
+                prop = PiqueProperties.getProperties();
+            }
+            else {
+                prop = PiqueProperties.getProperties(propertiesPath);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -163,7 +168,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         LOGGER.info("Initializing SBOM analysis tools");
         ITool gyrpeWrapper = new GrypeWrapper(piqueData, propertiesPath);
         ITool trivyWrapper = new TrivyWrapper(piqueData, propertiesPath);
-        ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
+        //ITool cveBinToolWrapper = new CveBinToolWrapper(piqueData, propertiesPath);
         //Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper, cveBinToolWrapper).collect(Collectors.toSet());
         Set<ITool> tools = Stream.of(gyrpeWrapper,trivyWrapper).collect(Collectors.toSet());
 
@@ -187,10 +192,10 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             System.out.println("exporting compact: " + project.exportToJson(resultsDir, true));
 
             // TODO: Remove later (only here for experimenting with the pdf utility function)
-//            Pair<String, String> name = Pair.of("projectName", project.getName());
-//            String fileName = project.getName() + "_compact_evalResults_" + parameters;
-//            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
-//            qmExport.exportToJson(fileName, resultsDir);
+            Pair<String, String> name = Pair.of("projectName", project.getName());
+            String fileName = project.getName() + "_compact_evalResults-TRIMMED" + parameters;
+            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
+            qmExport.exportToJson(fileName, resultsDir);
         }
     }
 

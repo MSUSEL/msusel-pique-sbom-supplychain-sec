@@ -38,34 +38,30 @@ are supplied on this repository.
 ___
 
 ## API Key Requirments
-A API key from the National Vulnerability Database and a Github personal access token are needed. See [running](ttps://github.com/MSUSEL/msusel-pique-sbom-supplychainsec/tree/master#running) for details.
-- [NVD API key](https://nvd.nist.gov/developers/request-an-api-key)
+A Github personal access token are needed. See [running](ttps://github.com/MSUSEL/msusel-pique-sbom-supplychainsec/tree/master#running) for details.
 - [Github Token](https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 ___
 
 ## Running 
 1. Download and install [Docker engine](https://docs.docker.com/engine/install/)
-2. With Docker engine installed, pull the latest version of this project:
+2. Navigate to a working directory for this project
+2. Run the following command to download the docker-compose file:
 ```
-docker pull msusel/pique-sbom-supply-chain-sec:latest
+curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique-sbom-supplychain-sec/master/docker-compose.yml
 ```
-4. Navigate to a working directory for this project
-5. Create two directories, "input" and "out". Inside the "input directory", create two directories "keys" and "projects"
-6. Generate an NVD API key [here](https://nvd.nist.gov/developers/request-an-api-key) and save the text of the key to a file 'nvd-api-key.txt'
-7. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt' 
-8. Move the files 'nvd-api-key.txt' and 'github-token.txt' to the 'input/keys' directory.
-9. There are two options for input projects. If you have already generated SBOMs
+5. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt'
+6. Place the Github API token in a file named `.env` in the format `GITHUB_PAT=[your token]`
+6. Create two directories, "input" and "out". Inside the "input directory", create a directory "projects" inside "projects" create three directories "SBOM", "sourceCode", and "images"
+8. There are three options for input projects. If you have already generated SBOMs
    place any number of SBOMs to be analyzed in input/projects/SBOM. If you wish to assess the
    software supply chain security quality of a project but you haven't built an SBOM simply place
    the root folder of the project in input/projects/sourceCode. The resulting SBOMs will be 
-   placed in input/projects/SBOM and the model will continue as normal.
-10. The resulting directory structure should look like this:
+   placed in input/projects/SBOM and the model will continue as normal. If you wish to assess the software supply
+    chain security quality of a docker image, place a text file with the name and tag of the image in input/projects/images.
+9. The resulting directory structure should look like this:
 ```
 ├── $WORKDIR
 │   ├── input
-│   │   ├── keys
-│   │   │   ├── github-token.txt
-│   │   │   ├── nvd-api-key.txt
 │   │   ├── projects
 │   │   │   ├── SBOM
 │   │   │   │   ├── place SBOMs to analyze here (SPDX or CycloneDX in json format)
@@ -74,12 +70,13 @@ docker pull msusel/pique-sbom-supply-chain-sec:latest
 │   │   │   ├── images
 │   │   │   │   ├── place text files with docker image name and tag here ([name]:[tag])
 │   ├── out
+│   ├── .env
 ```
-11. Run the command (replace `/path/to/working/directory` to absolute path of `$WORKDIR`)
+10. Run the command
 ```
-docker run -it --rm -v "/var/run/docker.sock:/var/run/docker.sock:rw" -v /path/to/working/directory/input:/input -v /path/to/working/directory/out:/out msusel/pique-sbom-supply-chain-sec:latest
+docker compose up
 ```
-12. Results will be generated in the 'out' directory
+11. Results will be generated in the 'out' directory
 ___
 
 ## Funding Agency:

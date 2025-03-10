@@ -25,7 +25,7 @@
 FROM msusel/pique-core:1.0.1
 
 ## dependency and library versions
-ARG PIQUE_SBOM_VERSION=1.0
+ARG PIQUE_SBOM_VERSION=2.0
 ARG GRYPE_VERSION=0.87.0
 ARG TRIVY_VERSION=0.59.1
 
@@ -69,10 +69,6 @@ ENV PG_DBNAME="nvd_mirror"
 ENV PG_USERNAME="postgres"
 ENV PG_PASS="postgres"
 
-
-#RUN curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusecl-pique-data/refs/heads/master/src/main/resources/docker-compose.yml
-#RUN docker-compose up -d
-
 ##################################################
 ############ pique SBOM install ##################
 ##################################################
@@ -113,6 +109,6 @@ RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supp
 #RUN ls "/home/msusel-pique-sbom-supplychain-sec"
 
 ##### secret sauce
-#ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
+ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
 #ENTRYPOINT ["ls", "/home/msusel-pique-sbom-supplychain-sec"]
 #CMD ["--gen_tool", "none"]

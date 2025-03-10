@@ -90,7 +90,6 @@ public class TrivyWrapper extends Tool implements ITool  {
 		// command for running Trivy on the command line
 		String[] cmd = {"trivy",
 				"--timeout", "30m",
-				"--offline-scan",
 				"sbom",
 				"--format", "json",
 				//"--quiet",

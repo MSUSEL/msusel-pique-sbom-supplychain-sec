@@ -26,4 +26,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: msusel/pique-sbom-supply-chain-sec:latest
+          tags: |
+            msusel/pique-sbom-supply-chain-sec:latest
+            msusel/pique-sbom-supply-chain-sec:2.0

@@ -16,7 +16,7 @@ services:
 
   app_pique-sbom-supplychain-sec:
 
-    image: msusel/pique-sbom-supplychain-sec:latest
+    image: msusel/pique-sbom-supply-chain-sec:latest
     networks:
       nvd_db_connection:
     depends_on:

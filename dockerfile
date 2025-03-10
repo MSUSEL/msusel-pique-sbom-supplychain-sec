@@ -85,8 +85,8 @@ RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychain-sec
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 ## REMOVE
-RUN git fetch origin deployment
-RUN git checkout deployment
+RUN git fetch origin deployment2
+RUN git checkout deployment2
 
 # build pique sbom supply chain sec
 RUN mvn package -Dmaven.test.skip

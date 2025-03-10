@@ -20,7 +20,7 @@ public class DeriveEvalTest {
 
 
         try {
-            QualityModelDeriver qm = new QualityModelDeriver("/home/eric/Documents/research/PIQUE-SBOM-dev/current/msusel-pique-sbom-supplychain-sec/src/main/resources/pique-properties-temp.properties");
+            //QualityModelDeriver qm = new QualityModelDeriver("/home/eric/Documents/research/PIQUE-SBOM-dev/current/msusel-pique-sbom-supplychain-sec/src/main/resources/pique-properties-temp.properties");
             SingleProjectEvaluator eval = new SingleProjectEvaluator(sbomInputPath, "", "", "/home/eric/Documents/research/PIQUE-SBOM-dev/current/msusel-pique-sbom-supplychain-sec/src/main/resources/pique-properties-temp.properties");
         }
         catch (Exception e) {

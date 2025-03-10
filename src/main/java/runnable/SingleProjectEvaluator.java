@@ -87,7 +87,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
                 prop = PiqueProperties.getProperties();
             }
             else {
-                PiqueProperties.getProperties(propertiesPath);
+                prop = PiqueProperties.getProperties(propertiesPath);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
 
             // TODO: Remove later (only here for experimenting with the pdf utility function)
             Pair<String, String> name = Pair.of("projectName", project.getName());
-            String fileName = project.getName() + "_TRIMMED-TESTING_compact_evalResults" + parameters;
+            String fileName = project.getName() + "_compact_evalResults-TRIMMED" + parameters;
             QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
             qmExport.exportToJson(fileName, resultsDir);
         }

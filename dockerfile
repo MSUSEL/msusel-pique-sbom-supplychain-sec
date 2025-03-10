@@ -85,9 +85,12 @@ RUN python3 -m pip install argparse requests flask --break-system-packages
 
 WORKDIR "/home"
 RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychain-sec
-#RUN git clone -b deployment git@github.com:MSUSEL/msusel-pique-sbom-supplychain-sec.git
+
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
-RUN git checkout -b deployment
+
+## REMOVE
+RUN git fetch origin deployment
+RUN git checkout deployment
 
 # build pique sbom supply chain sec
 RUN mvn package -Dmaven.test.skip

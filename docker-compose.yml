@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  db_nvd_mirror:
+    image: msusel/nvd-mirror:latest
+    container_name: db_nvd_mirror
+    hostname: db_nvd_mirror
+    networks:
+      nvd_db_connection:
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "nvd_mirror"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+
+  app_pique-sbom-supplychain-sec:
+
+    image: msusel/pique-sbom-supplychain-sec:latest
+    networks:
+      nvd_db_connection:
+    depends_on:
+      db_nvd_mirror:
+        condition: service_healthy
+    environment:
+      - PG_HOSTNAME=db_nvd_mirror
+      - PG_DRIVER=jdbc:postgresql
+      - PG_PORT=5432
+      - PG_DBNAME=nvd_mirror
+      - PG_USERNAME=postgres
+      - PG_PASS=postgres
+    env_file:
+      - .env
+    volumes:
+      - "./input:/input"
+      - "./out:/out"
+    command: ["--gen_tool", "none", --properties, "src/main/resources/pique-properties.properties"]
+
+
+networks:
+  nvd_db_connection:
+    driver: bridge
+
+
+volumes:
+  input:
+  output:

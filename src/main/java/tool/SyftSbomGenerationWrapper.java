@@ -50,13 +50,12 @@ public class SyftSbomGenerationWrapper implements IGenerationTool {
      *
      * @param projectLocation The file path of the project directory for which to generate the SBOM.
      */
-    public void generateSource(Path projectLocation) {
+    public void generateSource(Path projectLocation, Path sbomDirectory) {
         LOGGER.info("Syft Generation --- Generating SBOM for {}", projectLocation.toString());
-        File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-syft-cdx-" + projectLocation.getFileName() + ".json");
+        File generatedSbom = new File(sbomDirectory.toString() + "/sbom-trivy-cdx-" + projectLocation.getFileName() + ".json");
         String spec = "cyclonedx-json"; // output format
 
         // command for running syft SBOM generation on the command line
-        // TODO: update Syft version such that it generates CDX 1.6 with this command
         String[] cmd = {"syft",
                 projectLocation.toAbsolutePath().toString(),
                 "--file", generatedSbom.toPath().toAbsolutePath().toString(),
@@ -76,9 +75,9 @@ public class SyftSbomGenerationWrapper implements IGenerationTool {
 
     }
 
-    public void generateImage(Path projectLocation) {
+    public void generateImage(Path projectLocation, Path sbomDirectory) {
         LOGGER.info("Syft Generation --- Generating SBOM for {}", projectLocation.toString());
-        File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-syft-cdx-" + projectLocation.getFileName() + ".json");
+        File generatedSbom = new File(sbomDirectory.toString() + "/sbom-trivy-cdx-" + projectLocation.getFileName() + ".json");
         String spec = "cyclonedx-json"; // output format
 
         // open the txt file given with projectLocation and extract the image name:version as a string

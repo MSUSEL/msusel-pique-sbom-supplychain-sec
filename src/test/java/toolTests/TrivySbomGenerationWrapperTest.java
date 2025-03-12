@@ -37,7 +37,7 @@ public class TrivySbomGenerationWrapperTest {
 
         // Act
         for (Path root : sourceCodeRoots) {
-            sbomGenerator.generateSource(root);
+            sbomGenerator.generateSource(root, Path.of(System.getProperty("user.dir") + "/input/projects/SBOM"));
 
             // Assert
             File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-trivy-cdx-" + root.getFileName() + ".json");
@@ -69,7 +69,7 @@ public class TrivySbomGenerationWrapperTest {
 
         // Act
         for (Path root : imageRoots) {
-            sbomGenerator.generateImage(root);
+            sbomGenerator.generateImage(root, Path.of(System.getProperty("user.dir") + "/input/projects/SBOM"));
 
             // Assert
             File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-trivy-cdx-" + root.getFileName() + ".json");

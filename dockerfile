@@ -26,6 +26,7 @@ FROM msusel/pique-core:1.0.1
 
 ## dependency and library versions
 ARG PIQUE_SBOM_VERSION=2.0
+ARG SYFT_VERSION=1.20.0
 ARG GRYPE_VERSION=0.87.0
 ARG TRIVY_VERSION=0.59.1
 
@@ -48,6 +49,9 @@ WORKDIR "/home"
 ## grype installs
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v$GRYPE_VERSION
 RUN grype db update
+
+## syft install
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin v$SYFT_VERSION
 
 ## trivy installs
 RUN wget "https://github.com/aquasecurity/trivy/releases/download/v"$TRIVY_VERSION"/trivy_"$TRIVY_VERSION"_Linux-64bit.deb"

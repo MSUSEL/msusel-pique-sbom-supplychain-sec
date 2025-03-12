@@ -183,6 +183,10 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
                 }
             }
         }
+        else {
+            System.out.println("WARN: No SBOMs found in the input/projects/SBOM directory");
+            LOGGER.warn("No SBOMs found in the input/projects/SBOM directory");
+        }
 
         // PIQUE evaluator entry point - evaluates each SBOM in the input/projects/SBOM directory and stores results in out directory
         for (Path projectUnderAnalysisPath : sbomRoots){

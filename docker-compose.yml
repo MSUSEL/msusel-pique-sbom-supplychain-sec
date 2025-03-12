@@ -42,4 +42,4 @@ networks:
 
 volumes:
   input:
-  output:
+  out:

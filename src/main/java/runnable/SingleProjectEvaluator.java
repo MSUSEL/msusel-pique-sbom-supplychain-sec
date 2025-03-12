@@ -176,10 +176,11 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
         LOGGER.info("Evaluating SBOMs");
         Set<Path> sbomRoots = new HashSet<>();
         File[] sbomsToAssess = sbomPath.toFile().listFiles();
-        assert sbomsToAssess != null;
-        for (File f : sbomsToAssess){
-            if (f.isFile() && !f.getName().equals(".gitignore")){
-                sbomRoots.add(f.toPath());
+        if (sbomsToAssess != null) {
+            for (File f : sbomsToAssess) {
+                if (f.isFile() && !f.getName().equals(".gitignore")) {
+                    sbomRoots.add(f.toPath());
+                }
             }
         }
 

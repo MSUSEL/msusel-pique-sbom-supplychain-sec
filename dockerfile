@@ -101,14 +101,14 @@ VOLUME ["/input"]
 VOLUME ["/out"]
 
 # symlink to jar file for cleanliness
-#RUN chmod +x "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-SNAPSHOT-jar-with-dependencies.jar"
-RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-SNAPSHOT-jar-with-dependencies.jar" \
+#RUN chmod +x "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-jar-with-dependencies.jar"
+RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-jar-with-dependencies.jar" \
         "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar"
 #RUN chmod +x /home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar
 
 #RUN ls "/home/msusel-pique-sbom-supplychain-sec"
 
 ##### secret sauce
-ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
+#ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
 #ENTRYPOINT ["ls", "/home/msusel-pique-sbom-supplychain-sec"]
 #CMD ["--gen_tool", "none"]

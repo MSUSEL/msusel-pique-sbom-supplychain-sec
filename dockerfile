@@ -109,6 +109,6 @@ RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supp
 #RUN ls "/home/msusel-pique-sbom-supplychain-sec"
 
 ##### secret sauce
-#ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
+ENTRYPOINT ["java", "-jar", "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar", "--runType", "evaluate"]
 #ENTRYPOINT ["ls", "/home/msusel-pique-sbom-supplychain-sec"]
 #CMD ["--gen_tool", "none"]

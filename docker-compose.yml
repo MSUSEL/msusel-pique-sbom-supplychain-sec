@@ -39,8 +39,3 @@ services:
 networks:
   nvd_db_connection:
     driver: bridge
-
-
-volumes:
-  input:
-  output:

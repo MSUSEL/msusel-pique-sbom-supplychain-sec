@@ -47,7 +47,7 @@ ___
 2. Navigate to a working directory for this project
 2. Run the following command to download the docker-compose file:
 ```
-curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique-sbom-supplychain-sec/master/docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique-sbom-supplychain-sec/refs/heads/master/docker-compose.yml
 ```
 5. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt'
 6. Place the Github API token in a file named `.env` in the format `GITHUB_PAT=[your token]`

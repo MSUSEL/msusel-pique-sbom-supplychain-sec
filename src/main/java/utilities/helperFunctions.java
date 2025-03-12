@@ -191,9 +191,7 @@ public class helperFunctions {
 
 	public static QualityModel trimBenchmarkedMeasuresWithNoFindings(QualityModel qm){
 		for (ModelNode qa : qm.getQualityAspects().values()){
-			for (ModelNode pf : qa.getChildren().values()){
-				recursiveRemoveAllZeroes(pf);
-			}
+			recursiveRemoveAllZeroes(qa);
 		}
 		return qm;
 	}

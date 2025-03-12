@@ -85,8 +85,8 @@ RUN git clone https://github.com/MSUSEL/msusel-pique-sbom-supplychain-sec
 WORKDIR "/home/msusel-pique-sbom-supplychain-sec"
 
 ## REMOVE
-RUN git fetch origin deployment
-RUN git checkout deployment
+RUN git fetch origin deployment2
+RUN git checkout deployment2
 
 # build pique sbom supply chain sec
 RUN mvn package -Dmaven.test.skip
@@ -101,8 +101,8 @@ VOLUME ["/input"]
 VOLUME ["/out"]
 
 # symlink to jar file for cleanliness
-#RUN chmod +x "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-SNAPSHOT-jar-with-dependencies.jar"
-RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-SNAPSHOT-jar-with-dependencies.jar" \
+#RUN chmod +x "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-jar-with-dependencies.jar"
+RUN ln -s "/home/msusel-pique-sbom-supplychain-sec/target/msusel-pique-sbom-supplychain-sec-"$PIQUE_SBOM_VERSION"-jar-with-dependencies.jar" \
         "/home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar"
 #RUN chmod +x /home/msusel-pique-sbom-supplychain-sec/docker_entrypoint.jar
 

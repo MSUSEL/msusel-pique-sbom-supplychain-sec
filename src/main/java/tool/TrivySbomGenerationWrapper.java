@@ -26,6 +26,7 @@ package tool;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 import org.slf4j.Logger;
@@ -55,9 +56,9 @@ public class TrivySbomGenerationWrapper implements IGenerationTool {
      *
      * @param projectLocation The file path of the project directory for which to generate the SBOM.
      */
-    public void generateSource(Path projectLocation) {
+    public void generateSource(Path projectLocation, Path sbomDirectory) {
         LOGGER.info("Trivy Generation --- Generating SBOM for source code: {}", projectLocation.toString());
-        File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-trivy-cdx-" + projectLocation.getFileName() + ".json");
+        File generatedSbom = new File(sbomDirectory.toString() + "/sbom-trivy-cdx-" + projectLocation.getFileName() + ".json");
         String spec = "cyclonedx"; // output format
 
         // command for running Trivy SBOM generation on the command line
@@ -81,9 +82,10 @@ public class TrivySbomGenerationWrapper implements IGenerationTool {
 
     }
 
-    public void generateImage(Path projectLocation) {
+    public void generateImage(Path projectLocation, Path sbomDirectory) {
         LOGGER.info("Trivy Generation --- Generating SBOM for image: {}", projectLocation.toString());
-        File generatedSbom = new File(System.getProperty("user.dir") + "/input/projects/SBOM/sbom-trivy-cdx-" + projectLocation.getFileName() + ".json");
+
+        File generatedSbom = new File(sbomDirectory.toString() + "/sbom-trivy-cdx-" + projectLocation.getFileName() + ".json");
         String spec = "cyclonedx"; // output format
 
         // open the txt file given with projectLocation and extract the image name:version as a string

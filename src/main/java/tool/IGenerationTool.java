@@ -37,6 +37,6 @@ public interface IGenerationTool {
      *
      * @param projectLocation The file path of the project directory for which to generate the SBOM.
      */
-    void generateSource(Path projectLocation);
-    void generateImage(Path projectLocation);
+    void generateSource(Path projectLocation, Path sbomDirectory);
+    void generateImage(Path projectLocation, Path sbomDirectory);
 }

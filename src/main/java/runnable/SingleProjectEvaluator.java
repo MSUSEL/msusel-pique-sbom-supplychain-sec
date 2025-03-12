@@ -145,12 +145,12 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             for (Path projectToGenerateSbomFor : sourceCodeRoots){
                 LOGGER.info("Generating SBOM for: {}\nwith generation tool: {}", projectToGenerateSbomFor.toString(), genTool);
                 System.out.println("Generating SBOM for: " + projectToGenerateSbomFor + "\nwith generation tool: " + genTool);
-                sbomGenerator.generateSource(projectToGenerateSbomFor);
+                sbomGenerator.generateSource(projectToGenerateSbomFor, sbomPath);
             }
             for (Path projectToGenerateSbomFor : imageRoots){
                 LOGGER.info("Generating SBOM for: {}\nwith generation tool: {}", projectToGenerateSbomFor.toString(), genTool);
                 System.out.println("Generating SBOM for: " + projectToGenerateSbomFor + "\nwith generation tool: " + genTool);
-                sbomGenerator.generateImage(projectToGenerateSbomFor);
+                sbomGenerator.generateImage(projectToGenerateSbomFor, sbomPath);
             }
         }
         else {
@@ -197,10 +197,10 @@ public class SingleProjectEvaluator extends ASingleProjectEvaluator {
             System.out.println("exporting compact: " + project.exportToJson(resultsDir, true));
 
             // TODO: Remove later (only here for experimenting with the pdf utility function)
-            Pair<String, String> name = Pair.of("projectName", project.getName());
-            String fileName = project.getName() + "_compact_evalResults-TRIMMED" + parameters;
-            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
-            qmExport.exportToJson(fileName, resultsDir);
+//            Pair<String, String> name = Pair.of("projectName", project.getName());
+//            String fileName = project.getName() + "_compact_evalResults-TRIMMED" + parameters;
+//            QualityModelExport qmExport = new QualityModelCompactExport(project.getQualityModel(), name);
+//            qmExport.exportToJson(fileName, resultsDir);
         }
     }
 

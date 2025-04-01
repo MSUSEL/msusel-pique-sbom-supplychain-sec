@@ -15,13 +15,19 @@ ___
 The project relies on the following tools. These will be automatically installed when the Docker image is built, but must 
 be manually installed if not using the Docker image.
 
-* [Grype](https://github.com/anchore/grype) version 0.87.0
-* [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1
 * [Maven](https://github.com/apache/maven) version 3.9.6
 * [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 1.0.1
 * [PIQUE-data](https://github.com/MSUSEL/msusecl-pique-data) version 1.1.0
+* [Grype](https://github.com/anchore/grype) version 0.87.0
+* [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1
 ___
+## Benchmark Repository
+The project is derived on two benchmark repositories.
 
+* NPM repository - 531 popular NPM projects from NPM Registry. Generation tool: [cyclonedx-npm](https://www.npmjs.com/package/@cyclonedx/cyclonedx-npm) version 1.19.3
+* Docker Image repsoitory - 995 popular Docker imags from Docker Hub. Generation tools: [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1, [Syft](https://github.com/anchore/syft) version 1.16.0 
+
+___
 ## Run Environment
 #### Docker
 docker engine 20.10.24 (not tested with versions 21+)
@@ -29,6 +35,8 @@ docker engine 20.10.24 (not tested with versions 21+)
 The image for this project is hosted on dockerhub 
 [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supplychain-sec/general). Instructions to download 
 and run are supplied [below](https://github.com/MSUSEL/msusel-sbom-supplychain-sec/tree/master#running)
+
+It is important to note, that the docker image cannot be run without the [msusel/nvd-mirror](https://hub.docker.com/repository/docker/msusel/nvd-mirror/general) image. A docker-compose file is provided that handles this, see Running below.
 
 
 #### not Docker
@@ -58,7 +66,8 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique
    the root folder of the project in input/projects/sourceCode. The resulting SBOMs will be 
    placed in input/projects/SBOM and the model will continue as normal. If you wish to assess the software supply
     chain security quality of a docker image, place a text file with the name and tag of the image in input/projects/images.
-9. The resulting directory structure should look like this:
+9. Select derived model to use: `npm, npm-trimmed, docker, docker-trimmed`
+10. The resulting directory structure should look like this:
 ```
 ├── $WORKDIR
 │   ├── input
@@ -72,11 +81,12 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique
 │   ├── out
 │   ├── .env
 ```
-10. Run the command
+11. Run the command
 ```
 docker compose up
 ```
-11. Results will be generated in the 'out' directory
+Note: There is currently bug which may require the command to be re-run after the first time running it. 
+12. Results will be generated in the 'out' directory (permissions for outputted files may need to be changed with `sudo chown -R $USER:$USER [file name]`)
 ___
 
 ## Funding Agency:

@@ -46,6 +46,8 @@ out/trimming-testing/*
 
 .env
 
+main.log
+
 # ignore large model files
 out/SBOMSupplyChainSecurityQualityModelCWE-699-PDFUtility-test.json
 

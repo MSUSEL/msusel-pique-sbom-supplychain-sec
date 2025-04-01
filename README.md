@@ -4,7 +4,7 @@ The MSUSEL-PIQUE-SBOM-SUPPLYCHAIN-SEC project offers an operationalized Platform
 Understanding and Evaluation (PIQUE) model designed to assess security quality within software
 supply chains using Software Bill of Materials (SBOM) technology. To address challenges
 associated with various development environments and third-party applications, this project
-is also available as a standalone Docker image. That image is available That image is available [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supply-chain-sec/general)..
+is also available as a standalone Docker image. That image is available That image is available [here](https://hub.docker.com/repository/docker/msusel/pique-sbom-supply-chain-sec/general).
 
 ## Features
 * Security Assessment: Evaluates the security posture of software supply chains by analyzing SBOMs.
@@ -22,7 +22,7 @@ be manually installed if not using the Docker image.
 * [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1
 ___
 ## Benchmark Repository
-The project is derived on two benchmark repositories.
+The project is derived on two benchmark repositories. The repositories of SBOMs are avaliable here: [SBOMs](https://zenodo.org/records/15122007)
 
 * NPM repository - 531 popular NPM projects from NPM Registry. Generation tool: [cyclonedx-npm](https://www.npmjs.com/package/@cyclonedx/cyclonedx-npm) version 1.19.3
 * Docker Image repsoitory - 995 popular Docker imags from Docker Hub. Generation tools: [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1, [Syft](https://github.com/anchore/syft) version 1.16.0 
@@ -81,12 +81,14 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique
 │   ├── out
 │   ├── .env
 ```
-11. Run the command
+11. Run the command Note: (There is currently bug which may require the command to be re-run after the first time running it)
 ```
 docker compose up
 ```
-Note: There is currently bug which may require the command to be re-run after the first time running it. 
-12. Results will be generated in the 'out' directory (permissions for outputted files may need to be changed with `sudo chown -R $USER:$USER [file name]`)
+
+12. Once the tool has finished running, exit the environment with `CTRL-C`.
+
+13. Results will be generated in the 'out' directory (permissions for outputted files may need to be changed with `sudo chown -R $USER:$USER [file name]`)
 ___
 
 ## Funding Agency:

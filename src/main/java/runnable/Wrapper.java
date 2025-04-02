@@ -86,7 +86,7 @@ public class Wrapper {
         boolean printVersion = namespace.getBoolean("version");
 
         if (printVersion) {
-            String version = "1.0"; // TODO FIX TO BE DYNAMIC
+            String version = "2.0"; // TODO FIX TO BE DYNAMIC
             System.out.println("PIQUE-SBOM-SUPPLYCHAIN-SEC version " + version);
             return;
         }

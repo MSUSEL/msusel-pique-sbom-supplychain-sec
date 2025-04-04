@@ -19,6 +19,7 @@ be manually installed if not using the Docker image.
 * [PIQUE-core](https://github.com/MSUSEL/msusel-pique) version 1.0.1
 * [PIQUE-data](https://github.com/MSUSEL/msusecl-pique-data) version 1.1.0
 * [Grype](https://github.com/anchore/grype) version 0.87.0
+* [Syft](https://github.com/anchore/syft) version 1.20.0
 * [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1
 ___
 ## Benchmark Repository
@@ -53,25 +54,20 @@ ___
 ## Running 
 1. Download and install [Docker engine](https://docs.docker.com/engine/install/)
 2. Navigate to a working directory for this project
-2. Run the following command to download the docker-compose file:
+3. Run the following command to download the docker-compose file:
 ```
 curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique-sbom-supplychain-sec/refs/heads/master/docker-compose.yml
 ```
-5. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt'
-6. Place the Github API token in a file named `.env` in the format `GITHUB_PAT=[your token]`
+4. Generate a [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save the text of the key to a file 'github-token.txt'
+5. Place the Github API token in a file named `.env` in the format `GITHUB_PAT=[your token]`
 6. Create two directories, "input" and "out". Inside the "input directory", create a directory "projects" inside "projects" create three directories "SBOM", "sourceCode", and "images"
-8. There are three options for input projects. If you have already generated SBOMs
+7. There are three options for input projects. If you have already generated SBOMs
    place any number of SBOMs to be analyzed in input/projects/SBOM. If you wish to assess the
    software supply chain security quality of a project but you haven't built an SBOM simply place
    the root folder of the project in input/projects/sourceCode. The resulting SBOMs will be 
    placed in input/projects/SBOM and the model will continue as normal. If you wish to assess the software supply
     chain security quality of a docker image, place a text file with the name and tag of the image in input/projects/images.
-9. Select derived model to use via the command line argument `--derived_model`: `npm, npm-trimmed, docker, docker-trimmed` (this is found in the docker-compose.yml file, the default is `npm-trimmed`)
-   - `npm` - uses the model derived from the NPM benchmark repository
-   - `npm-trimmed` - uses the model derived from the NPM benchmark repository with tree trimming
-   - `docker` - uses the model derived from the Docker image benchmark repository
-   - `docker-trimmed` - uses the model derived from the Docker image benchmark repository with tree trimming
-10. The resulting directory structure should look like this:
+8. The resulting directory structure should look like this:
 ```
 ├── $WORKDIR
 │   ├── input
@@ -85,6 +81,17 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique
 │   ├── out
 │   ├── .env
 ```
+9. Select derived model to use via the command line argument `--derived_model`: `npm, npm-trimmed, docker, docker-trimmed` (this is found in the docker-compose.yml file)
+   - `npm` - uses the model derived from the NPM benchmark repository
+   - `npm-trimmed` - uses the model derived from the NPM benchmark repository with tree trimming (default)
+   - `docker` - uses the model derived from the Docker image benchmark repository
+   - `docker-trimmed` - uses the model derived from the Docker image benchmark repository with tree trimming
+10. Optional: select an SBOM generation tool for source code and images input via command line argument `--gen_tool`: `none, syft, trivy` (this is found in the docker-compose.yml file)
+    - `none` - skips SBOM generation for source code and images (default)
+    - `syft` - generates SBOMs for source code and images using Syft
+    - `trivy` - generates SBOMs for source code and images using Trivy
+
+
 11. Run the command:
 ```
 docker compose up

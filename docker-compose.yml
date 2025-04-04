@@ -51,7 +51,7 @@ services:
     volumes:
       - "./input:/input"
       - "./out:/out"
-    command: ["--gen_tool", "syft", "--properties", "src/main/resources/pique-properties.properties"]
+    command: ["--gen_tool", "none", "--derived_model", "npm-trimmed"]
 
 networks:
   nvd_db_connection:

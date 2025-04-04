@@ -66,7 +66,11 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique
    the root folder of the project in input/projects/sourceCode. The resulting SBOMs will be 
    placed in input/projects/SBOM and the model will continue as normal. If you wish to assess the software supply
     chain security quality of a docker image, place a text file with the name and tag of the image in input/projects/images.
-9. Select derived model to use: `npm, npm-trimmed, docker, docker-trimmed`
+9. Select derived model to use via the command line argument `--derived_model`: `npm, npm-trimmed, docker, docker-trimmed` (this is found in the docker-compose.yml file, the default is `npm-trimmed`)
+   - `npm` - uses the model derived from the NPM benchmark repository
+   - `npm-trimmed` - uses the model derived from the NPM benchmark repository with tree trimming
+   - `docker` - uses the model derived from the Docker image benchmark repository
+   - `docker-trimmed` - uses the model derived from the Docker image benchmark repository with tree trimming
 10. The resulting directory structure should look like this:
 ```
 ├── $WORKDIR
@@ -81,7 +85,7 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/MSUSEL/msusel-pique
 │   ├── out
 │   ├── .env
 ```
-11. Run the command Note: (There is currently bug which may require the command to be re-run after the first time running it)
+11. Run the command:
 ```
 docker compose up
 ```

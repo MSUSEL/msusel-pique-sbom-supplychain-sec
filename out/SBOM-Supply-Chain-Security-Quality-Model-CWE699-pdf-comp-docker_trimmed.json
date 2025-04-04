@@ -1,0 +1,221 @@
+{
+  "name": "SBOM-Supply-Chain-Security-Quality-Model-CWE699-pdf-comp-docker",
+  "additionalData": {},
+  "global_config": {
+    "benchmark_strategy": "pique.calibration.ProbabilityDensityFunctionBenchmarker",
+    "weights_strategy": "calibration.SbomCweWeighter"
+  },
+  "factors": {
+    "product_factors": {},
+    "quality_aspects": {
+      "Authorization": {
+        "name": "Authorization",
+        "value": 0.00,
+        "description": "Individuals, entities, or processes only have access to data and processes they should.",
+        "children": {},
+        "weights": {},
+        "eval_strategy": "evaluator.QualityAspectEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      },
+      "Authenticity": {
+        "name": "Authenticity",
+        "value": 0.00,
+        "description": "Identity of individuals, entities, or processes is verified correctly.",
+        "children": {},
+        "weights": {},
+        "eval_strategy": "evaluator.QualityAspectEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      },
+      "Availability": {
+        "name": "Availability",
+        "value": 0.00,
+        "description": "Data and processes should be available at all times when deemed necessary.",
+        "children": {},
+        "weights": {},
+        "eval_strategy": "evaluator.QualityAspectEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      },
+      "Confidentiality": {
+        "name": "Confidentiality",
+        "value": 0.00,
+        "description": "Information is not made available or disclosed to unauthorized individuals, entities, or processes.",
+        "children": {},
+        "weights": {},
+        "eval_strategy": "evaluator.QualityAspectEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      },
+      "Accountability": {
+        "name": "Accountability",
+        "value": 0.00,
+        "description": "Degree to which the actions of an entity can be traced uniquely to the entity.",
+        "children": {},
+        "weights": {},
+        "eval_strategy": "evaluator.QualityAspectEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      },
+      "Non-repudiation": {
+        "name": "Non-repudiation",
+        "value": 0.00,
+        "description": "Individuals, entities, or processes may not deny any actions they performed.",
+        "children": {},
+        "weights": {},
+        "eval_strategy": "evaluator.QualityAspectEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      },
+      "Integrity": {
+        "name": "Integrity",
+        "value": 0.00,
+        "description": "Data or processes cannot be modified in an unauthorized way.",
+        "children": {},
+        "weights": {},
+        "eval_strategy": "evaluator.QualityAspectEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      }
+    },
+    "tqi": {
+      "SBOM Software Supply Chaim Security Quality": {
+        "name": "SBOM Software Supply Chaim Security Quality",
+        "value": 0.000,
+        "description": "A measure of the security quality of SBOM components representing the software supply chain from stakeholders perspective.",
+        "children": {
+          "Authorization": {
+            "name": "Authorization",
+            "value": 0.00,
+            "description": "Individuals, entities, or processes only have access to data and processes they should.",
+            "children": {},
+            "weights": {},
+            "eval_strategy": "evaluator.QualityAspectEvaluator",
+            "normalizer": "pique.evaluation.DefaultNormalizer",
+            "utility_function": {
+              "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+              "description": "A Probability Density Function to model the distribution of findings"
+            }
+          },
+          "Authenticity": {
+            "name": "Authenticity",
+            "value": 0.00,
+            "description": "Identity of individuals, entities, or processes is verified correctly.",
+            "children": {},
+            "weights": {},
+            "eval_strategy": "evaluator.QualityAspectEvaluator",
+            "normalizer": "pique.evaluation.DefaultNormalizer",
+            "utility_function": {
+              "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+              "description": "A Probability Density Function to model the distribution of findings"
+            }
+          },
+          "Availability": {
+            "name": "Availability",
+            "value": 0.00,
+            "description": "Data and processes should be available at all times when deemed necessary.",
+            "children": {},
+            "weights": {},
+            "eval_strategy": "evaluator.QualityAspectEvaluator",
+            "normalizer": "pique.evaluation.DefaultNormalizer",
+            "utility_function": {
+              "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+              "description": "A Probability Density Function to model the distribution of findings"
+            }
+          },
+          "Confidentiality": {
+            "name": "Confidentiality",
+            "value": 0.00,
+            "description": "Information is not made available or disclosed to unauthorized individuals, entities, or processes.",
+            "children": {},
+            "weights": {},
+            "eval_strategy": "evaluator.QualityAspectEvaluator",
+            "normalizer": "pique.evaluation.DefaultNormalizer",
+            "utility_function": {
+              "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+              "description": "A Probability Density Function to model the distribution of findings"
+            }
+          },
+          "Accountability": {
+            "name": "Accountability",
+            "value": 0.00,
+            "description": "Degree to which the actions of an entity can be traced uniquely to the entity.",
+            "children": {},
+            "weights": {},
+            "eval_strategy": "evaluator.QualityAspectEvaluator",
+            "normalizer": "pique.evaluation.DefaultNormalizer",
+            "utility_function": {
+              "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+              "description": "A Probability Density Function to model the distribution of findings"
+            }
+          },
+          "Non-repudiation": {
+            "name": "Non-repudiation",
+            "value": 0.00,
+            "description": "Individuals, entities, or processes may not deny any actions they performed.",
+            "children": {},
+            "weights": {},
+            "eval_strategy": "evaluator.QualityAspectEvaluator",
+            "normalizer": "pique.evaluation.DefaultNormalizer",
+            "utility_function": {
+              "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+              "description": "A Probability Density Function to model the distribution of findings"
+            }
+          },
+          "Integrity": {
+            "name": "Integrity",
+            "value": 0.00,
+            "description": "Data or processes cannot be modified in an unauthorized way.",
+            "children": {},
+            "weights": {},
+            "eval_strategy": "evaluator.QualityAspectEvaluator",
+            "normalizer": "pique.evaluation.DefaultNormalizer",
+            "utility_function": {
+              "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+              "description": "A Probability Density Function to model the distribution of findings"
+            }
+          }
+        },
+        "weights": {
+          "Authorization": 0.1510478839160300212827452,
+          "Authenticity": 0.1585666809085112242902640,
+          "Availability": 0.3840893338056855313208662,
+          "Confidentiality": 0.06839285607250891912469406,
+          "Accountability": 0.06571650741097601435695925,
+          "Non-repudiation": 0.07591165306499012213221286,
+          "Integrity": 0.09627508482129816749225847
+        },
+        "eval_strategy": "pique.evaluation.DefaultFactorEvaluator",
+        "normalizer": "pique.evaluation.DefaultNormalizer",
+        "utility_function": {
+          "name": "pique.evaluation.ProbabilityDensityFunctionUtilityFunction",
+          "description": "A Probability Density Function to model the distribution of findings"
+        }
+      }
+    }
+  },
+  "measures": {},
+  "diagnostics": {}
+}

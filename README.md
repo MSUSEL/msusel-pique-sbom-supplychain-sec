@@ -26,7 +26,7 @@ ___
 The project is derived on two benchmark repositories. The repositories of SBOMs are avaliable here: [SBOMs](https://zenodo.org/records/15122007)
 
 * NPM repository - 531 popular NPM projects from NPM Registry. Generation tool: [cyclonedx-npm](https://www.npmjs.com/package/@cyclonedx/cyclonedx-npm) version 1.19.3
-* Docker Image repsoitory - 995 popular Docker imags from Docker Hub. Generation tools: [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1, [Syft](https://github.com/anchore/syft) version 1.16.0 
+* Docker Image repsoitory - 995 popular Docker imags from Docker Hub. Generation tools: [Trivy](https://github.com/aquasecurity/trivy) version 0.59.1, [Syft](https://github.com/anchore/syft) version 1.20.0
 
 ___
 ## Run Environment

@@ -1,0 +1,1 @@
+out/SBOM-Supply-Chain-Security-Quality-Model-CWE699-pdf-comp-docker.json filter=lfs diff=lfs merge=lfs -text

@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+
+.idea/*
+
 # Log file
 *.log
 
@@ -28,7 +31,6 @@ input/keys/*
 input/keys/nvd_key.txt
 input/keys/github_token.txt
 input/credentials/*
-input/project/sourceCode/*
 
 # ignore NVD dictionary
 src/main/resources/nvd-dictionary.json
@@ -45,6 +47,8 @@ out/NPM-trimmed/*
 out/trimming-testing/*
 
 .env
+
+main.log
 
 # ignore large model files
 out/SBOMSupplyChainSecurityQualityModelCWE-699-PDFUtility-test.json

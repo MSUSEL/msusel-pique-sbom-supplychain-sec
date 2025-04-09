@@ -72,6 +72,9 @@ public class Wrapper {
         parser.addArgument("--properties")
                 .setDefault("")
                 .help("specify the properties file to use for configuration");
+        parser.addArgument("--derived_model")
+                .setDefault("npm-trimmed")
+                .help("specify the derived model to use for evaluation");
 
         if (helpFlag) {
             System.out.println(parser.formatHelp());
@@ -86,18 +89,35 @@ public class Wrapper {
         boolean printVersion = namespace.getBoolean("version");
 
         if (printVersion) {
-            String version = "1.0"; // TODO FIX TO BE DYNAMIC
+            String version = "2.0"; // TODO FIX TO BE DYNAMIC
             System.out.println("PIQUE-SBOM-SUPPLYCHAIN-SEC version " + version);
             return;
         }
+
         Properties prop;
         String propertiesPath = namespace.getString("properties");
+        String derivedModel = namespace.getString("derived_model");
         if (propertiesPath.isEmpty()) {
-            prop = PiqueProperties.getProperties();
-        } else {
-            prop = PiqueProperties.getProperties(propertiesPath);
+            switch (derivedModel) {
+                case "npm":
+                    propertiesPath = "src/main/resources/properties/properties-npm.properties";
+                    break;
+                case "npm-trimmed":
+                    propertiesPath = "src/main/resources/properties/properties-npm-trimmed.properties";
+                    break;
+                case "docker":
+                    propertiesPath = "src/main/resources/properties/properties-docker.properties";
+                    break;
+                case "docker-trimmed":
+                    propertiesPath = "src/main/resources/properties/properties-docker-trimmed.properties";
+                    break;
+                default:
+                    LOGGER.error("Illegal Argument Exception: incorrect input parameter given. Use --help for more information.");
+                    System.out.println("Incorrect input parameters given. Use --help for more information");
+                    throw new IllegalArgumentException("Incorrect input parameters given. Use --help for more information");
+            }
         }
-
+        prop = PiqueProperties.getProperties(propertiesPath);
 
         if ("derive".equals(runType)) {
             // kick off deriver

@@ -100,16 +100,16 @@ public class Wrapper {
         if (propertiesPath.isEmpty()) {
             switch (derivedModel) {
                 case "npm":
-                    propertiesPath = "src/main/resources/properties/properties-npm.properties";
+                    propertiesPath = "src/main/resources/properties-npm.properties";
                     break;
                 case "npm-trimmed":
-                    propertiesPath = "src/main/resources/properties/properties-npm-trimmed.properties";
+                    propertiesPath = "src/main/resources/properties-npm-trimmed.properties";
                     break;
                 case "docker":
-                    propertiesPath = "src/main/resources/properties/properties-docker.properties";
+                    propertiesPath = "src/main/resources/properties-docker.properties";
                     break;
                 case "docker-trimmed":
-                    propertiesPath = "src/main/resources/properties/properties-docker-trimmed.properties";
+                    propertiesPath = "src/main/resources/properties-docker-trimmed.properties";
                     break;
                 default:
                     LOGGER.error("Illegal Argument Exception: incorrect input parameter given. Use --help for more information.");
